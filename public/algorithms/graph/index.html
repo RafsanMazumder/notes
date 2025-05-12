@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Graphs &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../data-structures/">Data Structures</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../dynamic-programming/">Dynamic Programming</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Graphs</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#graph-representations">Graph Representations</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#graph-traversal">Graph Traversal</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#shortest-path-algorithms">Shortest Path Algorithms</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#minimum-spanning-tree">Minimum Spanning Tree</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#strongly-connected-components">Strongly Connected Components</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../greedy/">Greedy</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../math/">Math</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../searching/">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../cpp/stl/">STL</a></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../dynamic-programming/">&laquo; Previous</a></div>
+    <div class="next"><a href="../greedy/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Algorithms</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="graph-algorithms">Graph Algorithms</h1>
+<p>A comprehensive guide to common graph algorithms with implementation details and use cases.</p>
+<h2 id="graph-representations">Graph Representations</h2>
+<h3 id="adjacency-matrix">Adjacency Matrix</h3>
+<pre><code class="language-cpp">vector&lt;vector&lt;int&gt;&gt; graph(n, vector&lt;int&gt;(n, 0));
+// Add edge from u to v
+graph[u][v] = 1;  // For weighted graph: graph[u][v] = weight
+</code></pre>
+<p><strong>Pros:</strong>
+- O(1) lookup time to check if edge exists
+- Simple implementation for dense graphs</p>
+<p><strong>Cons:</strong>
+- O(V²) space complexity
+- Inefficient for sparse graphs</p>
+<h3 id="adjacency-list">Adjacency List</h3>
+<pre><code class="language-cpp">vector&lt;vector&lt;int&gt;&gt; graph(n);
+// Add edge from u to v
+graph[u].push_back(v);
+
+// For weighted graph:
+vector&lt;vector&lt;pair&lt;int, int&gt;&gt;&gt; graph(n);
+// Add edge from u to v with weight w
+graph[u].push_back({v, w});
+</code></pre>
+<p><strong>Pros:</strong>
+- Space efficient for sparse graphs: O(V+E)
+- Faster to iterate over edges</p>
+<p><strong>Cons:</strong>
+- O(degree(v)) time to check if edge exists
+- Less intuitive for dense graphs</p>
+<h2 id="graph-traversal">Graph Traversal</h2>
+<h3 id="depth-first-search-dfs">Depth-First Search (DFS)</h3>
+<pre><code class="language-cpp">void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; graph, int node, vector&lt;bool&gt;&amp; visited) {
+    visited[node] = true;
+    cout &lt;&lt; node &lt;&lt; &quot; &quot;;
+
+    for (int neighbor : graph[node]) {
+        if (!visited[neighbor]) {
+            dfs(graph, neighbor, visited);
+        }
+    }
+}
+
+void dfsTraversal(vector&lt;vector&lt;int&gt;&gt;&amp; graph, int start) {
+    int n = graph.size();
+    vector&lt;bool&gt; visited(n, false);
+    dfs(graph, start, visited);
+}
+</code></pre>
+<p><strong>Time Complexity:</strong> O(V + E)<br />
+<strong>Space Complexity:</strong> O(V) for the recursion stack</p>
+<h3 id="breadth-first-search-bfs">Breadth-First Search (BFS)</h3>
+<pre><code class="language-cpp">void bfs(vector&lt;vector&lt;int&gt;&gt;&amp; graph, int start) {
+    int n = graph.size();
+    vector&lt;bool&gt; visited(n, false);
+    queue&lt;int&gt; q;
+
+    visited[start] = true;
+    q.push(start);
+
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+        cout &lt;&lt; node &lt;&lt; &quot; &quot;;
+
+        for (int neighbor : graph[node]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push(neighbor);
+            }
+        }
+    }
+}
+</code></pre>
+<p><strong>Time Complexity:</strong> O(V + E)<br />
+<strong>Space Complexity:</strong> O(V) for the queue</p>
+<h2 id="shortest-path-algorithms">Shortest Path Algorithms</h2>
+<h3 id="dijkstras-algorithm">Dijkstra's Algorithm</h3>
+<p>For finding shortest paths from a source to all vertices in a weighted graph with non-negative weights.</p>
+<pre><code class="language-cpp">vector&lt;int&gt; dijkstra(vector&lt;vector&lt;pair&lt;int, int&gt;&gt;&gt;&amp; graph, int start) {
+    int n = graph.size();
+    vector&lt;int&gt; dist(n, INT_MAX);
+    dist[start] = 0;
+
+    priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt;&gt;, greater&lt;pair&lt;int, int&gt;&gt;&gt; pq;
+    pq.push({0, start});
+
+    while (!pq.empty()) {
+        int u = pq.top().second;
+        int d = pq.top().first;
+        pq.pop();
+
+        if (d &gt; dist[u]) continue;
+
+        for (auto&amp; edge : graph[u]) {
+            int v = edge.first;
+            int weight = edge.second;
+
+            if (dist[u] + weight &lt; dist[v]) {
+                dist[v] = dist[u] + weight;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+
+    return dist;
+}
+</code></pre>
+<p><strong>Time Complexity:</strong> O(E log V)</p>
+<h3 id="bellman-ford-algorithm">Bellman-Ford Algorithm</h3>
+<p>For finding shortest paths from a source to all vertices, even with negative edge weights (but no negative cycles).</p>
+<pre><code class="language-cpp">vector&lt;int&gt; bellmanFord(int n, vector&lt;vector&lt;int&gt;&gt;&amp; edges, int start) {
+    vector&lt;int&gt; dist(n, INT_MAX);
+    dist[start] = 0;
+
+    // Relax all edges V-1 times
+    for (int i = 0; i &lt; n - 1; i++) {
+        for (auto&amp; edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+            int weight = edge[2];
+
+            if (dist[u] != INT_MAX &amp;&amp; dist[u] + weight &lt; dist[v]) {
+                dist[v] = dist[u] + weight;
+            }
+        }
+    }
+
+    // Check for negative cycles
+    for (auto&amp; edge : edges) {
+        int u = edge[0];
+        int v = edge[1];
+        int weight = edge[2];
+
+        if (dist[u] != INT_MAX &amp;&amp; dist[u] + weight &lt; dist[v]) {
+            cout &lt;&lt; &quot;Graph contains negative weight cycle&quot; &lt;&lt; endl;
+            return {};
+        }
+    }
+
+    return dist;
+}
+</code></pre>
+<p><strong>Time Complexity:</strong> O(V * E)</p>
+<h3 id="floyd-warshall-algorithm">Floyd-Warshall Algorithm</h3>
+<p>For finding shortest paths between all pairs of vertices.</p>
+<pre><code class="language-cpp">vector&lt;vector&lt;int&gt;&gt; floydWarshall(vector&lt;vector&lt;int&gt;&gt;&amp; graph) {
+    int n = graph.size();
+    vector&lt;vector&lt;int&gt;&gt; dist = graph;
+
+    // Initialize the distance matrix
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; n; j++) {
+            if (i != j &amp;&amp; dist[i][j] == 0) {
+                dist[i][j] = INT_MAX;
+            }
+        }
+    }
+
+    // Update the shortest path for all pairs of vertices
+    for (int k = 0; k &lt; n; k++) {
+        for (int i = 0; i &lt; n; i++) {
+            for (int j = 0; j &lt; n; j++) {
+                if (dist[i][k] != INT_MAX &amp;&amp; dist[k][j] != INT_MAX &amp;&amp; 
+                    dist[i][k] + dist[k][j] &lt; dist[i][j]) {
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                }
+            }
+        }
+    }
+
+    return dist;
+}
+</code></pre>
+<p><strong>Time Complexity:</strong> O(V³)</p>
+<h2 id="minimum-spanning-tree">Minimum Spanning Tree</h2>
+<h3 id="kruskals-algorithm">Kruskal's Algorithm</h3>
+<pre><code class="language-cpp">int kruskalMST(int n, vector&lt;vector&lt;int&gt;&gt;&amp; edges) {
+    // Sort edges by weight
+    sort(edges.begin(), edges.end(), [](const vector&lt;int&gt;&amp; a, const vector&lt;int&gt;&amp; b) {
+        return a[2] &lt; b[2];
+    });
+
+    // Initialize disjoint set
+    vector&lt;int&gt; parent(n);
+    vector&lt;int&gt; rank(n, 0);
+    for (int i = 0; i &lt; n; i++) {
+        parent[i] = i;
+    }
+
+    function&lt;int(int)&gt; find = [&amp;](int x) {
+        if (parent[x] != x) {
+            parent[x] = find(parent[x]);
+        }
+        return parent[x];
+    };
+
+    auto unionSets = [&amp;](int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+
+        if (rootX == rootY) return false;
+
+        if (rank[rootX] &lt; rank[rootY]) {
+            parent[rootX] = rootY;
+        } else if (rank[rootX] &gt; rank[rootY]) {
+            parent[rootY] = rootX;
+        } else {
+            parent[rootY] = rootX;
+            rank[rootX]++;
+        }
+
+        return true;
+    };
+
+    int totalWeight = 0;
+    int edgesAdded = 0;
+
+    for (auto&amp; edge : edges) {
+        int u = edge[0];
+        int v = edge[1];
+        int weight = edge[2];
+
+        if (unionSets(u, v)) {
+            totalWeight += weight;
+            edgesAdded++;
+
+            if (edgesAdded == n - 1) break;
+        }
+    }
+
+    return totalWeight;
+}
+</code></pre>
+<p><strong>Time Complexity:</strong> O(E log E)</p>
+<h3 id="prims-algorithm">Prim's Algorithm</h3>
+<pre><code class="language-cpp">int primMST(vector&lt;vector&lt;pair&lt;int, int&gt;&gt;&gt;&amp; graph) {
+    int n = graph.size();
+    vector&lt;bool&gt; inMST(n, false);
+    vector&lt;int&gt; key(n, INT_MAX);
+
+    priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt;&gt;, greater&lt;pair&lt;int, int&gt;&gt;&gt; pq;
+    key[0] = 0;
+    pq.push({0, 0});  // {weight, vertex}
+
+    int totalWeight = 0;
+
+    while (!pq.empty()) {
+        int u = pq.top().second;
+        int weight = pq.top().first;
+        pq.pop();
+
+        if (inMST[u]) continue;
+
+        inMST[u] = true;
+        totalWeight += weight;
+
+        for (auto&amp; neighbor : graph[u]) {
+            int v = neighbor.first;
+            int w = neighbor.second;
+
+            if (!inMST[v] &amp;&amp; w &lt; key[v]) {
+                key[v] = w;
+                pq.push({key[v], v});
+            }
+        }
+    }
+
+    return totalWeight;
+}
+</code></pre>
+<p><strong>Time Complexity:</strong> O(E log V)</p>
+<h2 id="strongly-connected-components">Strongly Connected Components</h2>
+<h3 id="kosarajus-algorithm">Kosaraju's Algorithm</h3>
+<pre><code class="language-cpp">void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; graph, int node, vector&lt;bool&gt;&amp; visited, vector&lt;int&gt;&amp; order) {
+    visited[node] = true;
+
+    for (int neighbor : graph[node]) {
+        if (!visited[neighbor]) {
+            dfs(graph, neighbor, visited, order);
+        }
+    }
+
+    order.push_back(node);
+}
+
+void dfsReverse(vector&lt;vector&lt;int&gt;&gt;&amp; reversedGraph, int node, vector&lt;bool&gt;&amp; visited, vector&lt;int&gt;&amp; component) {
+    visited[node] = true;
+    component.push_back(node);
+
+    for (int neighbor : reversedGraph[node]) {
+        if (!visited[neighbor]) {
+            dfsReverse(reversedGraph, neighbor, visited, component);
+        }
+    }
+}
+
+vector&lt;vector&lt;int&gt;&gt; kosarajuSCC(vector&lt;vector&lt;int&gt;&gt;&amp; graph) {
+    int n = graph.size();
+    vector&lt;bool&gt; visited(n, false);
+    vector&lt;int&gt; order;
+
+    // Step 1: DFS and record finish order
+    for (int i = 0; i &lt; n; i++) {
+        if (!visited[i]) {
+            dfs(graph, i, visited, order);
+        }
+    }
+
+    // Step 2: Reverse the graph
+    vector&lt;vector&lt;int&gt;&gt; reversedGraph(n);
+    for (int u = 0; u &lt; n; u++) {
+        for (int v : graph[u]) {
+            reversedGraph[v].push_back(u);
+        }
+    }
+
+    // Step 3: DFS on reversed graph in finish order
+    fill(visited.begin(), visited.end(), false);
+    vector&lt;vector&lt;int&gt;&gt; scc;
+
+    for (int i = n - 1; i &gt;= 0; i--) {
+        int node = order[i];
+        if (!visited[node]) {
+            vector&lt;int&gt; component;
+            dfsReverse(reversedGraph, node, visited, component);
+            scc.push_back(component);
+        }
+    }
+
+    return scc;
+}
+</code></pre>
+<p><strong>Time Complexity:</strong> O(V + E)
+<strong>Space Complexity:</strong> O(V) for the recursion stack and visited array</p></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../dynamic-programming/" title="Dynamic Programming"><span>Previous</span></a></div>
+        <div class="next"><a href="../greedy/" title="Greedy"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../search/main.js"></script>
+</body>
+
+</html>

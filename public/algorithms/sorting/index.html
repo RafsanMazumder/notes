@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Sorting &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../data-structures/">Data Structures</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../dynamic-programming/">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../greedy/">Greedy</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../math/">Math</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../searching/">Searching</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Sorting</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#bubble-sort">Bubble Sort</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#selection-sort">Selection Sort</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#insertion-sort">Insertion Sort</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#merge-sort">Merge Sort</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#quick-sort">Quick Sort</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../cpp/stl/">STL</a></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../searching/">&laquo; Previous</a></div>
+    <div class="next"><a href="../string/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Algorithms</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="sorting-algorithms">Sorting Algorithms</h1>
+<p>This document covers common sorting algorithms, their implementations, time and space complexities, and practical use cases.</p>
+<h2 id="bubble-sort">Bubble Sort</h2>
+<p>A simple comparison-based algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they're in the wrong order.</p>
+<pre><code class="language-cpp">void bubbleSort(vector&lt;int&gt;&amp; arr) {
+    int n = arr.size();
+    bool swapped;
+
+    for (int i = 0; i &lt; n - 1; i++) {
+        swapped = false;
+
+        for (int j = 0; j &lt; n - i - 1; j++) {
+            if (arr[j] &gt; arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+                swapped = true;
+            }
+        }
+
+        // If no swapping occurred in this pass, array is sorted
+        if (!swapped) {
+            break;
+        }
+    }
+}
+</code></pre>
+<p><strong>Time Complexity:</strong>
+- Best: O(n) when array is already sorted
+- Average: O(n²)
+- Worst: O(n²)</p>
+<p><strong>Space Complexity:</strong> O(1)</p>
+<p><strong>Advantages:</strong>
+- Simple to understand and implement
+- Works well for small datasets
+- Stable sort (doesn't change relative order of equal elements)</p>
+<p><strong>Disadvantages:</strong>
+- Inefficient for large datasets
+- Poor performance compared to other algorithms</p>
+<h2 id="selection-sort">Selection Sort</h2>
+<p>Repeatedly selects the smallest (or largest) element from the unsorted portion and puts it at the beginning (or end).</p>
+<pre><code class="language-cpp">void selectionSort(vector&lt;int&gt;&amp; arr) {
+    int n = arr.size();
+
+    for (int i = 0; i &lt; n - 1; i++) {
+        int min_idx = i;
+
+        for (int j = i + 1; j &lt; n; j++) {
+            if (arr[j] &lt; arr[min_idx]) {
+                min_idx = j;
+            }
+        }
+
+        // Swap the found minimum element with the element at index i
+        if (min_idx != i) {
+            swap(arr[i], arr[min_idx]);
+        }
+    }
+}
+</code></pre>
+<p><strong>Time Complexity:</strong>
+- Best: O(n²)
+- Average: O(n²)
+- Worst: O(n²)</p>
+<p><strong>Space Complexity:</strong> O(1)</p>
+<p><strong>Advantages:</strong>
+- Simple implementation
+- Performs well on small datasets
+- Minimizes the number of swaps (O(n) swaps)</p>
+<p><strong>Disadvantages:</strong>
+- Inefficient for large datasets
+- Not stable</p>
+<h2 id="insertion-sort">Insertion Sort</h2>
+<p>Builds the sorted array one element at a time by repeatedly taking the next element and inserting it into the already-sorted part of the array.</p>
+<pre><code class="language-cpp">void insertionSort(vector&lt;int&gt;&amp; arr) {
+    int n = arr.size();
+
+    for (int i = 1; i &lt; n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+
+        // Move elements greater than key to one position ahead
+        while (j &gt;= 0 &amp;&amp; arr[j] &gt; key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        arr[j + 1] = key;
+    }
+}
+</code></pre>
+<p><strong>Time Complexity:</strong>
+- Best: O(n) when array is already sorted
+- Average: O(n²)
+- Worst: O(n²)</p>
+<p><strong>Space Complexity:</strong> O(1)</p>
+<p><strong>Advantages:</strong>
+- Simple implementation
+- Efficient for small datasets
+- Stable sort
+- Adaptive (efficient for partially sorted arrays)
+- Works well for arrays that are almost sorted
+- Online algorithm (can sort as data arrives)</p>
+<p><strong>Disadvantages:</strong>
+- Inefficient for large datasets</p>
+<h2 id="merge-sort">Merge Sort</h2>
+<p>A divide-and-conquer algorithm that divides the input array into two halves, recursively sorts them, and then merges the sorted halves.</p>
+<pre><code class="language-cpp">void merge(vector&lt;int&gt;&amp; arr, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    // Create temporary arrays
+    vector&lt;int&gt; L(n1), R(n2);
+
+    // Copy data to temporary arrays
+    for (int i = 0; i &lt; n1; i++) {
+        L[i] = arr[left + i];
+    }
+    for (int j = 0; j &lt; n2; j++) {
+        R[j] = arr[mid + 1 + j];
+    }
+
+    // Merge the temporary arrays back into arr[left..right]
+    int i = 0, j = 0, k = left;
+
+    while (i &lt; n1 &amp;&amp; j &lt; n2) {
+        if (L[i] &lt;= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copy the remaining elements of L[], if any
+    while (i &lt; n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    // Copy the remaining elements of R[], if any
+    while (j &lt; n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+void mergeSort(vector&lt;int&gt;&amp; arr, int left, int right) {
+    if (left &lt; right) {
+        int mid = left + (right - left) / 2;
+
+        // Sort first and second halves
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+
+        // Merge the sorted halves
+        merge(arr, left, mid, right);
+    }
+}
+
+// Wrapper function
+void mergeSort(vector&lt;int&gt;&amp; arr) {
+    mergeSort(arr, 0, arr.size() - 1);
+}
+</code></pre>
+<p><strong>Time Complexity:</strong>
+- Best: O(n log n)
+- Average: O(n log n)
+- Worst: O(n log n)</p>
+<p><strong>Space Complexity:</strong> O(n)</p>
+<p><strong>Advantages:</strong>
+- Guaranteed O(n log n) performance
+- Stable sort
+- Works well for linked lists
+- External sorting (when data doesn't fit in memory)</p>
+<p><strong>Disadvantages:</strong>
+- Requires extra space
+- Slower for small datasets compared to insertion sort
+- Not in-place (although there are in-place variations)</p>
+<h2 id="quick-sort">Quick Sort</h2>
+<p>Another divide-and-conquer algorithm that selects a 'pivot' element and partitions the array around the pivot.</p>
+<pre><code class="language-cpp">int partition(vector&lt;int&gt;&amp; arr, int low, int high) {
+    int pivot = arr[high];  // Choose the rightmost element as pivot
+    int i = low - 1;  // Index of smaller element
+
+    for (int j = low; j &lt; high; j++) {
+        // If current element is smaller than the pivot
+        if (arr[j] &lt; pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+
+    // Place pivot in its correct position
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
+
+void quickSort(vector&lt;int&gt;&amp; arr, int low, int high) {
+    if (low &lt; high) {
+        // Partition the array
+        int pi = partition(arr, low, high);
+
+        // Sort elements before and after partition
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+// Wrapper function
+void quickSort(vector&lt;int&gt;&amp; arr) {
+    quickSort(arr, 0, arr.size() - 1);
+}
+</code></pre>
+<p><strong>Time Complexity:</strong>
+- Best: O(n log n)
+- Average: O(n log n)
+- Worst: O(n²) when array is already sorted and pivot is always the smallest/largest element</p>
+<p><strong>Space Complexity:</strong> O(log n) for the recursive call stack</p>
+<p><strong>Advantages:</strong>
+- Typically faster in practice than other O(n log n) algorithms
+- In-place sorting
+- Cache-friendly
+- Tail-recursive, which can be optimized</p>
+<p><strong>Disadvantages:</strong>
+- Worst-case O(n²) performance
+- Not stable
+- Poor pivot selection can lead to inefficient sorting</p>
+<h3 id="randomized-quick-sort">Randomized Quick Sort</h3>
+<p>To avoid worst-case scenarios, we can choose a random pivot:</p>
+<pre><code class="language-cpp">int randomPartition(vector&lt;int&gt;&amp; arr, int low, int high) {
+    // Generate a random index between low and high
+    int random = low + rand() % (high - low + 1);
+
+    // Swap the random element with the last element
+    swap(arr[random], arr[high]);
+
+    // Now use the standard partition method
+    return partition(arr, low, high);
+}
+
+void randomizedQuickSort(vector&lt;int&gt;&amp; arr, int low, int high) {
+    if (low &lt; high) {
+        int pi = randomPartition(arr, low, high);
+        randomizedQuickSort(arr, low, pi - 1);
+        randomizedQuickSort(arr, pi + 1, high);
+    }
+}
+</code></pre></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../searching/" title="Searching"><span>Previous</span></a></div>
+        <div class="next"><a href="../string/" title="Strings"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../search/main.js"></script>
+</body>
+
+</html>
