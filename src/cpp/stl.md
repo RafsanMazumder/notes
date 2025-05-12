@@ -207,7 +207,9 @@ Collection of key-value pairs, sorted by keys, keys are unique.
 #include <map>
 
 map<string, int> mp;             // Empty map
+{% raw %}
 map<string, int> mp = {{"apple", 5}, {"banana", 3}}; // Initialization with values
+{% endraw %}
 
 // Common operations
 mp["orange"] = 2;                // Insert or update key-value pair
