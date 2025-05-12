@@ -28,11 +28,6 @@ jobs:
       - name: Build site
         run: mkdocs build
 
-      - name: Debug - list files
-        run: |
-          ls -la public/
-          cat public/index.html || echo "No index.html found"
-
       - name: Deploy
         run: |
           git config --global user.name "GitHub Actions"
