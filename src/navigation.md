@@ -23,3 +23,12 @@
     * [Whatsapp](system-design/whatsapp.md)
     * [YouTube](system-design/youtube.md)
     * [YouTube Top K](system-design/youtube-top-k.md)
+* Object Oriented Programming
+    * Java
+        * [Concepts](oop/java/concepts.md)
+        * [Solid Principles](oop/java/solid-principles.md)
+        * [Design Patterns](oop/java/design-patterns.md)
+    * C++
+        * [Concepts](oop/cpp/concepts.md)
+        * [Solid Principles](oop/cpp/solid-principles.md)
+        * [Design Patterns](oop/cpp/design-patterns.md)
