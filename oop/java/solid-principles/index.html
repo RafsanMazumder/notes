@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Solid Principles &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/dynamic-programming/">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/greedy/">Greedy</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/math/">Math</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/searching/">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/dropbox/">Dropbox</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/live-comments/">Live Comments</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2 current"><button class="section nav-item">Java</button>
+<ul class="subnav">
+    <li class="toctree-l3"><a class="nav-item" href="../concepts/">Concepts</a></li>
+    <li class="toctree-l3 current"><a class="nav-item current" href="./">Solid Principles</a>
+<ul class="subnav">
+<li class="toctree-l4"><a class="nav-item toc" href="#single-responsibility-principle-srp">Single Responsibility Principle (SRP)</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#openclosed-principle-ocp">Open/Closed Principle (OCP)</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#liskov-substitution-principle-lsp">Liskov Substitution Principle (LSP)</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#interface-segregation-principle-isp">Interface Segregation Principle (ISP)</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#dependency-inversion-principle-dip">Dependency Inversion Principle (DIP)</a></li>
+</ul></li>
+    <li class="toctree-l3"><a class="nav-item" href="../design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../concepts/">&laquo; Previous</a></div>
+    <div class="next"><a href="../design-patterns/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Object Oriented Programming &raquo; </li><li>Java</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="solid-principles-in-java">Solid Principles in Java</h1>
+<p><strong>SOLID</strong> is an acronym that stands for five design principles:</p>
+<ol>
+<li><strong>Single Responsibility Principle (SRP)</strong>: A class should have only one reason to change, meaning that a class should
+   only have one job or responsibility.</li>
+<li><strong>Open/Closed Principle (OCP)</strong>: Software entities (classes, modules, functions, etc.) should be open for extension
+   but closed for modification.</li>
+<li><strong>Liskov Substitution Principle (LSP)</strong>: Subtypes must be substitutable for their base types.</li>
+<li><strong>Interface Segregation Principle (ISP)</strong>: Clients should not be forced to depend on interfaces they do not use.</li>
+<li><strong>Dependency Inversion Principle (DIP)</strong>: High-level modules should not depend on low-level modules. Both should
+   depend on abstractions.</li>
+</ol>
+<h2 id="single-responsibility-principle-srp">Single Responsibility Principle (SRP)</h2>
+<p><strong>Principle</strong>: A class should have only one reason to change, meaning it should have only one job or responsibility.</p>
+<p><strong>Bad Example</strong>:</p>
+<pre><code class="language-java">public class Employee {
+    private String name;
+    private String id;
+
+    // Employee data methods
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Database Operations
+    public void saveToDatabase() {
+        // Database code here
+    }
+
+    // Report generation
+    public void generateReport() {
+        // Report generation code here
+    }
+}
+</code></pre>
+<p><strong>Good Example</strong>:</p>
+<pre><code class="language-java">// Employee class only manages employee data
+public class Employee {
+    private String name;
+    private String id;
+
+    // Employee data methods
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+// Separate class for database operations
+public class EmployeeRepository {
+    public void save(Employee employee) {
+        // Database code here
+    }
+}
+
+// Separate class for reporting
+public class EmployeeReportGenerator {
+    public void generateReport(Employee employee) {
+        // Report generation code
+    }
+}
+</code></pre>
+<h2 id="openclosed-principle-ocp">Open/Closed Principle (OCP)</h2>
+<p><strong>Principle</strong>: Software entities (classes, modules, functions, etc.) should be open for extension but closed for
+modification.</p>
+<p><strong>Bad Example</strong>:</p>
+<pre><code class="language-java">public class PaymentProcessor {
+    public void processPayment(String paymentType, double amount) {
+        if (paymentType.equals(&quot;credit_card&quot;)) {
+            // Process credit card payment
+        } else if (paymentType.equals(&quot;paypal&quot;)) {
+            // Process PayPal payment
+        } else if (paymentType.equals(&quot;bitcoin&quot;)) {
+            // Process Bitcoin payment
+        }
+        // Need to modify this class when adding new payment types
+    }
+}
+</code></pre>
+<p><strong>Good Example</strong>:</p>
+<pre><code class="language-java">// Interface
+public interface PaymentMethod {
+    void processPayment(double amount);
+}
+
+// Implementations
+public class CreditCardPayment implements PaymentMethod {
+    @Override
+    public void processPayment(double amount) {
+        // Process credit card payment
+    }
+}
+
+public class PayPalPayment implements PaymentMethod {
+    @Override
+    public void processPayment(double amount) {
+        // Process PayPal payment
+    }
+}
+
+public class BitcoinPayment implements PaymentMethod {
+    @Override
+    public void processPayment(double amount) {
+        // Process Bitcoin payment
+    }
+}
+
+// Client code - closed for modification
+public class PaymentProcessor {
+    public void processPayment(PaymentMethod paymentMethod, double amount) {
+        paymentMethod.processPayment(amount);
+    }
+}
+</code></pre>
+<h2 id="liskov-substitution-principle-lsp">Liskov Substitution Principle (LSP)</h2>
+<p><strong>Principle</strong>: Subtypes must be substitutable for their base types without altering the correctness of the program.</p>
+<p><strong>Bad Example</strong>:</p>
+<pre><code class="language-java">// BAD: Ostrich cannot fly, violates the &quot;Bird can fly&quot; expectation
+class Bird {
+    public void fly() {
+        System.out.println(&quot;Bird is flying&quot;);
+    }
+}
+
+class Sparrow extends Bird {
+    // Sparrow can fly, consistent with Bird
+}
+
+class Ostrich extends Bird {
+    @Override
+    public void fly() {
+        // Ostriches cannot fly. This breaks the expectation.
+        throw new UnsupportedOperationException(&quot;Ostrich cannot fly!&quot;);
+        // Or: System.out.println(&quot;Ostrich cannot fly&quot;); // Still problematic
+    }
+}
+
+// Client code
+// public void makeBirdFly(Bird bird) {
+//     bird.fly(); // This will crash if 'bird' is an Ostrich
+// }
+</code></pre>
+<p><strong>Good Example</strong>:</p>
+<pre><code class="language-java">// GOOD: Separate flying behavior
+interface Flyable {
+    void fly();
+}
+
+abstract class Bird { // General bird properties
+    abstract void makeSound();
+    public void eat() { System.out.println(&quot;Bird is eating.&quot;); }
+}
+
+class Sparrow extends Bird implements Flyable { // Sparrow IS-A Bird and IS Flyable
+    @Override public void makeSound() { System.out.println(&quot;Chirp&quot;); }
+    @Override public void fly() { System.out.println(&quot;Sparrow is flying high.&quot;); }
+}
+
+class Ostrich extends Bird { // Ostrich IS-A Bird, but NOT Flyable
+    @Override public void makeSound() { System.out.println(&quot;Boom&quot;); }
+    // No fly() method, or a run() method specific to Ostrich
+    public void run() { System.out.println(&quot;Ostrich is running fast.&quot;); }
+}
+
+class Penguin extends Bird { // Penguin is a bird but doesn't fly
+    @Override public void makeSound() { System.out.println(&quot;Squawk&quot;); }
+    public void swim() { System.out.println(&quot;Penguin is swimming.&quot;); }
+}
+</code></pre>
+<h2 id="interface-segregation-principle-isp">Interface Segregation Principle (ISP)</h2>
+<p><strong>Principle</strong>: Clients should not be forced to depend on interfaces they do not use.</p>
+<p><strong>Bad Example</strong>:</p>
+<pre><code class="language-java">// Fat interface
+public interface Worker {
+    void work();
+    void eat();
+    void sleep();
+}
+
+// Problem: Robot can't eat or sleep
+public class Robot implements Worker {
+    @Override
+    public void work() {
+        // Working
+    }
+
+    @Override
+    public void eat() {
+        // Robot can't eat, but forced to implement
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void sleep() {
+        // Robot can't sleep, but forced to implement
+        throw new UnsupportedOperationException();
+    }
+}
+</code></pre>
+<p><strong>Good Example</strong>:</p>
+<pre><code class="language-java">// Segregated interfaces
+public interface Workable {
+    void work();
+}
+
+public interface Eatable {
+    void eat();
+}
+
+public interface Sleepable {
+    void sleep();
+}
+
+// Human implements all interfaces
+public class Human implements Workable, Eatable, Sleepable {
+    @Override
+    public void work() {
+        // Human working
+    }
+
+    @Override
+    public void eat() {
+        // Human eating
+    }
+
+    @Override
+    public void sleep() {
+        // Human sleeping
+    }
+}
+
+// Robot only implements what it needs
+public class Robot implements Workable {
+    @Override
+    public void work() {
+        // Robot working
+    }
+}
+</code></pre>
+<h2 id="dependency-inversion-principle-dip">Dependency Inversion Principle (DIP)</h2>
+<p><strong>Principle</strong>: High-level modules should not depend on low-level modules. Both should depend on abstractions.</p>
+<p><strong>Bad Example</strong>:</p>
+<pre><code class="language-java">// Low-level module
+public class MySQLDatabase {
+    public void insert(String data) {
+        // Insert data to MySQL
+    }
+}
+
+// High-level module depends on low-level module
+public class UserService {
+    private MySQLDatabase database;
+
+    public UserService() {
+        this.database = new MySQLDatabase(); // Hard dependency
+    }
+
+    public void addUser(String userData) {
+        database.insert(userData);
+    }
+}
+</code></pre>
+<p><strong>Good Example</strong>:</p>
+<pre><code class="language-java">// Abstraction
+public interface Database {
+    void insert(String data);
+}
+
+// Low-level module implements abstraction
+public class MySQLDatabase implements Database {
+    @Override
+    public void insert(String data) {
+        // Insert data to MySQL
+    }
+}
+
+// Alternative implementation
+public class MongoDatabase implements Database {
+    @Override
+    public void insert(String data) {
+        // Insert data to MongoDB
+    }
+}
+
+// High-level module depends on abstraction
+public class UserService {
+    private Database database;
+
+    // Dependency injection
+    public UserService(Database database) {
+        this.database = database;
+    }
+
+    public void addUser(String userData) {
+        database.insert(userData);
+    }
+}
+</code></pre></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../concepts/" title="Concepts"><span>Previous</span></a></div>
+        <div class="next"><a href="../design-patterns/" title="Design Patterns"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Concepts &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/dynamic-programming/">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/greedy/">Greedy</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/math/">Math</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/searching/">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/dropbox/">Dropbox</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/live-comments/">Live Comments</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2 current"><button class="section nav-item">Java</button>
+<ul class="subnav">
+    <li class="toctree-l3 current"><a class="nav-item current" href="./">Concepts</a>
+<ul class="subnav">
+</ul></li>
+    <li class="toctree-l3"><a class="nav-item" href="../solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../../../system-design/youtube-top-k/">&laquo; Previous</a></div>
+    <div class="next"><a href="../solid-principles/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Object Oriented Programming &raquo; </li><li>Java</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="concepts">Concepts</h1>
+<p><strong>Four Pillars of OOP</strong></p>
+<ol>
+<li>Encapsulation</li>
+<li>Inheritance</li>
+<li>Polymorphism</li>
+<li>Abstraction</li>
+</ol>
+<p><strong>Encapsulation</strong></p>
+<p>Encapsulation is the bundling of data and methods that operate on that data within a single unit (class).</p>
+<pre><code class="language-java">public class BankAccount {
+    // Private fields - encapsulated
+    private String accountNumber;
+    private double balance;
+
+    // Public methods to access and modify the fields in a controlled way
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount &gt; 0) {
+            balance += amount;
+        }
+    }
+
+    public boolean withdraw(double amount) {
+        if (amount &gt; 0 &amp;&amp; balance &gt;= amount) {
+            balance -= amount;
+            return true;
+        }
+        return false;
+    }
+}
+</code></pre>
+<p><strong>Inheritance</strong></p>
+<p>Inheritance establishes an "is-a" relationship between classes.</p>
+<pre><code class="language-java">// Base class
+public class Shape {
+    protected String color;
+
+    public Shape(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public double calculateArea() {
+        return 0.0; // Default implementation
+    }
+}
+
+// Derived class
+public class Circle extends Shape {
+    private double radius;
+
+    public Circle(String color, double radius) {
+        super(color); // Call to parent constructor
+        this.radius = radius;
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+</code></pre>
+<p><strong>Polymorphism</strong></p>
+<p>Polymorphism allows objects of different types to be treated as objects of a common type.</p>
+<ul>
+<li>Method Overriding (Runtime Polymorphism / Dynamic Dispatch)</li>
+<li>Method Overloading (Compile-time Polymorphism)</li>
+</ul>
+<pre><code class="language-java">public class ShapeProcessor {
+    public void printArea(Shape shape) {
+        // Works with any Shape subclass due to polymorphism
+        System.out.println(&quot;Area: &quot; + shape.calculateArea());
+    }
+
+    public static void main(String[] args) {
+        ShapeProcessor processor = new ShapeProcessor();
+
+        // Different objects, same method call
+        processor.printArea(new Circle(&quot;red&quot;, 5.0));
+        processor.printArea(new Rectangle(&quot;blue&quot;, 4.0, 6.0));
+    }
+}
+</code></pre>
+<p><strong>Abstraction</strong></p>
+<p>Abstraction means focusing on essential qualities rather than the specific details.</p>
+<pre><code class="language-java">// Abstract class
+public abstract class DatabaseConnection {
+    public abstract void connect();
+    public abstract void disconnect();
+    public abstract void executeQuery(String query);
+
+    // Concrete method in abstract class
+    public void printConnectionStatus() {
+        System.out.println(&quot;Checking connection status...&quot;);
+    }
+}
+
+// Concrete implementation
+public class MySQLConnection extends DatabaseConnection {
+    @Override
+    public void connect() {
+        System.out.println(&quot;Connecting to MySQL database...&quot;);
+    }
+
+    @Override
+    public void disconnect() {
+        System.out.println(&quot;Disconnecting from MySQL database...&quot;);
+    }
+
+    @Override
+    public void executeQuery(String query) {
+        System.out.println(&quot;Executing query in MySQL: &quot; + query);
+    }
+}
+</code></pre>
+<p><strong>Interfaces vs Abstract Classes</strong></p>
+<p>When to Use Interfaces:</p>
+<ul>
+<li>When unrelated classes need to implement the same behavior</li>
+</ul>
+<p>When to Use Abstract Classes:</p>
+<ul>
+<li>When you want to provide a common base implementation</li>
+<li>When you need to define non-public members</li>
+<li>When you want to maintain state across related classes</li>
+</ul></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../../../system-design/youtube-top-k/" title="YouTube Top K"><span>Previous</span></a></div>
+        <div class="next"><a href="../solid-principles/" title="Solid Principles"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Design Patterns &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/dynamic-programming/">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/greedy/">Greedy</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/math/">Math</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/searching/">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/dropbox/">Dropbox</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/live-comments/">Live Comments</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2 current"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l3"><a class="nav-item" href="../concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3 current"><a class="nav-item current" href="./">Design Patterns</a>
+<ul class="subnav">
+<li class="toctree-l4"><a class="nav-item toc" href="#creational-patterns">Creational Patterns</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#structural-patterns">Structural Patterns</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#behavioral-patterns">Behavioral Patterns</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../solid-principles/">&laquo; Previous</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Object Oriented Programming &raquo; </li><li>C++</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="design-patterns-in-c">Design Patterns in C++</h1>
+<h2 id="creational-patterns">Creational Patterns</h2>
+<p><strong>Singleton Pattern</strong></p>
+<p>Ensures a class has only one instance and provides a global point of access to it.</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class DatabaseConnection {
+private:
+    // Private constructor prevents instantiation
+    DatabaseConnection() {
+        // Initialize connection
+    }
+
+    // Delete copy constructor and assignment operator
+    DatabaseConnection(const DatabaseConnection&amp;) = delete;
+    DatabaseConnection&amp; operator=(const DatabaseConnection&amp;) = delete;
+
+public:
+    // Thread-safe in C++11 and later due to magic statics
+    static DatabaseConnection&amp; getInstance() {
+        static DatabaseConnection instance;
+        return instance;
+    }
+
+    void query(const std::string&amp; sql) {
+        // Execute query
+        std::cout &lt;&lt; &quot;Executing query: &quot; &lt;&lt; sql &lt;&lt; std::endl;
+    }
+};
+
+// Usage
+int main() {
+    DatabaseConnection&amp; connection = DatabaseConnection::getInstance();
+    connection.query(&quot;SELECT * FROM users&quot;);
+
+    return 0;
+}
+</code></pre>
+<p><strong>Factory Method Pattern</strong></p>
+<p>Defines an interface for creating an object, but lets subclasses decide which class to instantiate.</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+// Product interface
+class Vehicle {
+public:
+    virtual ~Vehicle() = default;
+    virtual void drive() = 0;
+};
+
+// Concrete products
+class Car : public Vehicle {
+public:
+    void drive() override {
+        std::cout &lt;&lt; &quot;Driving a car&quot; &lt;&lt; std::endl;
+    }
+};
+
+class Truck : public Vehicle {
+public:
+    void drive() override {
+        std::cout &lt;&lt; &quot;Driving a truck&quot; &lt;&lt; std::endl;
+    }
+};
+
+// Creator
+class VehicleFactory {
+public:
+    virtual ~VehicleFactory() = default;
+    virtual Vehicle&amp; createVehicle() = 0;
+
+    void deliverVehicle() {
+        Vehicle&amp; vehicle = createVehicle();
+        std::cout &lt;&lt; &quot;Delivering the vehicle...&quot; &lt;&lt; std::endl;
+        vehicle.drive();
+    }
+};
+
+// Concrete creators using static storage
+class CarFactory : public VehicleFactory {
+private:
+    Car car;
+
+public:
+    Vehicle&amp; createVehicle() override {
+        return car;
+    }
+};
+
+class TruckFactory : public VehicleFactory {
+private:
+    Truck truck;
+
+public:
+    Vehicle&amp; createVehicle() override {
+        return truck;
+    }
+};
+
+int main() {
+    CarFactory carFactory;
+    carFactory.deliverVehicle();
+
+    TruckFactory truckFactory;
+    truckFactory.deliverVehicle();
+
+    return 0;
+}
+</code></pre>
+<p><strong>Builder Pattern</strong></p>
+<p>Separates the construction of a complex object from its representation.</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Computer {
+private:
+    std::string cpu;
+    std::string ram;
+    std::string storage;
+    std::string gpu;
+    std::string motherboard;
+
+public:
+    // Make Builder a friend to access private fields
+    friend class ComputerBuilder;
+
+    void display() const {
+        std::cout &lt;&lt; &quot;Computer Specs:\n&quot;
+                  &lt;&lt; &quot;CPU: &quot; &lt;&lt; cpu &lt;&lt; &quot;\n&quot;
+                  &lt;&lt; &quot;RAM: &quot; &lt;&lt; ram &lt;&lt; &quot;\n&quot;
+                  &lt;&lt; &quot;Storage: &quot; &lt;&lt; storage &lt;&lt; &quot;\n&quot;
+                  &lt;&lt; &quot;GPU: &quot; &lt;&lt; gpu &lt;&lt; &quot;\n&quot;
+                  &lt;&lt; &quot;Motherboard: &quot; &lt;&lt; motherboard &lt;&lt; std::endl;
+    }
+};
+
+class ComputerBuilder {
+private:
+    Computer computer;
+
+public:
+    ComputerBuilder&amp; cpu(const std::string&amp; cpu) {
+        computer.cpu = cpu;
+        return *this;
+    }
+
+    ComputerBuilder&amp; ram(const std::string&amp; ram) {
+        computer.ram = ram;
+        return *this;
+    }
+
+    ComputerBuilder&amp; storage(const std::string&amp; storage) {
+        computer.storage = storage;
+        return *this;
+    }
+
+    ComputerBuilder&amp; gpu(const std::string&amp; gpu) {
+        computer.gpu = gpu;
+        return *this;
+    }
+
+    ComputerBuilder&amp; motherboard(const std::string&amp; motherboard) {
+        computer.motherboard = motherboard;
+        return *this;
+    }
+
+    Computer build() {
+        return computer;
+    }
+};
+
+// Usage
+int main() {
+    Computer computer = ComputerBuilder()
+        .cpu(&quot;Intel i7&quot;)
+        .ram(&quot;16GB&quot;)
+        .storage(&quot;1TB SSD&quot;)
+        .gpu(&quot;NVIDIA RTX 3080&quot;)
+        .motherboard(&quot;ASUS ROG&quot;)
+        .build();
+
+    computer.display();
+    return 0;
+}
+</code></pre>
+<h2 id="structural-patterns">Structural Patterns</h2>
+<p><strong>Adapter Pattern</strong></p>
+<p>Allows incompatible interfaces to work together.</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+// OldPaymentGateway (Adaptee)
+class OldPaymentGateway {
+public:
+    void makePayment(const std::string&amp; accountNumber, double amount) {
+        std::cout &lt;&lt; &quot;Old Gateway: Processing payment of $&quot; &lt;&lt; amount 
+                  &lt;&lt; &quot; for account &quot; &lt;&lt; accountNumber &lt;&lt; std::endl;
+    }
+};
+
+// NewPaymentProcessor (Target Interface)
+class NewPaymentProcessor {
+public:
+    virtual ~NewPaymentProcessor() = default;
+    virtual void processPayment(const std::string&amp; creditCardNumber, 
+                               const std::string&amp; expiryDate, 
+                               const std::string&amp; cvv, 
+                               double amount) = 0;
+};
+
+// PaymentAdapter (Adapter)
+class PaymentAdapter : public NewPaymentProcessor {
+private:
+    OldPaymentGateway&amp; oldGateway;
+
+public:
+    PaymentAdapter(OldPaymentGateway&amp; gateway) : oldGateway(gateway) {}
+
+    void processPayment(const std::string&amp; creditCardNumber,
+                        const std::string&amp; expiryDate,
+                        const std::string&amp; cvv,
+                        double amount) override {
+        // Adapt: Here we might simplify and just use creditCardNumber as account for the old system
+        std::cout &lt;&lt; &quot;Adapter: Translating new payment request for old gateway...&quot; &lt;&lt; std::endl;
+        oldGateway.makePayment(creditCardNumber, amount); // Delegates to the old system
+    }
+};
+
+// Client code
+int main() {
+    OldPaymentGateway oldGateway;
+    PaymentAdapter adaptedProcessor(oldGateway);
+
+    // Client code uses the NewPaymentProcessor interface
+    adaptedProcessor.processPayment(&quot;1234-5678-9012-3456&quot;, &quot;12/25&quot;, &quot;123&quot;, 100.00);
+
+    return 0;
+}
+</code></pre>
+<p><strong>Decorator Pattern</strong></p>
+<p>Attaches additional responsibilities to an object dynamically.</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+// Component interface
+class Coffee {
+public:
+    virtual ~Coffee() = default;
+    virtual double getCost() const = 0;
+    virtual std::string getDescription() const = 0;
+};
+
+// Concrete component
+class SimpleCoffee : public Coffee {
+public:
+    double getCost() const override {
+        return 2.0;
+    }
+
+    std::string getDescription() const override {
+        return &quot;Simple coffee&quot;;
+    }
+};
+
+// Decorator
+class CoffeeDecorator : public Coffee {
+protected:
+    const Coffee&amp; decoratedCoffee;
+
+public:
+    CoffeeDecorator(const Coffee&amp; coffee) : decoratedCoffee(coffee) {}
+
+    double getCost() const override {
+        return decoratedCoffee.getCost();
+    }
+
+    std::string getDescription() const override {
+        return decoratedCoffee.getDescription();
+    }
+};
+
+// Concrete decorators
+class MilkDecorator : public CoffeeDecorator {
+public:
+    MilkDecorator(const Coffee&amp; coffee) : CoffeeDecorator(coffee) {}
+
+    double getCost() const override {
+        return CoffeeDecorator::getCost() + 0.5;
+    }
+
+    std::string getDescription() const override {
+        return CoffeeDecorator::getDescription() + &quot;, with milk&quot;;
+    }
+};
+
+class SugarDecorator : public CoffeeDecorator {
+public:
+    SugarDecorator(const Coffee&amp; coffee) : CoffeeDecorator(coffee) {}
+
+    double getCost() const override {
+        return CoffeeDecorator::getCost() + 0.2;
+    }
+
+    std::string getDescription() const override {
+        return CoffeeDecorator::getDescription() + &quot;, with sugar&quot;;
+    }
+};
+
+// Note: This is a limited version of the decorator pattern without dynamic lifetime.
+// Real use case might require allocations which would involve pointers.
+int main() {
+    // Create base component
+    SimpleCoffee simpleCoffee;
+
+    // Stack allocated decorators
+    MilkDecorator coffeeWithMilk(simpleCoffee);
+    SugarDecorator sweetMilkCoffee(coffeeWithMilk);
+
+    std::cout &lt;&lt; &quot;Description: &quot; &lt;&lt; sweetMilkCoffee.getDescription() &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;Cost: $&quot; &lt;&lt; sweetMilkCoffee.getCost() &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>
+<h2 id="behavioral-patterns">Behavioral Patterns</h2>
+<p><strong>Observer Pattern</strong></p>
+<p>Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified.</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+// Forward declaration
+class NewsAgency;
+
+// Observer interface
+class Observer {
+public:
+    virtual ~Observer() = default;
+    virtual void update(const std::string&amp; message) = 0;
+    virtual void registerWith(NewsAgency&amp; agency) = 0;
+    virtual void unregisterFrom(NewsAgency&amp; agency) = 0;
+};
+
+// Subject
+class NewsAgency {
+private:
+    std::vector&lt;Observer*&gt; observers;
+    std::string news;
+
+public:
+    void addObserver(Observer* observer) {
+        observers.push_back(observer);
+    }
+
+    void removeObserver(Observer* observer) {
+        observers.erase(
+            std::remove(observers.begin(), observers.end(), observer),
+            observers.end()
+        );
+    }
+
+    void setNews(const std::string&amp; news) {
+        this-&gt;news = news;
+        notifyObservers();
+    }
+
+private:
+    void notifyObservers() {
+        for (Observer* observer : observers) {
+            observer-&gt;update(news);
+        }
+    }
+};
+
+// Concrete observer
+class NewsSubscriber : public Observer {
+private:
+    std::string name;
+
+public:
+    NewsSubscriber(const std::string&amp; name) : name(name) {}
+
+    void update(const std::string&amp; message) override {
+        std::cout &lt;&lt; name &lt;&lt; &quot; received news: &quot; &lt;&lt; message &lt;&lt; std::endl;
+    }
+
+    void registerWith(NewsAgency&amp; agency) override {
+        agency.addObserver(this);
+    }
+
+    void unregisterFrom(NewsAgency&amp; agency) override {
+        agency.removeObserver(this);
+    }
+};
+
+int main() {
+    NewsAgency agency;
+
+    // Create subscribers
+    NewsSubscriber subscriber1(&quot;John&quot;);
+    NewsSubscriber subscriber2(&quot;Jane&quot;);
+
+    // Register observers
+    subscriber1.registerWith(agency);
+    subscriber2.registerWith(agency);
+
+    // Set news
+    agency.setNews(&quot;Breaking News: C++ 23 standard released!&quot;);
+
+    // Unregister an observer
+    subscriber1.unregisterFrom(agency);
+
+    // Set more news
+    agency.setNews(&quot;Update: New features in C++ 23 explained.&quot;);
+
+    return 0;
+}
+</code></pre>
+<p><strong>Strategy Pattern</strong></p>
+<p>Defines a family of algorithms, encapsulates each one, and makes them interchangeable.</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+// Strategy interface
+class PaymentStrategy {
+public:
+    virtual ~PaymentStrategy() = default;
+    virtual void pay(int amount) = 0;
+};
+
+// Concrete strategies
+class CreditCardStrategy : public PaymentStrategy {
+private:
+    std::string name;
+    std::string cardNumber;
+    std::string cvv;
+    std::string dateOfExpiry;
+
+public:
+    CreditCardStrategy(const std::string&amp; name, 
+                      const std::string&amp; cardNumber, 
+                      const std::string&amp; cvv, 
+                      const std::string&amp; dateOfExpiry)
+        : name(name), cardNumber(cardNumber), cvv(cvv), dateOfExpiry(dateOfExpiry) {}
+
+    void pay(int amount) override {
+        std::cout &lt;&lt; amount &lt;&lt; &quot; paid with credit card&quot; &lt;&lt; std::endl;
+    }
+};
+
+class PayPalStrategy : public PaymentStrategy {
+private:
+    std::string email;
+    std::string password;
+
+public:
+    PayPalStrategy(const std::string&amp; email, const std::string&amp; password)
+        : email(email), password(password) {}
+
+    void pay(int amount) override {
+        std::cout &lt;&lt; amount &lt;&lt; &quot; paid using PayPal&quot; &lt;&lt; std::endl;
+    }
+};
+
+// Context
+class ShoppingCart {
+private:
+    PaymentStrategy* paymentStrategy = nullptr;
+
+public:
+    // Using reference to strategy, not taking ownership
+    void setPaymentStrategy(PaymentStrategy&amp; strategy) {
+        paymentStrategy = &amp;strategy;
+    }
+
+    void checkout(int amount) {
+        if (paymentStrategy) {
+            paymentStrategy-&gt;pay(amount);
+        } else {
+            std::cout &lt;&lt; &quot;No payment strategy set!&quot; &lt;&lt; std::endl;
+        }
+    }
+};
+
+int main() {
+    ShoppingCart cart;
+
+    // Create strategies on the stack
+    CreditCardStrategy creditCard(&quot;John Doe&quot;, &quot;1234567890123456&quot;, &quot;123&quot;, &quot;12/25&quot;);
+    PayPalStrategy payPal(&quot;john@example.com&quot;, &quot;password123&quot;);
+
+    // Use credit card
+    cart.setPaymentStrategy(creditCard);
+    cart.checkout(100);
+
+    // Switch to PayPal
+    cart.setPaymentStrategy(payPal);
+    cart.checkout(200);
+
+    return 0;
+}
+</code></pre></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../solid-principles/" title="Solid Principles"><span>Previous</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

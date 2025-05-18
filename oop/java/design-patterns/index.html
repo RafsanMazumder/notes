@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Design Patterns &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/dynamic-programming/">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/greedy/">Greedy</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/math/">Math</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/searching/">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/dropbox/">Dropbox</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/live-comments/">Live Comments</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2 current"><button class="section nav-item">Java</button>
+<ul class="subnav">
+    <li class="toctree-l3"><a class="nav-item" href="../concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3 current"><a class="nav-item current" href="./">Design Patterns</a>
+<ul class="subnav">
+<li class="toctree-l4"><a class="nav-item toc" href="#creational-patterns">Creational Patterns</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#structural-patterns">Structural Patterns</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#behavioral-patterns">Behavioral Patterns</a></li>
+</ul></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../solid-principles/">&laquo; Previous</a></div>
+    <div class="next"><a href="../../cpp/concepts/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Object Oriented Programming &raquo; </li><li>Java</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="design-patterns-in-java">Design Patterns in Java</h1>
+<h2 id="creational-patterns">Creational Patterns</h2>
+<p><strong>Singleton Pattern</strong></p>
+<p>Ensures a class has only one instance and provides a global point of access to it.</p>
+<pre><code class="language-java">public class DatabaseConnection {
+    private static DatabaseConnection instance;
+
+    // Private constructor prevents instantiation
+    private DatabaseConnection() {
+        // Initialize connection
+    }
+
+    // Thread-safe implementation
+    public static synchronized DatabaseConnection getInstance() {
+        if (instance == null) {
+            instance = new DatabaseConnection();
+        }
+        return instance;
+    }
+
+    public void query(String sql) {
+        // Execute query
+    }
+}
+
+// Usage
+DatabaseConnection connection = DatabaseConnection.getInstance();
+connection.query(&quot;SELECT * FROM users&quot;);
+</code></pre>
+<p><strong>Factory Method Pattern</strong></p>
+<p>Defines an interface for creating an object, but lets subclasses decide which class to instantiate.</p>
+<pre><code class="language-java">// Product interface
+public interface Vehicle {
+    void drive();
+}
+
+// Concrete products
+public class Car implements Vehicle {
+    @Override
+    public void drive() {
+        System.out.println(&quot;Driving a car&quot;);
+    }
+}
+
+public class Truck implements Vehicle {
+    @Override
+    public void drive() {
+        System.out.println(&quot;Driving a truck&quot;);
+    }
+}
+
+// Creator
+public abstract class VehicleFactory {
+    public abstract Vehicle createVehicle();
+
+    public void deliverVehicle() {
+        Vehicle vehicle = createVehicle();
+        System.out.println(&quot;Delivering the vehicle...&quot;);
+        vehicle.drive();
+    }
+}
+
+// Concrete creators
+public class CarFactory extends VehicleFactory {
+    @Override
+    public Vehicle createVehicle() {
+        return new Car();
+    }
+}
+
+public class TruckFactory extends VehicleFactory {
+    @Override
+    public Vehicle createVehicle() {
+        return new Truck();
+    }
+}
+</code></pre>
+<p><strong>Builder Pattern</strong></p>
+<p>Separates the construction of a complex object from its representation.</p>
+<pre><code class="language-java">public class Computer {
+    private String cpu;
+    private String ram;
+    private String storage;
+    private String gpu;
+    private String motherboard;
+
+    private Computer() {}
+
+    public static class Builder {
+        private Computer computer = new Computer();
+
+        public Builder cpu(String cpu) {
+            computer.cpu = cpu;
+            return this;
+        }
+
+        public Builder ram(String ram) {
+            computer.ram = ram;
+            return this;
+        }
+
+        public Builder storage(String storage) {
+            computer.storage = storage;
+            return this;
+        }
+
+        public Builder gpu(String gpu) {
+            computer.gpu = gpu;
+            return this;
+        }
+
+        public Builder motherboard(String motherboard) {
+            computer.motherboard = motherboard;
+            return this;
+        }
+
+        public Computer build() {
+            return computer;
+        }
+    }
+}
+
+// Usage
+Computer computer = new Computer.Builder()
+    .cpu(&quot;Intel i7&quot;)
+    .ram(&quot;16GB&quot;)
+    .storage(&quot;1TB SSD&quot;)
+    .gpu(&quot;NVIDIA RTX 3080&quot;)
+    .motherboard(&quot;ASUS ROG&quot;)
+    .build();
+</code></pre>
+<h2 id="structural-patterns">Structural Patterns</h2>
+<p><strong>Adapter Pattern</strong></p>
+<p>Allows incompatible interfaces to work together.</p>
+<pre><code class="language-java">// OldPaymentGateway.java (Adaptee)
+class OldPaymentGateway {
+    public void makePayment(String accountNumber, double amount) {
+        System.out.println(&quot;Old Gateway: Processing payment of $&quot; + amount + &quot; for account &quot; + accountNumber);
+    }
+}
+
+// NewPaymentProcessor.java (Target Interface)
+interface NewPaymentProcessor {
+    void processPayment(String creditCardNumber, String expiryDate, String cvv, double amount);
+}
+
+// PaymentAdapter.java (Adapter)
+class PaymentAdapter implements NewPaymentProcessor {
+    private OldPaymentGateway oldGateway;
+
+    public PaymentAdapter(OldPaymentGateway oldGateway) {
+        this.oldGateway = oldGateway;
+    }
+
+    @Override
+    public void processPayment(String creditCardNumber, String expiryDate, String cvv, double amount) {
+        // Adapt: Here we might simplify and just use creditCardNumber as account for the old system
+        // In a real scenario, you'd map fields appropriately or throw an error if not possible.
+        System.out.println(&quot;Adapter: Translating new payment request for old gateway...&quot;);
+        oldGateway.makePayment(creditCardNumber, amount); // Delegates to the old system
+    }
+}
+
+// Main.java (Client)
+public class Main {
+    public static void main(String[] args) {
+        OldPaymentGateway oldGateway = new OldPaymentGateway();
+        NewPaymentProcessor adaptedProcessor = new PaymentAdapter(oldGateway);
+
+        // Client code uses the NewPaymentProcessor interface
+        adaptedProcessor.processPayment(&quot;1234-5678-9012-3456&quot;, &quot;12/25&quot;, &quot;123&quot;, 100.00);
+    }
+}
+</code></pre>
+<p><strong>Decorator Pattern</strong></p>
+<p>Attaches additional responsibilities to an object dynamically.</p>
+<pre><code class="language-java">// Component interface
+public interface Coffee {
+    double getCost();
+    String getDescription();
+}
+
+// Concrete component
+public class SimpleCoffee implements Coffee {
+    @Override
+    public double getCost() {
+        return 2.0;
+    }
+
+    @Override
+    public String getDescription() {
+        return &quot;Simple coffee&quot;;
+    }
+}
+
+// Decorator
+public abstract class CoffeeDecorator implements Coffee {
+    protected Coffee decoratedCoffee;
+
+    public CoffeeDecorator(Coffee coffee) {
+        this.decoratedCoffee = coffee;
+    }
+
+    @Override
+    public double getCost() {
+        return decoratedCoffee.getCost();
+    }
+
+    @Override
+    public String getDescription() {
+        return decoratedCoffee.getDescription();
+    }
+}
+
+// Concrete decorators
+public class MilkDecorator extends CoffeeDecorator {
+    public MilkDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    @Override
+    public double getCost() {
+        return super.getCost() + 0.5;
+    }
+
+    @Override
+    public String getDescription() {
+        return super.getDescription() + &quot;, with milk&quot;;
+    }
+}
+
+public class SugarDecorator extends CoffeeDecorator {
+    public SugarDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    @Override
+    public double getCost() {
+        return super.getCost() + 0.2;
+    }
+
+    @Override
+    public String getDescription() {
+        return super.getDescription() + &quot;, with sugar&quot;;
+    }
+}
+
+// Order a coffee with milk and sugar
+Coffee sweetMilkCoffee = new SugarDecorator(new MilkDecorator(new SimpleCoffee()));
+</code></pre>
+<h2 id="behavioral-patterns">Behavioral Patterns</h2>
+<p><strong>Observer Pattern</strong></p>
+<p>Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified.</p>
+<pre><code class="language-java">// Observer interface
+public interface Observer {
+    void update(String message);
+}
+
+// Subject
+public class NewsAgency {
+    private List&lt;Observer&gt; observers = new ArrayList&lt;&gt;();
+    private String news;
+
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void setNews(String news) {
+        this.news = news;
+        notifyObservers();
+    }
+
+    private void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(news);
+        }
+    }
+}
+</code></pre>
+<p><strong>Strategy Pattern</strong></p>
+<p>Defines a family of algorithms, encapsulates each one, and makes them interchangeable.</p>
+<pre><code class="language-java">// Strategy interface
+public interface PaymentStrategy {
+    void pay(int amount);
+}
+
+// Concrete strategies
+public class CreditCardStrategy implements PaymentStrategy {
+    private String name;
+    private String cardNumber;
+    private String cvv;
+    private String dateOfExpiry;
+
+    public CreditCardStrategy(String name, String cardNumber, String cvv, String dateOfExpiry) {
+        this.name = name;
+        this.cardNumber = cardNumber;
+        this.cvv = cvv;
+        this.dateOfExpiry = dateOfExpiry;
+    }
+
+    @Override
+    public void pay(int amount) {
+        System.out.println(amount + &quot; paid with credit card&quot;);
+    }
+}
+
+public class PayPalStrategy implements PaymentStrategy {
+    private String email;
+    private String password;
+
+    public PayPalStrategy(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    @Override
+    public void pay(int amount) {
+        System.out.println(amount + &quot; paid using PayPal&quot;);
+    }
+}
+
+// Context
+public class ShoppingCart {
+    private PaymentStrategy paymentStrategy;
+
+    public void setPaymentStrategy(PaymentStrategy paymentStrategy) {
+        this.paymentStrategy = paymentStrategy;
+    }
+
+    public void checkout(int amount) {
+        paymentStrategy.pay(amount);
+    }
+}
+</code></pre></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../solid-principles/" title="Solid Principles"><span>Previous</span></a></div>
+        <div class="next"><a href="../../cpp/concepts/" title="Concepts"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

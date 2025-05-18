@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Solid Principles &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/dynamic-programming/">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/greedy/">Greedy</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/math/">Math</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/searching/">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/dropbox/">Dropbox</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/live-comments/">Live Comments</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2 current"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l3"><a class="nav-item" href="../concepts/">Concepts</a></li>
+    <li class="toctree-l3 current"><a class="nav-item current" href="./">Solid Principles</a>
+<ul class="subnav">
+<li class="toctree-l4"><a class="nav-item toc" href="#single-responsibility-principle-srp">Single Responsibility Principle (SRP)</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#openclosed-principle-ocp">Open/Closed Principle (OCP)</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#liskov-substitution-principle-lsp">Liskov Substitution Principle (LSP)</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#interface-segregation-principle-isp">Interface Segregation Principle (ISP)</a></li>
+<li class="toctree-l4"><a class="nav-item toc" href="#dependency-inversion-principle-dip">Dependency Inversion Principle (DIP)</a></li>
+</ul></li>
+    <li class="toctree-l3"><a class="nav-item" href="../design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../concepts/">&laquo; Previous</a></div>
+    <div class="next"><a href="../design-patterns/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Object Oriented Programming &raquo; </li><li>C++</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="solid-principles-in-c">Solid Principles in C++</h1>
+<p><strong>SOLID</strong> is an acronym that stands for five design principles:</p>
+<ol>
+<li><strong>Single Responsibility Principle (SRP)</strong>: A class should have only one reason to change, meaning that a class should
+   only have one job or responsibility.</li>
+<li><strong>Open/Closed Principle (OCP)</strong>: Software entities (classes, modules, functions, etc.) should be open for extension
+   but closed for modification.</li>
+<li><strong>Liskov Substitution Principle (LSP)</strong>: Subtypes must be substitutable for their base types.</li>
+<li><strong>Interface Segregation Principle (ISP)</strong>: Clients should not be forced to depend on interfaces they do not use.</li>
+<li><strong>Dependency Inversion Principle (DIP)</strong>: High-level modules should not depend on low-level modules. Both should
+   depend on abstractions.</li>
+</ol>
+<h2 id="single-responsibility-principle-srp">Single Responsibility Principle (SRP)</h2>
+<p><strong>Principle</strong>: A class should have only one reason to change, meaning it should have only one job or responsibility.</p>
+<p><strong>Bad Example</strong>:</p>
+<pre><code class="language-cpp">class Employee {
+private:
+    std::string name;
+    std::string id;
+
+public:
+    // Employee data methods
+    std::string getName() const {
+        return name;
+    }
+
+    void setName(const std::string&amp; name) {
+        this-&gt;name = name;
+    }
+
+    // Database Operations
+    void saveToDatabase() {
+        // Database code here
+    }
+
+    // Report generation
+    void generateReport() {
+        // Report generation code here
+    }
+};
+</code></pre>
+<p><strong>Good Example</strong>:</p>
+<pre><code class="language-cpp">// Employee class only manages employee data
+class Employee {
+private:
+    std::string name;
+    std::string id;
+
+public:
+    // Employee data methods
+    std::string getName() const {
+        return name;
+    }
+
+    void setName(const std::string&amp; name) {
+        this-&gt;name = name;
+    }
+};
+
+// Separate class for database operations
+class EmployeeRepository {
+public:
+    void save(const Employee&amp; employee) {
+        // Database code here
+    }
+};
+
+// Separate class for reporting
+class EmployeeReportGenerator {
+public:
+    void generateReport(const Employee&amp; employee) {
+        // Report generation code
+    }
+};
+</code></pre>
+<h2 id="openclosed-principle-ocp">Open/Closed Principle (OCP)</h2>
+<p><strong>Principle</strong>: Software entities (classes, modules, functions, etc.) should be open for extension but closed for
+modification.</p>
+<p><strong>Bad Example</strong>:</p>
+<pre><code class="language-cpp">class PaymentProcessor {
+public:
+    void processPayment(const std::string&amp; paymentType, double amount) {
+        if (paymentType == &quot;credit_card&quot;) {
+            // Process credit card payment
+        } else if (paymentType == &quot;paypal&quot;) {
+            // Process PayPal payment
+        } else if (paymentType == &quot;bitcoin&quot;) {
+            // Process Bitcoin payment
+        }
+        // Need to modify this class when adding new payment types
+    }
+};
+</code></pre>
+<p><strong>Good Example</strong>:</p>
+<pre><code class="language-cpp">// Interface (abstract class in C++)
+class PaymentMethod {
+public:
+    virtual ~PaymentMethod() = default;
+    virtual void processPayment(double amount) = 0;
+};
+
+// Implementations
+class CreditCardPayment : public PaymentMethod {
+public:
+    void processPayment(double amount) override {
+        // Process credit card payment
+    }
+};
+
+class PayPalPayment : public PaymentMethod {
+public:
+    void processPayment(double amount) override {
+        // Process PayPal payment
+    }
+};
+
+class BitcoinPayment : public PaymentMethod {
+public:
+    void processPayment(double amount) override {
+        // Process Bitcoin payment
+    }
+};
+
+// Client code - closed for modification
+class PaymentProcessor {
+public:
+    void processPayment(PaymentMethod&amp; paymentMethod, double amount) {
+        paymentMethod.processPayment(amount);
+    }
+};
+</code></pre>
+<h2 id="liskov-substitution-principle-lsp">Liskov Substitution Principle (LSP)</h2>
+<p><strong>Principle</strong>: Subtypes must be substitutable for their base types without altering the correctness of the program.</p>
+<p><strong>Bad Example</strong>:</p>
+<pre><code class="language-cpp">// BAD: Ostrich cannot fly, violates the &quot;Bird can fly&quot; expectation
+class Bird {
+public:
+    virtual ~Bird() = default;
+
+    virtual void fly() {
+        std::cout &lt;&lt; &quot;Bird is flying&quot; &lt;&lt; std::endl;
+    }
+};
+
+class Sparrow : public Bird {
+    // Sparrow can fly, consistent with Bird
+};
+
+class Ostrich : public Bird {
+public:
+    void fly() override {
+        // Ostriches cannot fly. This breaks the expectation.
+        throw std::runtime_error(&quot;Ostrich cannot fly!&quot;);
+        // Or: std::cout &lt;&lt; &quot;Ostrich cannot fly&quot; &lt;&lt; std::endl; // Still problematic
+    }
+};
+
+// Client code
+// void makeBirdFly(Bird&amp; bird) {
+//     bird.fly(); // This will crash if 'bird' is an Ostrich
+// }
+</code></pre>
+<p><strong>Good Example</strong>:</p>
+<pre><code class="language-cpp">// GOOD: Separate flying behavior
+class Flyable {
+public:
+    virtual ~Flyable() = default;
+    virtual void fly() = 0;
+};
+
+// Abstract base class for birds
+class Bird {
+public:
+    virtual ~Bird() = default;
+    virtual void makeSound() = 0;
+
+    void eat() { 
+        std::cout &lt;&lt; &quot;Bird is eating.&quot; &lt;&lt; std::endl; 
+    }
+};
+
+class Sparrow : public Bird, public Flyable { // Sparrow IS-A Bird and IS Flyable
+public:
+    void makeSound() override { 
+        std::cout &lt;&lt; &quot;Chirp&quot; &lt;&lt; std::endl; 
+    }
+
+    void fly() override { 
+        std::cout &lt;&lt; &quot;Sparrow is flying high.&quot; &lt;&lt; std::endl; 
+    }
+};
+
+class Ostrich : public Bird { // Ostrich IS-A Bird, but NOT Flyable
+public:
+    void makeSound() override { 
+        std::cout &lt;&lt; &quot;Boom&quot; &lt;&lt; std::endl; 
+    }
+
+    // No fly() method, or a run() method specific to Ostrich
+    void run() { 
+        std::cout &lt;&lt; &quot;Ostrich is running fast.&quot; &lt;&lt; std::endl; 
+    }
+};
+
+class Penguin : public Bird { // Penguin is a bird but doesn't fly
+public:
+    void makeSound() override { 
+        std::cout &lt;&lt; &quot;Squawk&quot; &lt;&lt; std::endl; 
+    }
+
+    void swim() { 
+        std::cout &lt;&lt; &quot;Penguin is swimming.&quot; &lt;&lt; std::endl; 
+    }
+};
+</code></pre>
+<h2 id="interface-segregation-principle-isp">Interface Segregation Principle (ISP)</h2>
+<p><strong>Principle</strong>: Clients should not be forced to depend on interfaces they do not use.</p>
+<p><strong>Bad Example</strong>:</p>
+<pre><code class="language-cpp">// Fat interface
+class Worker {
+public:
+    virtual ~Worker() = default;
+    virtual void work() = 0;
+    virtual void eat() = 0;
+    virtual void sleep() = 0;
+};
+
+// Problem: Robot can't eat or sleep
+class Robot : public Worker {
+public:
+    void work() override {
+        // Working
+    }
+
+    void eat() override {
+        // Robot can't eat, but forced to implement
+        throw std::runtime_error(&quot;Operation not supported&quot;);
+    }
+
+    void sleep() override {
+        // Robot can't sleep, but forced to implement
+        throw std::runtime_error(&quot;Operation not supported&quot;);
+    }
+};
+</code></pre>
+<p><strong>Good Example</strong>:</p>
+<pre><code class="language-cpp">// Segregated interfaces
+class Workable {
+public:
+    virtual ~Workable() = default;
+    virtual void work() = 0;
+};
+
+class Eatable {
+public:
+    virtual ~Eatable() = default;
+    virtual void eat() = 0;
+};
+
+class Sleepable {
+public:
+    virtual ~Sleepable() = default;
+    virtual void sleep() = 0;
+};
+
+// Human implements all interfaces
+class Human : public Workable, public Eatable, public Sleepable {
+public:
+    void work() override {
+        // Human working
+    }
+
+    void eat() override {
+        // Human eating
+    }
+
+    void sleep() override {
+        // Human sleeping
+    }
+};
+
+// Robot only implements what it needs
+class Robot : public Workable {
+public:
+    void work() override {
+        // Robot working
+    }
+};
+</code></pre>
+<h2 id="dependency-inversion-principle-dip">Dependency Inversion Principle (DIP)</h2>
+<p><strong>Principle</strong>: High-level modules should not depend on low-level modules. Both should depend on abstractions.</p>
+<p><strong>Bad Example</strong>:</p>
+<pre><code class="language-cpp">// Low-level module
+class MySQLDatabase {
+public:
+    void insert(const std::string&amp; data) {
+        // Insert data to MySQL
+    }
+};
+
+// High-level module depends on low-level module
+class UserService {
+private:
+    MySQLDatabase database;
+
+public:
+    UserService() {
+        // Hard dependency
+    }
+
+    void addUser(const std::string&amp; userData) {
+        database.insert(userData);
+    }
+};
+</code></pre>
+<p><strong>Good Example</strong>:</p>
+<pre><code class="language-cpp">// Abstraction
+class Database {
+public:
+    virtual ~Database() = default;
+    virtual void insert(const std::string&amp; data) = 0;
+};
+
+// Low-level module implements abstraction
+class MySQLDatabase : public Database {
+public:
+    void insert(const std::string&amp; data) override {
+        // Insert data to MySQL
+    }
+};
+
+// Alternative implementation
+class MongoDatabase : public Database {
+public:
+    void insert(const std::string&amp; data) override {
+        // Insert data to MongoDB
+    }
+};
+
+// High-level module depends on abstraction
+class UserService {
+private:
+    Database&amp; database;
+
+public:
+    // Dependency injection
+    UserService(Database&amp; database) : database(database) {
+    }
+
+    void addUser(const std::string&amp; userData) {
+        database.insert(userData);
+    }
+};
+</code></pre></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../concepts/" title="Concepts"><span>Previous</span></a></div>
+        <div class="next"><a href="../design-patterns/" title="Design Patterns"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>
