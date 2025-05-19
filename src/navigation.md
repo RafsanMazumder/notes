@@ -2,11 +2,11 @@
 
 * [Home](index.md)
 * Algorithms
-    * [Backtracking](algorithms/backtracking.md)
+    * [Backtracking](problem-solving/backtracking.md)
     * [Data Structures](algorithms/data-structures.md)
     * [Dynamic Programming](algorithms/dynamic-programming.md)
     * [Graphs](algorithms/graph.md)
-    * [Greedy](algorithms/greedy.md)
+    * [Greedy](problem-solving/greedy.md)
     * [Math](algorithms/math.md)
     * [Searching](algorithms/searching.md)
     * [Sorting](algorithms/sorting.md)
@@ -14,6 +14,7 @@
 * C++
     * [STL](cpp/stl.md)
 * System Design
+    * [URL Shortener](system-design/url-shortener.md)
     * [Ad Click Aggregator](system-design/ad-click-aggregator.md)
     * [Dropbox](system-design/dropbox.md)
     * [Live Comments](system-design/live-comments.md)
