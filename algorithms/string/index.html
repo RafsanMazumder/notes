@@ -41,21 +41,19 @@
                     <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
                     <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
 <ul class="subnav">
-    <li class="toctree-l2"><a class="nav-item" href="../backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/backtracking/">Backtracking</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../data-structures/">Data Structures</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../dynamic-programming/">Dynamic Programming</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../dynamic-programming.md">Dynamic Programming</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../graph/">Graphs</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../greedy/">Greedy</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../math/">Math</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../searching/">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../searching.md">Searching</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../sorting/">Sorting</a></li>
     <li class="toctree-l2 current"><a class="nav-item current" href="./">Strings</a>
 <ul class="subnav">
-<li class="toctree-l3"><a class="nav-item toc" href="#string-matching">String Matching</a></li>
-<li class="toctree-l3"><a class="nav-item toc" href="#common-string-operations">Common String Operations</a></li>
-<li class="toctree-l3"><a class="nav-item toc" href="#string-dynamic-programming">String Dynamic Programming</a></li>
-<li class="toctree-l3"><a class="nav-item toc" href="#basic-data-structures">Basic Data Structures</a></li>
-<li class="toctree-l3"><a class="nav-item toc" href="#common-problems">Common Problems</a></li>
 </ul></li>
 </ul></li>
                     <li class="toctree-l1"><button class="section nav-item">C++</button>
@@ -64,10 +62,10 @@
 </ul></li>
                     <li class="toctree-l1"><button class="section nav-item">System Design</button>
 <ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/url-shortener/">URL Shortener</a></li>
     <li class="toctree-l2">
 <a class="nav-item" href="../../system-design/ad-click-aggregator/">Ad Click Aggregator</a></li>
-    <li class="toctree-l2">
-<a class="nav-item" href="../../system-design/dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/dropbox/">Dropbox</a></li>
     <li class="toctree-l2">
 <a class="nav-item" href="../../system-design/live-comments/">Live Comments</a></li>
     <li class="toctree-l2">
@@ -119,250 +117,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="string-algorithms">String Algorithms</h1>
-<p>A collection of essential string algorithms and techniques commonly used in programming.</p>
-<h2 id="string-matching">String Matching</h2>
-<h3 id="naive-string-matching">Naive String Matching</h3>
-<p>The simplest approach to find all occurrences of a pattern in a text.</p>
-<pre><code class="language-cpp">vector&lt;int&gt; naiveSearch(string text, string pattern) {
-    vector&lt;int&gt; positions;
-    int n = text.length();
-    int m = pattern.length();
-
-    for (int i = 0; i &lt;= n - m; i++) {
-        int j;
-        for (j = 0; j &lt; m; j++) {
-            if (text[i + j] != pattern[j])
-                break;
-        }
-
-        if (j == m) // Pattern found
-            positions.push_back(i);
-    }
-
-    return positions;
-}
-</code></pre>
-<p><strong>Time Complexity:</strong> O(n * m) where n is the text length and m is the pattern length</p>
-<h3 id="kmp-algorithm">KMP Algorithm</h3>
-<p>An efficient string matching algorithm that uses preprocessing to avoid unnecessary comparisons.</p>
-<pre><code class="language-cpp">vector&lt;int&gt; kmpSearch(string text, string pattern) {
-    int n = text.length();
-    int m = pattern.length();
-    vector&lt;int&gt; positions;
-
-    // Preprocessing: building the LPS array
-    vector&lt;int&gt; lps(m, 0);
-    int len = 0, i = 1;
-
-    while (i &lt; m) {
-        if (pattern[i] == pattern[len]) {
-            len++;
-            lps[i] = len;
-            i++;
-        } else {
-            if (len != 0) {
-                len = lps[len - 1];
-            } else {
-                lps[i] = 0;
-                i++;
-            }
-        }
-    }
-
-    // Searching
-    i = 0;
-    int j = 0;
-    while (i &lt; n) {
-        if (pattern[j] == text[i]) {
-            i++; j++;
-        }
-
-        if (j == m) {
-            positions.push_back(i - j);
-            j = lps[j - 1];
-        } else if (i &lt; n &amp;&amp; pattern[j] != text[i]) {
-            if (j != 0)
-                j = lps[j - 1];
-            else
-                i++;
-        }
-    }
-
-    return positions;
-}
-</code></pre>
-<p><strong>Time Complexity:</strong> O(n + m)</p>
-<h2 id="common-string-operations">Common String Operations</h2>
-<h3 id="palindrome-check">Palindrome Check</h3>
-<pre><code class="language-cpp">bool isPalindrome(string s) {
-    int left = 0;
-    int right = s.length() - 1;
-
-    while (left &lt; right) {
-        if (s[left] != s[right])
-            return false;
-        left++;
-        right--;
-    }
-
-    return true;
-}
-</code></pre>
-<h3 id="string-reversal">String Reversal</h3>
-<pre><code class="language-cpp">string reverseString(string s) {
-    int left = 0;
-    int right = s.length() - 1;
-
-    while (left &lt; right) {
-        swap(s[left], s[right]);
-        left++;
-        right--;
-    }
-
-    return s;
-}
-</code></pre>
-<h3 id="anagram-check">Anagram Check</h3>
-<pre><code class="language-cpp">bool isAnagram(string s1, string s2) {
-    if (s1.length() != s2.length())
-        return false;
-
-    vector&lt;int&gt; count(26, 0);
-
-    for (int i = 0; i &lt; s1.length(); i++) {
-        count[s1[i] - 'a']++;
-        count[s2[i] - 'a']--;
-    }
-
-    for (int c : count) {
-        if (c != 0)
-            return false;
-    }
-
-    return true;
-}
-</code></pre>
-<h2 id="string-dynamic-programming">String Dynamic Programming</h2>
-<h3 id="longest-common-subsequence">Longest Common Subsequence</h3>
-<pre><code class="language-cpp">int longestCommonSubsequence(string s1, string s2) {
-    int m = s1.length();
-    int n = s2.length();
-
-    vector&lt;vector&lt;int&gt;&gt; dp(m + 1, vector&lt;int&gt;(n + 1, 0));
-
-    for (int i = 1; i &lt;= m; i++) {
-        for (int j = 1; j &lt;= n; j++) {
-            if (s1[i-1] == s2[j-1])
-                dp[i][j] = dp[i-1][j-1] + 1;
-            else
-                dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
-        }
-    }
-
-    return dp[m][n];
-}
-</code></pre>
-<h3 id="edit-distance">Edit Distance</h3>
-<pre><code class="language-cpp">int editDistance(string s1, string s2) {
-    int m = s1.length();
-    int n = s2.length();
-
-    vector&lt;vector&lt;int&gt;&gt; dp(m + 1, vector&lt;int&gt;(n + 1, 0));
-
-    // Base cases
-    for (int i = 0; i &lt;= m; i++)
-        dp[i][0] = i;
-
-    for (int j = 0; j &lt;= n; j++)
-        dp[0][j] = j;
-
-    // Fill dp table
-    for (int i = 1; i &lt;= m; i++) {
-        for (int j = 1; j &lt;= n; j++) {
-            if (s1[i-1] == s2[j-1])
-                dp[i][j] = dp[i-1][j-1];
-            else
-                dp[i][j] = 1 + min({dp[i-1][j], dp[i][j-1], dp[i-1][j-1]});
-        }
-    }
-
-    return dp[m][n];
-}
-</code></pre>
-<h2 id="basic-data-structures">Basic Data Structures</h2>
-<h3 id="trie-prefix-tree">Trie (Prefix Tree)</h3>
-<p>A tree-like data structure useful for searching words in a dictionary.</p>
-<pre><code class="language-cpp">class TrieNode {
-public:
-    bool isEndOfWord;
-    TrieNode* children[26]; // For lowercase English letters
-
-    TrieNode() {
-        isEndOfWord = false;
-        for (int i = 0; i &lt; 26; i++)
-            children[i] = nullptr;
-    }
-};
-
-class Trie {
-private:
-    TrieNode* root;
-
-public:
-    Trie() {
-        root = new TrieNode();
-    }
-
-    void insert(string word) {
-        TrieNode* current = root;
-
-        for (char c : word) {
-            int index = c - 'a';
-            if (!current-&gt;children[index])
-                current-&gt;children[index] = new TrieNode();
-            current = current-&gt;children[index];
-        }
-
-        current-&gt;isEndOfWord = true;
-    }
-
-    bool search(string word) {
-        TrieNode* current = root;
-
-        for (char c : word) {
-            int index = c - 'a';
-            if (!current-&gt;children[index])
-                return false;
-            current = current-&gt;children[index];
-        }
-
-        return current-&gt;isEndOfWord;
-    }
-
-    bool startsWith(string prefix) {
-        TrieNode* current = root;
-
-        for (char c : prefix) {
-            int index = c - 'a';
-            if (!current-&gt;children[index])
-                return false;
-            current = current-&gt;children[index];
-        }
-
-        return true;
-    }
-};
-</code></pre>
-<h2 id="common-problems">Common Problems</h2>
-<ol>
-<li><strong>Substring Search</strong>: Finding occurrences of a pattern in a text</li>
-<li><strong>Palindrome Detection</strong>: Checking if a string reads the same backward as forward</li>
-<li><strong>Anagram Detection</strong>: Checking if two strings contain the same characters in different order</li>
-<li><strong>String Compression</strong>: Encoding strings to reduce their size</li>
-<li><strong>String Tokenization</strong>: Breaking a string into tokens based on delimiters</li>
-<li><strong>Wildcard Matching</strong>: Matching patterns containing wildcards like '*' and '?'</li>
-<li><strong>Prefix/Suffix Analysis</strong>: Finding common prefixes or suffixes in a set of strings</li>
-</ol></div>
+<p><strong>Polynomial Rolling Hash</strong></p></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../sorting/" title="Sorting"><span>Previous</span></a></div>

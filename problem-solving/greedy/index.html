@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Backtracking &mdash; Software Engineering Notes</title>
+    <title>Greedy &mdash; Software Engineering Notes</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -41,22 +41,20 @@
                     <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
                     <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
 <ul class="subnav">
-    <li class="toctree-l2 current"><a class="nav-item current" href="./">Backtracking</a>
+    <li class="toctree-l2"><a class="nav-item" href="../backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Greedy</a>
 <ul class="subnav">
-<li class="toctree-l3"><a class="nav-item toc" href="#core-concept">Core Concept</a></li>
-<li class="toctree-l3"><a class="nav-item toc" href="#template-for-backtracking-problems">Template for Backtracking Problems</a></li>
-<li class="toctree-l3"><a class="nav-item toc" href="#common-backtracking-problems">Common Backtracking Problems</a></li>
-<li class="toctree-l3"><a class="nav-item toc" href="#time-complexity">Time Complexity</a></li>
-<li class="toctree-l3"><a class="nav-item toc" href="#when-to-use-backtracking">When to Use Backtracking</a></li>
 </ul></li>
-    <li class="toctree-l2"><a class="nav-item" href="../data-structures/">Data Structures</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../dynamic-programming/">Dynamic Programming</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../graph/">Graphs</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../greedy/">Greedy</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../math/">Math</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../searching/">Searching</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../sorting/">Sorting</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../string/">Strings</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/string/">Strings</a></li>
 </ul></li>
                     <li class="toctree-l1"><button class="section nav-item">C++</button>
 <ul class="subnav">
@@ -64,10 +62,10 @@
 </ul></li>
                     <li class="toctree-l1"><button class="section nav-item">System Design</button>
 <ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/url-shortener/">URL Shortener</a></li>
     <li class="toctree-l2">
 <a class="nav-item" href="../../system-design/ad-click-aggregator/">Ad Click Aggregator</a></li>
-    <li class="toctree-l2">
-<a class="nav-item" href="../../system-design/dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/dropbox/">Dropbox</a></li>
     <li class="toctree-l2">
 <a class="nav-item" href="../../system-design/live-comments/">Live Comments</a></li>
     <li class="toctree-l2">
@@ -102,8 +100,8 @@
     <div class="link">
         <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
     </div>
-    <div class="previous"><a href="../..">&laquo; Previous</a></div>
-    <div class="next"><a href="../data-structures/">Next &raquo;</a></div>
+    <div class="previous"><a href="../../algorithms/graph/">&laquo; Previous</a></div>
+    <div class="next"><a href="../../algorithms/sorting/">Next &raquo;</a></div>
 </div>
         </aside>
         <div id="spacer"><button class="arrow"></button></div>
@@ -118,102 +116,39 @@
     <li>Algorithms</li>
 </ul>
 </nav>
-                <div id="content"><h1 id="backtracking-algorithms">Backtracking Algorithms</h1>
-<p>Backtracking is an algorithmic technique for solving problems recursively by trying to build a solution incrementally, one piece at a time, and removing those solutions that fail to satisfy the constraints of the problem.</p>
-<h2 id="core-concept">Core Concept</h2>
-<p>The backtracking algorithm traverses the search tree recursively, from the root down. As it traverses, it:</p>
-<ol>
-<li>Chooses one option from the available choices</li>
-<li>Explores that option recursively</li>
-<li>If that option leads to a solution, great!</li>
-<li>If not, <strong>backtracks</strong> to explore other options</li>
-</ol>
-<h2 id="template-for-backtracking-problems">Template for Backtracking Problems</h2>
-<pre><code class="language-cpp">void backtrack(state, choices) {
-    // Base case: if we've found a solution
-    if (isValidSolution(state)) {
-        storeSolution(state);
-        return;
-    }
-
-    // Try each available choice
-    for (choice in availableChoices) {
-        // Skip invalid choices early
-        if (!isValid(state, choice)) continue;
-
-        // Make the choice
-        applyChoice(state, choice);
-
-        // Recurse
-        backtrack(state, remainingChoices);
-
-        // Undo the choice (backtrack)
-        undoChoice(state, choice);
-    }
-}
-</code></pre>
-<h2 id="common-backtracking-problems">Common Backtracking Problems</h2>
-<h3 id="n-queens">N-Queens</h3>
-<pre><code class="language-cpp">bool isValid(vector&lt;int&gt;&amp; queens, int row, int col) {
-    for (int i = 0; i &lt; row; i++) {
-        // Check vertical and diagonal attacks
-        if (queens[i] == col || abs(queens[i] - col) == abs(i - row))
-            return false;
-    }
-    return true;
-}
-
-void solveNQueens(int n, int row, vector&lt;int&gt;&amp; queens, vector&lt;vector&lt;string&gt;&gt;&amp; results) {
-    if (row == n) {
-        // Found a valid placement of queens
-        storeSolution(queens, results);
-        return;
-    }
-
-    for (int col = 0; col &lt; n; col++) {
-        if (isValid(queens, row, col)) {
-            queens[row] = col;
-            solveNQueens(n, row + 1, queens, results);
-            // No explicit backtracking needed, as we overwrite queens[row]
+                <div id="content"><h1 id="greedy-problems">Greedy Problems</h1>
+<p><strong>Find Subarray with Maximum Sum</strong></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    int maxSubArray(vector&lt;int&gt;&amp; nums) {
+        int maxSubArray = nums[0];
+        int minPrefixSum = 0, curPrefixSum = 0;
+        for (int num: nums) {
+            curPrefixSum += num;
+            maxSubArray = max(maxSubArray, curPrefixSum - minPrefixSum);
+            minPrefixSum = min(minPrefixSum, curPrefixSum);
         }
+        return maxSubArray;
     }
-}
+};
 </code></pre>
-<h3 id="permutations">Permutations</h3>
-<pre><code class="language-cpp">void generatePermutations(vector&lt;int&gt;&amp; nums, int start, vector&lt;vector&lt;int&gt;&gt;&amp; result) {
-    if (start == nums.size()) {
-        result.push_back(nums);
-        return;
-    }
-
-    for (int i = start; i &lt; nums.size(); i++) {
-        // Swap to create a new permutation
-        swap(nums[start], nums[i]);
-
-        // Recurse
-        generatePermutations(nums, start + 1, result);
-
-        // Backtrack - restore the original array
-        swap(nums[start], nums[i]);
-    }
-}
+<p><strong>Jump Game</strong></p>
+<p>Given an integer array nums where you start at index 0 and nums[i] represents your maximum jump length at position i,
+return true if you can reach the last index, false otherwise.</p>
+<pre><code class="language-cpp">
 </code></pre>
-<h2 id="time-complexity">Time Complexity</h2>
-<p>Most backtracking algorithms have exponential time complexity:
-- <strong>N-Queens</strong>: O(N!)
-- <strong>Permutations</strong>: O(N!)
-- <strong>Combinations</strong>: O(2^N)</p>
-<h2 id="when-to-use-backtracking">When to Use Backtracking</h2>
-<ul>
-<li>Problems where you need to find all (or some) solutions</li>
-<li>Constraint satisfaction problems</li>
-<li>Combinatorial optimization</li>
-<li>Problems where you need to explore all possibilities</li>
-</ul></div>
+<p><strong>Jump Game II</strong></p>
+<p>Given an integer array nums where you start at index 0 and nums[i] represents your maximum jump length at position i,
+return the minimum number of jumps required to reach the last index.</p>
+<pre><code class="language-cpp">
+</code></pre>
+<p><strong>Gas Station</strong></p>
+<pre><code class="language-cpp">
+</code></pre></div>
                 <footer>
     <div class="footer-buttons">
-        <div class="previous"><a href="../.." title="Home"><span>Previous</span></a></div>
-        <div class="next"><a href="../data-structures/" title="Data Structures"><span>Next</span></a></div>
+        <div class="previous"><a href="../../algorithms/graph/" title="Graphs"><span>Previous</span></a></div>
+        <div class="next"><a href="../../algorithms/sorting/" title="Sorting"><span>Next</span></a></div>
     </div>
     <div class="footer-note">
         <p>

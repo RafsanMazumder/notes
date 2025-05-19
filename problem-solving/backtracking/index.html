@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Backtracking &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Backtracking</a>
+<ul class="subnav">
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/dropbox/">Dropbox</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/live-comments/">Live Comments</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../..">&laquo; Previous</a></div>
+    <div class="next"><a href="../../algorithms/data-structures/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Algorithms</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="backtracking-problems">Backtracking Problems</h1>
+<p><strong>Subsets</strong></p>
+<p>Given an integer array nums of unique elements, return all possible subsets.</p>
+<pre><code class="language-cpp">class Solution {
+public:
+    void backtrack(int curIndex, vector&lt;int&gt;&amp; subset, vector&lt;vector&lt;int&gt;&gt;&amp; subsets, vector&lt;int&gt;&amp; nums) {
+        if (curIndex == nums.size()) {
+            subsets.push_back(subset);
+            return;
+        }
+
+        backtrack(curIndex+1, subset, subsets, nums);
+
+        subset.push_back(nums[curIndex]);
+        backtrack(curIndex+1, subset, subsets, nums);
+        subset.pop_back();
+    }
+
+    vector&lt;vector&lt;int&gt;&gt; subsets(vector&lt;int&gt;&amp; nums) {
+        vector&lt;int&gt; subset;
+        vector&lt;vector&lt;int&gt;&gt; subsets;
+
+        backtrack(0, subset, subsets, nums);
+        return subsets;
+    }
+};
+</code></pre>
+<p><strong>Combination Sum</strong></p>
+<p>Given an array of distinct integers and a target integer, return a list of all unique combinations where the chosen
+numbers sum to target. The same number may be chosen an unlimited number of times.</p>
+<pre><code class="language-cpp">
+</code></pre>
+<p><strong>Permutations</strong></p>
+<p>Given an array of distinct integers, return all possible permutations.</p>
+<pre><code class="language-cpp">class Solution {
+public:
+    void backtrack(vector&lt;int&gt;&amp; cur, vector&lt;vector&lt;int&gt;&gt;&amp; ans, vector&lt;bool&gt;&amp; visited, vector&lt;int&gt;&amp; nums) {
+        if (cur.size() == nums.size()) {
+            ans.push_back(cur);
+            return;
+        }
+
+        for (int i = 0; i &lt; nums.size(); i++) {
+            if (!visited[i]) {
+                cur.push_back(nums[i]);
+                visited[i] = true;
+                backtrack(cur, ans, visited, nums);
+                cur.pop_back();
+                visited[i] = false;
+            }
+        }
+    }
+
+    vector&lt;vector&lt;int&gt;&gt; permute(vector&lt;int&gt;&amp; nums) {
+        vector&lt;int&gt; cur;
+        vector&lt;vector&lt;int&gt;&gt; ans;
+        vector&lt;bool&gt; visited(nums.size(), false);
+
+        backtrack(cur, ans, visited, nums);
+        return ans;
+    }
+};
+</code></pre>
+<p><strong>Words Search</strong></p>
+<p>Given an m x n grid of characters and a string word, return true if word exists in the grid.</p>
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;int&gt; dx = {-1, 1, 0, 0};
+    vector&lt;int&gt; dy = {0, 0, -1, 1};
+
+    bool backtrack(int x, int y, int wordPos, vector&lt;vector&lt;char&gt;&gt;&amp; board, string&amp; word) {
+        if (wordPos == word.length()) return true;
+
+        for (int i = 0; i &lt; 4; i++) {
+            int newX = x + dx[i];
+            int newY = y + dy[i];
+
+            if (newX &gt;= 0 &amp;&amp; newX &lt; board.size() &amp;&amp; newY &gt;= 0 &amp;&amp; newY &lt; board[0].size() &amp;&amp; board[newX][newY] == word[wordPos]) {
+                board[newX][newY] = '#';
+                if (backtrack(newX, newY, wordPos+1, board, word)) return true;
+                board[newX][newY] = word[wordPos];
+            }
+        }
+        return false;
+    }
+
+    bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) {
+        for (int i = 0; i &lt; board.size(); i++) {
+            for (int j = 0; j &lt; board[0].size(); j++) {
+                if (board[i][j] == word[0]) {
+                    board[i][j] = '#';
+                    if (backtrack(i, j, 1, board, word)) return true;
+                    board[i][j] = word[0];
+                }
+            }
+        }
+        return false;
+    }
+};
+</code></pre>
+<p><strong>N-Queens</strong></p>
+<p>The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other.
+Given an integer n, return all distinct solutions to the n-queens puzzle.</p>
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;string&gt; createEmptyBoard(int n) {
+        string emptyRow = &quot;&quot;;
+        for (int col = 0; col &lt; n; col++) emptyRow += '.';
+        vector&lt;string&gt; board;
+        for (int row = 0; row &lt; n; row++) board.push_back(emptyRow);
+        return board;
+    }
+
+    void backtrack(int row, vector&lt;string&gt; &amp;board, vector&lt;vector&lt;string&gt;&gt;&amp; results, unordered_set&lt;int&gt;&amp; cols, unordered_set&lt;int&gt;&amp; diagonals, unordered_set&lt;int&gt;&amp; antiDiagonals) {
+        if (row == board.size()) {
+            results.push_back(board);
+            return;
+        }
+
+        for (int col = 0; col &lt; board[0].size(); col++) {
+            int curDiagonal = row - col;
+            int curAntiDiagonal = row + col;
+
+            if (cols.find(col) == cols.end() &amp;&amp; diagonals.find(curDiagonal) == diagonals.end() &amp;&amp; antiDiagonals.find(curAntiDiagonal) == antiDiagonals.end()) {
+                cols.insert(col);
+                diagonals.insert(curDiagonal);
+                antiDiagonals.insert(curAntiDiagonal);
+                board[row][col] = 'Q';
+
+                backtrack(row+1, board, results, cols, diagonals, antiDiagonals);
+
+                cols.erase(col);
+                diagonals.erase(curDiagonal);
+                antiDiagonals.erase(curAntiDiagonal);
+                board[row][col] = '.';
+            }
+        }
+    }
+    vector&lt;vector&lt;string&gt;&gt; solveNQueens(int n) {
+        vector&lt;string&gt; emptyBoard = createEmptyBoard(n);
+        unordered_set&lt;int&gt; cols;
+        unordered_set&lt;int&gt; diagonals;
+        unordered_set&lt;int&gt; antiDiagonals;
+        vector&lt;vector&lt;string&gt;&gt; results;
+
+        backtrack(0, emptyBoard, results, cols, diagonals, antiDiagonals);
+        return results;
+    }
+};
+</code></pre></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../.." title="Home"><span>Previous</span></a></div>
+        <div class="next"><a href="../../algorithms/data-structures/" title="Data Structures"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../search/main.js"></script>
+</body>
+
+</html>
