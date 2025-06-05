@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Local Delivery &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Local Delivery</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#functional-requirements">Functional Requirements</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#non-functional-requirements">Non Functional Requirements</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#core-entities">Core Entities</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#apis">APIs</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#high-level-design">High Level Design</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#deep-dive">Deep Dive</a></li>
+</ul></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../2.%20dropbox/">&laquo; Previous</a></div>
+    <div class="next"><a href="../23.%20ad-click-aggregator/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>System Design</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="local-delivery-service">Local Delivery Service</h1>
+<h2 id="functional-requirements">Functional Requirements</h2>
+<ol>
+<li>Users should be able to query availability of item, deliverable in 1 hour, by location</li>
+<li>Users should be able to order multiple items at the same time</li>
+</ol>
+<h2 id="non-functional-requirements">Non Functional Requirements</h2>
+<ol>
+<li>Availability requests should be fast (&lt;200 ms) to support use cases like search</li>
+<li>Ordering should be strongly consistent to avoid double booking</li>
+<li>10k DCs and 100k items per DC</li>
+<li>10m orders per day</li>
+</ol>
+<h2 id="core-entities">Core Entities</h2>
+<ol>
+<li>Item</li>
+<li>Inventory</li>
+<li>Distribution Center</li>
+<li>Order (Collection of inventory items + shipping / billing info)</li>
+</ol>
+<h2 id="apis">APIs</h2>
+<pre><code>GET /availability?lat={lat}&amp;long={long}&amp;keyword={}&amp;page_size={}&amp;page_num={} -&gt; Item[]
+</code></pre>
+<pre><code>POST /orders -&gt; OrderId
+{
+  &quot;items&quot;: Item[],
+  &quot;shippingInfo&quot;: ShippingInfo,
+  &quot;billingInfo&quot;: BillingInfo
+}
+</code></pre>
+<h2 id="high-level-design">High Level Design</h2>
+<p><strong>Customers should be able to query availability of items</strong></p>
+<p><img alt="img.png" src="../img.png" /></p>
+<ul>
+<li>We make a request to the availability service with the user's location X and Y</li>
+<li>The availability service fires a request to the nearby service</li>
+<li>The nearby service returns us a list of DC that can deliver to our location</li>
+<li>The availability service query our database with those DC IDs</li>
+<li>We sum up the results and return them to our client</li>
+</ul>
+<p><strong>Customers should be able to order items(no double booking)</strong></p>
+<p><strong>Singular Postgres Transaction</strong></p>
+<ul>
+<li>The user makes a request to the Orders Service to place an order for items A, B, and C.</li>
+<li>The Orders Service makes creates a singular transaction which we submit to our Postgres leader. This transaction: a.
+  Checks the inventory for items A, B, and C &gt; 0. b. If any of the items are out of stock, the transaction fails. c. If
+  all items are in stock, the transaction records the order and updates the status for inventory items A, B, and C to "
+  ordered". d. A new row is created in the Orders table (and OrderItems table) recording the order for A, B, and C. e.
+  The transaction is committed.</li>
+<li>If the transaction succeeds, we return the order to the user.</li>
+</ul>
+<p><img alt="img_5.png" src="../img_5.png" /></p>
+<h2 id="deep-dive">Deep Dive</h2>
+<p><strong>Make availability lookups fast and scalable</strong></p>
+<p><strong>Query Inventory through cache</strong></p>
+<p>We can add a Redis instance to our setup. Our availability service can query the cache for a given set of inputs and, if
+the cache hits, return that result. If the cache misses we'll do a lookup on the underlying database and then write the
+results into the cache. Setting a low TTL (e.g. 1 minute) ensures that these results are fresh.</p>
+<p><strong>Postgres read replicas &amp; partitioning by region ID</strong></p></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../2.%20dropbox/" title="Dropbox"><span>Previous</span></a></div>
+        <div class="next"><a href="../23.%20ad-click-aggregator/" title="Ad Click Aggregator"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>
