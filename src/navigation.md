@@ -25,6 +25,29 @@
     * [Whatsapp](system-design/questions/8. whatsapp.md)
     * [YouTube](system-design/questions/20. youtube.md)
     * [YouTube Top K](system-design/questions/15. youtube-top-k.md)
+* MySQL
+    * [ACID](database/mysql/1. acid.md)
+    * [Database Internals](database/mysql/2. database-internals.md)
+    * [Lock](database/mysql/3. locks.md)
+    * [Index](database/mysql/4. indexes.md)
+    * [B Tree](database/mysql/5. b-tree.md)
+    * [Partitioning](database/mysql/6. partitioning.md)
+    * [Sharding](database/mysql/7. sharding.md)
+    * [Concurrency Control](database/mysql/8. concurrency-control.md)
+    * [Replication](database/mysql/9. replication.md)
+    * [Engines](database/mysql/10. engines.md)
+    * [Cursors](database/mysql/11. cursors.md)
+    * [MVCC](database/mysql/12. mvcc.md)
+* Kafka
+    * [Architecture](kafka/1. architecture.md)
+    * [Partitions and Data Distributions](kafka/2. partitions and data distributions.md)
+    * [Producers](kafka/3. producers.md)
+    * [Consumers](kafka/4. consumers.md)
+    * [Message Delivery Semantics](kafka/5. message delivery semantics.md)
+    * [Performance and Tuning](kafka/6. performance and tuning.md)
+    * [Streams](kafka/7. kafka streams.md)
+* Spark
+    * [Spark](spark/spark.md)
 * Object Oriented Programming
     * Java
         * [Concepts](oop/java/concepts.md)
