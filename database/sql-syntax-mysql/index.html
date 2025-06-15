@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Data Types &mdash; Software Engineering Notes</title>
+    <title>SQL Syntax &mdash; Software Engineering Notes</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -91,6 +91,33 @@
     <li class="toctree-l2"><a class="nav-item" href="../mysql/10.%20engines/">Engines</a><a class="nav-item" href="../mysql/10.%20engines/">Engines</a><a class="nav-item" href="../mysql/10.%20engines/">Engines</a><a class="nav-item" href="../mysql/10.%20engines/">Engines</a><a class="nav-item" href="../mysql/10.%20engines/">Engines</a><a class="nav-item" href="../mysql/10.%20engines/">Engines</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../mysql/11.%20cursors/">Cursors</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../mysql/12.%20mvcc/">MVCC</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a><a class="nav-item current" href="./">SQL Syntax</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#notes">📝 Notes</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#basic-syntax">Basic Syntax</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#notes_1">Notes</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#table-constraints">Table Constraints</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#constraint-keyword">CONSTRAINT keyword</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#execution-order">Execution Order</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#notes_2">Notes</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#where-vs-having">WHERE vs HAVING</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#condition-evaluation-logic">Condition Evaluation Logic</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#condition-types">Condition Types</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#null-handling">NULL Handling</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#basic-syntax_1">Basic Syntax</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#key-points">Key Points</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#alternative-syntax-using">Alternative Syntax (USING):</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#subqueries-as-tables">Subqueries as Tables</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#nested-loop-join">Nested Loop Join</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#index-nested-loop-join">Index Nested Loop Join</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#sort-merge-join">Sort-Merge Join</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#hash-join">Hash Join</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#basic-group-by-syntax">Basic GROUP BY syntax</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#common-aggregate-functions">Common Aggregate Functions</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#group-by-rules">GROUP BY Rules</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#having-clause_1">HAVING Clause</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#types-of-grouping">Types of Grouping</a></li>
+</ul></li>
 </ul></li>
                     <li class="toctree-l1"><button class="section nav-item">Kafka</button>
 <ul class="subnav">
@@ -127,6 +154,8 @@
     <div class="link">
         <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
     </div>
+    <div class="previous"><a href="../mysql/12.%20mvcc/">&laquo; Previous</a></div>
+    <div class="next"><a href="../../kafka/1.%20architecture/">Next &raquo;</a></div>
 </div>
         </aside>
         <div id="spacer"><button class="arrow"></button></div>
@@ -138,7 +167,7 @@
             <div id="main">
                 <nav class="breadcrumbs">
 <ul>
-    
+    <li>MySQL</li>
 </ul>
 </nav>
                 <div id="content"><h1 id="data-types">Data Types</h1>
@@ -883,6 +912,10 @@ GROUP BY EXTRACT(YEAR FROM rental_date);
 </code></pre>
 <h1 id="subqueries">Subqueries</h1></div>
                 <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../mysql/12.%20mvcc/" title="MVCC"><span>Previous</span></a></div>
+        <div class="next"><a href="../../kafka/1.%20architecture/" title="Architecture"><span>Next</span></a></div>
+    </div>
     <div class="footer-note">
         <p>
             Built with <a href="http://www.mkdocs.org">MkDocs</a> using
