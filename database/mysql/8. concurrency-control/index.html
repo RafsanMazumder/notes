@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Concurrency Control &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Concurrency Control</a><a class="nav-item current" href="./">Concurrency Control</a><a class="nav-item current" href="./">Concurrency Control</a><a class="nav-item current" href="./">Concurrency Control</a><a class="nav-item current" href="./">Concurrency Control</a><a class="nav-item current" href="./">Concurrency Control</a><a class="nav-item current" href="./">Concurrency Control</a><a class="nav-item current" href="./">Concurrency Control</a><a class="nav-item current" href="./">Concurrency Control</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#a-implicit-locking-the-automatic-way">A. Implicit Locking (The Automatic Way)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#b-explicit-locking-the-manual-way-with-select-for">B. Explicit Locking (The Manual Way with SELECT ... FOR)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#c-how-innodb-implements-these-locks-the-granular-details">C. How InnoDB Implements These Locks (The Granular Details)</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../7.%20sharding/">&laquo; Previous</a></div>
+    <div class="next"><a href="../9.%20replication/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>MySQL</li>
+</ul>
+</nav>
+                <div id="content"><p>Of course. This is an excellent set of topics for a database-focused interview. Concurrency control is fundamental to
+understanding how a relational database works under pressure.</p>
+<p>Here is a detailed set of notes, structured for interview preparation, that covers your requested topics and adds other
+essential concepts like Isolation Levels and MVCC.</p>
+<hr />
+<h3 id="comprehensive-interview-notes-mysql-concurrency-control"><strong>Comprehensive Interview Notes: MySQL Concurrency Control</strong></h3>
+<p>The primary goal of concurrency control is to manage simultaneous operations in a database to ensure data integrity and
+correctness without sacrificing performance. This is primarily about upholding the <strong>Isolation</strong> property of ACID.</p>
+<h3 id="1-the-foundation-transaction-isolation-levels">1. The Foundation: Transaction Isolation Levels</h3>
+<p>Before discussing locks, you must understand Isolation Levels, as they define the <em>degree</em> of locking and visibility
+between transactions. An interviewer will almost certainly start here.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Isolation Level</th>
+<th style="text-align: left;">Dirty Read</th>
+<th style="text-align: left;">Non-Repeatable Read</th>
+<th style="text-align: left;">Phantom Read</th>
+<th style="text-align: left;">MySQL Default?</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>READ UNCOMMITTED</strong></td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">A transaction can read data that has been modified by another transaction but not yet committed. Lowest level of isolation.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>READ COMMITTED</strong></td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">No (but common in other DBs)</td>
+<td style="text-align: left;">A transaction can only read data that has been committed. It can still see different data if it re-reads a row that another transaction has since updated and committed.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>REPEATABLE READ</strong></td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;"><strong>Possible</strong> (but prevented in InnoDB)</td>
+<td style="text-align: left;"><strong>Yes</strong></td>
+<td style="text-align: left;">Guarantees that if a transaction reads a row multiple times, it will see the same data. InnoDB achieves this using MVCC and prevents Phantom Reads with Gap Locks.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SERIALIZABLE</strong></td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Highest isolation level. All reads get shared locks. It effectively forces transactions to execute serially, eliminating all concurrency anomalies but at a high performance cost.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Interview Point:</strong> State that MySQL's default is <strong>Repeatable Read</strong> and that it uses a combination of <strong>MVCC</strong>
+for consistent reads and <strong>locking</strong> for writes to achieve this.</p>
+<hr />
+<p>Excellent request. Adding the specific syntax and mechanisms is crucial for moving from theory to practical application,
+which is exactly what interviewers want to see.</p>
+<p>Here is the revised "Core Mechanism: Locking" section, now with detailed explanations of the MySQL syntax and
+implementation.</p>
+<hr />
+<h3 id="2-core-mechanism-locking"><strong>2. Core Mechanism: Locking</strong></h3>
+<p>Locks are mechanisms that restrict access to a resource (like a table or a row) to ensure that transactions do not
+interfere with each other in harmful ways. In MySQL, locking can be <strong>implicit</strong> (done automatically by the engine) or *
+<em>explicit</em>* (requested manually by the user).</p>
+<h4 id="a-implicit-locking-the-automatic-way">A. Implicit Locking (The Automatic Way)</h4>
+<p>InnoDB automatically applies locks during standard DML operations to protect data integrity. You don't need to write any
+special syntax for this.</p>
+<ul>
+<li><strong>Exclusive (X) Locks:</strong> When you run an <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code> statement, InnoDB automatically places an X
+  lock on the rows being modified. This prevents any other transaction from writing to or placing any lock on those rows
+  until the transaction commits or rolls back.</li>
+</ul>
+<p><code>sql
+  -- This statement IMPLICITLY acquires an X lock on the row where employee_id = 101.
+  UPDATE employees SET last_name = 'Smith' WHERE employee_id = 101;</code></p>
+<ul>
+<li><strong>Shared (S) Locks:</strong> In the default <code>REPEATABLE READ</code> isolation level, a standard <code>SELECT</code> statement <strong>does not</strong>
+  take any locks. It uses <strong>MVCC</strong> to read a consistent snapshot of the data. Implicit S locks are primarily used in
+  higher isolation levels like <code>SERIALIZABLE</code>, where even a simple <code>SELECT</code> will place S locks on the rows it reads to
+  prevent them from being changed by other transactions.</li>
+</ul>
+<h4 id="b-explicit-locking-the-manual-way-with-select-for">B. Explicit Locking (The Manual Way with <code>SELECT ... FOR</code>)</h4>
+<p>Sometimes you need to manually control locking within a transaction. This is common for "Read-Modify-Write" cycles, like
+checking a value before updating it.</p>
+<h5 id="select-for-update-acquires-an-exclusive-lock"><code>SELECT ... FOR UPDATE</code> (Acquires an Exclusive Lock)</h5>
+<p>This command reads rows and places an <strong>Exclusive (X) lock</strong> on them. It is the primary tool for solving race conditions
+like the "double booking" problem.</p>
+<ul>
+<li><strong>Purpose:</strong> To read data with the intention of updating it, and to prevent any other transaction from reading (with a
+  lock), updating, or deleting those rows until the current transaction is finished.</li>
+<li><strong>Behavior:</strong> Any other transaction attempting to acquire an X lock (<code>UPDATE</code>, <code>DELETE</code>, <code>SELECT...FOR UPDATE</code>) or an
+  S lock (<code>SELECT...LOCK IN SHARE MODE</code>) on the locked rows will be blocked until the first transaction commits or rolls
+  back.</li>
+</ul>
+<p><strong>Example: Safely Decrementing Stock</strong></p>
+<pre><code class="language-sql">START TRANSACTION;
+
+-- Step 1: Lock the row for the product we want to modify.
+-- This acquires an X lock. No other session can touch this row now.
+SELECT quantity
+FROM products
+WHERE product_id = 50 FOR UPDATE;
+
+-- The application code can now safely check the quantity. Let's assume it's &gt; 0.
+
+-- Step 2: Since we hold the lock, we can perform the update without a race condition.
+UPDATE products
+SET quantity = quantity - 1
+WHERE product_id = 50;
+
+COMMIT; -- The X lock is released.
+</code></pre>
+<h5 id="select-lock-in-share-mode-acquires-a-shared-lock"><code>SELECT ... LOCK IN SHARE MODE</code> (Acquires a Shared Lock)</h5>
+<p>This command reads rows and places a <strong>Shared (S) lock</strong> on them.</p>
+<ul>
+<li><strong>Purpose:</strong> To read data and ensure it does not change while your transaction is active, while still allowing other
+  transactions to <em>read</em> the same data.</li>
+<li><strong>Behavior:</strong> Other transactions can also acquire S locks on the same rows (<code>LOCK IN SHARE MODE</code>), but any transaction
+  attempting to acquire an X lock (<code>UPDATE</code>, <code>DELETE</code>, <code>SELECT...FOR UPDATE</code>) will be blocked.</li>
+</ul>
+<p><strong>Example: Validating a Foreign Key Before Insertion</strong></p>
+<p>Imagine you want to insert a new employee record but need to ensure their <code>department_id</code> is valid and that the
+department won't be deleted during the process.</p>
+<pre><code class="language-sql">START TRANSACTION;
+
+-- Step 1: Place a shared lock on the parent 'departments' row.
+-- This ensures the department with id=4 can't be DELETED while we work.
+-- However, other sessions can still READ this department record.
+SELECT *
+FROM departments
+WHERE department_id = 4 LOCK IN SHARE MODE;
+
+-- Application code confirms the department exists.
+
+-- Step 2: Now it's safe to insert the new employee who belongs to this department.
+INSERT INTO employees (employee_name, department_id)
+VALUES ('Alice', 4);
+
+COMMIT; -- The S lock on the departments row is released.
+</code></pre>
+<h4 id="c-how-innodb-implements-these-locks-the-granular-details">C. How InnoDB Implements These Locks (The Granular Details)</h4>
+<p>When you request a lock, InnoDB doesn't just lock "the row." It locks the <strong>index entries</strong>. This is where Record, Gap,
+and Next-Key locks come into play, especially in the <code>REPEATABLE READ</code> isolation level.</p>
+<ul>
+<li>
+<p><strong>Record Lock:</strong> This is a lock on a single index record.</p>
+<ul>
+<li><strong>Mechanism:</strong> When you lock a row using a unique index, InnoDB places a record lock on that specific index entry.</li>
+<li><strong>Example:</strong> <code>SELECT ... FOR UPDATE WHERE id = 10;</code> will place a record lock on the primary key index entry for
+  <code>id=10</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Gap Lock:</strong> This is a lock on the "gap" between index records. Its purpose is to prevent other transactions from
+  inserting data into that gap, thereby preventing <strong>phantom reads</strong>.</p>
+<ul>
+<li><strong>Mechanism:</strong> A gap lock itself doesn't prevent other transactions from locking the existing records within the
+  gap; it only blocks insertions.</li>
+<li><strong>Example:</strong> <code>SELECT ... FOR UPDATE WHERE id &gt; 10 AND id &lt; 20;</code> will place a gap lock on the space between 10 and<ol>
+<li>Another transaction will fail if it tries to <code>INSERT</code> a row with <code>id = 15</code>.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Next-Key Lock:</strong> This is the combination of a <strong>Record Lock</strong> on an index entry and a <strong>Gap Lock</strong> on the space
+  <em>before</em> that entry. This is the default locking method for range scans in InnoDB.</p>
+<ul>
+<li><strong>Mechanism:</strong> It locks both the found record and the gap preceding it.</li>
+<li><strong>Example:</strong> <code>SELECT ... FOR UPDATE WHERE id &gt;= 10;</code> will place a Next-Key lock on the record for <code>id=10</code>, locking
+  both the record itself and the gap before it. It will then scan forward, placing locks on subsequent records and
+  gaps until it reaches the end of the table. This powerful mechanism prevents both modification of existing rows
+  and insertion of new "phantom" rows in the scanned range.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="key-locking-takeaways-for-interviews"><strong>Key Locking Takeaways for Interviews</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Mechanism</th>
+<th style="text-align: left;">Syntax / Trigger</th>
+<th style="text-align: left;">Lock Type</th>
+<th style="text-align: left;">Primary Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Implicit Write Lock</strong></td>
+<td style="text-align: left;"><code>UPDATE</code>, <code>DELETE</code>, <code>INSERT</code></td>
+<td style="text-align: left;">Exclusive (X)</td>
+<td style="text-align: left;">Automatically protecting data during modification.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Consistent Read</strong></td>
+<td style="text-align: left;"><code>SELECT</code> (in <code>REPEATABLE READ</code>)</td>
+<td style="text-align: left;"><strong>No Lock (MVCC)</strong></td>
+<td style="text-align: left;">Non-blocking reads that don't interfere with writers.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Explicit Shared Lock</strong></td>
+<td style="text-align: left;"><code>SELECT ... LOCK IN SHARE MODE</code></td>
+<td style="text-align: left;">Shared (S)</td>
+<td style="text-align: left;">Reading a row and preventing it from being updated/deleted, while allowing others to read it.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Explicit Exclusive Lock</strong></td>
+<td style="text-align: left;"><code>SELECT ... FOR UPDATE</code></td>
+<td style="text-align: left;">Exclusive (X)</td>
+<td style="text-align: left;">Reading a row with the intent to update it, preventing any other access until the transaction completes. The go-to solution for race conditions.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="3-locking-protocol-two-phase-locking-2pl">3. Locking Protocol: Two-Phase Locking (2PL)</h3>
+<p>2PL is a protocol that governs how transactions acquire and release locks. It is <strong>not</strong> a type of lock itself.</p>
+<ol>
+<li><strong>Growing Phase:</strong> The transaction acquires all the locks it needs. During this phase, it can acquire locks but
+   cannot release any.</li>
+<li><strong>Shrinking Phase:</strong> Once the transaction releases its first lock, it enters the shrinking phase. During this phase,
+   it can only release locks and cannot acquire any new ones.</li>
+</ol>
+<p><strong>Strict 2PL:</strong> In practice, databases like MySQL implement <strong>Strict 2PL</strong>, where all locks are held until the
+transaction <strong>commits or rolls back</strong>. This prevents cascading rollbacks and is the standard implementation.</p>
+<hr />
+<h3 id="4-problem-deadlocks">4. Problem: Deadlocks</h3>
+<p>A deadlock is a circular dependency where two or more transactions are permanently blocked, each waiting for a resource
+held by the other.</p>
+<p><strong>Classic Example:</strong></p>
+<ol>
+<li><strong>Transaction A</strong> locks <code>Row 1</code> and requests a lock on <code>Row 2</code>.</li>
+<li><strong>Transaction B</strong> locks <code>Row 2</code> and requests a lock on <code>Row 1</code>.</li>
+</ol>
+<pre><code>-- Session 1
+START TRANSACTION;
+UPDATE products SET stock = stock - 1 WHERE id = 10; -- Acquires X lock on product 10
+
+-- Session 2
+START TRANSACTION;
+UPDATE products SET stock = stock - 1 WHERE id = 20; -- Acquires X lock on product 20
+
+-- Session 1
+UPDATE products SET stock = stock - 1 WHERE id = 20; -- BLOCKED, waits for Session 2 to release lock
+
+-- Session 2
+UPDATE products SET stock = stock - 1 WHERE id = 10; -- BLOCKED, waits for Session 1. DEADLOCK!
+</code></pre>
+<p><strong>How MySQL Handles Deadlocks:</strong></p>
+<ul>
+<li>InnoDB has a background thread that periodically checks for lock wait cycles.</li>
+<li>When a deadlock is detected, InnoDB doesn't wait for a timeout. It immediately chooses a "victim" transaction to kill
+  and roll back.</li>
+<li>The victim is typically the transaction that has done the least amount of work (modified the fewest rows).</li>
+</ul>
+<p><strong>How to Minimize Deadlocks:</strong></p>
+<ul>
+<li><strong>Keep transactions short and concise.</strong></li>
+<li><strong>Access resources in a consistent order</strong> across all parts of your application (e.g., always lock <code>accounts</code> then
+  <code>products</code>, never the other way around).</li>
+<li>Use a lower, more appropriate isolation level if possible.</li>
+<li>Ensure your application code has retry logic to handle deadlock exceptions gracefully.</li>
+</ul>
+<hr />
+<h3 id="5-practical-problem-the-double-booking-race-condition">5. Practical Problem: The "Double Booking" Race Condition</h3>
+<p>This is a classic Time-of-Check-to-Time-of-Use (TOCTOU) problem.</p>
+<p><strong>The Scenario:</strong> Two users try to book the last available seat on a flight at the same time.</p>
+<p><strong>The Wrong Way (leads to a race condition):</strong></p>
+<pre><code class="language-sql">-- User 1 checks for available seats
+SELECT available_seats
+FROM flights
+WHERE flight_id = 123;
+-- Returns 1
+
+-- User 2 checks for available seats
+SELECT available_seats
+FROM flights
+WHERE flight_id = 123;
+-- Also returns 1
+
+-- User 1 updates the flight, thinking they got the last seat
+UPDATE flights
+SET available_seats = 0
+WHERE flight_id = 123;
+COMMIT;
+
+-- User 2 also updates the flight, now creating a negative seat count!
+UPDATE flights
+SET available_seats = -1
+WHERE flight_id = 123; -- Oops!
+COMMIT;
+</code></pre>
+<p><strong>The Solutions:</strong></p>
+<ol>
+<li><strong>Pessimistic Locking (<code>SELECT ... FOR UPDATE</code>)</strong>:
+   This is the most direct solution. It acquires an <strong>exclusive (X) lock</strong> on the selected rows, forcing any other
+   transaction trying to read or write those same rows to wait.</li>
+</ol>
+<p>```sql
+   START TRANSACTION;
+   -- The FOR UPDATE clause locks the row. User 2's SELECT would block here.
+   SELECT available_seats FROM flights WHERE flight_id = 123 FOR UPDATE;</p>
+<p>-- Check if available_seats &gt; 0...
+   UPDATE flights SET available_seats = 0 WHERE flight_id = 123;
+   COMMIT;
+   ```</p>
+<ol>
+<li><strong>Optimistic Locking</strong>:
+   This approach avoids long-held locks. You add a <code>version</code> or <code>timestamp</code> column to the table.</li>
+</ol>
+<p>```sql
+   -- 1. Read the row and its current version
+   SELECT available_seats, version FROM flights WHERE flight_id = 123;
+   -- (Assume it returns available_seats=1, version=5)</p>
+<p>-- 2. In your application, perform the update by checking the version
+   UPDATE flights
+   SET available_seats = 0, version = version + 1
+   WHERE flight_id = 123 AND version = 5; -- The crucial part
+   <code>``
+   If another transaction updated the row in the meantime, its version would now be</code>6<code>, and this</code>UPDATE` statement
+   would affect <strong>0 rows</strong>. Your application would then know the booking failed and could retry.</p>
+<hr />
+<h3 id="6-practical-problem-sql-pagination-with-offset">6. Practical Problem: SQL Pagination with <code>OFFSET</code></h3>
+<p>While often seen as a performance issue, <code>OFFSET</code> also has concurrency problems.</p>
+<p><strong>The Performance Problem:</strong> <code>LIMIT 10 OFFSET 1000</code> tells the database to fetch 1010 rows and then discard the first</p>
+<ol>
+<li>This gets slower as the offset increases.</li>
+</ol>
+<p><strong>The Concurrency Problem ("Drifting Pages"):</strong></p>
+<ul>
+<li>A user loads Page 1 (<code>LIMIT 10 OFFSET 0</code>).</li>
+<li>While they are reading, a new item is inserted at the beginning of the result set.</li>
+<li>The user clicks "Next" to load Page 2 (<code>LIMIT 10 OFFSET 10</code>).</li>
+<li>The item that was previously the 10th item on Page 1 is now the 11th overall. It will appear again at the top of Page<ol>
+<li>The user sees a duplicate. The opposite can happen with deletes, causing items to be skipped.</li>
+</ol>
+</li>
+</ul>
+<p><strong>The Solution: Keyset / Seek Pagination</strong>
+Instead of using <code>OFFSET</code>, you use a <code>WHERE</code> clause based on the last value seen from the previous page. This requires a
+unique, ordered column (like <code>id</code> or <code>created_at</code>).</p>
+<pre><code class="language-sql">-- Get Page 1
+SELECT id, title, created_at
+FROM articles
+ORDER BY created_at DESC, id DESC LIMIT 10;
+-- (Assume last row returned has created_at='2023-10-27 10:00:00' and id=123)
+
+-- Get Page 2 (using values from the last row of Page 1)
+SELECT id, title, created_at
+FROM articles
+WHERE (created_at, id) &lt; ('2023-10-27 10:00:00', 123)
+ORDER BY created_at DESC, id DESC LIMIT 10;
+</code></pre>
+<p>This is both more performant (it uses the index to "seek" to the starting point) and stable against concurrent writes.</p>
+<hr />
+<h3 id="7-application-level-concurrency-connection-pooling">7. Application-Level Concurrency: Connection Pooling</h3>
+<p>A connection pool is a cache of database connections maintained on the application side so that connections can be
+reused.</p>
+<ul>
+<li><strong>Why is it needed?</strong> Establishing a database connection is an expensive operation involving network handshakes,
+  authentication, and memory allocation on the database server.</li>
+<li><strong>How it works:</strong><ol>
+<li>The pool is initialized with a <code>min_idle</code> number of connections.</li>
+<li>When the application needs a connection, it "borrows" one from the pool.</li>
+<li>When done, it "returns" the connection to the pool instead of closing it.</li>
+<li>If no connections are available and the pool is not at its <code>max_size</code>, a new connection is created.</li>
+</ol>
+</li>
+<li><strong>Benefits:</strong><ul>
+<li><strong>Reduced Latency:</strong> Eliminates connection setup overhead for every query.</li>
+<li><strong>Resource Control:</strong> Prevents your application from overwhelming the database with too many concurrent
+  connections. Limits are enforced at the pool level.</li>
+</ul>
+</li>
+</ul></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../7.%20sharding/" title="Sharding"><span>Previous</span></a></div>
+        <div class="next"><a href="../9.%20replication/" title="Replication"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>MVCC &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">MVCC</a><a class="nav-item current" href="./">MVCC</a><a class="nav-item current" href="./">MVCC</a><a class="nav-item current" href="./">MVCC</a><a class="nav-item current" href="./">MVCC</a><a class="nav-item current" href="./">MVCC</a><a class="nav-item current" href="./">MVCC</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#visualizing-the-version-chain">Visualizing the Version Chain</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#use-case-1-transaction-rollback-atomicity">Use Case 1: Transaction Rollback (Atomicity)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#use-case-2-consistent-reads-mvcc">Use Case 2: Consistent Reads (MVCC)</a></li>
+</ul></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../11.%20cursors/">&laquo; Previous</a></div>
+    <div class="next"><a href="../../../kafka/1.%20architecture/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>MySQL</li>
+</ul>
+</nav>
+                <div id="content"><p>Of course. Here is a compiled, refined, and enhanced set of notes on the MySQL Undo Log and MVCC, specifically
+structured for interview preparation.</p>
+<p>I've merged the strengths of both documents: the clear, structured explanation and interview-centric focus of the first
+note, with the concrete SQL examples and practical considerations of the second. I've also added more detail on the
+internal row structure to make the concepts crystal clear.</p>
+<hr />
+<h3 id="comprehensive-interview-notes-mysql-undo-log-mvcc"><strong>Comprehensive Interview Notes: MySQL Undo Log &amp; MVCC</strong></h3>
+<h3 id="1-what-is-the-undo-log-and-why-is-it-essential">1. What is the Undo Log and Why is it Essential?</h3>
+<p>The <strong>Undo Log</strong> is a collection of records that store the "before" images of modified data. It's a fundamental
+component of InnoDB, enabling three critical database features:</p>
+<ol>
+<li><strong>Atomicity (Transaction Rollback):</strong> If a transaction is aborted (<code>ROLLBACK</code>) or fails, the undo log is used to
+   revert all its changes, ensuring the transaction is an "all or nothing" operation.</li>
+<li><strong>Isolation (MVCC):</strong> The undo log provides previous versions of rows to other transactions, enabling <strong>Multi-Version
+   Concurrency Control (MVCC)</strong>. This allows consistent, non-blocking reads, where readers don't block writers and
+   vice-versa.</li>
+<li><strong>Crash Recovery:</strong> During startup after a crash, the undo log is used to roll back any transactions that were active
+   but not committed at the time of the crash.</li>
+</ol>
+<hr />
+<h3 id="2-the-core-mechanism-how-the-undo-log-and-mvcc-work-together">2. The Core Mechanism: How the Undo Log and MVCC Work Together</h3>
+<p>To support MVCC, every InnoDB row has hidden columns:</p>
+<ul>
+<li><code>DB_TRX_ID</code> (Transaction ID): Stores the ID of the transaction that last modified the row.</li>
+<li><code>DB_ROLL_PTR</code> (Roll Pointer): A pointer to the undo log record for this row, which contains the previous version.</li>
+</ul>
+<p><strong>Step-by-Step <code>UPDATE</code> Process:</strong></p>
+<p>Let's say we run <code>UPDATE employees SET salary = 90000 WHERE id = 1;</code> where the current salary is <code>80000</code>.</p>
+<ol>
+<li><strong>Lock the Row:</strong> The transaction acquires an exclusive lock on the target row.</li>
+<li><strong>Write to Undo Log:</strong> Before modifying the row, InnoDB copies the <em>original</em> values (e.g., <code>id: 1, salary: 80000</code>)
+   into a new undo log record. This undo record is stamped with the current transaction's ID.</li>
+<li><strong>Update the Data Page:</strong> InnoDB then updates the row in the actual data page (the table's tablespace) with the new
+   value (<code>salary = 90000</code>).</li>
+<li><strong>Update Hidden Columns:</strong><ul>
+<li>The row's <code>DB_TRX_ID</code> is updated to the ID of the <em>current</em> transaction.</li>
+<li>The row's <code>DB_ROLL_PTR</code> is updated to point to the undo log record created in step 2.</li>
+</ul>
+</li>
+</ol>
+<p>This creates a <strong>version chain</strong>. If the row is updated again, the process repeats, with the new undo record pointing to
+the previous one.</p>
+<h4 id="visualizing-the-version-chain">Visualizing the Version Chain</h4>
+<p>This chain allows InnoDB to traverse back in time to reconstruct a row as it existed for any given transaction snapshot.</p>
+<pre><code>Data Page (Current Row Version)
+[ id=1, salary=95000, DB_TRX_ID=102, DB_ROLL_PTR=Addr_C ]
+                            |
+                            +-----&gt; Undo Log
+                                    [ Undo Record C: {old_row: salary=90000}, DB_TRX_ID=101, DB_ROLL_PTR=Addr_B ]
+                                                            |
+                                                            +-----&gt; Undo Log
+                                                                    [ Undo Record B: {old_row: salary=80000}, DB_TRX_ID=100, DB_ROLL_PTR=NULL ]
+</code></pre>
+<hr />
+<h3 id="3-practical-use-cases-sql-examples">3. Practical Use Cases (SQL Examples)</h3>
+<h4 id="use-case-1-transaction-rollback-atomicity">Use Case 1: Transaction Rollback (<code>Atomicity</code>)</h4>
+<p>The undo log ensures that a failed transaction leaves the database unchanged.</p>
+<pre><code class="language-sql">-- Initial State:
+-- SELECT salary FROM employees WHERE id = 100; --&gt; 50000
+
+START TRANSACTION;
+
+-- The old row {id: 100, salary: 50000} is written to the undo log.
+UPDATE employees
+SET salary = 60000
+WHERE id = 100;
+
+-- The current view for this transaction sees the new value.
+-- SELECT salary FROM employees WHERE id = 100; --&gt; 60000
+
+-- The undo log is read in reverse to restore the original value.
+ROLLBACK;
+
+-- The database is back to its original state.
+-- SELECT salary FROM employees WHERE id = 100; --&gt; 50000
+</code></pre>
+<h4 id="use-case-2-consistent-reads-mvcc">Use Case 2: Consistent Reads (<code>MVCC</code>)</h4>
+<p>The undo log provides a consistent "snapshot" of the data to a transaction, regardless of other concurrent changes.</p>
+<pre><code class="language-sql">-- Session 1 (REPEATABLE READ isolation level)
+START TRANSACTION;
+-- MySQL creates a &quot;read view&quot; for this transaction. It can only see
+-- changes from transactions with a TRX_ID less than its own.
+SELECT price
+FROM products
+WHERE id = 1;
+-- Result: 100
+
+-- Session 2
+START TRANSACTION;
+-- The old value {price: 100} is written to the undo log.
+UPDATE products
+SET price = 120
+WHERE id = 1;
+COMMIT;
+-- Session 2's changes are now permanent.
+
+-- Back in Session 1
+-- The SELECT statement encounters the row for product 1. It sees the row was
+-- modified by a newer transaction (Session 2). To maintain its read view,
+-- it follows the DB_ROLL_PTR to the undo log and reconstructs the old version.
+SELECT price
+FROM products
+WHERE id = 1; -- Result is still 100
+
+COMMIT;
+-- Session 1 ends.
+
+-- A new transaction in Session 1 will now see the committed change.
+SELECT price
+FROM products
+WHERE id = 1; -- Result: 120
+</code></pre>
+<hr />
+<h3 id="4-undo-log-lifecycle-and-cleanup-purge">4. Undo Log Lifecycle and Cleanup (Purge)</h3>
+<p>Undo logs cannot grow infinitely. A background process called the <strong>Purge Thread</strong> is responsible for cleaning them up.</p>
+<p>An undo log record can be purged <strong>only when</strong> two conditions are met:</p>
+<ol>
+<li>The transaction that created it has <strong>committed</strong>.</li>
+<li>There are <strong>no other active transactions</strong> that still need that record to maintain their consistent read view (i.e.,
+   no transaction has a read view old enough to see that version).</li>
+</ol>
+<p><strong>Performance Impact:</strong>
+A <strong>long-running transaction</strong> (e.g., an open <code>SELECT</code> or an uncommitted <code>UPDATE</code>) will prevent the purge thread from
+cleaning up all undo records created after it started. This can cause the undo tablespace to grow significantly,
+impacting performance and disk space.</p>
+<hr />
+<h3 id="5-storage-and-configuration">5. Storage and Configuration</h3>
+<ul>
+<li><strong>Storage:</strong> By default, undo logs are stored in the <strong>system tablespace</strong> (<code>ibdata1</code>). In modern MySQL versions, they
+  can and should be configured to use separate <strong>undo tablespaces</strong> via the <code>innodb_undo_tablespaces</code> variable for
+  better management and performance.</li>
+<li><strong>Key Variables:</strong><ul>
+<li><code>innodb_undo_tablespaces</code>: Number of undo tablespace files.</li>
+<li><code>innodb_max_undo_log_size</code>: Defines the maximum size an undo tablespace can reach before it's truncated.</li>
+<li><code>innodb_undo_log_truncate</code>: Enables or disables automatic truncation of undo tablespaces.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="6-key-interview-takeaways-summary">6. Key Interview Takeaways &amp; Summary</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Concept</th>
+<th style="text-align: left;">Interview-Ready Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Undo Log</strong></td>
+<td style="text-align: left;">A log of old row versions used for transaction rollback, MVCC, and crash recovery.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MVCC</strong></td>
+<td style="text-align: left;">A non-locking concurrency control mechanism. It uses undo logs to present a consistent "snapshot" of data to each transaction, allowing reads and writes to happen simultaneously.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>DB_TRX_ID</code></strong></td>
+<td style="text-align: left;">A hidden row column storing the ID of the last transaction to modify the row. It's used to determine visibility.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>DB_ROLL_PTR</code></strong></td>
+<td style="text-align: left;">A hidden row column that points to the undo log record containing the previous version of the row, forming a version chain.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Purge Thread</strong></td>
+<td style="text-align: left;">A background thread that reclaims space by deleting undo log records that are no longer needed by any active transaction.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Impact of Long Transactions</strong></td>
+<td style="text-align: left;">They prevent the purge thread from cleaning up old undo records, leading to undo log bloat, performance degradation, and increased disk usage.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>In short:</strong> The undo log is not just for "undoing" things. It is the core engine that powers <strong>ACID isolation</strong> in
+InnoDB through MVCC, by cleverly maintaining a history of row versions that can be reconstructed on demand.</p></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../11.%20cursors/" title="Cursors"><span>Previous</span></a></div>
+        <div class="next"><a href="../../../kafka/1.%20architecture/" title="Architecture"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

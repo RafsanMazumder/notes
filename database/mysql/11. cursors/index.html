@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Cursors &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Cursors</a><a class="nav-item current" href="./">Cursors</a><a class="nav-item current" href="./">Cursors</a><a class="nav-item current" href="./">Cursors</a><a class="nav-item current" href="./">Cursors</a><a class="nav-item current" href="./">Cursors</a><a class="nav-item current" href="./">Cursors</a>
+<ul class="subnav">
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../10.%20engines/">&laquo; Previous</a></div>
+    <div class="next"><a href="../12.%20mvcc/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>MySQL</li>
+</ul>
+</nav>
+                <div id="content"><p>Of course. Cursors are a classic database topic. While they are used less frequently in modern application development,
+they are a staple of procedural database code (stored procedures, functions) and a great topic to test a candidate's
+understanding of set-based vs. procedural processing.</p>
+<p>Here are detailed, interview-ready notes on database cursors.</p>
+<hr />
+<h3 id="ultimate-guide-to-database-cursors-for-interviews"><strong>Ultimate Guide to Database Cursors (for Interviews)</strong></h3>
+<h3 id="part-1-the-core-idea-what-is-a-cursor">Part 1: The Core Idea - What is a Cursor?</h3>
+<p><strong>The Analogy:</strong> The best way to think of a cursor is as a <strong>bookmark for a result set</strong>. When you run a <code>SELECT</code>
+statement, the database prepares a set of rows that match your criteria. A cursor is a pointer that you can use to
+navigate through that result set <strong>one row at a time</strong>.</p>
+<p><strong>The Definition:</strong> A cursor is a database object that allows an application to traverse the records in a result set. It
+encapsulates the result set and provides a mechanism to process each row individually, procedurally, within a loop.</p>
+<p><strong>Set-Based vs. Row-Based Processing (The Critical Context):</strong></p>
+<ul>
+<li><strong>Set-Based (The SQL Way):</strong> SQL is inherently a <em>set-based</em> language. Statements like <code>UPDATE</code>, <code>INSERT ... SELECT</code>,
+  and <code>DELETE</code> operate on an entire set of rows at once. This is extremely efficient.</li>
+<li><strong>Row-Based (The Cursor Way):</strong> Cursors allow you to break out of the set-based model and process data in a more
+  traditional, procedural, "for-loop" style. This is almost always <strong>less efficient</strong> but offers more granular control.</li>
+</ul>
+<hr />
+<h3 id="part-2-the-lifecycle-and-syntax-in-mysql-stored-procedures">Part 2: The Lifecycle and Syntax (in MySQL Stored Procedures)</h3>
+<p>You almost always use cursors inside stored procedures, functions, or triggers. The lifecycle has four distinct steps: *
+<em>Declare, Open, Fetch, Close</em>*.</p>
+<pre><code class="language-sql">DELIMITER
+$$
+
+CREATE PROCEDURE process_employee_salaries()
+BEGIN
+    -- Step 0: Declare variables to hold the data from each row
+    DECLARE
+done INT DEFAULT FALSE;
+    DECLARE
+emp_id INT;
+    DECLARE
+emp_salary DECIMAL(10, 2);
+
+    -- Step 1: DECLARE the cursor
+    -- This defines the result set the cursor will iterate over.
+    DECLARE
+cur_employee CURSOR FOR
+SELECT id, salary
+FROM employees
+WHERE is_active = 1;
+
+-- Declare a handler for the &quot;NOT FOUND&quot; condition, which is raised
+-- when the FETCH statement runs out of rows. This is how we exit the loop.
+DECLARE
+CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    -- Step 2: OPEN the cursor
+    -- This executes the SELECT statement and populates the result set.
+OPEN cur_employee;
+
+-- Step 3: FETCH rows in a loop
+read_loop
+: LOOP
+        -- Fetch the next row's data into our variables.
+        FETCH cur_employee INTO emp_id, emp_salary;
+
+        -- If the &quot;NOT FOUND&quot; handler was triggered, exit the loop.
+        IF
+done THEN
+            LEAVE read_loop;
+END IF;
+
+        -- *** This is where your row-by-row logic goes ***
+        -- For example, calculate a bonus and update another table.
+        IF
+emp_salary &gt; 50000 THEN
+            INSERT INTO bonuses (employee_id, bonus_amount)
+            VALUES (emp_id, emp_salary * 0.10);
+END IF;
+
+END LOOP;
+
+    -- Step 4: CLOSE the cursor
+    -- This releases the memory and resources used by the cursor.
+CLOSE cur_employee;
+END$$
+
+DELIMITER ;
+</code></pre>
+<hr />
+<h3 id="part-3-why-cursors-are-generally-avoided-the-performance-problem">Part 3: Why Cursors Are Generally Avoided (The Performance Problem)</h3>
+<p>This is the most important part of the interview discussion. A senior developer knows <em>when not</em> to use a cursor. The
+anti-pattern is often called <strong>RBAR</strong> ("Row-By-Agonizing-Row").</p>
+<ol>
+<li>
+<p><strong>Poor Performance:</strong> Cursors are inherently slow. A single, set-based <code>UPDATE</code> or <code>INSERT ... SELECT</code> statement will
+   almost always outperform a cursor that loops through thousands of rows and issues individual <code>UPDATE</code> or <code>INSERT</code>
+   statements inside the loop. The database is highly optimized for set-based operations.</p>
+</li>
+<li>
+<p><strong>Increased Locking and Reduced Concurrency:</strong> A cursor that is left open can hold locks on the rows it has processed
+   or intends to process. If the logic inside the loop is slow, these locks can be held for a long time, blocking other
+   users from accessing the data and severely impacting application concurrency.</p>
+</li>
+<li>
+<p><strong>High Resource Consumption:</strong> Cursors consume significant server-side memory to hold their result set and state. A
+   large cursor can strain server resources.</p>
+</li>
+<li>
+<p><strong>Network Overhead (for Client-Side Cursors):</strong> While the example above is a server-side cursor, some database
+   drivers allow for client-side cursors where each <code>FETCH</code> operation can result in a separate network round trip to the
+   database server, which is extremely inefficient.</p>
+</li>
+</ol>
+<hr />
+<h3 id="part-4-the-rare-legitimate-use-cases">Part 4: The Rare, Legitimate Use Cases</h3>
+<p>An interviewer might ask, "Okay, they're slow. So is there <em>ever</em> a good reason to use a cursor?"</p>
+<p>Yes, but they are rare.</p>
+<ul>
+<li><strong>Complex Procedural Logic:</strong> When you need to perform a series of complex, stateful calculations for each row that
+  are difficult or impossible to express in a single SQL statement.</li>
+<li><strong>Calling a Stored Procedure for Each Row:</strong> When you need to iterate through a set of rows and pass each one as a
+  parameter to another, complex stored procedure.</li>
+<li><strong>Data Auditing and Archiving:</strong> For complex, row-by-row validation and migration to another system where a simple
+  <code>INSERT ... SELECT</code> is not sufficient.</li>
+<li><strong>Running Totals and Sequential Processing:</strong> Before window functions were widely available, cursors were one of the
+  few ways to calculate things like running totals. (Today, window functions are vastly superior).</li>
+</ul>
+<hr />
+<h3 id="part-5-alternatives-to-cursors-the-better-way">Part 5: Alternatives to Cursors (The Better Way)</h3>
+<p>A great follow-up question is, "How would you rewrite this cursor-based logic to be more performant?"</p>
+<p><strong>Example Problem:</strong> Update a <code>students</code> table to set a <code>grade</code> ('Pass' or 'Fail') based on a <code>score</code>.</p>
+<p><strong>The Bad (Cursor) Way:</strong></p>
+<pre><code class="language-sql">-- (Inside a procedure with a cursor looping through students)
+FETCH cur_student INTO student_id, student_score;
+IF
+student_score &gt;= 50 THEN
+UPDATE students
+SET grade = 'Pass'
+WHERE id = student_id;
+ELSE
+UPDATE students
+SET grade = 'Fail'
+WHERE id = student_id;
+END IF;
+</code></pre>
+<p><strong>The Good (Set-Based) Way:</strong></p>
+<pre><code class="language-sql">-- One single, fast, atomic statement.
+UPDATE students
+SET grade = CASE
+                WHEN score &gt;= 50 THEN 'Pass'
+                ELSE 'Fail'
+    END
+WHERE grade IS NULL; -- (or some other condition)
+</code></pre>
+<p><strong>Common Alternatives:</strong></p>
+<ol>
+<li><strong>Set-Based SQL:</strong> Use <code>UPDATE ... JOIN</code>, <code>CASE</code> statements, and subqueries to perform the logic on the entire set at
+   once. This is the #1 alternative.</li>
+<li><strong>Window Functions:</strong> For tasks like running totals, ranking, or <code>LAG</code>/<code>LEAD</code> operations, window functions are the
+   modern, high-performance solution.</li>
+<li><strong>Temporary Tables:</strong> If the logic is very complex, you can often break it down:<ul>
+<li><code>INSERT</code> the initial data set into a temporary table.</li>
+<li>Run a series of simple, set-based <code>UPDATE</code> statements on the temporary table.</li>
+<li><code>JOIN</code> the final temporary table back to the main table to perform the final update.</li>
+</ul>
+</li>
+<li><strong>Application-Level Processing:</strong> For extremely complex business logic, it's often better to select the entire
+   dataset into your application (e.g., in Python, Java) and loop through it there. This keeps complex logic out of the
+   database and is often easier to debug and maintain.</li>
+</ol>
+<hr />
+<h3 id="part-6-classic-interview-questions">Part 6: Classic Interview Questions</h3>
+<ul>
+<li>
+<p><strong>Q: What is a database cursor?</strong></p>
+<ul>
+<li><strong>A:</strong> It's a database object that acts like a pointer or a bookmark, allowing you to process a result set one row
+  at a time in a procedural loop, instead of all at once.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: Why are cursors generally considered bad for performance?</strong></p>
+<ul>
+<li><strong>A:</strong> Because they subvert the database's highly optimized set-based processing model. Cursors lead to a "
+  Row-By-Agonizing-Row" (RBAR) approach, which is much slower, can hold locks for extended periods reducing
+  concurrency, and consumes more server resources than a single set-based SQL statement.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: Can you describe a valid use case for a cursor?</strong></p>
+<ul>
+<li><strong>A:</strong> A valid use case would be a complex administrative task, like iterating through a list of tables to perform
+  a custom maintenance operation on each one, or calling a separate, complex stored procedure for each row in a
+  result set where the logic cannot be expressed in a single statement.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: How would you refactor a procedure that uses a cursor to update rows one-by-one?</strong></p>
+<ul>
+<li><strong>A:</strong> My first approach would be to rewrite it as a single, set-based <code>UPDATE</code> statement. I would use a <code>CASE</code>
+  statement to handle the conditional logic for different rows. If the logic is too complex for that, I would
+  explore using temporary tables to break the problem down into a series of set-based steps.</li>
+</ul>
+</li>
+</ul></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../10.%20engines/" title="Engines"><span>Previous</span></a></div>
+        <div class="next"><a href="../12.%20mvcc/" title="MVCC"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

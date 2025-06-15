@@ -1,0 +1,3415 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Difference between Java & C++ &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../kafka/1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../kafka/2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../kafka/3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../kafka/4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../kafka/5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../kafka/6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../kafka/7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    
+</ul>
+</nav>
+                <div id="content"><h1 id="difference-between-java-c">Difference between Java &amp; C++</h1>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Java</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Memory Management</strong></td>
+<td>Automatic Garbage Collection</td>
+<td>Manual <code>new</code>/<code>delete</code> + Destructors</td>
+</tr>
+<tr>
+<td><strong>Compilation</strong></td>
+<td>Source → Bytecode → JIT to machine code</td>
+<td>Source → Direct machine code</td>
+</tr>
+<tr>
+<td><strong>Pointers</strong></td>
+<td>References only, no pointer arithmetic</td>
+<td>Pointers with full arithmetic (<code>*</code>, <code>&amp;</code>)</td>
+</tr>
+<tr>
+<td><strong>Multiple Inheritance</strong></td>
+<td>Single inheritance + multiple interfaces</td>
+<td>Full multiple inheritance</td>
+</tr>
+<tr>
+<td><strong>Method Overriding</strong></td>
+<td>Virtual by default</td>
+<td>Requires <code>virtual</code> keyword</td>
+</tr>
+<tr>
+<td><strong>Operator Overloading</strong></td>
+<td>Not supported (except <code>+</code> for String)</td>
+<td>Fully supported for all operators</td>
+</tr>
+<tr>
+<td><strong>Templates/Generics</strong></td>
+<td>Type erasure at runtime</td>
+<td>Compile-time template instantiation</td>
+</tr>
+<tr>
+<td><strong>Global Functions</strong></td>
+<td>Must be inside classes</td>
+<td>Allowed outside classes</td>
+</tr>
+<tr>
+<td><strong>Const Correctness</strong></td>
+<td><code>final</code> keyword only</td>
+<td><code>const</code> keyword with deep semantics</td>
+</tr>
+<tr>
+<td><strong>Header Files</strong></td>
+<td>Not required (.java files only)</td>
+<td>Required (.h/.hpp declarations)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="code-examples">Code Examples</h2>
+<h3 id="memory-management">Memory Management</h3>
+<pre><code class="language-java">// Java - Automatic cleanup
+String str = new String(&quot;Hello&quot;);
+// GC handles cleanup automatically
+
+// C++ - Manual cleanup
+std::string* str = new std::string(&quot;Hello&quot;);
+delete str; // Must manually delete
+</code></pre>
+<h3 id="pointers-vs-references">Pointers vs References</h3>
+<pre><code class="language-java">// Java - Only references
+int[] arr = {1, 2, 3};
+// No pointer arithmetic possible
+
+// C++ - Pointers with arithmetic
+int arr[] = {1, 2, 3};
+int* ptr = arr;
+ptr++; // Move to next element
+</code></pre>
+<h3 id="multiple-inheritance">Multiple Inheritance</h3>
+<pre><code class="language-java">// Java - Single inheritance
+class Child extends Parent implements Interface1, Interface2 {}
+
+// C++ - Multiple inheritance
+class Child : public Parent1, public Parent2 {};
+</code></pre>
+<h1 id="what-happens-when-you-run-java-helloworld">What happens when you run <code>java HelloWorld</code>?</h1>
+<h2 id="step-1-source-code-creation">Step 1: Source Code Creation</h2>
+<pre><code class="language-java">// HelloWorld.java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello, World!&quot;);
+    }
+}
+</code></pre>
+<h2 id="step-2-compilation-process">Step 2: Compilation Process</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Function</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lexical Analysis</strong></td>
+<td>Tokenization</td>
+<td>Breaks source into tokens (keywords, identifiers, operators)</td>
+</tr>
+<tr>
+<td><strong>Syntax Analysis</strong></td>
+<td>Parsing</td>
+<td>Creates Abstract Syntax Tree (AST)</td>
+</tr>
+<tr>
+<td><strong>Semantic Analysis</strong></td>
+<td>Type checking</td>
+<td>Verifies types, scopes, and declarations</td>
+</tr>
+<tr>
+<td><strong>Code Generation</strong></td>
+<td>Bytecode creation</td>
+<td>Generates platform-independent bytecode</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command:</strong> <code>javac HelloWorld.java</code></p>
+<p><strong>Output:</strong> <code>HelloWorld.class</code> (contains bytecode)</p>
+<h2 id="step-3-jvm-execution-process">Step 3: JVM Execution Process</h2>
+<p><strong>Command:</strong> <code>java HelloWorld</code></p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Component</th>
+<th>Action</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Loading</strong></td>
+<td>Bootstrap Class Loader</td>
+<td>Load core classes</td>
+<td><code>java.lang.*</code>, <code>java.util.*</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Extension Class Loader</td>
+<td>Load extension classes</td>
+<td><code>javax.*</code> packages</td>
+</tr>
+<tr>
+<td></td>
+<td>Application Class Loader</td>
+<td>Load application classes</td>
+<td>Your <code>.class</code> files</td>
+</tr>
+<tr>
+<td><strong>Linking</strong></td>
+<td>Verification</td>
+<td>Bytecode verification</td>
+<td>Security checks, format validation</td>
+</tr>
+<tr>
+<td></td>
+<td>Preparation</td>
+<td>Memory allocation</td>
+<td>Static variables initialization</td>
+</tr>
+<tr>
+<td></td>
+<td>Resolution</td>
+<td>Symbol resolution</td>
+<td>Convert symbolic references to direct references</td>
+</tr>
+<tr>
+<td><strong>Initialization</strong></td>
+<td>Class initialization</td>
+<td>Static block execution</td>
+<td>Run static initializers</td>
+</tr>
+<tr>
+<td><strong>Execution</strong></td>
+<td>Method execution</td>
+<td>Run main method</td>
+<td>Actual program execution</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-takeaways-for-interviews">Key Takeaways for Interviews</h2>
+<ol>
+<li><strong>Java is both compiled AND interpreted</strong> - compiled to bytecode, then interpreted/JIT compiled</li>
+<li><strong>Bytecode is platform-independent</strong> - same .class file runs on any JVM</li>
+<li><strong>JIT compilation provides runtime optimization</strong> - gets faster with more execution</li>
+<li><strong>Class loading is hierarchical</strong> - delegation model with parent-first loading</li>
+<li><strong>JVM manages memory automatically</strong> - garbage collection handles object cleanup</li>
+<li><strong>Bytecode verification ensures security</strong> - prevents malicious code execution</li>
+<li><strong>Method area stores class-level data</strong> - shared across all instances</li>
+<li><strong>Each thread has its own stack</strong> - method calls and local variables</li>
+<li><strong>Heap stores all objects</strong> - shared memory for instance data</li>
+<li><strong>JIT compilation is adaptive</strong> - optimizes based on runtime behavior</li>
+</ol>
+<h1 id="jvm-jdk-jre">JVM, JDK, JRE</h1>
+<h2 id="core-definitions">Core Definitions</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Full Name</th>
+<th>Purpose</th>
+<th>Contains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>JVM</strong></td>
+<td>Java Virtual Machine</td>
+<td><strong>Executes</strong> Java bytecode</td>
+<td>Runtime environment only</td>
+</tr>
+<tr>
+<td><strong>JRE</strong></td>
+<td>Java Runtime Environment</td>
+<td><strong>Runs</strong> Java applications</td>
+<td>JVM + Standard Libraries</td>
+</tr>
+<tr>
+<td><strong>JDK</strong></td>
+<td>Java Development Kit</td>
+<td><strong>Develops</strong> Java applications</td>
+<td>JRE + Development Tools</td>
+</tr>
+</tbody>
+</table>
+<h2 id="relationship-hierarchy">Relationship Hierarchy</h2>
+<pre><code>JDK (Development Kit)
+├── JRE (Runtime Environment)
+│   ├── JVM (Virtual Machine)
+│   └── Standard Libraries (java.lang, java.util, etc.)
+└── Development Tools (javac, javadoc, jar, etc.)
+</code></pre>
+<h2 id="practical-examples">Practical Examples</h2>
+<h3 id="jvm-example">JVM Example</h3>
+<pre><code class="language-bash"># JVM executes bytecode
+java HelloWorld    # JVM loads and executes HelloWorld.class
+</code></pre>
+<p><strong>What JVM does:</strong></p>
+<ul>
+<li>Loads <code>.class</code> files</li>
+<li>Verifies bytecode</li>
+<li>Executes instructions</li>
+<li>Manages memory (garbage collection)</li>
+</ul>
+<h3 id="jre-example">JRE Example</h3>
+<pre><code class="language-java">// This code needs JRE to run
+import java.util.ArrayList;  // Standard library
+import java.io.File;         // I/O library
+
+public class App {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();  // JRE provides ArrayList
+        File file = new File(&quot;data.txt&quot;);           // JRE provides File class
+    }
+}
+</code></pre>
+<p><strong>What JRE provides:</strong></p>
+<ul>
+<li>JVM to execute the code</li>
+<li>Standard libraries (<code>java.util.*</code>, <code>java.io.*</code>, etc.)</li>
+</ul>
+<h3 id="jdk-example">JDK Example</h3>
+<pre><code class="language-bash"># Development workflow using JDK tools
+javac HelloWorld.java    # Compiler (JDK tool)
+jar cf app.jar *.class   # JAR tool (JDK tool)  
+javadoc *.java          # Documentation (JDK tool)
+java HelloWorld         # Execution (uses JRE within JDK)
+</code></pre>
+<p><strong>Bottom Line:</strong> You develop with JDK, distribute with JRE, execute on JVM.</p>
+<h1 id="java-access-modifiers">Java Access Modifiers</h1>
+<table>
+<thead>
+<tr>
+<th>Modifier</th>
+<th>Keyword</th>
+<th>Same Class</th>
+<th>Subclass</th>
+<th>Different Package (Non-subclass)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Private</strong></td>
+<td><code>private</code></td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>Protected</strong></td>
+<td><code>protected</code></td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>Public</strong></td>
+<td><code>public</code></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="use-cases">Use Cases</h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Modifier</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Encapsulation</strong></td>
+<td><code>private</code></td>
+<td>Internal fields, helper methods</td>
+</tr>
+<tr>
+<td><strong>Inheritance</strong></td>
+<td><code>protected</code></td>
+<td>Methods for subclasses to override</td>
+</tr>
+<tr>
+<td><strong>Public API</strong></td>
+<td><code>public</code></td>
+<td>Methods/fields for external use</td>
+</tr>
+</tbody>
+</table>
+<h1 id="java-primitive-object-data-types">Java Primitive &amp; Object Data Types</h1>
+<h2 id="primitive-types-8-total">Primitive Types (8 Total)</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Size</th>
+<th>Range</th>
+<th>Default</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>byte</strong></td>
+<td>8-bit</td>
+<td>-128 to 127</td>
+<td>0</td>
+<td><code>byte b = 10;</code></td>
+</tr>
+<tr>
+<td><strong>short</strong></td>
+<td>16-bit</td>
+<td>-32,768 to 32,767</td>
+<td>0</td>
+<td><code>short s = 1000;</code></td>
+</tr>
+<tr>
+<td><strong>int</strong></td>
+<td>32-bit</td>
+<td>-2.1B to 2.1B</td>
+<td>0</td>
+<td><code>int i = 42;</code></td>
+</tr>
+<tr>
+<td><strong>long</strong></td>
+<td>64-bit</td>
+<td>-9.2E18 to 9.2E18</td>
+<td>0L</td>
+<td><code>long l = 123L;</code></td>
+</tr>
+<tr>
+<td><strong>float</strong></td>
+<td>32-bit</td>
+<td>6-7 decimal digits</td>
+<td>0.0f</td>
+<td><code>float f = 3.14f;</code></td>
+</tr>
+<tr>
+<td><strong>double</strong></td>
+<td>64-bit</td>
+<td>15 decimal digits</td>
+<td>0.0d</td>
+<td><code>double d = 3.14;</code></td>
+</tr>
+<tr>
+<td><strong>char</strong></td>
+<td>16-bit</td>
+<td>0 to 65,535 (Unicode)</td>
+<td>'\u0000'</td>
+<td><code>char c = 'A';</code></td>
+</tr>
+<tr>
+<td><strong>boolean</strong></td>
+<td>1-bit</td>
+<td>true/false</td>
+<td>false</td>
+<td><code>boolean flag = true;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="wrapper-classes-object-types">Wrapper Classes (Object Types)</h2>
+<table>
+<thead>
+<tr>
+<th>Primitive</th>
+<th>Wrapper Class</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>byte</strong></td>
+<td><code>Byte</code></td>
+<td><code>Byte b = 10;</code></td>
+</tr>
+<tr>
+<td><strong>short</strong></td>
+<td><code>Short</code></td>
+<td><code>Short s = 1000;</code></td>
+</tr>
+<tr>
+<td><strong>int</strong></td>
+<td><code>Integer</code></td>
+<td><code>Integer i = 42;</code></td>
+</tr>
+<tr>
+<td><strong>long</strong></td>
+<td><code>Long</code></td>
+<td><code>Long l = 123L;</code></td>
+</tr>
+<tr>
+<td><strong>float</strong></td>
+<td><code>Float</code></td>
+<td><code>Float f = 3.14f;</code></td>
+</tr>
+<tr>
+<td><strong>double</strong></td>
+<td><code>Double</code></td>
+<td><code>Double d = 3.14;</code></td>
+</tr>
+<tr>
+<td><strong>char</strong></td>
+<td><code>Character</code></td>
+<td><code>Character c = 'A';</code></td>
+</tr>
+<tr>
+<td><strong>boolean</strong></td>
+<td><code>Boolean</code></td>
+<td><code>Boolean flag = true;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-differences">Key Differences</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Primitive</th>
+<th>Object</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Memory Location</strong></td>
+<td>Stack</td>
+<td>Heap</td>
+</tr>
+<tr>
+<td><strong>Null Assignment</strong></td>
+<td>❌ Cannot be null</td>
+<td>✅ Can be null</td>
+</tr>
+<tr>
+<td><strong>Default Value</strong></td>
+<td>Has default (0, false, etc.)</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Faster</td>
+<td>Slower (object overhead)</td>
+</tr>
+<tr>
+<td><strong>Memory Usage</strong></td>
+<td>Less memory</td>
+<td>More memory</td>
+</tr>
+<tr>
+<td><strong>Methods</strong></td>
+<td>No methods</td>
+<td>Has methods</td>
+</tr>
+<tr>
+<td><strong>Collections</strong></td>
+<td>Cannot use directly</td>
+<td>Can use in collections</td>
+</tr>
+<tr>
+<td><strong>Comparison</strong></td>
+<td><code>==</code> compares values</td>
+<td><code>==</code> compares references</td>
+</tr>
+</tbody>
+</table>
+<h2 id="autoboxing-unboxing">Autoboxing &amp; Unboxing</h2>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Autoboxing</strong></td>
+<td><code>Integer i = 42;</code></td>
+<td>Primitive → Wrapper</td>
+</tr>
+<tr>
+<td><strong>Unboxing</strong></td>
+<td><code>int x = Integer.valueOf(42);</code></td>
+<td>Wrapper → Primitive</td>
+</tr>
+<tr>
+<td><strong>In Collections</strong></td>
+<td><code>list.add(42);</code></td>
+<td>Auto-converts to Integer</td>
+</tr>
+<tr>
+<td><strong>In Arithmetic</strong></td>
+<td><code>Integer a = 5; a++;</code></td>
+<td>Unbox → increment → box</td>
+</tr>
+</tbody>
+</table>
+<h1 id="switch-statement-syntax">switch statement syntax</h1>
+<pre><code class="language-java">switch (expression) {
+    case value1:
+        // statements
+        break;
+    case value2:
+        // statements
+        break;
+    default:
+        // statements
+        break;
+}
+</code></pre>
+<h1 id="do-while-vs-while-loop">do-while vs while loop</h1>
+<table>
+<thead>
+<tr>
+<th>Loop Type</th>
+<th>Syntax</th>
+<th>Key Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>while</strong></td>
+<td>Condition checked <strong>before</strong> execution</td>
+<td>May not execute at all</td>
+</tr>
+<tr>
+<td><strong>do-while</strong></td>
+<td>Condition checked <strong>after</strong> execution</td>
+<td>Executes <strong>at least once</strong></td>
+</tr>
+</tbody>
+</table>
+<h1 id="class-object">Class &amp; Object</h1>
+<h2 id="what-is-a-class">What is a Class?</h2>
+<ul>
+<li><strong>Blueprint/Template</strong> for creating objects</li>
+<li>Defines <strong>state</strong> (fields/attributes) and <strong>behavior</strong> (methods)</li>
+<li>Does <strong>NOT</strong> consume memory until objects are created</li>
+</ul>
+<h3 id="class-syntax">Class Syntax</h3>
+<pre><code class="language-java">[access_modifier] class ClassName {
+    // Fields (state)
+    [access_modifier] dataType fieldName;
+
+    // Constructor
+    [access_modifier] ClassName(parameters) {
+        // initialization code
+    }
+
+    // Methods (behavior)
+    [access_modifier] returnType methodName(parameters) {
+        // method body
+    }
+}
+</code></pre>
+<h2 id="what-is-an-object">What is an Object?</h2>
+<ul>
+<li><strong>Instance</strong> of a class</li>
+<li><strong>Actual entity</strong> that occupies memory</li>
+<li>Has <strong>state</strong> (field values) and <strong>behavior</strong> (can invoke methods)</li>
+</ul>
+<h3 id="what-happens-during-object-creation">What Happens During Object Creation?</h3>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Process</th>
+<th>Memory Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Memory Allocation</strong></td>
+<td>JVM allocates memory in heap</td>
+<td>Heap space reserved</td>
+</tr>
+<tr>
+<td><strong>2. Field Initialization</strong></td>
+<td>Default values assigned</td>
+<td>Fields get default values</td>
+</tr>
+<tr>
+<td><strong>3. Constructor Execution</strong></td>
+<td>Constructor code runs</td>
+<td>Custom initialization</td>
+</tr>
+<tr>
+<td><strong>4. Reference Assignment</strong></td>
+<td>Reference stored in variable</td>
+<td>Stack variable points to heap</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dot-operator">Dot Operator (.)</h2>
+<ul>
+<li><strong>Access</strong> object members (fields and methods)</li>
+<li><strong>Syntax</strong>: <code>objectReference.memberName</code></li>
+</ul>
+<h2 id="types-of-object-creation">Types of Object Creation</h2>
+<h3 id="1-using-new-keyword-most-common">1. Using 'new' Keyword (Most Common)</h3>
+<pre><code class="language-java">// Standard constructor call
+Car car1 = new Car(&quot;Toyota&quot;, &quot;Prius&quot;, 2023, 28000.0);
+
+// Anonymous object (no reference stored)
+new Car(&quot;Honda&quot;, &quot;Accord&quot;, 2022, 26000.0).start();
+</code></pre>
+<h3 id="2-using-factory-methods">2. Using Factory Methods</h3>
+<pre><code class="language-java">public class Car {
+    private String brand, model;
+    private int year;
+
+    // Private constructor
+    private Car(String brand, String model, int year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+
+    // Factory method
+    public static Car createEconomyCar(String brand, String model) {
+        return new Car(brand, model, 2020);
+    }
+
+    public static Car createLuxuryCar(String brand, String model) {
+        return new Car(brand, model, 2023);
+    }
+}
+
+// Usage
+Car economyCar = Car.createEconomyCar(&quot;Nissan&quot;, &quot;Versa&quot;);
+Car luxuryCar = Car.createLuxuryCar(&quot;Mercedes&quot;, &quot;S-Class&quot;);
+</code></pre>
+<h3 id="3-using-clone-method">3. Using Clone Method</h3>
+<pre><code class="language-java">public class Car implements Cloneable {
+    private String brand, model;
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
+
+// Usage
+Car originalCar = new Car(&quot;Toyota&quot;, &quot;Camry&quot;, 2023, 25000.0);
+Car clonedCar = (Car) originalCar.clone();
+</code></pre>
+<h3 id="4-using-reflection">4. Using Reflection</h3>
+<pre><code class="language-java">import java.lang.reflect.Constructor;
+
+public class ReflectionExample {
+    public static void main(String[] args) throws Exception {
+        // Get class
+        Class&lt;?&gt; carClass = Car.class;
+
+        // Get constructor
+        Constructor&lt;?&gt; constructor = carClass.getConstructor(
+            String.class, String.class, int.class, double.class);
+
+        // Create object
+        Car car = (Car) constructor.newInstance(&quot;BMW&quot;, &quot;X3&quot;, 2023, 45000.0);
+    }
+}
+</code></pre>
+<h2 id="memory-layout">Memory Layout</h2>
+<h3 id="stack-vs-heap-for-objects">Stack vs Heap for Objects</h3>
+<pre><code class="language-java">public void demonstrateMemory() {
+    // Stack: stores reference variable 'car'
+    // Heap: stores actual Car object
+    Car car = new Car(&quot;Tesla&quot;, &quot;Model S&quot;, 2023, 75000.0);
+
+    // Stack: stores reference variable 'anotherCar'  
+    // Heap: stores another Car object
+    Car anotherCar = new Car(&quot;Audi&quot;, &quot;A4&quot;, 2022, 40000.0);
+
+    // Stack: stores reference variable 'sameCar'
+    // Heap: NO new object created, points to existing object
+    Car sameCar = car;  // Both 'car' and 'sameCar' point to same object
+}
+</code></pre>
+<h3 id="reference-vs-object">Reference vs Object</h3>
+<pre><code class="language-java">public class ReferenceExample {
+    public static void main(String[] args) {
+        Car car1 = new Car(&quot;Ford&quot;, &quot;F150&quot;, 2023, 35000.0);
+        Car car2 = new Car(&quot;Ford&quot;, &quot;F150&quot;, 2023, 35000.0);
+        Car car3 = car1;
+
+        // Reference comparison (==)
+        System.out.println(car1 == car2);  // false (different objects)
+        System.out.println(car1 == car3);  // true (same object reference)
+
+        // Object content comparison (equals)
+        System.out.println(car1.equals(car2));  // depends on equals() implementation
+    }
+}
+</code></pre>
+<h1 id="java-pass-by-value-or-reference">Java Pass by Value or Reference</h1>
+<h2 id="key-concept">Key Concept</h2>
+<p><strong>Java is ALWAYS pass-by-value.</strong> This is a fundamental concept that often confuses developers, especially those coming
+from languages that support pass-by-reference.</p>
+<h2 id="what-this-means">What This Means</h2>
+<h3 id="for-primitive-types">For Primitive Types</h3>
+<p>When you pass primitive types (int, double, boolean, char, etc.), Java passes a <strong>copy of the actual value</strong>.</p>
+<pre><code class="language-java">public void modifyPrimitive(int x) {
+    x = 100;  // Only modifies the local copy
+}
+
+int original = 5;
+modifyPrimitive(original);
+System.out.println(original);  // Still prints 5
+</code></pre>
+<h3 id="for-object-references">For Object References</h3>
+<p>When you pass objects, Java passes a <strong>copy of the reference</strong> (memory address), not the object itself or a reference to
+the reference.</p>
+<pre><code class="language-java">public void modifyObject(StringBuilder sb) {
+    sb.append(&quot; World&quot;);  // Modifies the object that the reference points to
+}
+
+public void reassignObject(StringBuilder sb) {
+    sb = new StringBuilder(&quot;New Object&quot;);  // Only changes the local copy of reference
+}
+
+StringBuilder original = new StringBuilder(&quot;Hello&quot;);
+modifyObject(original);
+System.out.println(original);  // Prints &quot;Hello World&quot;
+
+reassignObject(original);
+System.out.println(original);  // Still prints &quot;Hello World&quot;
+</code></pre>
+<h2 id="common-interview-questions-answers">Common Interview Questions &amp; Answers</h2>
+<p><strong>Q: "Can you change the contents of an object passed to a method?"</strong>
+A: Yes, because you receive a copy of the reference pointing to the same object in memory.</p>
+<p><strong>Q: "Can you make the original reference variable point to a different object?"</strong>
+A: No, because you only have a copy of the reference, not the original reference variable itself.</p>
+<p><strong>Q: "What about arrays?"</strong>
+A: Arrays are objects in Java, so the same rules apply - you get a copy of the reference to the array.</p>
+<h1 id="this-keyword">this keyword</h1>
+<p>The <strong>this</strong> keyword is a reference variable that refers to the current object instance within an instance method or
+constructor.</p>
+<h2 id="cannot-use-in-static-context">Cannot Use in Static Context</h2>
+<pre><code class="language-java">public class Example {
+    static int count = 0;
+
+    public static void staticMethod() {
+        // this.count = 5;  // COMPILE ERROR - no 'this' in static context
+        count = 5;  // Correct way
+    }
+}
+</code></pre>
+<h1 id="java-garbage-collection-gc">Java Garbage Collection (GC)</h1>
+<h2 id="what-is-garbage-collection">What is Garbage Collection?</h2>
+<p>Garbage Collection is Java's <strong>automatic memory management</strong> process that identifies and removes objects from heap
+memory that are no longer reachable or referenced by any part of the program.</p>
+<h2 id="why-garbage-collection">Why Garbage Collection?</h2>
+<ul>
+<li><strong>Prevents memory leaks</strong> by automatically freeing unused memory</li>
+<li><strong>Reduces programmer burden</strong> - no manual memory management like C/C++</li>
+<li><strong>Improves application reliability</strong> by preventing OutOfMemoryError in many cases</li>
+</ul>
+<h2 id="how-gc-works-object-lifecycle">How GC Works - Object Lifecycle</h2>
+<h3 id="object-creation">Object Creation</h3>
+<pre><code class="language-java">String str = new String(&quot;Hello&quot;);  // Object created in heap
+</code></pre>
+<h3 id="object-becomes-unreachable">Object Becomes Unreachable</h3>
+<pre><code class="language-java">str = null;  // Original &quot;Hello&quot; object now unreachable
+str = new String(&quot;World&quot;);  // Previous object becomes eligible for GC
+</code></pre>
+<h3 id="gc-process">GC Process</h3>
+<ol>
+<li><strong>Mark</strong>: Identify which objects are still reachable</li>
+<li><strong>Sweep</strong>: Remove unreachable objects</li>
+<li><strong>Compact</strong>: Defragment memory (optional, depends on collector)</li>
+</ol>
+<h2 id="memory-areas-and-generations">Memory Areas and Generations</h2>
+<h3 id="heap-structure-generational-hypothesis">Heap Structure (Generational Hypothesis)</h3>
+<pre><code>Heap Memory
+├── Young Generation
+│   ├── Eden Space (new objects)
+│   ├── Survivor Space 0 (S0)
+│   └── Survivor Space 1 (S1)
+└── Old Generation (Tenured Space)
+</code></pre>
+<h3 id="why-generational">Why Generational?</h3>
+<ul>
+<li><strong>Most objects die young</strong> - short-lived objects are collected quickly</li>
+<li><strong>Fewer old objects need collection</strong> - reduces GC overhead</li>
+<li><strong>Different algorithms</strong> optimized for each generation</li>
+</ul>
+<h2 id="gc-process-flow">GC Process Flow</h2>
+<h3 id="minor-gc-young-generation">Minor GC (Young Generation)</h3>
+<ol>
+<li>New objects allocated in <strong>Eden space</strong></li>
+<li>When Eden fills up, <strong>Minor GC</strong> triggered</li>
+<li>Live objects moved to <strong>Survivor space</strong></li>
+<li>Objects surviving multiple Minor GCs <strong>promoted to Old Generation</strong></li>
+</ol>
+<h3 id="majorfull-gc-old-generation">Major/Full GC (Old Generation)</h3>
+<ol>
+<li>When Old Generation fills up, <strong>Major GC</strong> triggered</li>
+<li><strong>More expensive</strong> - examines entire heap</li>
+<li><strong>Stop-the-world</strong> event - application pauses</li>
+</ol>
+<h2 id="common-gc-algorithms">Common GC Algorithms</h2>
+<h3 id="serial-gc">Serial GC</h3>
+<pre><code class="language-bash">-XX:+UseSerialGC
+</code></pre>
+<ul>
+<li><strong>Single-threaded</strong> collector</li>
+<li>Good for <strong>small applications</strong> or single-core machines</li>
+<li><strong>Pauses application</strong> during collection</li>
+</ul>
+<h3 id="parallel-gc-default-in-java-8">Parallel GC (Default in Java 8)</h3>
+<pre><code class="language-bash">-XX:+UseParallelGC
+</code></pre>
+<ul>
+<li><strong>Multi-threaded</strong> collector</li>
+<li>Good for <strong>throughput-focused</strong> applications</li>
+<li>Still has <strong>stop-the-world</strong> pauses</li>
+</ul>
+<h2 id="key-gc-tuning-parameters">Key GC Tuning Parameters</h2>
+<h3 id="heap-size">Heap Size</h3>
+<pre><code class="language-bash">-Xms2g          # Initial heap size
+-Xmx4g          # Maximum heap size
+-XX:NewRatio=2  # Old/Young generation ratio
+</code></pre>
+<h3 id="gc-behavior">GC Behavior</h3>
+<pre><code class="language-bash">-XX:MaxGCPauseMillis=100    # Target pause time (G1)
+-XX:GCTimeRatio=99          # Throughput goal
+-XX:+PrintGC                # Enable GC logging
+</code></pre>
+<h2 id="when-objects-become-eligible-for-gc">When Objects Become Eligible for GC</h2>
+<h3 id="reference-types">Reference Types</h3>
+<pre><code class="language-java">// Strong reference - prevents GC
+Object obj = new Object();
+
+// Null reference - eligible for GC
+obj = null;
+
+// Method local variables - eligible after method ends
+public void method() {
+    String local = new String(&quot;temp&quot;);
+}  // 'local' becomes eligible here
+</code></pre>
+<h3 id="common-scenarios">Common Scenarios</h3>
+<ol>
+<li><strong>Object goes out of scope</strong></li>
+<li><strong>Reference set to null</strong></li>
+<li><strong>Circular references</strong> with no external references</li>
+<li><strong>Anonymous objects</strong>: <code>new StringBuilder().append("test")</code></li>
+</ol>
+<h2 id="memory-leaks-in-java-despite-gc">Memory Leaks in Java (Despite GC)</h2>
+<h3 id="common-causes">Common Causes</h3>
+<pre><code class="language-java">// 1. Static collections
+public class LeakyClass {
+    private static List&lt;Object&gt; cache = new ArrayList&lt;&gt;();  // Never cleared
+}
+
+// 2. Listener not removed
+button.addActionListener(listener);  // Forgot to remove
+
+// 3. Inner class holding outer reference
+public class Outer {
+    class Inner {  // Holds reference to Outer instance
+    }
+}
+</code></pre>
+<h2 id="interview-questions-answers">Interview Questions &amp; Answers</h2>
+<p><strong>Q: "Can you force garbage collection?"</strong>
+A: You can <strong>suggest</strong> it with <code>System.gc()</code> or <code>Runtime.gc()</code>, but JVM is not obligated to run GC immediately.</p>
+<p><strong>Q: "What happens if an object's finalize() method throws an exception?"</strong>
+A: The exception is <strong>ignored</strong>, and the object may not be garbage collected properly.</p>
+<p><strong>Q: "Difference between Minor and Major GC?"</strong>
+A: Minor GC cleans Young Generation (fast, frequent), Major GC cleans Old Generation (slow, expensive).</p>
+<p><strong>Q: "How do you detect memory leaks?"</strong>
+A: Use profiling tools like <strong>JVisualVM</strong>, <strong>Eclipse MAT</strong>, <strong>JProfiler</strong>, or monitor heap usage patterns.</p>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li><strong>Avoid premature optimization</strong> - profile first</li>
+<li><strong>Set appropriate heap sizes</strong> based on application needs</li>
+<li><strong>Monitor GC logs</strong> in production</li>
+<li><strong>Choose GC algorithm</strong> based on application requirements (throughput vs latency)</li>
+<li><strong>Avoid creating unnecessary objects</strong> in tight loops</li>
+</ul>
+<h2 id="red-flags-for-interviewers">Red Flags for Interviewers</h2>
+<ul>
+<li>Don't say "Java has no memory leaks" - it does, just different types</li>
+<li>Don't recommend calling <code>System.gc()</code> in production code</li>
+<li>Understand that <strong>finalize()</strong> is deprecated (Java 9+) and unreliable</li>
+</ul>
+<h1 id="gc-free-programming">GC-Free Programming</h1>
+<h2 id="what-is-gc-free-programming">What is GC-Free Programming?</h2>
+<p>Writing Java code that <strong>creates fewer objects</strong> to reduce garbage collection overhead. Important for <strong>high-performance
+applications</strong> like trading systems or real-time games.</p>
+<h2 id="main-strategies">Main Strategies</h2>
+<h3 id="1-object-pooling">1. Object Pooling</h3>
+<p>Reuse objects instead of creating new ones:</p>
+<pre><code class="language-java">// Simple object pool
+public class StringBuilderPool {
+    private final Queue&lt;StringBuilder&gt; pool = new ArrayDeque&lt;&gt;();
+
+    public StringBuilder get() {
+        StringBuilder sb = pool.poll();
+        return sb != null ? sb : new StringBuilder();
+    }
+
+    public void release(StringBuilder sb) {
+        sb.setLength(0);  // Reset
+        pool.offer(sb);
+    }
+}
+
+// Usage
+StringBuilderPool pool = new StringBuilderPool();
+StringBuilder sb = pool.get();
+try {
+    sb.append(&quot;Hello&quot;).append(&quot; World&quot;);
+    return sb.toString();
+} finally {
+    pool.release(sb);
+}
+</code></pre>
+<h3 id="2-avoid-boxingunboxing">2. Avoid Boxing/Unboxing</h3>
+<p>Use primitive collections instead of wrapper objects:</p>
+<pre><code class="language-java">// BAD - creates Integer objects
+List&lt;Integer&gt; numbers = new ArrayList&lt;&gt;();
+numbers.add(42);  // Boxing: int → Integer
+
+// BETTER - using Eclipse Collections
+MutableIntList numbers = new IntArrayList();
+numbers.add(42);  // No boxing, no objects created
+</code></pre>
+<h3 id="3-reuse-stringbuilder">3. Reuse StringBuilder</h3>
+<p>Don't create new StringBuilder instances:</p>
+<pre><code class="language-java">public class StringHelper {
+    private final StringBuilder reusable = new StringBuilder();
+
+    public String concat(String a, String b, String c) {
+        reusable.setLength(0);  // Reset without creating new object
+        reusable.append(a).append(b).append(c);
+        return reusable.toString();
+    }
+}
+</code></pre>
+<h3 id="4-avoid-common-allocation-traps">4. Avoid Common Allocation Traps</h3>
+<pre><code class="language-java">// BAD - hidden allocations
+String result = str1 + str2;        // Creates StringBuilder
+Integer count = map.get(key);       // Boxing
+String[] parts = text.split(&quot;,&quot;);   // Creates array
+
+// BETTER
+StringBuilder sb = reusableBuilder;
+sb.setLength(0).append(str1).append(str2);
+
+int count = primitiveMap.get(key);  // No boxing
+
+// Manual parsing instead of split()
+</code></pre>
+<h3 id="5-use-primitive-arrays">5. Use Primitive Arrays</h3>
+<p>Instead of collections for simple data:</p>
+<pre><code class="language-java">// BAD
+List&lt;Integer&gt; ids = new ArrayList&lt;&gt;();
+
+// BETTER  
+int[] ids = new int[100];  // Fixed size, no objects
+int count = 0;
+
+// Add
+ids[count++] = newId;
+
+// Iterate
+for (int i = 0; i &lt; count; i++) {
+    process(ids[i]);
+}
+</code></pre>
+<h2 id="simple-patterns">Simple Patterns</h2>
+<h3 id="ring-buffer-for-fixed-size-queues">Ring Buffer for Fixed-Size Queues</h3>
+<pre><code class="language-java">public class IntRingBuffer {
+    private final int[] buffer;
+    private int head = 0, tail = 0;
+
+    public IntRingBuffer(int size) {
+        buffer = new int[size];
+    }
+
+    public boolean offer(int value) {
+        int nextTail = (tail + 1) % buffer.length;
+        if (nextTail == head) return false;  // Full
+
+        buffer[tail] = value;
+        tail = nextTail;
+        return true;
+    }
+
+    public int poll() {
+        if (head == tail) return -1;  // Empty
+
+        int value = buffer[head];
+        head = (head + 1) % buffer.length;
+        return value;
+    }
+}
+</code></pre>
+<h3 id="threadlocal-for-thread-safe-reuse">ThreadLocal for Thread-Safe Reuse</h3>
+<pre><code class="language-java">public class ReusableObjects {
+    private static final ThreadLocal&lt;StringBuilder&gt; BUILDER = 
+        ThreadLocal.withInitial(() -&gt; new StringBuilder(256));
+
+    public static String buildString(String... parts) {
+        StringBuilder sb = BUILDER.get();
+        sb.setLength(0);
+
+        for (String part : parts) {
+            sb.append(part);
+        }
+        return sb.toString();
+    }
+}
+</code></pre>
+<h1 id="data-types-operators">Data Types &amp; Operators</h1>
+<h2 id="primitive-arrays">Primitive Arrays</h2>
+<h3 id="one-dimensional-arrays">One Dimensional Arrays</h3>
+<pre><code class="language-java">// Declaration and initialization
+int[] numbers = new int[5];           // Creates array of size 5, all elements = 0
+int[] values = {1, 2, 3, 4, 5};      // Array literal
+int[] data = new int[]{10, 20, 30};  // Explicit initialization
+
+// Access and modification
+numbers[0] = 100;        // Set first element
+int first = numbers[0];  // Get first element
+int length = numbers.length;  // Array length (property, not method)
+
+// Common operations
+for (int i = 0; i &lt; numbers.length; i++) {
+    System.out.println(numbers[i]);
+}
+
+// Arrays are objects
+int[] arr1 = {1, 2, 3};
+int[] arr2 = arr1;  // Both reference same array
+arr2[0] = 99;       // Changes arr1[0] as well
+</code></pre>
+<h3 id="two-dimensional-arrays">Two Dimensional Arrays</h3>
+<pre><code class="language-java">// Declaration methods
+int[][] matrix = new int[3][4];              // 3 rows, 4 columns
+int[][] grid = {{1, 2}, {3, 4}, {5, 6}};    // Irregular initialization
+int[][] jagged = new int[3][];               // Jagged array - different row sizes
+
+// Initialize jagged array
+jagged[0] = new int[2];  // First row: 2 elements
+jagged[1] = new int[4];  // Second row: 4 elements
+jagged[2] = new int[1];  // Third row: 1 element
+
+// Access elements
+matrix[1][2] = 10;           // Row 1, Column 2
+int value = matrix[1][2];    // Get value
+
+// Iterate through 2D array
+for (int row = 0; row &lt; matrix.length; row++) {
+    for (int col = 0; col &lt; matrix[row].length; col++) {
+        System.out.print(matrix[row][col] + &quot; &quot;);
+    }
+    System.out.println();
+}
+</code></pre>
+<h2 id="for-each-pattern">For-Each Pattern</h2>
+<pre><code class="language-java">// Arrays
+int[] numbers = {1, 2, 3, 4, 5};
+for (int num : numbers) {
+    System.out.println(num);  // num is copy, can't modify original
+}
+
+// Collections
+List&lt;String&gt; names = Arrays.asList(&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;);
+for (String name : names) {
+    System.out.println(name);
+}
+
+// 2D Arrays
+int[][] matrix = {{1, 2}, {3, 4}, {5, 6}};
+for (int[] row : matrix) {
+    for (int element : row) {
+        System.out.print(element + &quot; &quot;);
+    }
+    System.out.println();
+}
+</code></pre>
+<h2 id="string-immutability">String Immutability</h2>
+<h3 id="understanding-immutability">Understanding Immutability</h3>
+<pre><code class="language-java">String str = &quot;Hello&quot;;
+str.concat(&quot; World&quot;);  // Returns new string, doesn't modify original
+System.out.println(str);  // Still prints &quot;Hello&quot;
+
+// Correct way
+str = str.concat(&quot; World&quot;);  // Assign returned value
+System.out.println(str);  // Now prints &quot;Hello World&quot;
+
+// Common mistake
+String result = &quot;&quot;;
+for (int i = 0; i &lt; 1000; i++) {
+    result += i + &quot;,&quot;;  // Creates 1000 intermediate String objects!
+}
+</code></pre>
+<h3 id="why-strings-are-immutable">Why Strings are Immutable</h3>
+<pre><code class="language-java">// Security - can't change string after validation
+public void processUser(String username) {
+    if (isValid(username)) {
+        // username can't be changed by another thread
+        database.save(username);
+    }
+}
+
+// String pool efficiency
+String s1 = &quot;Hello&quot;;
+String s2 = &quot;Hello&quot;;  // Points to same object in string pool
+System.out.println(s1 == s2);  // true
+
+// Hash code caching
+String key = &quot;myKey&quot;;
+int hash1 = key.hashCode();  // Calculated once
+int hash2 = key.hashCode();  // Cached value returned
+</code></pre>
+<h3 id="working-with-immutable-strings">Working with Immutable Strings</h3>
+<pre><code class="language-java">// Use StringBuilder for multiple concatenations
+StringBuilder sb = new StringBuilder();
+for (int i = 0; i &lt; 1000; i++) {
+    sb.append(i).append(&quot;,&quot;);
+}
+String result = sb.toString();
+
+// String methods return new strings
+String original = &quot;  Hello World  &quot;;
+String trimmed = original.trim();        // New string
+String upper = original.toUpperCase();   // New string
+String replaced = original.replace(&quot;Hello&quot;, &quot;Hi&quot;);  // New string
+
+// Original string unchanged
+System.out.println(original);  // Still &quot;  Hello World  &quot;
+</code></pre>
+<h2 id="basic-var-usage">Basic var Usage</h2>
+<pre><code class="language-java">// Instead of explicit types
+List&lt;String&gt; names = new ArrayList&lt;String&gt;();
+Map&lt;Integer, List&lt;String&gt;&gt; groups = new HashMap&lt;Integer, List&lt;String&gt;&gt;();
+
+// Use var for cleaner code
+var names = new ArrayList&lt;String&gt;();  // Type inferred as ArrayList&lt;String&gt;
+var groups = new HashMap&lt;Integer, List&lt;String&gt;&gt;();  // Type inferred
+
+// Primitive types
+var count = 10;        // int
+var price = 19.99;     // double
+var active = true;     // boolean
+var letter = 'A';      // char
+</code></pre>
+<h2 id="bitwise-operators">Bitwise Operators</h2>
+<h3 id="basic-bitwise-operations">Basic Bitwise Operations</h3>
+<pre><code class="language-java">int a = 12;   // Binary: 1100
+int b = 10;   // Binary: 1010
+
+// AND (&amp;) - both bits must be 1
+int and = a &amp; b;    // 1100 &amp; 1010 = 1000 = 8
+
+// OR (|) - at least one bit must be 1  
+int or = a | b;     // 1100 | 1010 = 1110 = 14
+
+// XOR (^) - bits must be different
+int xor = a ^ b;    // 1100 ^ 1010 = 0110 = 6
+
+// NOT (~) - flips all bits
+int not = ~a;       // ~1100 = ...11110011 = -13 (two's complement)
+
+System.out.println(&quot;AND: &quot; + and);  // 8
+System.out.println(&quot;OR: &quot; + or);    // 14  
+System.out.println(&quot;XOR: &quot; + xor);  // 6
+System.out.println(&quot;NOT: &quot; + not);  // -13
+</code></pre>
+<h3 id="practical-bitwise-applications">Practical Bitwise Applications</h3>
+<pre><code class="language-java">// Check if number is even/odd
+boolean isEven = (num &amp; 1) == 0;  // Last bit is 0 for even numbers
+boolean isOdd = (num &amp; 1) == 1;   // Last bit is 1 for odd numbers
+
+// Set specific bit (make it 1)
+int setBit(int num, int position) {
+    return num | (1 &lt;&lt; position);
+}
+
+// Clear specific bit (make it 0)
+int clearBit(int num, int position) {
+    return num &amp; ~(1 &lt;&lt; position);
+}
+
+// Toggle specific bit
+int toggleBit(int num, int position) {
+    return num ^ (1 &lt;&lt; position);
+}
+
+// Check if specific bit is set
+boolean isBitSet(int num, int position) {
+    return (num &amp; (1 &lt;&lt; position)) != 0;
+}
+
+// Example usage
+int flags = 0;
+flags = setBit(flags, 2);    // Set bit 2: 0100
+flags = setBit(flags, 0);    // Set bit 0: 0101
+boolean bit1Set = isBitSet(flags, 1);  // false
+</code></pre>
+<h2 id="shift-operators">Shift Operators</h2>
+<h3 id="left-shift">Left Shift (&lt;&lt;)</h3>
+<pre><code class="language-java">int num = 5;        // Binary: 101
+int left1 = num &lt;&lt; 1;  // 101 &lt;&lt; 1 = 1010 = 10
+int left2 = num &lt;&lt; 2;  // 101 &lt;&lt; 2 = 10100 = 20
+
+// Left shift by n positions = multiply by 2^n
+System.out.println(5 &lt;&lt; 1);  // 5 * 2^1 = 10
+System.out.println(5 &lt;&lt; 2);  // 5 * 2^2 = 20
+System.out.println(5 &lt;&lt; 3);  // 5 * 2^3 = 40
+
+// Fast multiplication by powers of 2
+int fastMultiply = num &lt;&lt; 3;  // Faster than num * 8
+</code></pre>
+<h3 id="right-shift">Right Shift (&gt;&gt;)</h3>
+<pre><code class="language-java">int num = 20;       // Binary: 10100
+int right1 = num &gt;&gt; 1;  // 10100 &gt;&gt; 1 = 1010 = 10
+int right2 = num &gt;&gt; 2;  // 10100 &gt;&gt; 2 = 101 = 5
+
+// Right shift by n positions = divide by 2^n (integer division)
+System.out.println(20 &gt;&gt; 1);  // 20 / 2^1 = 10
+System.out.println(20 &gt;&gt; 2);  // 20 / 2^2 = 5
+
+// Handles negative numbers (sign extension)
+int negative = -8;  // Binary: ...11111000
+int rightNeg = negative &gt;&gt; 1;  // ...11111100 = -4
+</code></pre>
+<h2 id="ternary-operator">Ternary Operator</h2>
+<pre><code class="language-java">// condition ? valueIfTrue : valueIfFalse
+int a = 10, b = 20;
+int max = (a &gt; b) ? a : b;  // max = 20
+
+String result = (score &gt;= 60) ? &quot;Pass&quot; : &quot;Fail&quot;;
+
+// Equivalent if-else
+int max2;
+if (a &gt; b) {
+    max2 = a;
+} else {
+    max2 = b;
+}
+</code></pre>
+<h1 id="method-overloading-static-and-inner-classes">Method Overloading, Static, and Inner Classes</h1>
+<h2 id="method-overloading-polymorphism">Method Overloading &amp; Polymorphism</h2>
+<h3 id="method-overloading">Method Overloading</h3>
+<p><strong>Same method name, different parameters</strong> in the same class.</p>
+<pre><code class="language-java">public class Calculator {
+    // Different number of parameters
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+</code></pre>
+<h3 id="polymorphism-method-overriding">Polymorphism (Method Overriding)</h3>
+<p><strong>Same method signature in parent and child classes.</strong></p>
+<pre><code class="language-java">class Animal {
+    public void makeSound() {
+        System.out.println(&quot;Animal makes a sound&quot;);
+    }
+
+    public void eat() {
+        System.out.println(&quot;Animal eats&quot;);
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {  // Overriding parent method
+        System.out.println(&quot;Dog barks&quot;);
+    }
+
+    // Overloading within same class
+    public void makeSound(String intensity) {
+        System.out.println(&quot;Dog barks &quot; + intensity);
+    }
+}
+
+// Runtime polymorphism
+Animal animal = new Dog();  // Reference type: Animal, Object type: Dog
+animal.makeSound();         // Calls Dog's version - &quot;Dog barks&quot;
+animal.eat();              // Calls Animal's version
+
+// Compile-time method resolution
+Dog dog = new Dog();
+dog.makeSound();           // Calls overridden version
+dog.makeSound(&quot;loudly&quot;);   // Calls overloaded version
+</code></pre>
+<h2 id="constructor-overloading">Constructor Overloading</h2>
+<h3 id="multiple-constructors">Multiple Constructors</h3>
+<pre><code class="language-java">public class Person {
+    private String name;
+    private int age;
+    private String email;
+
+    // Default constructor
+    public Person() {
+        this(&quot;Unknown&quot;, 0, &quot;no-email&quot;);  // Constructor chaining
+    }
+
+    // Constructor with name only
+    public Person(String name) {
+        this(name, 0, &quot;no-email&quot;);
+    }
+
+    // Constructor with name and age
+    public Person(String name, int age) {
+        this(name, age, &quot;no-email&quot;);
+    }
+
+    // Full constructor
+    public Person(String name, int age, String email) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
+}
+
+// Usage
+Person p1 = new Person();                          // Uses default
+Person p2 = new Person(&quot;John&quot;);                    // Name only
+Person p3 = new Person(&quot;Jane&quot;, 25);               // Name and age
+Person p4 = new Person(&quot;Bob&quot;, 30, &quot;bob@email.com&quot;); // All parameters
+</code></pre>
+<h3 id="constructor-chaining-rules">Constructor Chaining Rules</h3>
+<pre><code class="language-java">public class Example {
+    private int value;
+
+    public Example() {
+        this(10);  // Must be first statement
+        // System.out.println(&quot;Hello&quot;);  // This would cause error
+    }
+
+    public Example(int value) {
+        this.value = value;
+        System.out.println(&quot;Constructor called&quot;);  // OK after this()
+    }
+}
+
+// Inheritance constructor chaining
+class Parent {
+    public Parent(String message) {
+        System.out.println(&quot;Parent: &quot; + message);
+    }
+}
+
+class Child extends Parent {
+    public Child() {
+        super(&quot;Default message&quot;);  // Must call parent constructor first
+        System.out.println(&quot;Child constructor&quot;);
+    }
+
+    public Child(String message) {
+        super(message);
+        System.out.println(&quot;Child with message&quot;);
+    }
+}
+</code></pre>
+<h2 id="understanding-static">Understanding Static</h2>
+<h3 id="static-variables-class-variables">Static Variables (Class Variables)</h3>
+<pre><code class="language-java">public class Counter {
+    private static int count = 0;  // Shared among all instances
+    private int instanceId;        // Unique per instance
+
+    public Counter() {
+        count++;                   // Increment class variable
+        this.instanceId = count;   // Set instance variable
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public int getInstanceId() {
+        return instanceId;
+    }
+}
+
+// Usage
+Counter c1 = new Counter();  // count = 1
+Counter c2 = new Counter();  // count = 2
+Counter c3 = new Counter();  // count = 3
+
+System.out.println(Counter.getCount());  // 3 - accessed via class name
+System.out.println(c1.getInstanceId()); // 1
+System.out.println(c2.getInstanceId()); // 2
+</code></pre>
+<h3 id="static-methods">Static Methods</h3>
+<pre><code class="language-java">public class MathUtils {
+    // Static method - belongs to class, not instance
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    // Static method can only access static members directly
+    private static String className = &quot;MathUtils&quot;;
+
+    public static void printClassName() {
+        System.out.println(className);        // OK - static variable
+        // System.out.println(instanceVar);   // Error - can't access instance variable
+        // instanceMethod();                  // Error - can't call instance method
+    }
+
+    // Instance method can access both static and instance members
+    private String instanceVar = &quot;instance&quot;;
+
+    public void instanceMethod() {
+        System.out.println(className);    // OK - can access static
+        System.out.println(instanceVar); // OK - can access instance
+        printClassName();                // OK - can call static method
+    }
+}
+
+// Usage - no object creation needed
+int result = MathUtils.add(5, 3);  // Called via class name
+MathUtils.printClassName();
+</code></pre>
+<h3 id="static-blocks">Static Blocks</h3>
+<pre><code class="language-java">public class Configuration {
+    private static Properties config;
+    private static String dbUrl;
+
+    // Static block - runs when class is first loaded
+    static {
+        System.out.println(&quot;Loading configuration...&quot;);
+        config = new Properties();
+        try {
+            config.load(new FileInputStream(&quot;config.properties&quot;));
+            dbUrl = config.getProperty(&quot;db.url&quot;);
+        } catch (IOException e) {
+            dbUrl = &quot;default-url&quot;;
+        }
+        System.out.println(&quot;Configuration loaded&quot;);
+    }
+
+    // Multiple static blocks execute in order
+    static {
+        System.out.println(&quot;Second static block&quot;);
+        validateConfiguration();
+    }
+
+    private static void validateConfiguration() {
+        if (dbUrl == null) {
+            throw new RuntimeException(&quot;DB URL not configured&quot;);
+        }
+    }
+
+    public static String getDbUrl() {
+        return dbUrl;
+    }
+}
+
+// First access to class triggers static blocks
+String url = Configuration.getDbUrl();  // Prints loading messages
+</code></pre>
+<h3 id="static-inner-classes">Static Inner Classes</h3>
+<pre><code class="language-java">public class OuterClass {
+    private String outerField = &quot;outer&quot;;
+    private static String staticOuterField = &quot;static outer&quot;;
+
+    // Static nested class
+    public static class StaticNestedClass {
+        public void display() {
+            // Can access static members of outer class
+            System.out.println(staticOuterField);  // OK
+
+            // Cannot access instance members directly
+            // System.out.println(outerField);     // Error
+
+            // Need outer class instance to access instance members
+            OuterClass outer = new OuterClass();
+            System.out.println(outer.outerField);  // OK
+        }
+    }
+
+    // Non-static inner class for comparison
+    public class InnerClass {
+        public void display() {
+            System.out.println(outerField);        // OK - direct access
+            System.out.println(staticOuterField);  // OK - can access static too
+        }
+    }
+}
+
+// Usage
+// Static nested class - no outer instance needed
+OuterClass.StaticNestedClass nested = new OuterClass.StaticNestedClass();
+nested.display();
+
+// Non-static inner class - needs outer instance
+OuterClass outer = new OuterClass();
+OuterClass.InnerClass inner = outer.new InnerClass();
+inner.display();
+</code></pre>
+<h3 id="static-memory-model">Static Memory Model</h3>
+<pre><code class="language-java">public class MemoryExample {
+    private static int staticVar = 100;     // Method Area (Metaspace)
+    private int instanceVar = 200;          // Heap
+
+    public static void staticMethod() {     // Method Area
+        int localVar = 300;                 // Stack
+    }
+
+    public void instanceMethod() {          // Method Area (method code)
+        int localVar = 400;                 // Stack
+    }
+}
+
+/*
+Memory Layout:
+├── Method Area (Metaspace)
+│   ├── Class metadata
+│   ├── Static variables (staticVar = 100)
+│   ├── Static methods (staticMethod)
+│   └── Instance method code (instanceMethod)
+├── Heap
+│   └── Instance variables (instanceVar = 200)
+└── Stack (per thread)
+    └── Local variables (localVar)
+*/
+</code></pre>
+<h3 id="static-import">Static Import</h3>
+<pre><code class="language-java">// Static import for utility methods
+import static java.lang.Math.PI;
+import static java.lang.Math.sqrt;
+import static java.util.Collections.sort;
+
+public class StaticImportExample {
+    public void calculate() {
+        double radius = 5.0;
+        double area = PI * radius * radius;  // No need for Math.PI
+        double side = sqrt(25);              // No need for Math.sqrt
+
+        List&lt;String&gt; list = Arrays.asList(&quot;c&quot;, &quot;a&quot;, &quot;b&quot;);
+        sort(list);                          // No need for Collections.sort
+    }
+}
+</code></pre>
+<h2 id="nested-and-inner-classes">Nested and Inner Classes</h2>
+<h3 id="types-of-nested-classes">Types of Nested Classes</h3>
+<pre><code class="language-java">public class OuterClass {
+    private String outerField = &quot;Outer&quot;;
+    private static String staticField = &quot;Static&quot;;
+
+    // 1. Static Nested Class
+    public static class StaticNested {
+        public void method() {
+            System.out.println(staticField);        // Can access static members
+            // System.out.println(outerField);      // Cannot access instance members
+        }
+    }
+
+    // 2. Non-static Inner Class (Member Inner Class)
+    public class MemberInner {
+        public void method() {
+            System.out.println(outerField);         // Can access all outer members
+            System.out.println(staticField);        // Can access static members
+            System.out.println(OuterClass.this.outerField); // Explicit outer reference
+        }
+    }
+
+    public void outerMethod() {
+        // 3. Local Inner Class
+        class LocalInner {
+            public void method() {
+                System.out.println(outerField);     // Can access outer members
+                // Can access local variables if they are effectively final
+            }
+        }
+
+        LocalInner local = new LocalInner();
+        local.method();
+
+        // 4. Anonymous Inner Class
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(outerField);     // Can access outer members
+            }
+        };
+
+        // Modern anonymous class (lambda)
+        Runnable lambda = () -&gt; System.out.println(outerField);
+    }
+}
+</code></pre>
+<h3 id="creating-nested-class-instances">Creating Nested Class Instances</h3>
+<pre><code class="language-java">// Static nested class - no outer instance needed
+OuterClass.StaticNested staticNested = new OuterClass.StaticNested();
+
+// Member inner class - needs outer instance
+OuterClass outer = new OuterClass();
+OuterClass.MemberInner memberInner = outer.new MemberInner();
+
+// Alternative syntax for member inner class
+OuterClass.MemberInner memberInner2 = new OuterClass().new MemberInner();
+</code></pre>
+<h3 id="local-inner-class-with-variables">Local Inner Class with Variables</h3>
+<pre><code class="language-java">public class LocalExample {
+    public void method() {
+        final String finalVar = &quot;final&quot;;
+        String effectivelyFinal = &quot;effectively final&quot;;
+        String notFinal = &quot;not final&quot;;
+        notFinal = &quot;changed&quot;;  // Now not effectively final
+
+        class LocalInner {
+            public void display() {
+                System.out.println(finalVar);           // OK
+                System.out.println(effectivelyFinal);   // OK
+                // System.out.println(notFinal);        // Error - not effectively final
+            }
+        }
+
+        LocalInner inner = new LocalInner();
+        inner.display();
+    }
+}
+</code></pre>
+<h3 id="practical-use-cases">Practical Use Cases</h3>
+<h4 id="builder-pattern-with-static-nested-class">Builder Pattern with Static Nested Class</h4>
+<pre><code class="language-java">public class Pizza {
+    private final String dough;
+    private final String sauce;
+    private final String cheese;
+
+    private Pizza(Builder builder) {
+        this.dough = builder.dough;
+        this.sauce = builder.sauce;
+        this.cheese = builder.cheese;
+    }
+
+    public static class Builder {
+        private String dough = &quot;thin&quot;;
+        private String sauce = &quot;tomato&quot;;
+        private String cheese = &quot;mozzarella&quot;;
+
+        public Builder dough(String dough) {
+            this.dough = dough;
+            return this;
+        }
+
+        public Builder sauce(String sauce) {
+            this.sauce = sauce;
+            return this;
+        }
+
+        public Builder cheese(String cheese) {
+            this.cheese = cheese;
+            return this;
+        }
+
+        public Pizza build() {
+            return new Pizza(this);
+        }
+    }
+}
+
+// Usage
+Pizza pizza = new Pizza.Builder()
+    .dough(&quot;thick&quot;)
+    .sauce(&quot;pesto&quot;)
+    .cheese(&quot;parmesan&quot;)
+    .build();
+</code></pre>
+<h4 id="event-handling-with-anonymous-classes">Event Handling with Anonymous Classes</h4>
+<pre><code class="language-java">public class ButtonExample {
+    public void setupButton() {
+        Button button = new Button();
+
+        // Anonymous class implementation
+        button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick() {
+                System.out.println(&quot;Button clicked!&quot;);
+                // Can access outer class members
+            }
+        });
+
+        // Lambda equivalent (modern Java)
+        button.setOnClickListener(() -&gt; System.out.println(&quot;Button clicked!&quot;));
+    }
+}
+</code></pre>
+<h2 id="key-interview-points">Key Interview Points</h2>
+<h3 id="method-overloading-vs-overriding">Method Overloading vs Overriding</h3>
+<ul>
+<li><strong>Overloading</strong>: Same class, same method name, different parameters</li>
+<li><strong>Overriding</strong>: Inheritance, same method signature, runtime polymorphism</li>
+</ul>
+<h3 id="static-memory-and-lifecycle">Static Memory and Lifecycle</h3>
+<ul>
+<li><strong>Static variables</strong>: Created when class first loaded, shared among all instances</li>
+<li><strong>Static methods</strong>: Belong to class, cannot access instance members directly</li>
+<li><strong>Static blocks</strong>: Execute once when class is loaded, in order of appearance</li>
+</ul>
+<h3 id="inner-class-access-rules">Inner Class Access Rules</h3>
+<ul>
+<li><strong>Static nested</strong>: Can only access static members of outer class</li>
+<li><strong>Member inner</strong>: Can access all members of outer class</li>
+<li><strong>Local inner</strong>: Can access effectively final local variables</li>
+<li><strong>Anonymous</strong>: Same as local inner, often used for event handling</li>
+</ul>
+<h1 id="java-inheritance">Java Inheritance</h1>
+<h2 id="inheritance-basics">Inheritance Basics</h2>
+<h3 id="what-is-inheritance">What is Inheritance?</h3>
+<p><strong>Definition</strong>: A mechanism where one class acquires properties and methods from another class.</p>
+<ul>
+<li><strong>Parent Class</strong>: Superclass/Base class (gives properties)</li>
+<li><strong>Child Class</strong>: Subclass/Derived class (receives properties)</li>
+<li><strong>Keyword</strong>: <code>extends</code></li>
+</ul>
+<pre><code class="language-java">// Parent class
+class Animal {
+    String name;
+
+    void eat() {
+        System.out.println(&quot;Animal eats&quot;);
+    }
+}
+
+// Child class inherits from Animal
+class Dog extends Animal {
+    void bark() {
+        System.out.println(&quot;Dog barks&quot;);
+    }
+}
+
+Dog dog = new Dog();
+dog.name = &quot;Buddy&quot;;  // Inherited from Animal
+dog.eat();          // Inherited method
+dog.bark();         // Own method
+</code></pre>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li>Child gets all non-private members of parent</li>
+<li>Java supports only single inheritance (one parent)</li>
+<li>Use <code>extends</code> keyword to inherit</li>
+</ul>
+<h2 id="constructors-inheritance">Constructors &amp; Inheritance</h2>
+<h3 id="constructor-chaining-rules_1">Constructor Chaining Rules</h3>
+<p><strong>Rule 1</strong>: Parent constructor is called before child constructor
+<strong>Rule 2</strong>: If parent has no default constructor, child must explicitly call <code>super()</code>
+<strong>Rule 3</strong>: <code>super()</code> must be first statement in child constructor</p>
+<pre><code class="language-java">class Parent {
+    String name;
+
+    Parent(String name) {  // No default constructor
+        this.name = name;
+        System.out.println(&quot;Parent constructor: &quot; + name);
+    }
+}
+
+class Child extends Parent {
+    int age;
+
+    Child(String name, int age) {
+        super(name);  // MUST call parent constructor first
+        this.age = age;
+        System.out.println(&quot;Child constructor: &quot; + age);
+    }
+}
+
+Child c = new Child(&quot;John&quot;, 25);
+// Output: Parent constructor: John
+//         Child constructor: 25
+</code></pre>
+<p><strong>Important Notes:</strong></p>
+<ul>
+<li>If parent has default constructor, <code>super()</code> is automatically called</li>
+<li><code>super()</code> calls parent constructor, <code>this()</code> calls another constructor in same class</li>
+<li>Constructor chaining ensures proper object initialization</li>
+</ul>
+<h3 id="when-are-constructors-executed">When Are Constructors Executed?</h3>
+<p><strong>Execution Order:</strong></p>
+<ol>
+<li>Static blocks (class loading time)</li>
+<li>Instance blocks and constructors (object creation time)</li>
+<li>Parent → Child order</li>
+</ol>
+<pre><code class="language-java">class A {
+    static { System.out.println(&quot;1. A static&quot;); }
+    { System.out.println(&quot;3. A instance block&quot;); }
+    A() { System.out.println(&quot;4. A constructor&quot;); }
+}
+
+class B extends A {
+    static { System.out.println(&quot;2. B static&quot;); }
+    { System.out.println(&quot;5. B instance block&quot;); }
+    B() { System.out.println(&quot;6. B constructor&quot;); }
+}
+
+B obj = new B();  // Executes in order 1→2→3→4→5→6
+</code></pre>
+<p><strong>Memory Point</strong>: Static blocks execute only once when class is first loaded, not on every object creation.</p>
+<h2 id="superclass-references-and-subclass-objects">Superclass References and Subclass Objects</h2>
+<h3 id="reference-vs-object-type">Reference vs Object Type</h3>
+<p><strong>Concept</strong>: Reference type determines what methods you can CALL, Object type determines which method is EXECUTED.</p>
+<pre><code class="language-java">class Animal {
+    void eat() { System.out.println(&quot;Animal eats&quot;); }
+}
+
+class Dog extends Animal {
+    void eat() { System.out.println(&quot;Dog eats&quot;); }  // Override
+    void bark() { System.out.println(&quot;Woof!&quot;); }
+}
+
+// Different reference-object combinations
+Animal a1 = new Animal();  // Animal reference, Animal object
+Dog d1 = new Dog();        // Dog reference, Dog object
+Animal a2 = new Dog();     // Animal reference, Dog object ← POLYMORPHISM
+
+a1.eat();    // &quot;Animal eats&quot;
+d1.eat();    // &quot;Dog eats&quot; 
+a2.eat();    // &quot;Dog eats&quot; ← Runtime decides which eat() to call
+
+d1.bark();   // OK - Dog reference can call Dog methods
+// a2.bark();  // ERROR - Animal reference can't call Dog methods
+</code></pre>
+<p><strong>Key Interview Points:</strong></p>
+<ul>
+<li><strong>Upcasting</strong>: Child → Parent reference (automatic)</li>
+<li><strong>Downcasting</strong>: Parent → Child reference (requires explicit cast)</li>
+<li><strong>instanceof</strong>: Check object type before casting</li>
+</ul>
+<pre><code class="language-java">if (a2 instanceof Dog) {
+    Dog realDog = (Dog) a2;  // Safe downcasting
+    realDog.bark();          // Now can call Dog methods
+}
+</code></pre>
+<h2 id="polymorphism-dynamic-method-dispatch">Polymorphism (Dynamic Method Dispatch)</h2>
+<h3 id="how-runtime-polymorphism-works">How Runtime Polymorphism Works</h3>
+<p><strong>Definition</strong>: Same method call behaves differently based on actual object type at runtime.</p>
+<pre><code class="language-java">class Shape {
+    void draw() { System.out.println(&quot;Drawing shape&quot;); }
+    double area() { return 0; }
+}
+
+class Circle extends Shape {
+    double radius;
+    Circle(double r) { radius = r; }
+
+    void draw() { System.out.println(&quot;Drawing circle&quot;); }
+    double area() { return Math.PI * radius * radius; }
+}
+
+class Square extends Shape {
+    double side;
+    Square(double s) { side = s; }
+
+    void draw() { System.out.println(&quot;Drawing square&quot;); }
+    double area() { return side * side; }
+}
+
+// Polymorphism in action
+Shape[] shapes = {new Circle(5), new Square(4), new Circle(3)};
+
+for (Shape shape : shapes) {
+    shape.draw();  // Calls appropriate draw() method
+    System.out.println(&quot;Area: &quot; + shape.area());
+}
+</code></pre>
+<p><strong>Runtime Decision</strong>: JVM looks at actual object type and calls the overridden method.</p>
+<h3 id="method-overriding-rules">Method Overriding Rules</h3>
+<p><strong>Must Follow:</strong></p>
+<ul>
+<li>Same method signature (name, parameters, return type)</li>
+<li>Same or wider access modifier</li>
+<li>Cannot override <code>final</code>, <code>static</code>, or <code>private</code> methods</li>
+</ul>
+<pre><code class="language-java">class Parent {
+    protected String method() { return &quot;Parent&quot;; }
+    final void finalMethod() { }      // Cannot override
+    static void staticMethod() { }    // Cannot override (hidden instead)
+    private void privateMethod() { }  // Cannot override (not inherited)
+}
+
+class Child extends Parent {
+    public String method() { return &quot;Child&quot;; }  // ✓ Wider access (protected→public)
+    // private String method() { }              // ✗ Narrower access
+    // void finalMethod() { }                   // ✗ Cannot override final
+}
+</code></pre>
+<h2 id="abstract-classes">Abstract Classes</h2>
+<h3 id="why-abstract-classes">Why Abstract Classes?</h3>
+<p><strong>Purpose</strong>: Provide common base with some implemented methods and some that must be implemented by subclasses.</p>
+<p><strong>When to Use:</strong></p>
+<ul>
+<li>When classes share common code but need different implementations for some methods</li>
+<li>Want to enforce certain methods in all subclasses</li>
+<li>Need constructors (interfaces can't have constructors)</li>
+</ul>
+<pre><code class="language-java">abstract class Vehicle {
+    String brand;
+
+    Vehicle(String brand) {  // Abstract classes can have constructors
+        this.brand = brand;
+    }
+
+    // Concrete method - all vehicles can start the same way
+    void start() {
+        System.out.println(brand + &quot; starting engine...&quot;);
+    }
+
+    // Abstract method - each vehicle accelerates differently
+    abstract void accelerate();
+    abstract void brake();
+}
+
+class Car extends Vehicle {
+    Car(String brand) { super(brand); }
+
+    void accelerate() { System.out.println(&quot;Car accelerating smoothly&quot;); }
+    void brake() { System.out.println(&quot;Car braking with disc brakes&quot;); }
+}
+
+class Motorcycle extends Vehicle {
+    Motorcycle(String brand) { super(brand); }
+
+    void accelerate() { System.out.println(&quot;Motorcycle accelerating quickly&quot;); }
+    void brake() { System.out.println(&quot;Motorcycle braking carefully&quot;); }
+}
+
+// Vehicle v = new Vehicle(&quot;Generic&quot;);  // ✗ Cannot instantiate abstract class
+Vehicle car = new Car(&quot;Toyota&quot;);        // ✓ Can use abstract reference
+car.start();       // Calls concrete method
+car.accelerate();  // Calls overridden method
+</code></pre>
+<h3 id="abstract-class-vs-interface">Abstract Class vs Interface</h3>
+<p><strong>Abstract Class:</strong></p>
+<ul>
+<li>Can have both abstract and concrete methods</li>
+<li>Can have constructors and instance variables</li>
+<li>Single inheritance (<code>extends</code>)</li>
+<li>Use when classes share common code</li>
+</ul>
+<p><strong>Interface:</strong></p>
+<ul>
+<li>All methods abstract (before Java 8)</li>
+<li>No constructors or instance variables</li>
+<li>Multiple inheritance (<code>implements</code>)</li>
+<li>Use for contracts/capabilities</li>
+</ul>
+<pre><code class="language-java">abstract class Animal {
+    String name;                    // ✓ Instance variable
+    Animal(String name) { }         // ✓ Constructor
+    void sleep() { }               // ✓ Concrete method
+    abstract void makeSound();     // ✓ Abstract method
+}
+
+interface Flyable {
+    // String name;                // ✗ Cannot have instance variables
+    // Flyable() { }              // ✗ Cannot have constructor
+    void fly();                   // ✓ Abstract method
+
+    // Java 8+
+    default void land() { }       // ✓ Default method
+    static void checkWeather() { } // ✓ Static method
+}
+
+class Bird extends Animal implements Flyable {
+    Bird(String name) { super(name); }
+    void makeSound() { System.out.println(&quot;Chirp&quot;); }
+    public void fly() { System.out.println(&quot;Flying high&quot;); }
+}
+</code></pre>
+<h3 id="template-method-pattern">Template Method Pattern</h3>
+<p><strong>Use Case</strong>: Define algorithm structure in abstract class, let subclasses implement specific steps.</p>
+<pre><code class="language-java">abstract class DataProcessor {
+    // Template method - defines the process
+    public final void process() {  // final = cannot be overridden
+        readData();
+        validateData();
+        processData();    // Abstract - subclasses implement
+        saveData();
+    }
+
+    private void readData() { System.out.println(&quot;Reading data...&quot;); }
+    private void saveData() { System.out.println(&quot;Saving data...&quot;); }
+
+    // Hook method - subclasses can optionally override
+    protected void validateData() { System.out.println(&quot;Basic validation&quot;); }
+
+    // Abstract method - subclasses must implement
+    protected abstract void processData();
+}
+
+class CSVProcessor extends DataProcessor {
+    protected void processData() {
+        System.out.println(&quot;Processing CSV format&quot;);
+    }
+}
+
+class XMLProcessor extends DataProcessor {
+    protected void processData() {
+        System.out.println(&quot;Processing XML format&quot;);
+    }
+
+    protected void validateData() {  // Override hook method
+        System.out.println(&quot;XML schema validation&quot;);
+    }
+}
+</code></pre>
+<h2 id="memory-performance-notes">Memory &amp; Performance Notes</h2>
+<p><strong>Method Call Resolution:</strong></p>
+<ul>
+<li><strong>Compile time</strong>: Check if method exists in reference type</li>
+<li><strong>Runtime</strong>: Find actual method in object type (virtual method lookup)</li>
+<li><strong>Performance</strong>: Virtual method calls have slight overhead vs direct calls</li>
+</ul>
+<p><strong>Inheritance Memory Layout:</strong></p>
+<ul>
+<li>Child object contains parent's fields</li>
+<li>Method table includes both parent and child methods</li>
+<li>Overridden methods replace parent's method in table</li>
+</ul>
+<h1 id="final-keyword-object-class">Final Keyword &amp; Object Class</h1>
+<h2 id="final-keyword">Final Keyword</h2>
+<h3 id="what-is-final">What is Final?</h3>
+<p><strong>Definition</strong>: <code>final</code> makes something unchangeable - variables, methods, or classes cannot be modified after
+declaration.</p>
+<h3 id="final-variables">Final Variables</h3>
+<pre><code class="language-java">// Final variable - cannot be reassigned
+final int MAX_SIZE = 100;
+// MAX_SIZE = 200;  // ERROR: Cannot assign to final variable
+
+// Final object reference - reference cannot change, but object content can
+final List&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add(&quot;item&quot;);     // OK - modifying object content
+// list = new ArrayList&lt;&gt;();  // ERROR - cannot reassign reference
+
+// Final method parameter
+public void process(final String name) {
+    // name = &quot;changed&quot;;  // ERROR: Cannot modify final parameter
+    System.out.println(name);
+}
+</code></pre>
+<h3 id="final-methods">Final Methods</h3>
+<pre><code class="language-java">class Parent {
+    final void display() {  // Cannot be overridden
+        System.out.println(&quot;Parent display&quot;);
+    }
+}
+
+class Child extends Parent {
+    // void display() { }  // ERROR: Cannot override final method
+}
+</code></pre>
+<h3 id="final-classes">Final Classes</h3>
+<pre><code class="language-java">final class Utility {  // Cannot be extended
+    static void helper() { }
+}
+
+// class MyUtility extends Utility { }  // ERROR: Cannot extend final class
+
+// Examples: String, Integer, all wrapper classes are final
+</code></pre>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li><strong>Variables</strong>: Value cannot change (for primitives) or reference cannot change (for objects)</li>
+<li><strong>Methods</strong>: Cannot be overridden by subclasses</li>
+<li><strong>Classes</strong>: Cannot be extended (no inheritance)</li>
+<li><strong>Performance</strong>: JVM can optimize final variables/methods</li>
+</ul>
+<hr />
+<h2 id="object-class-its-methods">Object Class &amp; Its Methods</h2>
+<p>The <code>Object</code> class is the root class of all Java classes. Every class in Java directly or indirectly inherits from
+<code>Object</code>.</p>
+<h3 id="object-class-methods">Object Class Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Return Type</th>
+<th>Description</th>
+<th>Key Interview Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>toString()</code></td>
+<td><code>String</code></td>
+<td>Returns string representation of object</td>
+<td>• Default: <code>className@hashCode</code><br>• Should override for meaningful output<br>• Used by print statements automatically</td>
+</tr>
+<tr>
+<td><code>equals(Object obj)</code></td>
+<td><code>boolean</code></td>
+<td>Compares objects for equality</td>
+<td>• Default: uses <code>==</code> (reference comparison)<br>• Override for logical equality<br>• Must satisfy: reflexive, symmetric, transitive, consistent<br>• If overridden, must override <code>hashCode()</code></td>
+</tr>
+<tr>
+<td><code>hashCode()</code></td>
+<td><code>int</code></td>
+<td>Returns hash code value for object</td>
+<td>• Used by HashMap, HashSet, etc.<br>• Equal objects must have same hash code<br>• Should override when overriding <code>equals()</code><br>• Contract: consistent, equal objects same hash</td>
+</tr>
+<tr>
+<td><code>clone()</code></td>
+<td><code>Object</code></td>
+<td>Creates copy of object</td>
+<td>• Protected method<br>• Class must implement <code>Cloneable</code> interface<br>• Throws <code>CloneNotSupportedException</code><br>• Shallow copy by default</td>
+</tr>
+<tr>
+<td><code>getClass()</code></td>
+<td><code>Class&lt;?&gt;</code></td>
+<td>Returns runtime class of object</td>
+<td>• Final method (cannot override)<br>• Used for reflection<br>• Returns <code>Class</code> object representing the class</td>
+</tr>
+<tr>
+<td><code>finalize()</code></td>
+<td><code>void</code></td>
+<td>Called by garbage collector before destruction</td>
+<td>• <strong>Deprecated</strong> since Java 9<br>• No guarantee when/if called<br>• Use try-with-resources instead<br>• Protected method</td>
+</tr>
+<tr>
+<td><code>wait()</code></td>
+<td><code>void</code></td>
+<td>Current thread waits until notified</td>
+<td>• Must be called within synchronized block<br>• Releases lock on object<br>• Throws <code>InterruptedException</code><br>• Has overloaded versions with timeout</td>
+</tr>
+<tr>
+<td><code>wait(long timeout)</code></td>
+<td><code>void</code></td>
+<td>Waits for specified time or until notified</td>
+<td>• Timeout in milliseconds<br>• Same synchronization requirements as <code>wait()</code></td>
+</tr>
+<tr>
+<td><code>wait(long timeout, int nanos)</code></td>
+<td><code>void</code></td>
+<td>Waits with nanosecond precision</td>
+<td>• More precise timeout control<br>• Rarely used in practice</td>
+</tr>
+<tr>
+<td><code>notify()</code></td>
+<td><code>void</code></td>
+<td>Wakes up single waiting thread</td>
+<td>• Must be called within synchronized block<br>• Arbitrary thread selection<br>• No guarantee which thread wakes up</td>
+</tr>
+<tr>
+<td><code>notifyAll()</code></td>
+<td><code>void</code></td>
+<td>Wakes up all waiting threads</td>
+<td>• Must be called within synchronized block<br>• All threads compete for lock<br>• Generally preferred over <code>notify()</code></td>
+</tr>
+</tbody>
+</table>
+<h1 id="packages-class-members">Packages &amp; Class Members</h1>
+<h2 id="java-packages">📦 Java Packages</h2>
+<h3 id="what-are-packages">What are Packages?</h3>
+<ul>
+<li><strong>Definition</strong>: Packages are namespaces that organize related classes and interfaces</li>
+<li><strong>Purpose</strong>: Provide access protection, naming collision avoidance, and easier searching/locating of classes</li>
+<li><strong>Syntax</strong>: <code>package com.company.project;</code></li>
+</ul>
+<h3 id="package-hierarchy">Package Hierarchy</h3>
+<ul>
+<li>Java follows a hierarchical package structure</li>
+<li><strong>Root package</strong>: <code>java</code> (contains all standard Java API classes)</li>
+<li><strong>Subpackages</strong>: Organized by functionality</li>
+</ul>
+<h3 id="key-java-api-packages">Key Java API Packages</h3>
+<table>
+<thead>
+<tr>
+<th>Subpackage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>java.lang</code></td>
+<td>Contains general-purpose classes (String, Object, System, etc.)</td>
+</tr>
+<tr>
+<td><code>java.io</code></td>
+<td>Contains I/O classes (File, InputStream, OutputStream, etc.)</td>
+</tr>
+<tr>
+<td><code>java.net</code></td>
+<td>Contains networking classes (Socket, URL, etc.)</td>
+</tr>
+<tr>
+<td><code>java.util</code></td>
+<td>Contains utility classes and Collections Framework</td>
+</tr>
+<tr>
+<td><code>java.awt</code></td>
+<td>Contains Abstract Window Toolkit classes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="import-statements">Import Statements</h3>
+<pre><code class="language-java">import java.util.List;           // Import specific class
+import java.util.*;              // Import all classes from package
+import static java.lang.Math.PI; // Static import
+</code></pre>
+<h3 id="access-modifiers-explained">Access Modifiers Explained</h3>
+<h4 id="1-private">1. <strong>Private</strong></h4>
+<ul>
+<li>Most restrictive</li>
+<li>Only accessible within the same class</li>
+<li>Not inherited by subclasses</li>
+</ul>
+<pre><code class="language-java">private int salary; // Only accessible within this class
+</code></pre>
+<h4 id="2-default-package-private">2. <strong>Default (Package-Private)</strong></h4>
+<ul>
+<li>No explicit modifier keyword</li>
+<li>Accessible within the same package only</li>
+<li>Not accessible from different packages</li>
+</ul>
+<pre><code class="language-java">int age; // Package-private access
+</code></pre>
+<h4 id="3-protected">3. <strong>Protected</strong></h4>
+<ul>
+<li>Accessible within same package</li>
+<li>Accessible by subclasses in different packages</li>
+<li>More restrictive than public, less than default</li>
+</ul>
+<pre><code class="language-java">protected String name; // Accessible to subclasses
+</code></pre>
+<h4 id="4-public">4. <strong>Public</strong></h4>
+<ul>
+<li>Least restrictive</li>
+<li>Accessible from anywhere</li>
+<li>Can be accessed by any class in any package</li>
+</ul>
+<pre><code class="language-java">public void display(); // Accessible everywhere
+</code></pre>
+<h1 id="java-interface">Java Interface</h1>
+<h2 id="what-is-an-interface">🔍 What is an Interface?</h2>
+<p><strong>Definition</strong>: A contract that defines what a class can do, without specifying how it does it.</p>
+<pre><code class="language-java">interface Drawable {
+    void draw(); // abstract method (implicitly public abstract)
+    int SIZE = 100; // constant (implicitly public static final)
+}
+</code></pre>
+<h2 id="key-characteristics">📋 Key Characteristics</h2>
+<ul>
+<li><strong>100% abstraction</strong> (before Java 8)</li>
+<li><strong>Multiple inheritance</strong> support</li>
+<li>All methods are <strong>public abstract</strong> by default</li>
+<li>All variables are <strong>public static final</strong> by default</li>
+<li>Cannot be instantiated directly</li>
+<li>Implemented using <code>implements</code> keyword</li>
+</ul>
+<h2 id="interface-evolution">🔧 Interface Evolution</h2>
+<h3 id="before-java-8">Before Java 8</h3>
+<pre><code class="language-java">interface Calculator {
+    int add(int a, int b);    // abstract method
+    int PI = 3.14;           // constant
+}
+</code></pre>
+<h3 id="java-8-features">Java 8+ Features</h3>
+<pre><code class="language-java">interface Calculator {
+    // Abstract method
+    int add(int a, int b);
+
+    // Default method
+    default int multiply(int a, int b) {
+        return a * b;
+    }
+
+    // Static method
+    static void info() {
+        System.out.println(&quot;Calculator interface&quot;);
+    }
+}
+</code></pre>
+<h3 id="java-9-private-methods">Java 9+ Private Methods</h3>
+<pre><code class="language-java">interface Calculator {
+    default int addAndMultiply(int a, int b) {
+        return helper(add(a, b), 2);
+    }
+
+    // Private method (Java 9+)
+    private int helper(int x, int y) {
+        return x * y;
+    }
+
+    int add(int a, int b);
+}
+</code></pre>
+<h2 id="implementation">🎯 Implementation</h2>
+<h3 id="single-interface">Single Interface</h3>
+<pre><code class="language-java">class Circle implements Drawable {
+    public void draw() {
+        System.out.println(&quot;Drawing circle&quot;);
+    }
+}
+</code></pre>
+<h3 id="multiple-interfaces">Multiple Interfaces</h3>
+<pre><code class="language-java">class SmartPhone implements Callable, Browsable {
+    public void call() { /* implementation */ }
+    public void browse() { /* implementation */ }
+}
+</code></pre>
+<h3 id="interface-inheritance">Interface Inheritance</h3>
+<pre><code class="language-java">interface Vehicle {
+    void start();
+}
+
+interface Car extends Vehicle {
+    void drive();
+}
+
+class BMW implements Car {
+    public void start() { /* implementation */ }
+    public void drive() { /* implementation */ }
+}
+</code></pre>
+<h1 id="java-exception-handling">Java Exception Handling</h1>
+<h2 id="exception-hierarchy">🏗️ Exception Hierarchy</h2>
+<pre><code>java.lang.Object
+    └── java.lang.Throwable
+        ├── java.lang.Error (Unchecked)
+        │   ├── OutOfMemoryError
+        │   ├── StackOverflowError
+        │   └── VirtualMachineError
+        └── java.lang.Exception
+            ├── Checked Exceptions
+            │   ├── IOException
+            │   ├── SQLException
+            │   ├── ClassNotFoundException
+            │   └── InterruptedException
+            └── java.lang.RuntimeException (Unchecked)
+                ├── NullPointerException
+                ├── ArrayIndexOutOfBoundsException
+                ├── IllegalArgumentException
+                └── NumberFormatException
+</code></pre>
+<h3 id="exception-types">Exception Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Handling Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Checked</strong></td>
+<td>Compile-time exceptions</td>
+<td>Must handle or declare</td>
+</tr>
+<tr>
+<td><strong>Unchecked</strong></td>
+<td>Runtime exceptions</td>
+<td>Optional handling</td>
+</tr>
+<tr>
+<td><strong>Error</strong></td>
+<td>System-level problems</td>
+<td>Usually not handled</td>
+</tr>
+</tbody>
+</table>
+<h2 id="try-and-catch">🎯 Try and Catch</h2>
+<h3 id="basic-syntax">Basic Syntax</h3>
+<pre><code class="language-java">try {
+    // Risky code
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    // Handle exception
+    System.out.println(&quot;Cannot divide by zero: &quot; + e.getMessage());
+}
+</code></pre>
+<h3 id="key-points">Key Points</h3>
+<ul>
+<li><strong>try block</strong>: Contains code that might throw exception</li>
+<li><strong>catch block</strong>: Handles specific exception types</li>
+<li><strong>Exception parameter</strong>: Reference to the thrown exception object</li>
+</ul>
+<h2 id="effects-of-uncaught-exception">⚠️ Effects of Uncaught Exception</h2>
+<h3 id="what-happens">What Happens?</h3>
+<ol>
+<li><strong>Program terminates</strong> abruptly</li>
+<li><strong>Stack trace</strong> is printed to console</li>
+<li><strong>finally blocks</strong> still execute before termination</li>
+<li><strong>Resources</strong> may not be properly cleaned up</li>
+</ol>
+<h3 id="example">Example</h3>
+<pre><code class="language-java">public class UncaughtExample {
+    public static void main(String[] args) {
+        System.out.println(&quot;Before exception&quot;);
+        int x = 10 / 0; // ArithmeticException
+        System.out.println(&quot;After exception&quot;); // Never executed
+    }
+}
+// Output: Exception in thread &quot;main&quot; java.lang.ArithmeticException: / by zero
+</code></pre>
+<h2 id="finally-block">🔒 Finally Block</h2>
+<h3 id="always-executes-almost">Always Executes (Almost)</h3>
+<pre><code class="language-java">public class FinallyExample {
+    public static void main(String[] args) {
+        try {
+            System.out.println(&quot;Try block&quot;);
+            int x = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println(&quot;Catch block&quot;);
+            return; // Finally still executes
+        } finally {
+            System.out.println(&quot;Finally block - Always executes&quot;);
+            // Cleanup code here
+        }
+    }
+}
+</code></pre>
+<h3 id="finally-block-rules">Finally Block Rules</h3>
+<ul>
+<li><strong>Always executes</strong> except when JVM exits (<code>System.exit()</code>)</li>
+<li>Executes even if <strong>return statement</strong> in try/catch</li>
+<li><strong>Exception in finally</strong> masks exceptions from try/catch</li>
+<li>Used for <strong>cleanup operations</strong> (closing files, connections)</li>
+</ul>
+<h3 id="try-with-resources-java-7">Try-with-Resources (Java 7+)</h3>
+<pre><code class="language-java">// Automatic resource management
+try (FileReader file = new FileReader(&quot;data.txt&quot;);
+     BufferedReader buffer = new BufferedReader(file)) {
+
+    return buffer.readLine();
+
+} catch (IOException e) {
+    System.out.println(&quot;File error: &quot; + e.getMessage());
+}
+// Resources automatically closed
+</code></pre>
+<h2 id="interview-questions-answers_1">🎯 Interview Questions &amp; Answers</h2>
+<h3 id="q1-whats-the-difference-between-throw-and-throws">Q1: What's the difference between throw and throws?</h3>
+<p><strong>A</strong>: <code>throw</code> is used to explicitly throw an exception in code, while <code>throws</code> is used in method signature to declare
+what exceptions the method might throw.</p>
+<h3 id="q2-can-finally-block-prevent-an-exception-from-propagating">Q2: Can finally block prevent an exception from propagating?</h3>
+<p><strong>A</strong>: Yes, if finally block throws an exception or contains a return statement, it can mask the original exception.</p>
+<h3 id="q3-what-happens-if-both-try-and-finally-blocks-throw-exceptions">Q3: What happens if both try and finally blocks throw exceptions?</h3>
+<p><strong>A</strong>: The exception from finally block suppresses the exception from try block. The try block exception becomes a "
+suppressed exception."</p>
+<h3 id="q4-can-we-have-try-without-catch">Q4: Can we have try without catch?</h3>
+<p><strong>A</strong>: Yes, with finally block: <code>try { } finally { }</code> or with try-with-resources.</p>
+<h3 id="q5-whats-the-difference-between-error-and-exception">Q5: What's the difference between Error and Exception?</h3>
+<p><strong>A</strong>: Errors are serious system-level problems (OutOfMemoryError), while Exceptions are application-level problems that
+can be handled.</p>
+<h3 id="q6-when-should-you-create-checked-vs-unchecked-custom-exceptions">Q6: When should you create checked vs unchecked custom exceptions?</h3>
+<p><strong>A</strong>:</p>
+<ul>
+<li><strong>Checked</strong>: When caller can reasonably recover from the exception</li>
+<li><strong>Unchecked</strong>: For programming errors or when recovery is unlikely</li>
+</ul>
+<h1 id="java-io-streams">Java I/O Streams</h1>
+<h2 id="low-level-io-fundamentals">🔧 Low-Level I/O Fundamentals</h2>
+<h3 id="what-actually-happens-when-you-read-a-file">What Actually Happens When You Read a File?</h3>
+<p><strong>Understanding "Opening" a File:</strong>
+- <strong>File on disk</strong>: Just bytes stored on storage device
+- <strong>Opening a file</strong>: OS creates internal data structures to track your access to that file
+- <strong>File descriptor</strong>: OS assigns a unique number (like 3, 4, 5...) to identify this open file
+- <strong>File table entry</strong>: OS maintains metadata about the open file (current position, permissions, etc.)</p>
+<p><strong>System Level Process:</strong>
+1. <strong>File</strong>: A sequence of bytes stored on disk with metadata (permissions, size, timestamps)
+2. <strong>open() system call</strong>: Your program asks OS "please give me access to this file"
+3. <strong>File Descriptor</strong>: OS assigns a number (like file descriptor #7) to identify the open file
+4. <strong>File Table</strong>: OS creates internal record tracking this open file
+5. <strong>System Call</strong>: Your program uses file descriptor to ask OS to read/write
+6. <strong>Kernel</strong>: OS kernel manages actual hardware interaction
+7. <strong>Buffer</strong>: OS uses buffers to optimize disk access</p>
+<p><strong>What "File Descriptor" Really Means:</strong></p>
+<pre><code>Your Program          Operating System
+-----------          ----------------
+FileInputStream  →   File Descriptor #7  →  Internal File Table Entry
+                     (just a number)        - file path: /home/user/data.txt
+                                           - current position: 1024 bytes
+                                           - permissions: read-only
+                                           - buffer: 4KB cache
+</code></pre>
+<pre><code class="language-java">// When you write this Java code:
+FileInputStream fis = new FileInputStream(&quot;data.txt&quot;);
+int data = fis.read();
+
+// This happens under the hood:
+// 1. JVM calls OS open() system call with file path
+// 2. OS checks permissions, locates file on disk
+// 3. OS creates internal file table entry
+// 4. OS returns file descriptor number (e.g., 7)
+// 5. JVM stores this descriptor in FileInputStream object
+// 6. When you call read(), JVM uses descriptor to call OS read()
+// 7. OS reads from disk into kernel buffer
+// 8. Data copied from kernel buffer to JVM memory
+// 9. Your program gets the byte
+</code></pre>
+<p><strong>Why "Too Many Open Files" Happens:</strong></p>
+<pre><code>Process File Descriptor Table (Limited Size)
+┌─────┬─────────────────┬──────────────────┐
+│ FD# │ File            │ Status           │
+├─────┼─────────────────┼──────────────────┤
+│ 0   │ stdin           │ Standard         │
+│ 1   │ stdout          │ Standard         │  
+│ 2   │ stderr          │ Standard         │
+│ 3   │ /data/file1.txt │ Your program     │
+│ 4   │ /data/file2.txt │ Your program     │
+│ 5   │ /data/file3.txt │ Your program     │
+│ ... │ ...             │ ...              │
+│1023 │ /data/file1021.txt│ Your program   │
+│1024 │ LIMIT REACHED!  │ ❌ ERROR         │
+└─────┴─────────────────┴──────────────────┘
+
+// When you try to open more files:
+FileInputStream fis = new FileInputStream(&quot;another-file.txt&quot;);
+// Throws: IOException: Too many open files
+</code></pre>
+<p><strong>Each "Open File" Consumes:</strong>
+- <strong>File descriptor number</strong> (limited per process, typically 1024)
+- <strong>Memory for file table entry</strong> (few KB per file)
+- <strong>OS kernel resources</strong> (buffers, locks, metadata)
+- <strong>System-wide file table entries</strong> (shared limit across all processes)</p>
+<h3 id="system-calls-vs-java-streams">System Calls vs Java Streams</h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>What It Does</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hardware</strong></td>
+<td>Physical disk operations</td>
+<td>Disk head movement, sector reading</td>
+</tr>
+<tr>
+<td><strong>OS Kernel</strong></td>
+<td>Manages hardware, provides system calls</td>
+<td><code>open()</code>, <code>read()</code>, <code>write()</code>, <code>close()</code></td>
+</tr>
+<tr>
+<td><strong>JVM</strong></td>
+<td>Translates Java calls to system calls</td>
+<td>Native methods in FileInputStream</td>
+</tr>
+<tr>
+<td><strong>Java Streams</strong></td>
+<td>Object-oriented wrapper around system calls</td>
+<td><code>new FileInputStream()</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-buffering-matters">Why Buffering Matters</h3>
+<pre><code class="language-java">// INEFFICIENT - Each read() = one system call
+FileInputStream fis = new FileInputStream(&quot;file.txt&quot;);
+int data;
+while ((data = fis.read()) != -1) { // 1000 bytes = 1000 system calls!
+    process(data);
+}
+
+// EFFICIENT - Fewer system calls
+BufferedInputStream bis = new BufferedInputStream(fis, 8192);
+while ((data = bis.read()) != -1) { // 1000 bytes = ~1 system call
+    process(data);
+}
+</code></pre>
+<h2 id="top-10-java-io-interview-questions">🎯 Top 10 Java I/O Interview Questions</h2>
+<h3 id="q1-whats-the-difference-between-byte-streams-and-character-streams">Q1: "What's the difference between byte streams and character streams?"</h3>
+<p><strong>Answer:</strong></p>
+<pre><code class="language-java">// Byte streams - for binary data (images, executables, compressed files)
+FileInputStream fis = new FileInputStream(&quot;image.jpg&quot;);
+FileOutputStream fos = new FileOutputStream(&quot;backup.jpg&quot;);
+
+// Character streams - for text data with encoding support
+FileReader fr = new FileReader(&quot;document.txt&quot;);
+FileWriter fw = new FileWriter(&quot;output.txt&quot;);
+</code></pre>
+<p><strong>Key Point</strong>: Byte streams work with raw 8-bit data, character streams handle 16-bit Unicode with automatic encoding/decoding.</p>
+<h3 id="q2-how-do-you-prevent-resource-leaks-in-java">Q2: "How do you prevent resource leaks in Java?"</h3>
+<p><strong>Answer:</strong></p>
+<pre><code class="language-java">// OLD WAY - Manual cleanup (error-prone)
+FileInputStream fis = null;
+try {
+    fis = new FileInputStream(&quot;data.txt&quot;);
+    // process file
+} finally {
+    if (fis != null) fis.close(); // Must remember to close
+}
+
+// MODERN WAY - Try-with-resources (automatic cleanup)
+try (FileInputStream fis = new FileInputStream(&quot;data.txt&quot;)) {
+    // process file
+} // Automatically closed, even if exception occurs
+</code></pre>
+<p><strong>Key Point</strong>: Try-with-resources calls <code>close()</code> automatically on anything implementing <code>AutoCloseable</code>.</p>
+<h3 id="q3-why-use-bufferedinputstream-instead-of-fileinputstream-directly">Q3: "Why use BufferedInputStream instead of FileInputStream directly?"</h3>
+<p><strong>Answer:</strong></p>
+<pre><code class="language-java">// Without buffering - Many system calls
+FileInputStream fis = new FileInputStream(&quot;large-file.dat&quot;);
+int data;
+while ((data = fis.read()) != -1) { // Each read() = system call
+    process(data);
+}
+
+// With buffering - Fewer system calls, better performance
+BufferedInputStream bis = new BufferedInputStream(fis, 8192); // 8KB buffer
+while ((data = bis.read()) != -1) { // Reads in chunks
+    process(data);
+}
+</code></pre>
+<p><strong>Key Point</strong>: Buffering reduces the number of expensive system calls by reading/writing data in larger chunks.</p>
+<h3 id="q4-how-do-you-read-and-write-primitive-data-types-to-files">Q4: "How do you read and write primitive data types to files?"</h3>
+<p><strong>Answer:</strong></p>
+<pre><code class="language-java">// Writing different data types
+try (DataOutputStream dos = new DataOutputStream(
+        new FileOutputStream(&quot;data.bin&quot;))) {
+    dos.writeInt(42);
+    dos.writeDouble(3.14159);
+    dos.writeUTF(&quot;Hello World&quot;);
+    dos.writeBoolean(true);
+}
+
+// Reading back in same order
+try (DataInputStream dis = new DataInputStream(
+        new FileInputStream(&quot;data.bin&quot;))) {
+    int number = dis.readInt();
+    double pi = dis.readDouble();
+    String text = dis.readUTF();
+    boolean flag = dis.readBoolean();
+}
+</code></pre>
+<p><strong>Key Point</strong>: <code>DataInputStream</code>/<code>DataOutputStream</code> handle platform-independent binary format for primitive types.</p>
+<h3 id="q5-whats-the-difference-between-filereader-and-inputstreamreader">Q5: "What's the difference between FileReader and InputStreamReader?"</h3>
+<p><strong>Answer:</strong></p>
+<pre><code class="language-java">// FileReader - Uses default system encoding
+FileReader fr = new FileReader(&quot;file.txt&quot;); // Might be ISO-8859-1 or UTF-8
+
+// InputStreamReader - Explicit encoding control
+InputStreamReader isr = new InputStreamReader(
+    new FileInputStream(&quot;file.txt&quot;), StandardCharsets.UTF_8);
+</code></pre>
+<p><strong>Key Point</strong>: <code>InputStreamReader</code> gives you control over character encoding, preventing corruption of international text.</p>
+<h3 id="q6-how-do-you-safely-convert-strings-to-numbers">Q6: "How do you safely convert strings to numbers?"</h3>
+<p><strong>Answer:</strong></p>
+<pre><code class="language-java">public static Integer safeParseInt(String str) {
+    try {
+        return Integer.parseInt(str);
+    } catch (NumberFormatException e) {
+        System.err.println(&quot;Invalid number: &quot; + str);
+        return null; // or return default value
+    }
+}
+
+// Usage
+String userInput = &quot;abc123&quot;;
+Integer result = safeParseInt(userInput);
+if (result != null) {
+    // Use the number
+} else {
+    // Handle invalid input
+}
+</code></pre>
+<p><strong>Key Point</strong>: Always handle <code>NumberFormatException</code> when parsing user input or file data.</p>
+<h3 id="q7-whats-randomaccessfile-and-when-would-you-use-it">Q7: "What's RandomAccessFile and when would you use it?"</h3>
+<p><strong>Answer:</strong></p>
+<pre><code class="language-java">try (RandomAccessFile raf = new RandomAccessFile(&quot;data.txt&quot;, &quot;rw&quot;)) {
+    // Write at beginning
+    raf.writeUTF(&quot;Header&quot;);
+
+    // Jump to position 100
+    raf.seek(100);
+    raf.writeUTF(&quot;Middle content&quot;);
+
+    // Jump back to beginning to read
+    raf.seek(0);
+    String header = raf.readUTF();
+
+    // Get file length
+    long size = raf.length();
+}
+</code></pre>
+<p><strong>Key Point</strong>: Use for database files, log files, or any scenario where you need to read/write at specific positions.</p>
+<h3 id="q8-how-do-you-read-a-file-line-by-line-efficiently">Q8: "How do you read a file line by line efficiently?"</h3>
+<p><strong>Answer:</strong></p>
+<pre><code class="language-java">// Efficient line-by-line reading
+try (BufferedReader br = new BufferedReader(new FileReader(&quot;large-file.txt&quot;))) {
+    String line;
+    while ((line = br.readLine()) != null) {
+        processLine(line); // Process one line at a time
+    }
+}
+
+// DON'T do this with large files
+List&lt;String&gt; allLines = Files.readAllLines(Paths.get(&quot;large-file.txt&quot;)); // OutOfMemoryError!
+</code></pre>
+<p><strong>Key Point</strong>: <code>BufferedReader.readLine()</code> is memory-efficient for large files, unlike loading everything into memory.</p>
+<h3 id="q9-what-are-the-predefined-streams-in-java">Q9: "What are the predefined streams in Java?"</h3>
+<p><strong>Answer:</strong></p>
+<pre><code class="language-java">// Standard input (keyboard)
+Scanner scanner = new Scanner(System.in);
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+// Standard output (console)
+System.out.println(&quot;Normal output&quot;);
+
+// Standard error (console, but separate stream)
+System.err.println(&quot;Error output&quot;);
+
+// Redirecting streams
+System.setOut(new PrintStream(&quot;output.txt&quot;));
+System.setErr(new PrintStream(&quot;errors.txt&quot;));
+</code></pre>
+<p><strong>Key Point</strong>: <code>System.in</code>, <code>System.out</code>, <code>System.err</code> are automatically available and can be redirected.</p>
+<h3 id="q10-what-happens-if-you-dont-close-a-stream-why-is-too-many-open-files-a-problem">Q10: "What happens if you don't close a stream? Why is 'too many open files' a problem?"</h3>
+<p><strong>Answer:</strong></p>
+<pre><code class="language-java">// Resource leak example
+public void processFiles() {
+    for (int i = 0; i &lt; 2000; i++) {
+        try {
+            FileInputStream fis = new FileInputStream(&quot;file&quot; + i + &quot;.txt&quot;);
+            // Process file
+            // BUG: Never call fis.close()!
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    // After ~1024 iterations: &quot;Too many open files&quot; error
+}
+</code></pre>
+<p><strong>What "Too Many Open Files" Actually Means:</strong>
+- <strong>OS Limit</strong>: Each process can only have ~1024 open file descriptors
+- <strong>File descriptor</strong>: OS assigns unique number to each open file (0=stdin, 1=stdout, 2=stderr, 3+=your files)
+- <strong>Resource exhaustion</strong>: When you hit the limit, OS refuses to open more files
+- <strong>System impact</strong>: Affects entire system, not just your program</p>
+<p><strong>How to diagnose:</strong></p>
+<pre><code class="language-bash"># Check current open files for your Java process
+lsof -p &lt;java-process-id&gt; | wc -l
+
+# Check system limits
+ulimit -n    # Shows max open files per process (usually 1024)
+</code></pre>
+<h2 id="common-mistakes-how-to-avoid-them">🚨 Common Mistakes &amp; How to Avoid Them</h2>
+<h3 id="1-using-wrong-stream-type">1. Using Wrong Stream Type</h3>
+<pre><code class="language-java">// WRONG - Using character stream for binary data
+FileReader fr = new FileReader(&quot;image.jpg&quot;); // Corrupts binary data!
+
+// CORRECT - Use byte stream for binary data
+FileInputStream fis = new FileInputStream(&quot;image.jpg&quot;);
+</code></pre>
+<h3 id="2-forgetting-to-flush">2. Forgetting to Flush</h3>
+<pre><code class="language-java">// Data might stay in buffer
+FileWriter fw = new FileWriter(&quot;output.txt&quot;);
+fw.write(&quot;Important data&quot;);
+// If program crashes here, data is lost!
+
+// Always flush or use try-with-resources
+fw.flush(); // Or fw.close() which calls flush()
+</code></pre>
+<h3 id="3-inefficient-file-reading">3. Inefficient File Reading</h3>
+<pre><code class="language-java">// SLOW - Reading byte by byte
+FileInputStream fis = new FileInputStream(&quot;large-file.dat&quot;);
+int data;
+while ((data = fis.read()) != -1) { // Many system calls
+    process(data);
+}
+
+// FAST - Reading in chunks
+byte[] buffer = new byte[8192];
+int bytesRead;
+while ((bytesRead = fis.read(buffer)) != -1) {
+    for (int i = 0; i &lt; bytesRead; i++) {
+        process(buffer[i]);
+    }
+}
+</code></pre>
+<h1 id="enums-autoboxing-static-import-more">Enums, Autoboxing, Static Import &amp; More</h1>
+<h2 id="1-enumeration-fundamentals">1. Enumeration Fundamentals</h2>
+<h3 id="what-are-enumerations">What are Enumerations?</h3>
+<ul>
+<li><strong>Definition</strong>: A special Java type that defines a collection of constants</li>
+<li><strong>Syntax</strong>: <code>enum EnumName { CONSTANT1, CONSTANT2, CONSTANT3 }</code></li>
+<li><strong>Key Points</strong>:</li>
+<li>Enums are implicitly <code>public</code>, <code>static</code>, and <code>final</code></li>
+<li>Each enum constant is an instance of the enum type</li>
+<li>Enums cannot be instantiated using <code>new</code></li>
+<li>Enums can be used in switch statements</li>
+</ul>
+<h3 id="basic-example">Basic Example:</h3>
+<pre><code class="language-java">enum Day {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}
+
+public class EnumExample {
+    public static void main(String[] args) {
+        Day today = Day.MONDAY;
+        System.out.println(&quot;Today is: &quot; + today);
+    }
+}
+</code></pre>
+<h2 id="2-class-based-features-of-enumerations">2. Class-Based Features of Enumerations</h2>
+<h3 id="enums-as-classes">Enums as Classes</h3>
+<ul>
+<li>Enums are special classes that extend <code>java.lang.Enum</code></li>
+<li>Can have fields, constructors, and methods</li>
+<li>Constructor is called once for each enum constant</li>
+</ul>
+<h3 id="example-with-fields-and-methods">Example with Fields and Methods:</h3>
+<pre><code class="language-java">enum Planet {
+    MERCURY(3.303e+23, 2.4397e6),
+    VENUS(4.869e+24, 6.0518e6),
+    EARTH(5.976e+24, 6.37814e6);
+
+    private final double mass;
+    private final double radius;
+
+    Planet(double mass, double radius) {
+        this.mass = mass;
+        this.radius = radius;
+    }
+
+    public double getMass() { return mass; }
+    public double getRadius() { return radius; }
+
+    public double surfaceGravity() {
+        return 6.67300E-11 * mass / (radius * radius);
+    }
+}
+</code></pre>
+<h3 id="interview-questions">Interview Questions:</h3>
+<ul>
+<li><strong>Q</strong>: Can enums implement interfaces?</li>
+<li><strong>A</strong>: Yes, enums can implement interfaces but cannot extend classes (they already extend Enum)</li>
+</ul>
+<h2 id="3-values-and-valueof-methods">3. values() and valueOf() Methods</h2>
+<h3 id="values-method">values() Method</h3>
+<ul>
+<li><strong>Purpose</strong>: Returns an array containing all enum constants</li>
+<li><strong>Automatically generated</strong> by the compiler</li>
+<li><strong>Usage</strong>: Iterating through all enum constants</li>
+</ul>
+<pre><code class="language-java">for (Day day : Day.values()) {
+    System.out.println(day);
+}
+</code></pre>
+<h3 id="valueof-method">valueOf() Method</h3>
+<ul>
+<li><strong>Purpose</strong>: Returns the enum constant with the specified name</li>
+<li><strong>Throws</strong>: <code>IllegalArgumentException</code> if no constant with specified name exists</li>
+<li><strong>Case-sensitive</strong></li>
+</ul>
+<pre><code class="language-java">Day day = Day.valueOf(&quot;MONDAY&quot;); // Returns Day.MONDAY
+Day invalid = Day.valueOf(&quot;monday&quot;); // Throws IllegalArgumentException
+</code></pre>
+<h3 id="interview-questions_1">Interview Questions:</h3>
+<ul>
+<li><strong>Q</strong>: What happens if you pass null to valueOf()?</li>
+<li><strong>A</strong>: Throws <code>NullPointerException</code></li>
+</ul>
+<h2 id="4-javas-type-wrappers">4. Java's Type Wrappers</h2>
+<h3 id="wrapper-classes-overview">Wrapper Classes Overview</h3>
+<ul>
+<li><strong>Purpose</strong>: Object representation of primitive types</li>
+<li><strong>Complete List</strong>:</li>
+<li><code>Boolean</code> (boolean)</li>
+<li><code>Byte</code> (byte)</li>
+<li><code>Character</code> (char)</li>
+<li><code>Short</code> (short)</li>
+<li><code>Integer</code> (int)</li>
+<li><code>Long</code> (long)</li>
+<li><code>Float</code> (float)</li>
+<li><code>Double</code> (double)</li>
+</ul>
+<h3 id="key-features">Key Features:</h3>
+<pre><code class="language-java">// Creating wrapper objects
+Integer intObj = new Integer(42);        // Deprecated in Java 9
+Integer intObj2 = Integer.valueOf(42);   // Preferred way
+
+// Utility methods
+int parsed = Integer.parseInt(&quot;123&quot;);
+String str = Integer.toString(456);
+Integer max = Integer.max(10, 20);
+</code></pre>
+<h3 id="interview-questions_2">Interview Questions:</h3>
+<ul>
+<li><strong>Q</strong>: What's the difference between <code>Integer.valueOf()</code> and <code>new Integer()</code>?</li>
+<li><strong>A</strong>: <code>valueOf()</code> uses caching (-128 to 127) and is more memory efficient; constructor always creates new object</li>
+</ul>
+<h2 id="7-autoboxing-and-auto-unboxing-basics">7. Autoboxing and Auto-unboxing Basics</h2>
+<h3 id="autoboxing">Autoboxing</h3>
+<ul>
+<li><strong>Definition</strong>: Automatic conversion from primitive to wrapper object</li>
+<li><strong>When it happens</strong>: Assignment, method parameters, return values</li>
+</ul>
+<pre><code class="language-java">Integer intObj = 42;        // Autoboxing: int to Integer
+List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+list.add(10);              // Autoboxing: int to Integer
+</code></pre>
+<h3 id="auto-unboxing">Auto-unboxing</h3>
+<ul>
+<li><strong>Definition</strong>: Automatic conversion from wrapper object to primitive</li>
+<li><strong>When it happens</strong>: Assignment, method parameters, arithmetic operations</li>
+</ul>
+<pre><code class="language-java">Integer intObj = 42;
+int primitive = intObj;     // Auto-unboxing: Integer to int
+int result = intObj + 5;    // Auto-unboxing for arithmetic
+</code></pre>
+<h2 id="10-static-import">10. Static Import</h2>
+<h3 id="basic-syntax_1">Basic Syntax:</h3>
+<pre><code class="language-java">import static java.lang.Math.*;
+import static java.lang.System.out;
+
+public class StaticImportExample {
+    public static void main(String[] args) {
+        out.println(sqrt(16));    // Instead of System.out.println(Math.sqrt(16))
+        out.println(PI);          // Instead of Math.PI
+    }
+}
+</code></pre>
+<h3 id="specific-vs-wildcard-import">Specific vs. Wildcard Import:</h3>
+<pre><code class="language-java">// Specific static import
+import static java.lang.Math.sqrt;
+import static java.lang.Math.PI;
+
+// Wildcard static import
+import static java.lang.Math.*;
+</code></pre>
+<h3 id="best-practices_1">Best Practices:</h3>
+<ul>
+<li>Use sparingly to avoid confusion</li>
+<li>Prefer specific imports over wildcards</li>
+<li>Don't overuse; can make code less readable</li>
+</ul>
+<h3 id="interview-questions_3">Interview Questions:</h3>
+<ul>
+<li><strong>Q</strong>: What's the difference between regular import and static import?</li>
+<li><strong>A</strong>: Regular import imports types; static import imports static members (methods and fields)</li>
+</ul>
+<h2 id="11-annotations-overview">11. Annotations Overview</h2>
+<h3 id="basic-concepts">Basic Concepts:</h3>
+<ul>
+<li><strong>Definition</strong>: Metadata that provides information about code</li>
+<li><strong>Usage</strong>: Compilation, runtime processing, documentation</li>
+<li><strong>Syntax</strong>: <code>@AnnotationName</code> or <code>@AnnotationName(parameters)</code></li>
+</ul>
+<h3 id="built-in-annotations">Built-in Annotations:</h3>
+<pre><code class="language-java">@Override
+public String toString() {
+    return &quot;Example&quot;;
+}
+
+@Deprecated
+public void oldMethod() {
+    // Legacy code
+}
+
+@SuppressWarnings(&quot;unchecked&quot;)
+public void rawTypeMethod() {
+    List list = new ArrayList(); // Raw type usage
+}
+</code></pre>
+<h3 id="custom-annotations">Custom Annotations:</h3>
+<pre><code class="language-java">@interface MyAnnotation {
+    String value() default &quot;default&quot;;
+    int count() default 1;
+}
+
+@MyAnnotation(value = &quot;test&quot;, count = 5)
+public class AnnotatedClass {
+    // Class implementation
+}
+</code></pre>
+<h3 id="retention-policies">Retention Policies:</h3>
+<ul>
+<li><code>@Retention(RetentionPolicy.SOURCE)</code>: Compile-time only</li>
+<li><code>@Retention(RetentionPolicy.CLASS)</code>: In class file, not at runtime</li>
+<li><code>@Retention(RetentionPolicy.RUNTIME)</code>: Available at runtime</li>
+</ul>
+<h3 id="interview-questions_4">Interview Questions:</h3>
+<ul>
+<li><strong>Q</strong>: What's the difference between <code>@Override</code> and <code>@Overload</code>?</li>
+<li><strong>A</strong>: <code>@Override</code> exists and indicates method overriding; <code>@Overload</code> doesn't exist in Java</li>
+</ul>
+<h2 id="12-instanceof-operator">12. instanceof Operator</h2>
+<h3 id="basic-usage">Basic Usage:</h3>
+<pre><code class="language-java">Object obj = &quot;Hello&quot;;
+if (obj instanceof String) {
+    String str = (String) obj;
+    System.out.println(str.toUpperCase());
+}
+</code></pre>
+<h3 id="with-inheritance">With Inheritance:</h3>
+<pre><code class="language-java">class Animal { }
+class Dog extends Animal { }
+
+Animal animal = new Dog();
+System.out.println(animal instanceof Dog);    // true
+System.out.println(animal instanceof Animal); // true
+System.out.println(animal instanceof Object); // true
+</code></pre>
+<h3 id="null-handling">Null Handling:</h3>
+<pre><code class="language-java">String str = null;
+System.out.println(str instanceof String); // false (null is not instance of anything)
+</code></pre>
+<h3 id="best-practices_2">Best Practices:</h3>
+<ul>
+<li>Use before casting to avoid <code>ClassCastException</code></li>
+<li>Consider using polymorphism instead of multiple instanceof checks</li>
+<li>Be careful with null values</li>
+</ul>
+<h3 id="interview-questions_5">Interview Questions:</h3>
+<ul>
+<li><strong>Q</strong>: What does <code>instanceof</code> return when the object is null?</li>
+<li><strong>A</strong>: Always returns false, regardless of the type being checked</li>
+</ul>
+<h2 id="common-interview-scenarios">Common Interview Scenarios</h2>
+<h3 id="enum-in-switch-statement">Enum in Switch Statement:</h3>
+<pre><code class="language-java">enum Day { MONDAY, TUESDAY, WEDNESDAY }
+
+public String getWorkload(Day day) {
+    switch (day) {
+        case MONDAY:
+            return &quot;Heavy&quot;;
+        case TUESDAY:
+            return &quot;Medium&quot;;
+        case WEDNESDAY:
+            return &quot;Light&quot;;
+        default:
+            return &quot;Unknown&quot;;
+    }
+}
+</code></pre>
+<h3 id="autoboxing-performance-issue">Autoboxing Performance Issue:</h3>
+<pre><code class="language-java">// Poor performance due to autoboxing
+Long sum = 0L;
+for (long i = 0; i &lt; 1000000; i++) {
+    sum += i; // Creates new Long object in each iteration
+}
+
+// Better performance
+long sum = 0L;
+for (long i = 0; i &lt; 1000000; i++) {
+    sum += i; // Pure primitive arithmetic
+}
+</code></pre>
+<h3 id="static-import-conflicts">Static Import Conflicts:</h3>
+<pre><code class="language-java">import static java.lang.Math.max;
+import static java.lang.Integer.max; // Compilation error: duplicate static import
+
+// Solution: Use specific imports or qualify the method
+Math.max(a, b);
+Integer.max(x, y);
+</code></pre>
+<h1 id="java-generics">Java Generics</h1>
+<h2 id="1-benefits-of-generics">1. Benefits of Generics</h2>
+<ul>
+<li><strong>Type Safety</strong>: Compile-time error instead of runtime <code>ClassCastException</code></li>
+<li><strong>No Casting</strong>: Eliminates explicit casting when retrieving from collections</li>
+<li><strong>Generic Algorithms</strong>: Write methods that work with any type</li>
+</ul>
+<pre><code class="language-java">// Without generics - runtime error
+List list = new ArrayList();
+list.add(&quot;Hello&quot;);
+String str = (String) list.get(0); // Cast required
+
+// With generics - compile-time safety
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add(&quot;Hello&quot;);
+String str = list.get(0); // No cast needed
+</code></pre>
+<p><strong>Q</strong>: What are main benefits of generics?
+<strong>A</strong>: Type safety at compile-time, elimination of casts, enabling generic algorithms</p>
+<h2 id="2-generic-class">2. Generic Class</h2>
+<pre><code class="language-java">public class Box&lt;T&gt; {
+    private T content;
+
+    public void set(T content) { this.content = content; }
+    public T get() { return content; }
+}
+
+// Multiple type parameters
+public class Pair&lt;T, U&gt; {
+    private T first;
+    private U second;
+    // constructors and methods...
+}
+</code></pre>
+<h2 id="3-bounded-type-parameters">3. Bounded Type Parameters</h2>
+<pre><code class="language-java">// Upper bound - T must extend Number
+public class NumberBox&lt;T extends Number&gt; {
+    private T number;
+    public double getDoubleValue() {
+        return number.doubleValue(); // Can call Number methods
+    }
+}
+
+// Multiple bounds
+public class BoundedBox&lt;T extends Number &amp; Comparable&lt;T&gt;&gt; {
+    // T must extend Number AND implement Comparable
+}
+</code></pre>
+<p><strong>Q</strong>: What does <code>&lt;T extends Number&gt;</code> mean?
+<strong>A</strong>: T must be Number or its subclass (upper bound)</p>
+<h2 id="4-wildcards">4. Wildcards</h2>
+<pre><code class="language-java">// Unbounded wildcard
+public void printList(List&lt;?&gt; list) {
+    for (Object item : list) {
+        System.out.println(item);
+    }
+}
+
+// Upper bounded wildcard (? extends)
+public double sum(List&lt;? extends Number&gt; numbers) {
+    double sum = 0.0;
+    for (Number num : numbers) {
+        sum += num.doubleValue();
+    }
+    return sum;
+}
+
+// Lower bounded wildcard (? super)
+public void addNumbers(List&lt;? super Integer&gt; list) {
+    list.add(42); // Can add Integer
+}
+</code></pre>
+<p><strong>PECS Rule</strong>: <strong>P</strong>roducer <strong>E</strong>xtends, <strong>C</strong>onsumer <strong>S</strong>uper
+- Use <code>? extends</code> when reading from collection (producer)
+- Use <code>? super</code> when writing to collection (consumer)</p>
+<h2 id="5-generic-methods">5. Generic Methods</h2>
+<pre><code class="language-java">public class Utility {
+    // Generic method in non-generic class
+    public static &lt;T&gt; void swap(T[] array, int i, int j) {
+        T temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    // With bounds
+    public static &lt;T extends Comparable&lt;T&gt;&gt; T max(T a, T b) {
+        return a.compareTo(b) &gt; 0 ? a : b;
+    }
+}
+</code></pre>
+<h2 id="6-diamond-operator-java-7">6. Diamond Operator (Java 7+)</h2>
+<pre><code class="language-java">// Before Java 7
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+
+// Java 7+ with diamond operator
+List&lt;String&gt; list = new ArrayList&lt;&gt;();
+Map&lt;String, List&lt;Integer&gt;&gt; map = new HashMap&lt;&gt;();
+</code></pre>
+<h2 id="7-type-erasure">7. Type Erasure</h2>
+<ul>
+<li>Generic type information is removed at compile time</li>
+<li>All generic types become raw types or their bounds</li>
+</ul>
+<pre><code class="language-java">// Source code
+List&lt;String&gt; stringList = new ArrayList&lt;String&gt;();
+List&lt;Integer&gt; intList = new ArrayList&lt;Integer&gt;();
+
+// After erasure (runtime)
+List stringList = new ArrayList();
+List intList = new ArrayList();
+
+// This won't work - same type at runtime
+if (stringList instanceof List&lt;String&gt;) { // Compilation error
+    // Cannot check parameterized type
+}
+</code></pre>
+<p><strong>Q</strong>: What is type erasure?
+<strong>A</strong>: Process where generic type information is removed during compilation for backward compatibility</p>
+<h2 id="8-raw-types">8. Raw Types</h2>
+<pre><code class="language-java">// Raw type (avoid in new code)
+List rawList = new ArrayList();
+rawList.add(&quot;Hello&quot;);
+rawList.add(42); // No compile-time check
+
+// Parameterized type (preferred)
+List&lt;String&gt; stringList = new ArrayList&lt;String&gt;();
+</code></pre>
+<p><strong>Q</strong>: Difference between <code>List</code> and <code>List&lt;Object&gt;</code>?
+<strong>A</strong>: <code>List</code> is raw type (no type checking), <code>List&lt;Object&gt;</code> is parameterized type (type-safe)</p>
+<h2 id="9-key-restrictions">9. Key Restrictions</h2>
+<ul>
+<li><strong>No primitives</strong>: <code>List&lt;int&gt;</code> ❌ → <code>List&lt;Integer&gt;</code> ✅</li>
+<li><strong>No arrays</strong>: <code>new T[10]</code> ❌</li>
+<li><strong>No static fields</strong>: <code>static T field</code> ❌</li>
+<li><strong>No instanceof</strong>: <code>obj instanceof List&lt;String&gt;</code> ❌</li>
+</ul>
+<h2 id="10-common-interview-questions">10. Common Interview Questions</h2>
+<p><strong>Q</strong>: Can you overload methods with different generic parameters?
+<strong>A</strong>: No, <code>process(List&lt;String&gt;)</code> and <code>process(List&lt;Integer&gt;)</code> have same erasure signature</p>
+<p><strong>Q</strong>: Why can't you create generic arrays?
+<strong>A</strong>: Arrays need runtime type info, but generics use type erasure</p>
+<p><strong>Q</strong>: When to use <code>&lt;? extends T&gt;</code> vs <code>&lt;? super T&gt;</code>?
+<strong>A</strong>: Use <code>extends</code> for reading (producer), <code>super</code> for writing (consumer) - PECS rule</p>
+<p><strong>Q</strong>: What's the difference between <code>List&lt;?&gt;</code> and <code>List&lt;Object&gt;</code>?
+<strong>A</strong>: <code>List&lt;?&gt;</code> can reference any parameterized list, <code>List&lt;Object&gt;</code> only accepts Object references</p>
+<p><strong>Q</strong>: Can static methods be generic?
+<strong>A</strong>: Yes, but they can't use class type parameters, only their own: <code>public static &lt;T&gt; void method(T t)</code></p></div>
+                <footer>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../search/main.js"></script>
+</body>
+
+</html>

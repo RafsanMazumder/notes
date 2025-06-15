@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Engines &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Engines</a><a class="nav-item current" href="./">Engines</a><a class="nav-item current" href="./">Engines</a><a class="nav-item current" href="./">Engines</a><a class="nav-item current" href="./">Engines</a><a class="nav-item current" href="./">Engines</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#key-architectural-features-the-internals">Key Architectural Features (The Internals):</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#when-to-use-it">When to Use It:</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#key-architectural-features-the-internals_1">Key Architectural Features (The Internals):</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#when-to-use-it_1">When to Use It:</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#key-architectural-features-the-internals_2">Key Architectural Features (The Internals):</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#when-to-use-it_2">When to Use It:</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#quick-reference-comparison-table">Quick-Reference Comparison Table</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#classic-interview-questions">Classic Interview Questions</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../9.%20replication/">&laquo; Previous</a></div>
+    <div class="next"><a href="../11.%20cursors/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>MySQL</li>
+</ul>
+</nav>
+                <div id="content"><p>Of course. Understanding the trade-offs between storage engines is fundamental to MySQL architecture and a very common
+topic in technical interviews. It shows you can think beyond just writing SQL and consider the underlying performance
+and reliability characteristics of the system.</p>
+<p>Here are the detailed, interview-ready notes on InnoDB, MyISAM, and MEMORY.</p>
+<hr />
+<h3 id="ultimate-guide-to-mysql-storage-engines-for-interviews"><strong>Ultimate Guide to MySQL Storage Engines (for Interviews)</strong></h3>
+<h3 id="part-1-the-core-idea-what-is-a-storage-engine">Part 1: The Core Idea - What is a Storage Engine?</h3>
+<p>First, you must understand <em>why</em> this concept exists. MySQL has a unique <strong>pluggable storage engine architecture</strong>. This
+means the core MySQL server handles things like connection management, parsing SQL, and optimization, but it delegates
+the actual work of storing, retrieving, and managing data to a "storage engine."</p>
+<p>This allows you to choose the engine whose characteristics (performance, reliability, features) best fit the needs of a
+specific table. You can even mix and match engines within the same database.</p>
+<p><strong>How to Check/Set the Engine:</strong></p>
+<pre><code class="language-sql">-- See all available storage engines
+SHOW
+ENGINES;
+
+-- See the storage engine for a specific table
+SHOW
+CREATE TABLE my_table;
+
+-- Create a table with a specific engine
+CREATE TABLE my_table
+(
+    id INT PRIMARY KEY
+) ENGINE=InnoDB;
+
+-- Change an existing table's engine
+ALTER TABLE my_table ENGINE=MyISAM;
+</code></pre>
+<hr />
+<h3 id="part-2-innodb-the-high-reliability-default">Part 2: InnoDB - The High-Reliability Default</h3>
+<p><strong>Overview:</strong> InnoDB is the default storage engine for MySQL and for good reason. It is a general-purpose engine
+designed for <strong>high reliability</strong> and <strong>high concurrency</strong>. It is the only engine that is fully <strong>ACID compliant</strong>.</p>
+<h4 id="key-architectural-features-the-internals"><strong>Key Architectural Features (The Internals):</strong></h4>
+<ol>
+<li>
+<p><strong>ACID Compliance:</strong> This is its most important feature.</p>
+<ul>
+<li><strong>Atomicity:</strong> Transactions are "all or nothing," ensured by the <strong>Undo Log</strong>.</li>
+<li><strong>Consistency:</strong> Rules like constraints and triggers keep the database in a valid state.</li>
+<li><strong>Isolation:</strong> Transactions don't interfere with each other, achieved via <strong>MVCC</strong> and <strong>locking</strong>.</li>
+<li><strong>Durability:</strong> Committed changes are permanent, even after a crash, ensured by the <strong>Redo Log</strong> (using
+  Write-Ahead Logging).</li>
+</ul>
+</li>
+<li>
+<p><strong>Locking: Row-Level Locking + MVCC</strong></p>
+<ul>
+<li>It locks only the specific rows being modified, not the entire table. This allows many different transactions to
+  write to different rows in the same table simultaneously, providing excellent <strong>concurrency</strong>.</li>
+<li>For reads, it uses <strong>Multi-Version Concurrency Control (MVCC)</strong>, which provides a consistent snapshot to readers
+  without blocking writers (and vice versa).</li>
+</ul>
+</li>
+<li>
+<p><strong>Storage Structure: Clustered Index</strong></p>
+<ul>
+<li>The table's data is physically stored in the order of the <strong>Primary Key</strong>. The B+ Tree of the primary key <em>is</em> the
+  table.</li>
+<li>This makes primary key lookups extremely fast.</li>
+<li>Secondary indexes store a copy of the primary key to locate the full row, which can sometimes lead to a two-step
+  lookup process.</li>
+</ul>
+</li>
+<li>
+<p><strong>Crash Recovery:</strong> InnoDB is built for survival. On startup after a crash, it uses the redo log to replay committed
+   transactions that weren't on disk yet and the undo log to roll back uncommitted transactions.</p>
+</li>
+<li>
+<p><strong>Foreign Key Support:</strong> It is the only common engine that enforces foreign key constraints at the database level,
+   ensuring relational data integrity.</p>
+</li>
+</ol>
+<h4 id="when-to-use-it"><strong>When to Use It:</strong></h4>
+<ul>
+<li>It is the <strong>default choice for virtually all new applications</strong>.</li>
+<li>Any system that requires transactions (e.g., e-commerce, banking, booking systems).</li>
+<li>High-concurrency environments with many simultaneous reads and writes.</li>
+<li>Any application where data reliability and integrity are critical.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">✅ Pros</th>
+<th style="text-align: left;">❌ Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ACID Compliant</strong> (transactions, reliability)</td>
+<td style="text-align: left;">Can use more disk space due to clustered index structure.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Excellent Concurrency</strong> (row-level locking)</td>
+<td style="text-align: left;">More complex internal architecture.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Crash-Safe</strong> by design</td>
+<td style="text-align: left;">Slower for full table counts (<code>SELECT COUNT(*)</code> requires a scan).</td>
+</tr>
+<tr>
+<td style="text-align: left;">Supports <strong>Foreign Keys</strong>.</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="part-3-myisam-the-legacy-speedster">Part 3: MyISAM - The Legacy Speedster</h3>
+<p><strong>Overview:</strong> MyISAM was the default storage engine before InnoDB. It is a simpler engine designed for <strong>high-speed
+reads</strong> in low-concurrency environments. It is <strong>not</strong> transactional and <strong>not</strong> crash-safe.</p>
+<h4 id="key-architectural-features-the-internals_1"><strong>Key Architectural Features (The Internals):</strong></h4>
+<ol>
+<li>
+<p><strong>No Transactions:</strong> MyISAM is <strong>not ACID compliant</strong>. It has no concept of transactions, <code>COMMIT</code>, or <code>ROLLBACK</code>.
+   Every statement is executed and committed immediately.</p>
+</li>
+<li>
+<p><strong>Locking: Table-Level Locking</strong></p>
+<ul>
+<li>This is its biggest drawback. When a transaction writes to a table (e.g., <code>UPDATE</code> or <code>INSERT</code>), it locks the *
+  <em>entire table</em>*.</li>
+<li>This means no other user can read from or write to that table until the first write operation is complete. This
+  severely limits concurrency.</li>
+</ul>
+</li>
+<li>
+<p><strong>Storage Structure: Heap + Index Files</strong></p>
+<ul>
+<li>It stores data in two main files: a <code>.MYD</code> (MYData) file, which is a simple heap of rows, and a <code>.MYI</code> (MYIndex)
+  file, which contains the B-Tree indexes.</li>
+<li>The index entries are just pointers (file offsets) to the rows in the data file.</li>
+<li>This structure makes operations like <code>SELECT COUNT(*)</code> very fast, as the row count is stored in the table's
+  metadata.</li>
+</ul>
+</li>
+<li>
+<p><strong>No Crash Recovery:</strong> If the server crashes mid-write, the table can easily become corrupted. You must then run
+   <code>REPAIR TABLE</code> to try and fix it, which may or may not succeed.</p>
+</li>
+<li>
+<p><strong>Full-Text Search:</strong> Historically, this was MyISAM's main advantage, although InnoDB has had robust full-text search
+   capabilities for many years now.</p>
+</li>
+</ol>
+<h4 id="when-to-use-it_1"><strong>When to Use It:</strong></h4>
+<ul>
+<li>Legacy applications that were built on it.</li>
+<li><strong>Very niche use cases:</strong> Read-only or read-mostly data warehousing tables where you need fast full-table reads and
+  concurrency is not a concern.</li>
+<li>Some internal MySQL system tables still use it.</li>
+<li><strong>For new development, it is almost never the correct choice.</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">✅ Pros</th>
+<th style="text-align: left;">❌ Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Very simple architecture.</td>
+<td style="text-align: left;"><strong>No ACID support</strong> (no transactions).</td>
+</tr>
+<tr>
+<td style="text-align: left;">Very fast <code>SELECT COUNT(*)</code> queries.</td>
+<td style="text-align: left;"><strong>Table-level locking</strong> (terrible for concurrency).</td>
+</tr>
+<tr>
+<td style="text-align: left;">Smaller on-disk footprint in some cases.</td>
+<td style="text-align: left;"><strong>Not crash-safe</strong>; prone to corruption.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">No foreign key support.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="part-4-memory-the-volatile-cache">Part 4: MEMORY - The Volatile Cache</h3>
+<p><strong>Overview:</strong> The MEMORY storage engine (formerly known as HEAP) stores all of its data <strong>in RAM</strong>, not on disk. It is
+designed for extremely fast access to temporary, non-critical data.</p>
+<h4 id="key-architectural-features-the-internals_2"><strong>Key Architectural Features (The Internals):</strong></h4>
+<ol>
+<li>
+<p><strong>In-Memory Storage:</strong> All data and indexes are held in system memory. This eliminates disk I/O, making it
+   exceptionally fast.</p>
+</li>
+<li>
+<p><strong>Volatility:</strong> This is its defining characteristic. <strong>All data in a MEMORY table is lost</strong> when the MySQL server is
+   shut down or crashes. The table definition persists, but the table will be empty upon restart.</p>
+</li>
+<li>
+<p><strong>Locking: Table-Level Locking</strong></p>
+<ul>
+<li>Just like MyISAM, it uses table-level locks, which limits its usefulness in high-concurrency write scenarios.</li>
+</ul>
+</li>
+<li>
+<p><strong>Index Type:</strong> By default, it uses a <strong>HASH index</strong>, which is extremely fast for single-value equality lookups (
+   <code>WHERE key = 'value'</code>). It can also be configured to use standard B-Tree indexes.</p>
+</li>
+<li>
+<p><strong>No BLOB/TEXT:</strong> Does not support variable-length data types like <code>BLOB</code> or <code>TEXT</code>. You must use fixed-length types
+   like <code>VARCHAR</code> or <code>CHAR</code>.</p>
+</li>
+</ol>
+<h4 id="when-to-use-it_2"><strong>When to Use It:</strong></h4>
+<ul>
+<li>As a high-speed cache for lookup or reference tables that can be easily repopulated on startup.</li>
+<li>For storing intermediate results during complex, multi-step data processing operations.</li>
+<li>User session management.</li>
+<li><strong>Anywhere you need extreme speed for temporary data and data loss on restart is acceptable.</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">✅ Pros</th>
+<th style="text-align: left;">❌ Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Extremely fast</strong> due to in-memory storage.</td>
+<td style="text-align: left;"><strong>Volatile</strong> - All data is lost on restart.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ideal for caching and temporary tables.</td>
+<td style="text-align: left;"><strong>Table-level locking</strong> limits write concurrency.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Supports both HASH and B-Tree indexes.</td>
+<td style="text-align: left;">Cannot store <code>BLOB</code> or <code>TEXT</code> data.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Table size is limited by available system RAM.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="part-5-summary-comparison-interview-questions">Part 5: Summary Comparison &amp; Interview Questions</h3>
+<h4 id="quick-reference-comparison-table"><strong>Quick-Reference Comparison Table</strong></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">InnoDB</th>
+<th style="text-align: left;">MyISAM</th>
+<th style="text-align: left;">MEMORY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ACID Compliance</strong></td>
+<td style="text-align: left;">✅ Yes</td>
+<td style="text-align: left;">❌ No</td>
+<td style="text-align: left;">❌ No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Locking Granularity</strong></td>
+<td style="text-align: left;"><strong>Row-Level + MVCC</strong></td>
+<td style="text-align: left;">Table-Level</td>
+<td style="text-align: left;">Table-Level</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Use Case</strong></td>
+<td style="text-align: left;">General Purpose / OLTP</td>
+<td style="text-align: left;">Read-Mostly / Legacy</td>
+<td style="text-align: left;">Caching / Temp Tables</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Crash Recovery</strong></td>
+<td style="text-align: left;">✅ Excellent</td>
+<td style="text-align: left;">❌ Poor (Manual Repair)</td>
+<td style="text-align: left;">❌ N/A (Data Lost)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Foreign Keys</strong></td>
+<td style="text-align: left;">✅ Yes</td>
+<td style="text-align: left;">❌ No</td>
+<td style="text-align: left;">❌ No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Primary Index</strong></td>
+<td style="text-align: left;">Clustered</td>
+<td style="text-align: left;">B-Tree</td>
+<td style="text-align: left;">Hash (default) / B-Tree</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Data Persistence</strong></td>
+<td style="text-align: left;">Persistent</td>
+<td style="text-align: left;">Persistent</td>
+<td style="text-align: left;"><strong>Not Persistent (Volatile)</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="classic-interview-questions"><strong>Classic Interview Questions</strong></h4>
+<ul>
+<li>
+<p><strong>Q: Why did InnoDB replace MyISAM as the default storage engine?</strong></p>
+<ul>
+<li><strong>A:</strong> Because modern applications demand reliability and concurrency. InnoDB provides full ACID compliance,
+  transactions, and crash recovery, which are critical for data integrity. Its row-level locking mechanism allows
+  for much higher performance in concurrent read/write environments compared to MyISAM's table-level locking.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: I have a table that is updated very frequently by hundreds of users at the same time. Which engine should I use
+  and why?</strong></p>
+<ul>
+<li><strong>A:</strong> You must use <strong>InnoDB</strong>. Its <strong>row-level locking</strong> is essential. When one user updates a row, only that
+  single row is locked, allowing other users to update different rows in the same table simultaneously. With MyISAM
+  or MEMORY, the entire table would be locked for each update, creating a massive performance bottleneck.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: Describe a situation where the MEMORY engine would be a good choice.</strong></p>
+<ul>
+<li><strong>A:</strong> A good use case would be caching a relatively small, frequently read "lookup table," like a mapping of US
+  state codes to state names (e.g., 'CA' -&gt; 'California'). The table could be populated when the application starts.
+  Since all data is in RAM, lookups would be nearly instant. The data loss on restart is acceptable because it's
+  easy to reload.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: How does the underlying storage structure of InnoDB (clustered index) differ from MyISAM?</strong></p>
+<ul>
+<li><strong>A:</strong> In InnoDB, the table data is physically intertwined with the primary key in a single B+ Tree structure. The
+  data is sorted on disk by the PK. In MyISAM, the data is stored in a separate <code>.MYD</code> heap file, and the indexes in
+  a <code>.MYI</code> file simply contain pointers to the data's location in that file. There is no inherent physical ordering
+  of the data itself.</li>
+</ul>
+</li>
+</ul></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../9.%20replication/" title="Replication"><span>Previous</span></a></div>
+        <div class="next"><a href="../11.%20cursors/" title="Cursors"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

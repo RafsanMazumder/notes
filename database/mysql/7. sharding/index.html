@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Sharding &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Sharding</a><a class="nav-item current" href="./">Sharding</a><a class="nav-item current" href="./">Sharding</a><a class="nav-item current" href="./">Sharding</a><a class="nav-item current" href="./">Sharding</a><a class="nav-item current" href="./">Sharding</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#1-the-shard-key">1. The Shard Key</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#2-the-routing-layer">2. The Routing Layer</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#1-algorithmic-hashed-sharding">1. Algorithmic / Hashed Sharding</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#2-range-based-sharding">2. Range-Based Sharding</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#3-directory-based-lookup-table-sharding">3. Directory-Based / Lookup Table Sharding</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../6.%20partitioning/">&laquo; Previous</a></div>
+    <div class="next"><a href="../8.%20concurrency-control/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>MySQL</li>
+</ul>
+</nav>
+                <div id="content"><p>Of course. Sharding is a crucial topic for system design and scalability interviews. It represents a significant
+architectural step up from partitioning and demonstrates an understanding of how to scale databases beyond the limits of
+a single machine.</p>
+<p>Here are detailed, interview-ready notes on database sharding.</p>
+<hr />
+<h3 id="ultimate-guide-to-database-sharding-for-interviews"><strong>Ultimate Guide to Database Sharding (for Interviews)</strong></h3>
+<h3 id="part-1-the-core-idea-what-is-sharding-and-why-do-we-need-it">Part 1: The Core Idea - What is Sharding and Why Do We Need It?</h3>
+<p><strong>The Problem:</strong> You have a single, powerful database server (a "monolith"). As your application grows, this single
+server eventually hits a hard limit. This is called <strong>Vertical Scaling</strong>—making a single server bigger and bigger.</p>
+<ul>
+<li><strong>Write Throughput Limit:</strong> There's a maximum number of write operations a single machine's CPU, memory, and disk I/O
+  can handle.</li>
+<li><strong>Storage Limit:</strong> A single server can only hold so much disk space.</li>
+<li><strong>Cost:</strong> The most powerful servers are exponentially more expensive.</li>
+</ul>
+<p><strong>The Solution: Sharding (Horizontal Scaling)</strong>
+Sharding is a database architecture pattern where you distribute a single logical database across a <strong>cluster of
+multiple, independent database servers</strong>. Each server, called a <strong>shard</strong>, holds a distinct subset of the data.</p>
+<p><strong>Partitioning vs. Sharding - The Critical Distinction</strong></p>
+<p>This is the most common point of confusion and a frequent interview question.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Partitioning</th>
+<th style="text-align: left;">Sharding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Scope</strong></td>
+<td style="text-align: left;">Divides a single table into multiple physical pieces <strong>within one database server</strong>.</td>
+<td style="text-align: left;">Divides a database (or a set of tables) across <strong>multiple independent database servers</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Scale</strong></td>
+<td style="text-align: left;"><strong>Vertical Scaling.</strong> It optimizes performance and management on a <em>single machine</em>.</td>
+<td style="text-align: left;"><strong>Horizontal Scaling.</strong> It breaks the limits of a single machine by distributing the load.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Complexity</strong></td>
+<td style="text-align: left;"><strong>Database-level.</strong> Managed entirely by the database engine (e.g., MySQL's partitioning feature). The application is unaware.</td>
+<td style="text-align: left;"><strong>Architectural/Application-level.</strong> The application (or a proxy layer) must be "shard-aware" to route queries to the correct server.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analogy</strong></td>
+<td style="text-align: left;">A 26-volume encyclopedia set stored in <strong>one library</strong>.</td>
+<td style="text-align: left;">A 26-volume encyclopedia set where each volume is stored in a <strong>different library across the city</strong>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="part-2-the-internals-how-it-actually-works">Part 2: The Internals - How It Actually Works</h3>
+<h4 id="1-the-shard-key"><strong>1. The Shard Key</strong></h4>
+<ul>
+<li><strong>Definition:</strong> The "shard key" (or partition key in this context) is a column or piece of data used to determine
+  which shard a specific row of data belongs to.</li>
+<li><strong>Choosing a Good Shard Key is EVERYTHING:</strong> The choice of a shard key is the single most important decision in a
+  sharded architecture. A bad choice can lead to disastrous consequences.</li>
+<li><strong>Properties of a GOOD Shard Key:</strong><ul>
+<li><strong>High Cardinality:</strong> Has many possible values (e.g., <code>user_id</code>, <code>order_id</code>).</li>
+<li><strong>Even Distribution:</strong> Spreads the data and query load evenly across all shards. A key like <code>country_code</code> is
+  often bad, as one country might have 1000x more users than another, creating a "hot shard."</li>
+<li><strong>Query Isolation:</strong> The most frequent queries should be satisfiable by hitting only a <em>single shard</em>. The shard
+  key should be present in those queries.</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-the-routing-layer"><strong>2. The Routing Layer</strong></h4>
+<p>Since the data lives on different servers, something must act as a traffic cop. This is the routing layer.</p>
+<ul>
+<li><strong>Role:</strong> To inspect an incoming query, look at its shard key, and forward the query to the correct database shard.</li>
+<li><strong>Implementation Options:</strong><ol>
+<li><strong>Application Logic:</strong> The simplest approach. The application code itself contains the logic to connect to the
+   right database. (e.g., <code>db_host = get_shard_for_user(user_id)</code>). This is brittle and hard to maintain.</li>
+<li><strong>Proxy Layer:</strong> The most common and robust approach. The application connects to a proxy (like <strong>ProxySQL</strong>, *
+   <em>Vitess</em>*, or a custom-built service) which appears as a single database. The proxy handles all the routing logic
+   transparently.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h3 id="part-3-sharding-strategies-the-how-to">Part 3: Sharding Strategies (The "How-To")</h3>
+<h4 id="1-algorithmic-hashed-sharding"><strong>1. Algorithmic / Hashed Sharding</strong></h4>
+<ul>
+<li><strong>How it Works:</strong> Apply a hash function to the shard key and then use a modulo operator to determine the shard.<ul>
+<li><code>shard_number = HASH(shard_key) % number_of_shards</code></li>
+</ul>
+</li>
+<li><strong>Example:</strong> <code>shard_id = user_id % 4</code>. A user with ID 123 would go to shard 3 (<code>123 % 4 = 3</code>).</li>
+<li><strong>Pros:</strong><ul>
+<li>Simple to implement.</li>
+<li>Distributes data very evenly if the shard key is well-distributed.</li>
+</ul>
+</li>
+<li><strong>Cons:</strong><ul>
+<li><strong>Re-sharding is a nightmare.</strong> If you want to add a new shard (e.g., go from 4 to 5 shards), the modulo changes (
+  <code>% 5</code>). This means nearly every single piece of data needs to be moved to a new shard. This requires massive
+  downtime or an extremely complex migration strategy. <strong>This is the primary reason this method is often avoided for
+  systems that need to grow.</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="2-range-based-sharding"><strong>2. Range-Based Sharding</strong></h4>
+<ul>
+<li><strong>How it Works:</strong> Data is sharded based on a range of values in the shard key.</li>
+<li><strong>Example:</strong><ul>
+<li>Shard 1: <code>user_id</code> 1 - 1,000,000</li>
+<li>Shard 2: <code>user_id</code> 1,000,001 - 2,000,000</li>
+<li>...etc.</li>
+</ul>
+</li>
+<li><strong>Pros:</strong><ul>
+<li>Relatively easy to implement the routing logic.</li>
+<li><strong>Easy to add new shards.</strong> When you run out of space, you just add a new shard to handle the next range. No data
+  needs to be moved.</li>
+</ul>
+</li>
+<li><strong>Cons:</strong><ul>
+<li><strong>Prone to creating hot shards.</strong> If the shard key is time-based (like <code>order_id</code> or <code>timestamp</code>), all new writes
+  will hammer the very last shard, while older shards sit idle.</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-directory-based-lookup-table-sharding"><strong>3. Directory-Based / Lookup Table Sharding</strong></h4>
+<ul>
+<li><strong>How it Works:</strong> You maintain a central "lookup table" or directory service that maps a shard key to a shard ID.</li>
+<li><strong>Example:</strong> A lookup table might contain: <code>(user_id, shard_id)</code>. To find a user, you first query this lookup table to
+  get their <code>shard_id</code>, and then you query the correct shard.</li>
+<li><strong>Pros:</strong><ul>
+<li><strong>Maximum flexibility.</strong> You can move individual users or groups of data between shards just by updating the
+  lookup table. Re-sharding is much simpler.</li>
+</ul>
+</li>
+<li><strong>Cons:</strong><ul>
+<li>The lookup table itself can become a performance bottleneck and a single point of failure. It must be highly
+  available and fast.</li>
+<li>Every query requires an extra hop to the lookup service first, increasing latency.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="part-4-the-hard-problems-and-trade-offs">Part 4: The Hard Problems and Trade-offs</h3>
+<p>Sharding solves the scaling problem but introduces significant new architectural challenges.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Challenge</th>
+<th style="text-align: left;">Description and Solution Approaches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Cross-Shard Joins</strong></td>
+<td style="text-align: left;">How do you join <code>users</code> and <code>orders</code> if they are sharded differently? Direct <code>JOIN</code>s are impossible. <br/> <strong>Solutions:</strong> 1) <strong>De-normalization:</strong> Store user information (e.g., <code>user_name</code>) directly in the <code>orders</code> table. 2) <strong>Application-level Joins:</strong> Query both shards separately and join the data in your application code. 3) <strong>Co-location:</strong> Shard related data by the same key (e.g., shard both <code>users</code> and <code>orders</code> by <code>user_id</code>) so they always live on the same shard.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Transactions &amp; Consistency</strong></td>
+<td style="text-align: left;">How do you ensure an atomic transaction that needs to modify data on two different shards? Standard ACID transactions don't work across different database servers. <br/> <strong>Solution:</strong> <strong>Two-Phase Commit (2PC)</strong> or a <strong>Saga Pattern</strong>. These are complex distributed transaction patterns that are much harder to implement correctly than standard transactions. Many systems opt to design their data models to avoid the need for them entirely.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Schema Migrations</strong></td>
+<td style="text-align: left;">How do you run an <code>ALTER TABLE</code> on a sharded database? <br/> <strong>Solution:</strong> You must run the migration on every single shard. This requires careful automation and tooling to ensure it's applied consistently and to handle failures gracefully.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Operational Complexity</strong></td>
+<td style="text-align: left;">Instead of managing one database, you now have a distributed system. Monitoring, backups, failover, and deployments are all significantly more complex.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="part-5-classic-interview-questions">Part 5: Classic Interview Questions</h3>
+<ul>
+<li>
+<p><strong>Q: When should a team consider sharding their database?</strong></p>
+<ul>
+<li><strong>A:</strong> A team should consider sharding only after they have exhausted the possibilities of vertical scaling and
+  optimization on a single server. The trigger is typically hitting a hard resource limit (CPU, write throughput,
+  storage) that cannot be solved by buying a bigger machine, or when the cost of a bigger machine becomes
+  prohibitive. It's a solution for a "good problem to have"—the problem of massive scale.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: What is the single most important decision when designing a sharded system?</strong></p>
+<ul>
+<li><strong>A:</strong> The choice of the <strong>shard key</strong>. A good key ensures even data and load distribution and allows most queries
+  to be isolated to a single shard. A bad key can create hot spots, render the sharding ineffective, and be
+  extremely difficult to change later.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: Your team used algorithmic sharding (<code>user_id % 16</code>) and now needs to increase capacity. What is the major
+  problem you face?</strong></p>
+<ul>
+<li><strong>A:</strong> The major problem is that changing the number of shards (e.g., to 20) changes the result of the modulo
+  operation for nearly every <code>user_id</code>. This means almost all existing data is now on the "wrong" shard according to
+  the new formula. This requires a massive, complex, and potentially downtime-inducing migration to move all the
+  data to its new correct location. This is why consistent hashing or directory-based sharding are often preferred
+  for systems that need to grow.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: How would you handle a <code>JOIN</code> between a <code>users</code> table sharded by <code>user_id</code> and a <code>products</code> table that is not
+  sharded?</strong></p>
+<ul>
+<li><strong>A:</strong> You can't perform this join at the database level. The standard approach is an application-level join. 1)
+  Query the <code>products</code> table to get the product information you need. 2) Query the sharded <code>users</code> table to get the
+  user information. 3) Combine (join) the results in your application code. Alternatively, for frequently accessed
+  product data, you could cache it in a service like Redis to avoid hitting the <code>products</code> table every time.</li>
+</ul>
+</li>
+</ul></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../6.%20partitioning/" title="Partitioning"><span>Previous</span></a></div>
+        <div class="next"><a href="../8.%20concurrency-control/" title="Concurrency Control"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

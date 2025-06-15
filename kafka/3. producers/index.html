@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Producers &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Producers</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#kafka-producer-responsibilities">🔷 Kafka Producer Responsibilities</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#1-acks-configuration">🔸 1. acks Configuration</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#2-retries-retries-retrybackoffms">🔸 2. Retries (retries, retry.backoff.ms)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#3-idempotent-producer-enableidempotencetrue">🔸 3. Idempotent Producer (enable.idempotence=true)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#4-exactly-once-semantics-eos">🔸 4. Exactly Once Semantics (EOS)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#5-batching-performance">🔸 5. Batching &amp; Performance</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#6-delivery-guarantees-summary">🔸 6. Delivery Guarantees Summary</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#producer-send-path-summary">🔸 Producer Send Path Summary</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#advanced-producer-patterns">🔸 Advanced Producer Patterns</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#common-pitfalls">🔸 Common Pitfalls</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#production-monitoring">🔸 Production Monitoring</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#interview-questions">❓ Interview Questions</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../2.%20partitions%20and%20data%20distributions/">&laquo; Previous</a></div>
+    <div class="next"><a href="../4.%20consumers/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Kafka</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="kafka-interview-notes-3-producers-acks-retries-idempotence">✅ Kafka Interview Notes: 3. Producers – Acks, Retries, Idempotence</h1>
+<hr />
+<h2 id="kafka-producer-responsibilities">🔷 Kafka Producer Responsibilities</h2>
+<p>A Kafka <strong>producer</strong> is responsible for:</p>
+<ul>
+<li>Sending records to Kafka <strong>topics</strong> (and their partitions)</li>
+<li>Optionally <strong>batching</strong>, <strong>retrying</strong>, and <strong>compressing</strong> records</li>
+<li>Managing <strong>delivery guarantees</strong> like at-most-once, at-least-once, and exactly-once</li>
+</ul>
+<p>Kafka provides multiple tunable settings to control these aspects.</p>
+<p><strong>Interview insight</strong>: <em>The producer's configuration directly determines your application's data consistency guarantees.
+A misconfigured producer can lead to data loss, duplicates, or poor performance - making this one of the most critical
+components to understand.</em></p>
+<hr />
+<h2 id="1-acks-configuration">🔸 1. <code>acks</code> Configuration</h2>
+<p>The <code>acks</code> parameter controls <strong>when the producer considers a message as "successfully sent"</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>acks</th>
+<th>Meaning</th>
+<th>Durability</th>
+<th>Performance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Don't wait for any response from broker</td>
+<td>Low (risk of loss)</td>
+<td>High (fire &amp; forget)</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Wait for <strong>leader</strong> broker to persist the record</td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><code>all</code> or <code>-1</code></td>
+<td>Wait for <strong>all in-sync replicas (ISR)</strong> to persist the record</td>
+<td>High (durable)</td>
+<td>Lower (slower)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Best practice</strong>: Use <code>acks=all</code> for strong delivery guarantees.</p>
+<h3 id="deep-dive-into-acks-settings-critical-interview-topic">Deep Dive into Acks Settings (Critical Interview Topic):</h3>
+<p><strong><code>acks=0</code> (Fire and Forget):</strong></p>
+<ul>
+<li>Producer doesn't wait for any acknowledgment</li>
+<li>Highest throughput, lowest latency</li>
+<li><em>"When would you use acks=0?"</em> - High-frequency metrics, logs where occasional loss is acceptable, real-time analytics
+  where speed matters more than completeness</li>
+<li><strong>Risk</strong>: Data loss if broker fails before writing to disk</li>
+<li><strong>Real-world example</strong>: Stock price feeds where the next price update makes the previous one less relevant</li>
+</ul>
+<p><strong><code>acks=1</code> (Leader Acknowledgment):</strong></p>
+<ul>
+<li>Producer waits for partition leader to write to its local log</li>
+<li>Balanced approach between durability and performance</li>
+<li><em>"What's the risk with acks=1?"</em> - If leader fails after acknowledging but before followers replicate, data is lost</li>
+<li><strong>Scenario</strong>: Leader crashes immediately after ack but before followers sync → message lost during leader election</li>
+<li><strong>Use case</strong>: Most general-purpose applications where some data loss is tolerable</li>
+</ul>
+<p><strong><code>acks=all</code> (ISR Acknowledgment):</strong></p>
+<ul>
+<li>Producer waits for all in-sync replicas to acknowledge</li>
+<li>Strongest durability guarantee</li>
+<li><em>"How does min.insync.replicas interact with acks=all?"</em> - If ISR falls below min.insync.replicas, producer gets
+  errors, preventing data loss but sacrificing availability</li>
+<li><strong>Configuration example</strong>: <code>min.insync.replicas=2</code> with <code>replication.factor=3</code> allows one replica to be down</li>
+<li><strong>Use case</strong>: Financial transactions, audit logs, any critical business data</li>
+</ul>
+<h3 id="advanced-acks-concepts">Advanced Acks Concepts:</h3>
+<p><strong>ISR Dynamics with Acks:</strong></p>
+<ul>
+<li><em>"What happens if ISR shrinks while producer is sending with acks=all?"</em> - Producer starts getting
+  <code>NotEnoughReplicasException</code></li>
+<li><em>"Should you prefer availability or consistency?"</em> - Configure based on business needs. Banking = consistency,
+  analytics = availability</li>
+</ul>
+<p><strong>Performance Implications:</strong></p>
+<ul>
+<li><code>acks=all</code> can be 2-10x slower than <code>acks=1</code></li>
+<li>Network partitions can cause significant delays with <code>acks=all</code></li>
+<li>Batching becomes more critical with higher ack requirements</li>
+</ul>
+<hr />
+<h2 id="2-retries-retries-retrybackoffms">🔸 2. Retries (<code>retries</code>, <code>retry.backoff.ms</code>)</h2>
+<p>Kafka producers <strong>automatically retry</strong> on <strong>transient errors</strong> (e.g., network failures, leader not available):</p>
+<ul>
+<li><code>retries</code> (default: 5) – max number of retry attempts</li>
+<li><code>retry.backoff.ms</code> – wait time between retries</li>
+<li>Retries are <strong>idempotent only if <code>enable.idempotence=true</code></strong></li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>Without idempotence</strong>, retries may result in <strong>duplicate messages</strong>.</p>
+</blockquote>
+<h3 id="retry-mechanism-deep-dive">Retry Mechanism Deep Dive:</h3>
+<p><strong>Retriable vs Non-Retriable Errors:</strong></p>
+<p><strong>Retriable Errors (Will be retried):</strong></p>
+<ul>
+<li><code>NotLeaderForPartitionException</code> - Leader election in progress</li>
+<li><code>NetworkException</code> - Temporary network issues</li>
+<li><code>TimeoutException</code> - Request timeout (broker overloaded)</li>
+<li><code>RetriableException</code> - Generic retriable errors</li>
+</ul>
+<p><strong>Non-Retriable Errors (Will NOT be retried):</strong></p>
+<ul>
+<li><code>RecordTooLargeException</code> - Message exceeds max size</li>
+<li><code>SerializationException</code> - Data serialization failed</li>
+<li><code>InvalidTopicException</code> - Topic doesn't exist</li>
+<li><code>AuthorizationException</code> - Permission denied</li>
+</ul>
+<p><strong>Advanced Retry Configuration:</strong></p>
+<pre><code class="language-java">// Modern recommended settings
+props.put(&quot;retries&quot;, Integer.MAX_VALUE);  // Infinite retries
+props.put(&quot;delivery.timeout.ms&quot;, 120000); // 2 minutes total time
+props.put(&quot;retry.backoff.ms&quot;, 100);       // Start with 100ms
+props.put(&quot;request.timeout.ms&quot;, 30000);   // 30 seconds per request
+</code></pre>
+<p><strong>Interview scenarios:</strong></p>
+<ul>
+<li><em>"Why use infinite retries instead of a fixed number?"</em> - <code>delivery.timeout.ms</code> provides overall timeout, so infinite
+  retries prevent premature giving up on transient issues</li>
+<li><em>"What happens during a long leader election?"</em> - Producer retries with exponential backoff until
+  <code>delivery.timeout.ms</code> is reached</li>
+<li><em>"How do you handle poison messages that always fail?"</em> - Use <code>max.in.flight.requests.per.connection=1</code> and monitor
+  error metrics to detect systematic failures</li>
+</ul>
+<p><strong>Retry Ordering Concerns:</strong></p>
+<ul>
+<li>Without idempotence, retries can cause message reordering</li>
+<li><em>"How can retries break message ordering?"</em> - If request A fails and request B succeeds, then A retries and succeeds,
+  you get B-A order instead of A-B</li>
+<li>Solution: Set <code>max.in.flight.requests.per.connection=1</code> or enable idempotence</li>
+</ul>
+<hr />
+<h2 id="3-idempotent-producer-enableidempotencetrue">🔸 3. Idempotent Producer (<code>enable.idempotence=true</code>)</h2>
+<p>Kafka 0.11+ supports <strong>idempotent producers</strong>, meaning:</p>
+<blockquote>
+<p>Even if a message is <strong>retried</strong>, it will be written <strong>only once</strong> to the Kafka topic.</p>
+</blockquote>
+<h3 id="how-it-works">How it works:</h3>
+<ul>
+<li>Kafka attaches a <strong>producer ID (PID)</strong> and <strong>sequence number</strong> to each message.</li>
+<li>The broker detects duplicates and filters them out.</li>
+</ul>
+<h3 id="properties">Properties:</h3>
+<ul>
+<li>Automatically enabled in Kafka &gt;=2.5 when using <code>acks=all</code> and no custom partitioner.</li>
+<li>Must set:</li>
+</ul>
+<pre><code class="language-java">props.put(&quot;enable.idempotence&quot;, true);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Without Idempotence</th>
+<th>With Idempotence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retries cause dupes?</td>
+<td>Yes</td>
+<td>No (safe retries)</td>
+</tr>
+<tr>
+<td>Sequence enforced?</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Safe for exactly-once</td>
+<td>No</td>
+<td>Yes (partial)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="idempotence-implementation-details-interview-gold">Idempotence Implementation Details (Interview Gold):</h3>
+<p><strong>Producer ID (PID) Assignment:</strong></p>
+<ul>
+<li>Each producer instance gets a unique PID from the broker</li>
+<li>PID is valid for the lifetime of the producer instance</li>
+<li><em>"What happens if producer restarts?"</em> - Gets new PID, so idempotence only works within single producer session</li>
+</ul>
+<p><strong>Sequence Number Mechanism:</strong></p>
+<ul>
+<li>Each message gets incrementing sequence number per partition</li>
+<li>Broker expects consecutive sequence numbers</li>
+<li><em>"What if sequence numbers are out of order?"</em> - Broker rejects with <code>OutOfOrderSequenceException</code></li>
+</ul>
+<p><strong>Limitations of Idempotence:</strong></p>
+<ul>
+<li>Only prevents duplicates within single producer session</li>
+<li>Doesn't work across producer restarts</li>
+<li>Limited to 5 in-flight requests per partition</li>
+<li><em>"Why is it limited to 5 in-flight requests?"</em> - Broker needs to buffer messages to detect gaps in sequence numbers</li>
+</ul>
+<p><strong>Configuration Requirements:</strong></p>
+<pre><code class="language-java">// These are automatically set when idempotence is enabled
+props.put(&quot;enable.idempotence&quot;, true);
+props.put(&quot;acks&quot;, &quot;all&quot;);                          // Required
+props.put(&quot;retries&quot;, Integer.MAX_VALUE);           // Required  
+props.put(&quot;max.in.flight.requests.per.connection&quot;, 5); // Max allowed
+</code></pre>
+<p><strong>Real-world scenario:</strong>
+<em>"Your producer sends a message, network times out, producer retries, but original message actually succeeded. Without
+idempotence, you get duplicates. With idempotence, broker detects duplicate sequence number and ignores retry."</em></p>
+<hr />
+<h2 id="4-exactly-once-semantics-eos">🔸 4. Exactly Once Semantics (EOS)</h2>
+<p><strong>Exactly-once</strong> = record is <strong>delivered once</strong>, <strong>processed once</strong>, and <strong>no duplicates</strong> even after retries.</p>
+<p>Kafka achieves <strong>EOS</strong> by combining:</p>
+<ol>
+<li><strong>Idempotent producer</strong></li>
+<li><strong>Transactions</strong> across partitions/topics</li>
+</ol>
+<blockquote>
+<p>EOS is <strong>not just a producer setting</strong>, it requires:</p>
+</blockquote>
+<ul>
+<li><code>enable.idempotence=true</code></li>
+<li><code>transactional.id</code> property</li>
+<li>Using <code>initTransactions()</code>, <code>beginTransaction()</code>, <code>commitTransaction()</code></li>
+</ul>
+<p>Use case: <strong>Stateful stream processing</strong> or <strong>multi-topic writes</strong> that must be atomic.</p>
+<h3 id="exactly-once-deep-dive-advanced-interview-topic">Exactly-Once Deep Dive (Advanced Interview Topic):</h3>
+<p><strong>Transaction Coordinator:</strong></p>
+<ul>
+<li>Special Kafka component that manages transactions</li>
+<li>Maintains transaction state in internal <code>__transaction_state</code> topic</li>
+<li>Handles two-phase commit protocol across partitions</li>
+</ul>
+<p><strong>Transactional Producer Lifecycle:</strong></p>
+<pre><code class="language-java">// 1. Configure transactional producer
+props.put(&quot;transactional.id&quot;, &quot;my-transactional-id&quot;);
+props.put(&quot;enable.idempotence&quot;, true);
+
+// 2. Initialize transactions
+producer.initTransactions();
+
+// 3. Begin transaction
+producer.beginTransaction();
+
+// 4. Send messages (can span multiple topics/partitions)
+producer.send(record1);
+producer.send(record2);
+
+// 5. Commit or abort
+producer.commitTransaction(); // or producer.abortTransaction();
+</code></pre>
+<p><strong>Transaction Guarantees:</strong></p>
+<ul>
+<li>All messages in transaction are committed together or none are</li>
+<li>Consumers can be configured to read only committed messages</li>
+<li><em>"What happens if producer crashes mid-transaction?"</em> - Transaction coordinator times out the transaction and marks it
+  as aborted</li>
+</ul>
+<p><strong>Consumer-side Configuration for EOS:</strong></p>
+<pre><code class="language-java">props.put(&quot;isolation.level&quot;, &quot;read_committed&quot;); // Only read committed messages
+</code></pre>
+<p><strong>EOS Limitations and Trade-offs:</strong></p>
+<ul>
+<li><strong>Performance</strong>: Transactions add overhead (2-3x slower than non-transactional)</li>
+<li><strong>Complexity</strong>: More complex error handling and state management</li>
+<li><strong>Scale</strong>: Limited by transaction coordinator's capacity</li>
+<li><strong>Cross-cluster</strong>: EOS doesn't work across Kafka clusters</li>
+</ul>
+<p><strong>Real-world EOS scenarios:</strong></p>
+<ul>
+<li><em>"Stream processing application reads from topic A, processes data, writes to topic B. How do you ensure
+  exactly-once?"</em> - Use Kafka Streams or implement custom transactional consumer-producer loop</li>
+<li><em>"Database + Kafka updates must be atomic. How?"</em> - Use distributed transaction patterns or event sourcing with
+  compensating actions</li>
+</ul>
+<hr />
+<h2 id="5-batching-performance">🔸 5. Batching &amp; Performance</h2>
+<p>Kafka producers can batch multiple records into a <strong>single request</strong> to improve throughput.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>batch.size</code></td>
+<td>Max size (in bytes) of a single batch per partition</td>
+</tr>
+<tr>
+<td><code>linger.ms</code></td>
+<td>Time to wait before sending even if batch isn't full</td>
+</tr>
+<tr>
+<td><code>compression.type</code></td>
+<td>gzip/snappy/lz4/zstd – reduces payload size, improves network efficiency</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Batching + compression = <strong>better performance</strong>, but increases <strong>latency</strong></p>
+</blockquote>
+<h3 id="batching-strategy-deep-dive">Batching Strategy Deep Dive:</h3>
+<p><strong>Batch Formation Logic:</strong></p>
+<ul>
+<li>Producer maintains separate batch for each partition</li>
+<li>Batch sent when: <code>batch.size</code> reached OR <code>linger.ms</code> timeout OR buffer full</li>
+<li><em>"Why have separate batches per partition?"</em> - Each partition may be on different brokers, so batching per partition
+  optimizes network usage</li>
+</ul>
+<p><strong>Tuning Batch Size:</strong></p>
+<ul>
+<li><strong>Too small</strong>: More network requests, lower throughput</li>
+<li><strong>Too large</strong>: Higher memory usage, increased latency</li>
+<li><strong>Sweet spot</strong>: Usually 16KB-100KB depending on message size and throughput needs</li>
+<li><em>"How do you determine optimal batch size?"</em> - Monitor batch size metrics and network utilization. Start with 16KB and
+  increase if network is underutilized.</li>
+</ul>
+<p><strong>Linger Time Strategy:</strong></p>
+<ul>
+<li><code>linger.ms=0</code>: Send immediately (lowest latency)</li>
+<li><code>linger.ms=5-20</code>: Good balance for most applications</li>
+<li><code>linger.ms=100+</code>: Optimize for throughput over latency</li>
+<li><em>"When would you use high linger times?"</em> - Batch processing, analytics workloads where latency is less critical than
+  throughput</li>
+</ul>
+<p><strong>Compression Trade-offs:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Compression</th>
+<th>CPU Usage</th>
+<th>Compression Ratio</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>None</td>
+<td>1:1</td>
+<td>CPU-limited environments</td>
+</tr>
+<tr>
+<td>snappy</td>
+<td>Low</td>
+<td>2-3:1</td>
+<td>Good default choice</td>
+</tr>
+<tr>
+<td>lz4</td>
+<td>Low</td>
+<td>2-3:1</td>
+<td>Fastest compression</td>
+</tr>
+<tr>
+<td>gzip</td>
+<td>Medium</td>
+<td>3-5:1</td>
+<td>Good compression ratio</td>
+</tr>
+<tr>
+<td>zstd</td>
+<td>Medium</td>
+<td>3-6:1</td>
+<td>Best balance (Kafka 2.1+)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Advanced Batching Concepts:</strong></p>
+<p><strong>Buffer Memory Management:</strong></p>
+<ul>
+<li><code>buffer.memory</code>: Total memory for buffering records (default 32MB)</li>
+<li>When buffer full, <code>send()</code> blocks for <code>max.block.ms</code></li>
+<li><em>"What happens when producer can't keep up?"</em> - Buffer fills up, send() blocks, eventually throws timeout exception</li>
+</ul>
+<p><strong>Record Accumulator Pattern:</strong></p>
+<ul>
+<li>Producer uses single background thread (Sender) for all network I/O</li>
+<li>Application threads only add to batches, don't do network I/O</li>
+<li><em>"Why this design?"</em> - Separates application logic from network concerns, enables efficient batching</li>
+</ul>
+<hr />
+<h2 id="6-delivery-guarantees-summary">🔸 6. Delivery Guarantees Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Guarantee</th>
+<th>Description</th>
+<th>Config Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>At-most-once</strong></td>
+<td>May lose messages (e.g., crash before send)</td>
+<td><code>acks=0</code>, no retries</td>
+</tr>
+<tr>
+<td><strong>At-least-once</strong></td>
+<td>Possible duplicates (e.g., retries)</td>
+<td><code>acks=1/all</code>, <code>retries&gt;0</code>, no idempotence</td>
+</tr>
+<tr>
+<td><strong>Exactly-once</strong></td>
+<td>No loss, no duplicates</td>
+<td><code>acks=all</code>, <code>enable.idempotence=true</code>, <code>transactional.id</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="delivery-guarantees-in-practice">Delivery Guarantees in Practice:</h3>
+<p><strong>At-Most-Once Scenarios:</strong></p>
+<ul>
+<li>High-frequency metrics where loss is acceptable</li>
+<li>Real-time feeds where fresh data matters more than completeness</li>
+<li><em>"Risk"</em>: Data loss if producer or broker fails</li>
+</ul>
+<p><strong>At-Least-Once Scenarios:</strong></p>
+<ul>
+<li>Most common choice for production systems</li>
+<li>Applications that can handle duplicates (idempotent processing)</li>
+<li><em>"Challenge"</em>: Downstream systems must handle duplicates gracefully</li>
+</ul>
+<p><strong>Exactly-Once Scenarios:</strong></p>
+<ul>
+<li>Financial transactions, billing systems</li>
+<li>Stream processing with state that can't handle duplicates</li>
+<li><em>"Cost"</em>: Significant performance and complexity overhead</li>
+</ul>
+<p><strong>Choosing the Right Guarantee:</strong></p>
+<ul>
+<li><em>"How do you decide between guarantees?"</em> - Consider business impact of loss vs duplicates, performance requirements,
+  and system complexity tolerance</li>
+<li><em>"Can you mix guarantees?"</em> - Yes, different producers can use different settings based on data criticality</li>
+</ul>
+<hr />
+<h2 id="producer-send-path-summary">🔸 Producer Send Path Summary</h2>
+<ol>
+<li>Record is added to <strong>partition-specific batch</strong>.</li>
+<li>Batch is sent when:<ul>
+<li><code>batch.size</code> is full, or</li>
+<li><code>linger.ms</code> expires.</li>
+</ul>
+</li>
+<li>Broker receives and appends to log.</li>
+<li>Ack returned (depending on <code>acks</code>).</li>
+<li>Producer retries on failure (if configured).</li>
+</ol>
+<h3 id="detailed-send-path-analysis">Detailed Send Path Analysis:</h3>
+<p><strong>Producer-Side Steps:</strong></p>
+<ol>
+<li><strong>Serialization</strong>: Convert key/value objects to bytes</li>
+<li><strong>Partitioning</strong>: Determine target partition (hash of key or custom logic)</li>
+<li><strong>Batching</strong>: Add to partition-specific batch</li>
+<li><strong>Compression</strong>: Compress batch if configured</li>
+<li><strong>Network Send</strong>: Sender thread transmits to broker</li>
+</ol>
+<p><strong>Broker-Side Steps:</strong></p>
+<ol>
+<li><strong>Validation</strong>: Check message format, size, permissions</li>
+<li><strong>Partition Leader Check</strong>: Ensure this broker is the leader</li>
+<li><strong>Log Append</strong>: Write to partition log file</li>
+<li><strong>Replication</strong>: Followers fetch and replicate (if acks=all)</li>
+<li><strong>Acknowledgment</strong>: Send success/failure response</li>
+</ol>
+<p><strong>Error Handling Flow:</strong></p>
+<ul>
+<li>Retriable error → Add to retry queue → Retry with backoff</li>
+<li>Non-retriable error → Fail immediately → Call error callback</li>
+<li>Timeout → Fail after <code>delivery.timeout.ms</code> → Call error callback</li>
+</ul>
+<hr />
+<h2 id="advanced-producer-patterns">🔸 Advanced Producer Patterns</h2>
+<h3 id="asynchronous-vs-synchronous-sending">Asynchronous vs Synchronous Sending</h3>
+<p><strong>Asynchronous (Recommended):</strong></p>
+<pre><code class="language-java">producer.send(record, (metadata, exception) -&gt; {
+    if (exception != null) {
+        // Handle error
+    } else {
+        // Success - metadata contains offset, partition, etc.
+    }
+});
+</code></pre>
+<p><strong>Synchronous (Blocking):</strong></p>
+<pre><code class="language-java">try {
+    RecordMetadata metadata = producer.send(record).get();
+    // Success
+} catch (Exception e) {
+    // Handle error
+}
+</code></pre>
+<p><strong>Trade-offs:</strong></p>
+<ul>
+<li>Async: Higher throughput, more complex error handling</li>
+<li>Sync: Simpler error handling, lower throughput</li>
+</ul>
+<h3 id="custom-partitioners">Custom Partitioners</h3>
+<pre><code class="language-java">public class GeographicPartitioner implements Partitioner {
+    public int partition(String topic, Object key, byte[] keyBytes,
+                        Object value, byte[] valueBytes, Cluster cluster) {
+        String region = extractRegion(key);
+        return region.equals(&quot;US&quot;) ? 0 : 1;
+    }
+}
+</code></pre>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Geographic data distribution</li>
+<li>Tenant isolation in multi-tenant systems</li>
+<li>Load balancing based on business logic</li>
+</ul>
+<h3 id="producer-interceptors">Producer Interceptors</h3>
+<pre><code class="language-java">public class AuditInterceptor implements ProducerInterceptor&lt;String, String&gt; {
+    public ProducerRecord&lt;String, String&gt; onSend(ProducerRecord&lt;String, String&gt; record) {
+        // Audit, modify, or enrich records before sending
+        return record;
+    }
+
+    public void onAcknowledgement(RecordMetadata metadata, Exception exception) {
+        // Handle post-send logic (logging, metrics, etc.)
+    }
+}
+</code></pre>
+<hr />
+<h2 id="common-pitfalls">🔸 Common Pitfalls</h2>
+<ul>
+<li><strong>High retries + acks=1 + no idempotence</strong> → duplicates</li>
+<li><strong>Large batch.size</strong> but no <code>linger.ms</code> → underfilled batches</li>
+<li>Forgetting to <strong>commit or abort transactions</strong> → hung producer</li>
+<li><strong>Too many in-flight requests</strong> (<code>max.in.flight.requests.per.connection</code>) can break ordering if retries occur (unless
+  idempotence is on)</li>
+</ul>
+<h3 id="additional-production-pitfalls">Additional Production Pitfalls:</h3>
+<p><strong>Memory Leaks:</strong></p>
+<ul>
+<li>Not closing producers properly in application shutdown</li>
+<li>Creating too many producer instances instead of sharing</li>
+<li><em>"Best practice"</em>: Use singleton producer per application, properly close in shutdown hooks</li>
+</ul>
+<p><strong>Performance Anti-patterns:</strong></p>
+<ul>
+<li>Using synchronous send in high-throughput scenarios</li>
+<li>Not enabling compression for large messages</li>
+<li>Setting <code>linger.ms=0</code> when throughput matters more than latency</li>
+</ul>
+<p><strong>Configuration Mistakes:</strong></p>
+<ul>
+<li>Using default <code>batch.size</code> (16KB) for high-throughput applications</li>
+<li>Not tuning <code>buffer.memory</code> for burst traffic</li>
+<li>Enabling transactions without understanding performance impact</li>
+</ul>
+<p><strong>Monitoring Blind Spots:</strong></p>
+<ul>
+<li>Not monitoring producer metrics (batch size, compression ratio, error rates)</li>
+<li>Ignoring <code>buffer-exhausted-rate</code> metric</li>
+<li>Not alerting on high retry rates</li>
+</ul>
+<hr />
+<h2 id="production-monitoring">🔸 Production Monitoring</h2>
+<p><strong>Key Producer Metrics:</strong></p>
+<ul>
+<li><code>record-send-rate</code>: Messages per second</li>
+<li><code>batch-size-avg</code>: Average batch size (tune batching)</li>
+<li><code>compression-rate-avg</code>: Compression efficiency</li>
+<li><code>record-retry-rate</code>: Retry frequency (watch for spikes)</li>
+<li><code>buffer-exhausted-rate</code>: Buffer pressure indicator</li>
+</ul>
+<p><strong>Health Checks:</strong></p>
+<ul>
+<li>Producer response times</li>
+<li>Error rates by error type</li>
+<li>Transaction success/abort ratios (if using EOS)</li>
+</ul>
+<hr />
+<h2 id="interview-questions">❓ Interview Questions</h2>
+<h3 id="basic-level">Basic Level:</h3>
+<ol>
+<li>What are the trade-offs between <code>acks=1</code> and <code>acks=all</code>?</li>
+<li>How does Kafka ensure idempotence in producers?</li>
+<li>How do retries interact with delivery guarantees?</li>
+<li>How do batching and <code>linger.ms</code> impact throughput and latency?</li>
+<li>Explain how Kafka provides exactly-once semantics.</li>
+</ol>
+<h3 id="intermediate-level">Intermediate Level:</h3>
+<ol>
+<li>What happens when a producer's buffer memory is exhausted?</li>
+<li>How do you handle message ordering with retries enabled?</li>
+<li>What's the difference between retriable and non-retriable errors?</li>
+<li>How does compression affect producer performance?</li>
+<li>When would you use synchronous vs asynchronous sending?</li>
+</ol>
+<h3 id="advanced-level">Advanced Level:</h3>
+<ol>
+<li>Design a producer configuration for a high-throughput, loss-tolerant analytics system.</li>
+<li>How would you implement exactly-once processing in a microservices architecture?</li>
+<li>What are the trade-offs of using transactions in Kafka?</li>
+<li>How do you debug producer performance issues in production?</li>
+<li>Explain the interaction between idempotence, transactions, and consumer isolation levels.</li>
+</ol>
+<h3 id="system-design-level">System Design Level:</h3>
+<ol>
+<li>Design a producer strategy for a multi-tenant SaaS platform with different SLA requirements.</li>
+<li>How would you handle producer failover in a distributed system?</li>
+<li>What's your approach to schema evolution with Kafka producers?</li>
+<li>How do you ensure data consistency when writing to both Kafka and a database?</li>
+<li>Design a monitoring and alerting strategy for Kafka producers in production.</li>
+</ol></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../2.%20partitions%20and%20data%20distributions/" title="Partitions and Data Distributions"><span>Previous</span></a></div>
+        <div class="next"><a href="../4.%20consumers/" title="Consumers"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../search/main.js"></script>
+</body>
+
+</html>

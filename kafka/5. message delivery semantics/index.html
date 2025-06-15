@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Message Delivery Semantics &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Message Delivery Semantics</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#overview">🔷 Overview</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#1-at-most-once-delivery">🔸 1. At-most-once Delivery</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#2-at-least-once-delivery">🔸 2. At-least-once Delivery</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#3-exactly-once-semantics-eos">🔸 3. Exactly-once Semantics (EOS)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#4-idempotent-consumers">🔸 4. Idempotent Consumers</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#5-delivery-semantics-summary">🔸 5. Delivery Semantics Summary</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#best-practices">🔸 Best Practices</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#common-pitfalls-and-solutions">🔸 Common Pitfalls and Solutions</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#monitoring-and-observability">🔸 Monitoring and Observability</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#interview-questions">❓ Interview Questions</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../4.%20consumers/">&laquo; Previous</a></div>
+    <div class="next"><a href="../6.%20performance%20and%20tuning/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Kafka</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="kafka-interview-notes-5-kafka-message-delivery-semantics">✅ Kafka Interview Notes: 5. Kafka Message Delivery Semantics</h1>
+<hr />
+<h2 id="overview">🔷 Overview</h2>
+<p>Kafka offers <strong>three delivery guarantees</strong> based on how you configure the <strong>producer</strong>, <strong>broker</strong>, and <strong>consumer</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Semantics</th>
+<th>Description</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>At-most-once</td>
+<td>Messages may be lost, but never duplicated</td>
+<td>Lost messages</td>
+</tr>
+<tr>
+<td>At-least-once</td>
+<td>Messages are never lost, but may be duplicated</td>
+<td>Duplicate messages</td>
+</tr>
+<tr>
+<td>Exactly-once</td>
+<td>No duplicates, no message loss</td>
+<td>Requires coordination between components</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interview insight</strong>: <em>Delivery semantics are not just configuration settings - they represent fundamental trade-offs
+between consistency, availability, and performance. Understanding when and how to apply each semantic is crucial for
+designing reliable distributed systems.</em></p>
+<hr />
+<h2 id="1-at-most-once-delivery">🔸 1. At-most-once Delivery</h2>
+<p><strong>"Fire and forget"</strong> – messages are sent but no retries.</p>
+<h3 id="characteristics">Characteristics:</h3>
+<ul>
+<li>Producer <strong>does not retry</strong> on failure</li>
+<li><strong>Auto-commit</strong> offsets <strong>before</strong> processing (on the consumer side)</li>
+<li>If crash happens → messages are <strong>lost</strong></li>
+</ul>
+<h3 id="config">Config:</h3>
+<pre><code class="language-properties">acks=0
+retries=0
+enable.auto.commit=true
+</code></pre>
+<h3 id="use-cases">Use Cases:</h3>
+<ul>
+<li>Non-critical logs or telemetry</li>
+<li>Metrics where loss is tolerable</li>
+</ul>
+<h3 id="at-most-once-deep-dive">At-Most-Once Deep Dive:</h3>
+<p><strong>Producer-Side Implementation:</strong></p>
+<ul>
+<li>Producer sends message and immediately considers it delivered</li>
+<li>No acknowledgment wait, no retry mechanism</li>
+<li>Network failures or broker crashes result in silent message loss</li>
+<li><em>"Why would anyone choose message loss?"</em> - Maximum performance, lowest latency, suitable for high-volume,
+  non-critical data</li>
+</ul>
+<p><strong>Consumer-Side Implementation:</strong></p>
+<ul>
+<li>Offsets committed before message processing</li>
+<li>If consumer crashes during processing, message is lost (offset already advanced)</li>
+<li>Auto-commit typically used for simplicity</li>
+</ul>
+<p><strong>Real-world scenarios:</strong></p>
+<ul>
+<li><strong>IoT sensor data</strong>: Losing occasional temperature readings is acceptable</li>
+<li><strong>Website analytics</strong>: Missing some page views won't affect business decisions</li>
+<li><strong>High-frequency trading feeds</strong>: Latest price matters more than every price update</li>
+<li><strong>Application logs</strong>: Some log loss is preferable to impacting application performance</li>
+</ul>
+<p><strong>Performance characteristics:</strong></p>
+<ul>
+<li>Highest throughput (no waiting for acks)</li>
+<li>Lowest latency (fire-and-forget)</li>
+<li>Minimal resource usage</li>
+<li><em>"When is at-most-once the right choice?"</em> - When the business cost of occasional data loss is less than the cost of
+  reduced performance</li>
+</ul>
+<p><strong>Configuration mistakes to avoid:</strong></p>
+<ul>
+<li>Using at-most-once for critical business data</li>
+<li>Not monitoring data loss rates</li>
+<li>Assuming "some loss is okay" without quantifying acceptable loss rates</li>
+</ul>
+<hr />
+<h2 id="2-at-least-once-delivery">🔸 2. At-least-once Delivery</h2>
+<p><strong>"Deliver no matter what"</strong> – safe from loss, but may cause duplicates.</p>
+<h3 id="characteristics_1">Characteristics:</h3>
+<ul>
+<li>Producer <strong>retries</strong> on failures</li>
+<li>Consumer <strong>commits offsets manually</strong> after processing</li>
+<li>Retry from producer or failure after commit → <strong>duplicate delivery</strong></li>
+</ul>
+<h3 id="config_1">Config:</h3>
+<pre><code class="language-properties">acks=all
+retries &gt; 0
+enable.auto.commit=false
+</code></pre>
+<p>And:</p>
+<pre><code class="language-java">consumer.commitSync() // after processing message
+</code></pre>
+<h3 id="use-cases_1">Use Cases:</h3>
+<ul>
+<li>Payment systems (with deduplication logic)</li>
+<li>Notifications</li>
+<li>Stream processing</li>
+</ul>
+<h3 id="at-least-once-deep-dive-most-common-in-production">At-Least-Once Deep Dive (Most Common in Production):</h3>
+<p><strong>Producer-Side Duplicate Scenarios:</strong></p>
+<ol>
+<li><strong>Network timeout after broker receives message</strong>: Producer retries, broker gets duplicate</li>
+<li><strong>Leader election during send</strong>: Producer retries to new leader, may duplicate</li>
+<li><strong>Acknowledgment lost</strong>: Broker persists message but ack lost in network</li>
+</ol>
+<p><strong>Consumer-Side Duplicate Scenarios:</strong></p>
+<ol>
+<li><strong>Crash after processing, before commit</strong>: Reprocessing same messages after restart</li>
+<li><strong>Rebalancing during processing</strong>: New consumer gets already-processed messages</li>
+<li><strong>Commit failure</strong>: Processing succeeds but offset commit fails</li>
+</ol>
+<p><strong>Advanced At-Least-Once Patterns:</strong></p>
+<p><strong>Retry Configuration Best Practices:</strong></p>
+<pre><code class="language-properties">retries=Integer.MAX_VALUE
+delivery.timeout.ms=120000  # 2 minutes total time
+retry.backoff.ms=100        # Start with 100ms, exponential backoff
+request.timeout.ms=30000    # 30 seconds per request
+</code></pre>
+<p><strong>Consumer Commit Strategies:</strong></p>
+<pre><code class="language-java">// Pattern 1: Commit per batch
+while (true) {
+    ConsumerRecords&lt;String, String&gt; records = consumer.poll(100);
+    for (ConsumerRecord&lt;String, String&gt; record : records) {
+        processMessage(record); // Must be idempotent
+    }
+    consumer.commitSync(); // Batch commit
+}
+
+// Pattern 2: Commit with specific offsets
+Map&lt;TopicPartition, OffsetAndMetadata&gt; offsets = new HashMap&lt;&gt;();
+for (ConsumerRecord&lt;String, String&gt; record : records) {
+    processMessage(record);
+    offsets.put(
+        new TopicPartition(record.topic(), record.partition()),
+        new OffsetAndMetadata(record.offset() + 1)
+    );
+}
+consumer.commitSync(offsets);
+</code></pre>
+<p><strong>Duplicate Detection Strategies:</strong></p>
+<ol>
+<li><strong>Message-level IDs</strong>: Include unique ID in each message for deduplication</li>
+<li><strong>Offset tracking</strong>: Store last processed offset externally for exact replay</li>
+<li><strong>Business-level keys</strong>: Use natural business keys for idempotent operations</li>
+<li><strong>Timestamp windows</strong>: Process only messages within time windows</li>
+</ol>
+<p><strong>Real-world at-least-once scenarios:</strong></p>
+<ul>
+<li><strong>E-commerce orders</strong>: Better to process duplicate orders (can be reversed) than miss orders</li>
+<li><strong>Financial notifications</strong>: Users prefer duplicate notifications over missed ones</li>
+<li><strong>Data pipelines</strong>: ETL processes that can handle duplicate data with upserts</li>
+<li><strong>Audit logs</strong>: Critical that all events are captured, duplicates can be filtered</li>
+</ul>
+<p><strong>Performance considerations:</strong></p>
+<ul>
+<li>Higher latency due to retries and ack waiting</li>
+<li>Higher resource usage for duplicate detection</li>
+<li>More complex error handling logic required</li>
+</ul>
+<hr />
+<h2 id="3-exactly-once-semantics-eos">🔸 3. Exactly-once Semantics (EOS)</h2>
+<p>Kafka supports <strong>true exactly-once</strong> delivery from version <strong>0.11+</strong>, across <strong>producers, brokers, and consumers</strong>.</p>
+<h3 id="goals">Goals:</h3>
+<p>✅ No duplicate messages
+✅ No lost messages
+✅ Consistent, one-time processing</p>
+<h3 id="requirements">Requirements:</h3>
+<h4 id="producer">➤ Producer:</h4>
+<ul>
+<li>Must enable <strong>idempotence</strong>:</li>
+</ul>
+<pre><code class="language-properties">enable.idempotence=true
+acks=all
+</code></pre>
+<ul>
+<li>For multi-topic or partition writes, use <strong>transactions</strong>:</li>
+</ul>
+<pre><code class="language-properties">transactional.id=my-transactional-producer
+</code></pre>
+<h4 id="consumer">➤ Consumer:</h4>
+<ul>
+<li>Must use <strong>read-process-write-commit</strong> logic</li>
+<li>Only commit offsets <strong>after transaction succeeds</strong></li>
+</ul>
+<h4 id="transaction-apis">➤ Transaction APIs:</h4>
+<pre><code class="language-java">producer.initTransactions();
+producer.beginTransaction();
+// produce messages
+producer.send(...)
+producer.commitTransaction();
+</code></pre>
+<p>Kafka handles <strong>atomic writes</strong> and <strong>offset commits</strong> inside transactions.</p>
+<h3 id="exactly-once-deep-dive-advanced-interview-topic">Exactly-Once Deep Dive (Advanced Interview Topic):</h3>
+<p><strong>Two Levels of Exactly-Once:</strong></p>
+<p><strong>1. Idempotent Producer (Single Partition/Session):</strong></p>
+<ul>
+<li>Prevents duplicates within single producer session</li>
+<li>Uses Producer ID (PID) + sequence numbers</li>
+<li>Limited to single partition, single producer session</li>
+<li><em>"Limitation"</em>: New producer instance gets new PID, doesn't prevent cross-session duplicates</li>
+</ul>
+<p><strong>2. Transactional Exactly-Once (Multi Partition/Topic):</strong></p>
+<ul>
+<li>Atomic writes across multiple partitions/topics</li>
+<li>Includes offset commits in transactions</li>
+<li>Survives producer failures and restarts</li>
+<li><em>"Use case"</em>: Stream processing that reads from one topic and writes to another</li>
+</ul>
+<p><strong>Transaction Implementation Details:</strong></p>
+<p><strong>Transaction Coordinator:</strong></p>
+<ul>
+<li>Special Kafka component managing transaction state</li>
+<li>Stores transaction metadata in <code>__transaction_state</code> topic</li>
+<li>Implements two-phase commit protocol</li>
+<li><em>"How many transaction coordinators?"</em> - One per broker, sharded by transactional.id hash</li>
+</ul>
+<p><strong>Transaction Flow:</strong></p>
+<ol>
+<li><strong>InitTransactions</strong>: Producer registers with coordinator, gets PID</li>
+<li><strong>BeginTransaction</strong>: Coordinator marks transaction as started</li>
+<li><strong>AddPartitionsToTxn</strong>: Register all partitions that will be written to</li>
+<li><strong>Produce</strong>: Send messages with transaction context</li>
+<li><strong>AddOffsetsToTxn</strong>: Include consumer offsets in transaction</li>
+<li><strong>CommitTransaction</strong>: Two-phase commit across all partitions</li>
+</ol>
+<p><strong>Consumer Integration with Transactions:</strong></p>
+<pre><code class="language-java">// Consumer configuration for exactly-once
+props.put(&quot;isolation.level&quot;, &quot;read_committed&quot;);
+
+// Only see committed messages
+while (true) {
+    ConsumerRecords&lt;String, String&gt; records = consumer.poll(100);
+    // These records are guaranteed to be from committed transactions
+}
+</code></pre>
+<p><strong>Exactly-Once Stream Processing Pattern:</strong></p>
+<pre><code class="language-java">// Read-Process-Write-Commit pattern
+producer.beginTransaction();
+try {
+    ConsumerRecords&lt;String, String&gt; records = consumer.poll(100);
+
+    for (ConsumerRecord&lt;String, String&gt; record : records) {
+        // Process and produce to output topic
+        String result = processMessage(record.value());
+        producer.send(new ProducerRecord&lt;&gt;(&quot;output-topic&quot;, result));
+    }
+
+    // Include consumer offsets in transaction
+    Map&lt;TopicPartition, OffsetAndMetadata&gt; offsets = getOffsetsToCommit(records);
+    producer.sendOffsetsToTransaction(offsets, consumer.groupMetadata());
+
+    producer.commitTransaction();
+} catch (Exception e) {
+    producer.abortTransaction();
+}
+</code></pre>
+<p><strong>EOS Limitations and Trade-offs:</strong></p>
+<p><strong>Performance Impact:</strong></p>
+<ul>
+<li>2-3x slower than at-least-once due to coordination overhead</li>
+<li>Higher latency due to two-phase commit protocol</li>
+<li>Increased memory usage for transaction state management</li>
+</ul>
+<p><strong>Operational Complexity:</strong></p>
+<ul>
+<li>More complex monitoring and troubleshooting</li>
+<li>Transaction timeout management</li>
+<li>Coordinator failover handling</li>
+<li><em>"When does transaction timeout?"</em> - <code>transaction.timeout.ms</code> (default 60 seconds)</li>
+</ul>
+<p><strong>Scale Limitations:</strong></p>
+<ul>
+<li>Transaction coordinator can become bottleneck</li>
+<li>Limited by number of concurrent transactions per coordinator</li>
+<li>Cross-datacenter transactions not supported</li>
+</ul>
+<p><strong>Real-world EOS scenarios:</strong></p>
+<ul>
+<li><strong>Banking systems</strong>: Account transfers must be atomic (debit + credit)</li>
+<li><strong>Inventory management</strong>: Stock updates must be exactly-once to prevent overselling</li>
+<li><strong>Kafka Streams applications</strong>: Stateful processing requiring exactly-once guarantees</li>
+<li><strong>Data integration</strong>: ETL processes where duplicate data causes incorrect aggregations</li>
+</ul>
+<p><strong>EOS Anti-patterns:</strong></p>
+<ul>
+<li>Using EOS for high-throughput, loss-tolerant workloads</li>
+<li>Enabling EOS without understanding performance implications</li>
+<li>Mixing transactional and non-transactional producers in same application</li>
+</ul>
+<hr />
+<h2 id="4-idempotent-consumers">🔸 4. Idempotent Consumers</h2>
+<p>Even with <strong>at-least-once delivery</strong>, <strong>consumer-side duplication</strong> is possible.</p>
+<p>To make consumers <strong>idempotent</strong>, ensure:</p>
+<ol>
+<li><strong>Processing is side-effect free</strong> (e.g., no duplicate DB writes)</li>
+<li>Use <strong>deduplication logic</strong>, such as:<ul>
+<li>Storing last processed <strong>message ID</strong> or <strong>Kafka offset</strong></li>
+<li>Upsert in DB using keys (e.g., primary key overwrite)</li>
+<li>Checkpointing with external systems</li>
+</ul>
+</li>
+</ol>
+<h4 id="example">Example:</h4>
+<pre><code class="language-sql">INSERT INTO orders(id, amount)
+VALUES (1234, 50) ON CONFLICT (id) DO NOTHING;
+</code></pre>
+<p>Or in application code:</p>
+<pre><code class="language-java">if (!seenMessageIds.contains(msg.id)) {
+    process(msg);
+    seenMessageIds.add(msg.id);
+}
+</code></pre>
+<blockquote>
+<p>⚠️ Idempotency must be handled <strong>at business logic level</strong> for consumers.</p>
+</blockquote>
+<h3 id="idempotent-consumer-patterns-critical-for-production">Idempotent Consumer Patterns (Critical for Production):</h3>
+<p><strong>Database-Level Idempotency:</strong></p>
+<p><strong>Upsert Pattern:</strong></p>
+<pre><code class="language-sql">-- PostgreSQL
+INSERT INTO user_events (user_id, event_type, timestamp, data)
+VALUES ($1, $2, $3, $4) ON CONFLICT (user_id, event_type, timestamp) 
+DO
+UPDATE SET data = EXCLUDED.data;
+
+-- MySQL
+INSERT INTO user_events (user_id, event_type, timestamp, data)
+VALUES (?, ?, ?, ?) ON DUPLICATE KEY
+UPDATE data =
+VALUES (data);
+</code></pre>
+<p><strong>Conditional Insert Pattern:</strong></p>
+<pre><code class="language-sql">INSERT INTO payments (payment_id, amount, status)
+SELECT $1,
+       $2,
+       'PENDING' WHERE NOT EXISTS (
+    SELECT 1 FROM payments WHERE payment_id = $1
+    );
+</code></pre>
+<p><strong>Application-Level Idempotency:</strong></p>
+<p><strong>Message ID Tracking:</strong></p>
+<pre><code class="language-java">// Redis-based deduplication
+public boolean isProcessed(String messageId) {
+    return redisTemplate.hasKey(&quot;processed:&quot; + messageId);
+}
+
+public void markProcessed(String messageId) {
+    redisTemplate.opsForValue().set(&quot;processed:&quot; + messageId, &quot;true&quot;, Duration.ofHours(24));
+}
+</code></pre>
+<p><strong>Offset-Based Deduplication:</strong></p>
+<pre><code class="language-java">// Store last processed offset per partition
+Map&lt;Integer, Long&gt; lastProcessedOffsets = loadLastProcessedOffsets();
+
+for (ConsumerRecord&lt;String, String&gt; record : records) {
+    int partition = record.partition();
+    long offset = record.offset();
+
+    if (offset &lt;= lastProcessedOffsets.getOrDefault(partition, -1L)) {
+        continue; // Already processed
+    }
+
+    processMessage(record);
+    lastProcessedOffsets.put(partition, offset);
+    saveLastProcessedOffsets(lastProcessedOffsets);
+}
+</code></pre>
+<p><strong>Business Logic Idempotency:</strong></p>
+<p><strong>State-Based Processing:</strong></p>
+<pre><code class="language-java">// Example: User balance updates
+public void updateUserBalance(String userId, BigDecimal amount, String transactionId) {
+    // Check if transaction already applied
+    if (transactionExists(transactionId)) {
+        return; // Already processed
+    }
+
+    // Apply update and record transaction
+    updateBalance(userId, amount);
+    recordTransaction(transactionId, userId, amount);
+}
+</code></pre>
+<p><strong>Versioned Updates:</strong></p>
+<pre><code class="language-java">// Example: Document updates with version control
+public void updateDocument(String docId, String content, long expectedVersion) {
+    Document doc = getDocument(docId);
+    if (doc.getVersion() &gt;= expectedVersion) {
+        return; // Already updated to this version or newer
+    }
+
+    doc.setContent(content);
+    doc.setVersion(expectedVersion);
+    saveDocument(doc);
+}
+</code></pre>
+<p><strong>Advanced Idempotency Patterns:</strong></p>
+<p><strong>Distributed Deduplication:</strong></p>
+<ul>
+<li>Use distributed cache (Redis Cluster) for message ID tracking</li>
+<li>Implement consensus algorithms for duplicate detection</li>
+<li>Use external coordination services (ZooKeeper, etcd)</li>
+</ul>
+<p><strong>Time-Window Deduplication:</strong></p>
+<ul>
+<li>Only check for duplicates within recent time window</li>
+<li>Balances memory usage with duplicate detection accuracy</li>
+<li>Useful for high-volume, time-sensitive data</li>
+</ul>
+<p><strong>Checkpointing Pattern:</strong></p>
+<pre><code class="language-java">// Process in batches with checkpoints
+List&lt;Message&gt; batch = new ArrayList&lt;&gt;();
+while (true) {
+    ConsumerRecords&lt;String, String&gt; records = consumer.poll(100);
+    batch.addAll(extractMessages(records));
+
+    if (batch.size() &gt;= BATCH_SIZE) {
+        String checkpointId = processIdempotentBatch(batch);
+        commitBatchCheckpoint(checkpointId, getLastOffset(records));
+        batch.clear();
+    }
+}
+</code></pre>
+<hr />
+<h2 id="5-delivery-semantics-summary">🔸 5. Delivery Semantics Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Guarantee</th>
+<th>Producer Config</th>
+<th>Consumer Behavior</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>At-most-once</td>
+<td><code>acks=0</code>, <code>retries=0</code></td>
+<td>Auto-commit before processing</td>
+<td>Message loss</td>
+</tr>
+<tr>
+<td>At-least-once</td>
+<td><code>acks=all</code>, <code>retries&gt;0</code></td>
+<td>Manual commit after processing</td>
+<td>Duplicates possible</td>
+</tr>
+<tr>
+<td>Exactly-once</td>
+<td><code>enable.idempotence=true</code>, Transactions</td>
+<td>Transactional commit of offset + message</td>
+<td>Safe, needs coordination</td>
+</tr>
+</tbody>
+</table>
+<h3 id="advanced-configuration-combinations">Advanced Configuration Combinations:</h3>
+<p><strong>High-Performance At-Least-Once:</strong></p>
+<pre><code class="language-properties"># Producer
+acks=1
+retries=Integer.MAX_VALUE
+enable.idempotence=true
+batch.size=65536
+linger.ms=10
+# Consumer
+enable.auto.commit=false
+max.poll.records=1000
+</code></pre>
+<p><strong>Bulletproof Exactly-Once:</strong></p>
+<pre><code class="language-properties"># Producer
+enable.idempotence=true
+acks=all
+retries=Integer.MAX_VALUE
+transactional.id=unique-id-per-instance
+transaction.timeout.ms=60000
+# Consumer
+isolation.level=read_committed
+enable.auto.commit=false
+</code></pre>
+<p><strong>High-Throughput At-Most-Once:</strong></p>
+<pre><code class="language-properties"># Producer
+acks=0
+retries=0
+batch.size=262144
+linger.ms=100
+compression.type=snappy
+# Consumer
+enable.auto.commit=true
+auto.commit.interval.ms=1000
+</code></pre>
+<hr />
+<h2 id="best-practices">🔸 Best Practices</h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Suggested Semantics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logging, metrics</td>
+<td>At-most-once</td>
+</tr>
+<tr>
+<td>Payment, billing, orders</td>
+<td>At-least-once + idempotent consumer</td>
+</tr>
+<tr>
+<td>Banking, inventory updates</td>
+<td>Exactly-once (with transactions)</td>
+</tr>
+<tr>
+<td>Stream processing (e.g. Flink, Kafka Streams)</td>
+<td>Exactly-once</td>
+</tr>
+</tbody>
+</table>
+<h3 id="extended-best-practices">Extended Best Practices:</h3>
+<p><strong>Choosing the Right Semantic:</strong></p>
+<p><strong>At-Most-Once is appropriate when:</strong></p>
+<ul>
+<li>High throughput is more important than data completeness</li>
+<li>Business can tolerate occasional data loss</li>
+<li>Processing cost of duplicates exceeds cost of missing data</li>
+<li>System resources are constrained</li>
+</ul>
+<p><strong>At-Least-Once is appropriate when:</strong></p>
+<ul>
+<li>Data loss is unacceptable but duplicates can be handled</li>
+<li>Downstream systems are naturally idempotent</li>
+<li>Performance is important but not critical</li>
+<li>Moderate complexity is acceptable</li>
+</ul>
+<p><strong>Exactly-Once is appropriate when:</strong></p>
+<ul>
+<li>Both data loss and duplicates are unacceptable</li>
+<li>System can tolerate increased latency and complexity</li>
+<li>Strong consistency is required</li>
+<li>Audit and compliance requirements are strict</li>
+</ul>
+<p><strong>Mixed Semantics Architecture:</strong></p>
+<pre><code>High-volume metrics → At-most-once → Analytics DB
+User events → At-least-once → Event processing + dedup
+Financial transactions → Exactly-once → Core banking system
+</code></pre>
+<hr />
+<h2 id="common-pitfalls-and-solutions">🔸 Common Pitfalls and Solutions</h2>
+<h3 id="producer-side-pitfalls">Producer-Side Pitfalls:</h3>
+<p><strong>Infinite Retries Without Timeout:</strong></p>
+<ul>
+<li>Problem: Producer retries forever on transient errors</li>
+<li>Solution: Set <code>delivery.timeout.ms</code> for overall timeout</li>
+</ul>
+<p><strong>Mixed Idempotent/Non-Idempotent Producers:</strong></p>
+<ul>
+<li>Problem: Some producers idempotent, others not in same application</li>
+<li>Solution: Standardize on idempotent producers for consistency</li>
+</ul>
+<h3 id="consumer-side-pitfalls">Consumer-Side Pitfalls:</h3>
+<p><strong>Processing Before Commit vs Commit Before Processing:</strong></p>
+<ul>
+<li>Problem: Wrong order leads to loss or duplicates</li>
+<li>Solution: Always process first, then commit (at-least-once)</li>
+</ul>
+<p><strong>Ignoring Rebalancing Impact:</strong></p>
+<ul>
+<li>Problem: Rebalancing can cause reprocessing of uncommitted messages</li>
+<li>Solution: Implement proper rebalancing listeners and state management</li>
+</ul>
+<h3 id="system-level-pitfalls">System-Level Pitfalls:</h3>
+<p><strong>Mismatched Producer/Consumer Semantics:</strong></p>
+<ul>
+<li>Problem: Exactly-once producer with at-most-once consumer</li>
+<li>Solution: Align semantics across entire data pipeline</li>
+</ul>
+<p><strong>Not Monitoring Delivery Guarantees:</strong></p>
+<ul>
+<li>Problem: Semantic violations go undetected</li>
+<li>Solution: Monitor duplicate rates, loss rates, and processing lag</li>
+</ul>
+<hr />
+<h2 id="monitoring-and-observability">🔸 Monitoring and Observability</h2>
+<h3 id="key-metrics-for-each-semantic">Key Metrics for Each Semantic:</h3>
+<p><strong>At-Most-Once Monitoring:</strong></p>
+<ul>
+<li>Message loss rate (compare sent vs received)</li>
+<li>Producer error rate without retries</li>
+<li>Consumer processing rate vs incoming rate</li>
+</ul>
+<p><strong>At-Least-Once Monitoring:</strong></p>
+<ul>
+<li>Duplicate detection rate</li>
+<li>Retry rate and retry latency</li>
+<li>Consumer lag and rebalancing frequency</li>
+</ul>
+<p><strong>Exactly-Once Monitoring:</strong></p>
+<ul>
+<li>Transaction success/abort rate</li>
+<li>Transaction duration and timeout rate</li>
+<li>Coordinator availability and failover events</li>
+</ul>
+<h3 id="production-alerting">Production Alerting:</h3>
+<p><strong>Critical Alerts:</strong></p>
+<ul>
+<li>Consumer lag exceeding threshold</li>
+<li>High producer retry rate</li>
+<li>Transaction abort rate above normal</li>
+<li>Offset commit failure rate</li>
+</ul>
+<p><strong>Warning Alerts:</strong></p>
+<ul>
+<li>Duplicate detection rate increasing</li>
+<li>Rebalancing frequency above normal</li>
+<li>Message loss detected (for at-most-once)</li>
+</ul>
+<hr />
+<h2 id="interview-questions">❓ Interview Questions</h2>
+<h3 id="basic-level">Basic Level:</h3>
+<ol>
+<li>What's the difference between at-least-once and exactly-once semantics?</li>
+<li>How does Kafka provide idempotent delivery at the producer level?</li>
+<li>Can consumers be exactly-once without transactional producers?</li>
+<li>How would you implement an idempotent consumer?</li>
+<li>What's the risk of enabling auto-commit in consumers?</li>
+</ol>
+<h3 id="intermediate-level">Intermediate Level:</h3>
+<ol>
+<li>Explain the trade-offs between different delivery semantics.</li>
+<li>How do transactions work in Kafka's exactly-once implementation?</li>
+<li>What are the performance implications of exactly-once semantics?</li>
+<li>How do you handle duplicate messages in at-least-once delivery?</li>
+<li>What's the role of the transaction coordinator in EOS?</li>
+</ol>
+<h3 id="advanced-level">Advanced Level:</h3>
+<ol>
+<li>Design a payment processing system with exactly-once guarantees.</li>
+<li>How would you implement cross-service exactly-once processing?</li>
+<li>What are the limitations of Kafka's exactly-once semantics?</li>
+<li>How do you monitor and alert on delivery semantic violations?</li>
+<li>Explain the interaction between consumer isolation levels and transactions.</li>
+</ol>
+<h3 id="system-design-level">System Design Level:</h3>
+<ol>
+<li>Design a multi-tenant system with different delivery guarantees per tenant.</li>
+<li>How would you migrate from at-least-once to exactly-once without downtime?</li>
+<li>What's your approach to exactly-once processing across multiple Kafka clusters?</li>
+<li>How do you handle exactly-once semantics in a microservices architecture?</li>
+<li>Design a disaster recovery strategy that maintains delivery guarantees.</li>
+</ol>
+<h3 id="troubleshooting-level">Troubleshooting Level:</h3>
+<ol>
+<li>Producer shows successful sends but consumer never receives messages. Diagnose the issue.</li>
+<li>Exactly-once processing is slower than expected. What could be wrong?</li>
+<li>Consumer is processing duplicate messages despite proper configuration. Debug steps?</li>
+<li>Transaction timeouts are increasing. How do you investigate and resolve?</li>
+<li>How do you verify that your exactly-once implementation is actually working correctly?</li>
+</ol>
+<hr />
+<p>Understanding delivery semantics is crucial because they define the fundamental guarantees your system provides to
+users. The choice between semantics affects everything from performance to data consistency, and most production issues
+can be traced back to mismatched expectations about delivery guarantees.</p></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../4.%20consumers/" title="Consumers"><span>Previous</span></a></div>
+        <div class="next"><a href="../6.%20performance%20and%20tuning/" title="Performance and Tuning"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../search/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Lock &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Lock</a><a class="nav-item current" href="./">Lock</a><a class="nav-item current" href="./">Lock</a><a class="nav-item current" href="./">Lock</a><a class="nav-item current" href="./">Lock</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#table-locks">Table Locks</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#intention-locks-the-meta-locks">Intention Locks (The "Meta" Locks)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#record-lock">Record Lock</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#gap-lock">Gap Lock</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#next-key-lock">Next-Key Lock</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#insert-intention-lock">Insert Intention Lock</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../2.%20database-internals/">&laquo; Previous</a></div>
+    <div class="next"><a href="../4.%20indexes/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>MySQL</li>
+</ul>
+</nav>
+                <div id="content"><p>Of course. This is a fantastic and frequently asked topic in database interviews. A deep understanding of the different
+lock types demonstrates a strong grasp of how the database engine handles concurrency.</p>
+<p>Here are detailed, interview-ready notes on the different types of locks in MySQL, with a focus on the InnoDB storage
+engine.</p>
+<hr />
+<h3 id="comprehensive-interview-notes-mysql-lock-types"><strong>Comprehensive Interview Notes: MySQL Lock Types</strong></h3>
+<h3 id="1-the-two-fundamental-concepts-granularity-and-mode">1. The Two Fundamental Concepts: Granularity and Mode</h3>
+<p>Before diving into specific types, all locks can be categorized by two primary concepts:</p>
+<ol>
+<li>
+<p><strong>Granularity:</strong> What is the <em>scope</em> of the lock? Is it locking an entire table or a single row?</p>
+<ul>
+<li><strong>Table-Level Locks:</strong> Coarse-grained. Low overhead, but terrible for concurrency.</li>
+<li><strong>Row-Level Locks:</strong> Fine-grained. Higher overhead, but excellent for concurrency. <strong>InnoDB primarily uses
+  row-level locking.</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Mode:</strong> What <em>kind</em> of access does the lock permit?</p>
+<ul>
+<li><strong>Shared (S):</strong> A "read lock." Multiple transactions can hold an S lock on the same resource.</li>
+<li><strong>Exclusive (X):</strong> A "write lock." Only one transaction can hold an X lock on a resource.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="2-high-level-locks-table-level">2. High-Level Locks: Table-Level</h3>
+<p>While InnoDB prefers row-level locks, it still uses table-level locks for certain operations.</p>
+<h4 id="table-locks"><strong>Table Locks</strong></h4>
+<ul>
+<li><strong>What they are:</strong> A lock on an entire table.</li>
+<li><strong>When they are used:</strong><ul>
+<li>Explicitly with <code>LOCK TABLES my_table WRITE;</code>. This is generally discouraged in InnoDB as it kills concurrency.</li>
+<li>Implicitly during some DDL operations like <code>ALTER TABLE</code>.</li>
+<li>Internally via <strong>Intention Locks</strong> (see below).</li>
+</ul>
+</li>
+</ul>
+<h4 id="intention-locks-the-meta-locks"><strong>Intention Locks (The "Meta" Locks)</strong></h4>
+<p>This is a critical, often misunderstood concept. Intention locks are <strong>table-level locks</strong> that signal the <em>intent</em> to
+place a row-level lock later. They don't block other intention locks, but they do block full table locks.</p>
+<ul>
+<li><strong>Purpose:</strong> To solve the problem of lock compatibility efficiently. Imagine <code>Transaction A</code> has a row lock on a
+  single row in <code>table_t</code>. If <code>Transaction B</code> wants to place a full table lock (<code>LOCK TABLES table_t WRITE</code>), how does
+  it know about <code>Transaction A</code>'s row lock without checking every single row?</li>
+<li>
+<p><strong>Analogy:</strong> Think of a large hotel (the table). Before you lock a single room (a row), you go to the front desk and
+  put a small sign on the hotel's master key board that says, "Someone is working in a room on the 3rd floor." This is
+  the intention lock. Now, if someone else wants to fumigate the entire hotel (a full table lock), they just need to
+  check the front desk's board. They don't have to go check every single room.</p>
+</li>
+<li>
+<p><strong>Types:</strong></p>
+<ul>
+<li><strong>Intention Shared (IS):</strong> Signals the intent to place <strong>Shared (S) row locks</strong>. Placed before a
+  <code>SELECT ... LOCK IN SHARE MODE</code>.</li>
+<li><strong>Intention Exclusive (IX):</strong> Signals the intent to place <strong>Exclusive (X) row locks</strong>. Placed before an <code>UPDATE</code>,
+  <code>DELETE</code>, or <code>SELECT ... FOR UPDATE</code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Compatibility Matrix (High Level):</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Intention Shared (IS)</th>
+<th style="text-align: left;">Intention Exclusive (IX)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Intention Shared (IS)</strong></td>
+<td style="text-align: left;">✅ Compatible</td>
+<td style="text-align: left;">✅ Compatible</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Intention Exclusive (IX)</strong></td>
+<td style="text-align: left;">✅ Compatible</td>
+<td style="text-align: left;">✅ Compatible</td>
+</tr>
+</tbody>
+</table>
+<p><em>An IS lock at the table level does not conflict with an IX lock. However, a request for a full table S-lock would
+conflict with an IX lock.</em></p>
+<hr />
+<h3 id="3-core-innodb-locks-row-level">3. Core InnoDB Locks: Row-Level</h3>
+<p>This is the most important category for modern MySQL usage. These locks are placed on <strong>index records</strong>, not the data
+itself.</p>
+<h4 id="record-lock"><strong>Record Lock</strong></h4>
+<ul>
+<li><strong>What it is:</strong> The simplest row-level lock. It locks a <strong>single index record</strong>.</li>
+<li><strong>Purpose:</strong> To lock a specific row to prevent it from being updated or deleted by another transaction.</li>
+<li><strong>How it's used:</strong> This lock is used when you query for a row using a <strong>unique index</strong> (like a Primary Key).</li>
+<li><strong>Example Trigger:</strong>
+  <code>sql
+  -- This will place a Record Lock on the primary key index entry for id = 101.
+  SELECT * FROM employees WHERE id = 101 FOR UPDATE;</code></li>
+</ul>
+<h4 id="gap-lock"><strong>Gap Lock</strong></h4>
+<ul>
+<li><strong>What it is:</strong> A lock on the <strong>gap <em>between</em> index records</strong>, or the gap before the first or after the last record.</li>
+<li><strong>Purpose:</strong> Its sole purpose is to <strong>prevent phantom reads</strong> in the <code>REPEATABLE READ</code> isolation level. It stops other
+  transactions from inserting new data into the locked gap.</li>
+<li><strong>Key Behavior:</strong><ul>
+<li>Gap locks <strong>can be shared</strong>. A gap lock taken by one transaction does not block another transaction from taking a
+  gap lock on the same gap.</li>
+<li>They are purely for stopping insertions; they don't stop reads or updates of existing rows.</li>
+</ul>
+</li>
+<li><strong>Example Trigger:</strong>
+  <code>sql
+  -- This locks the "gap" between employees with IDs 50 and 60.
+  -- Another transaction attempting to INSERT an employee with id = 55 will be blocked.
+  SELECT * FROM employees WHERE id &gt; 50 AND id &lt; 60 FOR UPDATE;</code></li>
+</ul>
+<h4 id="next-key-lock"><strong>Next-Key Lock</strong></h4>
+<ul>
+<li><strong>What it is:</strong> The most common lock in InnoDB. It is a <strong>combination of a Record Lock and a Gap Lock</strong> on the gap
+  preceding that record.</li>
+<li><strong>Purpose:</strong> It locks both a record <em>and</em> the space before it. This prevents both modification of the existing record
+  and the insertion of a new record in the gap. It's the mechanism that makes <code>REPEATABLE READ</code> work so well.</li>
+<li><strong>How it's used:</strong> This is the <strong>default lock type</strong> used when InnoDB scans an index (e.g., in a <code>WHERE</code> clause).</li>
+<li><strong>Example Trigger:</strong>
+  <code>sql
+  -- Assume employees exist with IDs 90 and 101.
+  -- This will place a Next-Key Lock on the index record for id=101.
+  -- This locks the record 101 itself, AND it locks the gap (90, 101].
+  -- Another transaction cannot INSERT an employee with id = 95 or id = 100.
+  SELECT * FROM employees WHERE id = 101 FOR UPDATE;</code>
+  <em>Note: If the index was unique, InnoDB would optimize this to a simple Record Lock. But on a non-unique index, it must
+  use a Next-Key Lock to protect the range.</em></li>
+</ul>
+<h4 id="insert-intention-lock"><strong>Insert Intention Lock</strong></h4>
+<ul>
+<li><strong>What it is:</strong> A special type of <strong>gap lock</strong> that is set by <code>INSERT</code> operations before row insertion.</li>
+<li><strong>Purpose:</strong> To signal the intent to insert into a gap. If multiple transactions are inserting into the <em>same gap</em> but
+  not at the <em>same position</em>, they don't have to wait for each other. This significantly improves concurrency for
+  <code>INSERT</code> statements.</li>
+<li><strong>Example Trigger:</strong> Implicitly used by every <code>INSERT</code> statement.</li>
+</ul>
+<hr />
+<h3 id="4-summary-table-for-interviews">4. Summary Table for Interviews</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Lock Type</th>
+<th style="text-align: left;">Granularity</th>
+<th style="text-align: left;">What it Locks</th>
+<th style="text-align: left;">Purpose / Solves Problem</th>
+<th style="text-align: left;">Example Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Shared (S) Lock</strong></td>
+<td style="text-align: left;">Row</td>
+<td style="text-align: left;">A specific index record.</td>
+<td style="text-align: left;">A "read-lock" to prevent a row from being changed by others, while still allowing them to read.</td>
+<td style="text-align: left;"><code>SELECT ... LOCK IN SHARE MODE;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Exclusive (X) Lock</strong></td>
+<td style="text-align: left;">Row</td>
+<td style="text-align: left;">A specific index record.</td>
+<td style="text-align: left;">A "write-lock" to prevent any other transaction from reading or writing to a row.</td>
+<td style="text-align: left;"><code>UPDATE</code>, <code>DELETE</code>, <code>SELECT ... FOR UPDATE;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Record Lock</strong></td>
+<td style="text-align: left;">Row</td>
+<td style="text-align: left;">A single index entry.</td>
+<td style="text-align: left;">Basic row locking, typically on unique indexes.</td>
+<td style="text-align: left;"><code>SELECT ... FOR UPDATE WHERE primary_key = X;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gap Lock</strong></td>
+<td style="text-align: left;">Row</td>
+<td style="text-align: left;">The space <em>between</em> index records.</td>
+<td style="text-align: left;">Prevents <strong>phantom reads</strong> by blocking <code>INSERT</code>s into a range.</td>
+<td style="text-align: left;"><code>SELECT ... FOR UPDATE WHERE col &gt; A AND col &lt; B;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Next-Key Lock</strong></td>
+<td style="text-align: left;">Row</td>
+<td style="text-align: left;">A record + the gap before it.</td>
+<td style="text-align: left;"><strong>Default lock.</strong> Prevents both row modification and phantom reads.</td>
+<td style="text-align: left;"><code>SELECT ... FOR UPDATE WHERE non_unique_col = X;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Intention (IS/IX)</strong></td>
+<td style="text-align: left;">Table</td>
+<td style="text-align: left;">The table itself (metadata).</td>
+<td style="text-align: left;">A "note on the door" to make table and row locks compatible without scanning.</td>
+<td style="text-align: left;">Implicitly before any <code>SELECT...FOR</code> or <code>UPDATE</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Insert Intention</strong></td>
+<td style="text-align: left;">Row</td>
+<td style="text-align: left;">A gap.</td>
+<td style="text-align: left;">An optimized gap lock for high-concurrency <code>INSERT</code>s.</td>
+<td style="text-align: left;">Implicitly by <code>INSERT</code>.</td>
+</tr>
+</tbody>
+</table></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../2.%20database-internals/" title="Database Internals"><span>Previous</span></a></div>
+        <div class="next"><a href="../4.%20indexes/" title="Index"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

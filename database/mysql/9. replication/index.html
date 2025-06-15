@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Replication &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Replication</a><a class="nav-item current" href="./">Replication</a><a class="nav-item current" href="./">Replication</a><a class="nav-item current" href="./">Replication</a><a class="nav-item current" href="./">Replication</a><a class="nav-item current" href="./">Replication</a><a class="nav-item current" href="./">Replication</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#1-asynchronous-replication-the-default">1. Asynchronous Replication (The Default)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#2-synchronous-replication">2. Synchronous Replication</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#3-semi-synchronous-replication-the-happy-medium">3. Semi-Synchronous Replication (The Happy Medium)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#replication-lag">Replication Lag</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#failover-process">Failover Process</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../8.%20concurrency-control/">&laquo; Previous</a></div>
+    <div class="next"><a href="../10.%20engines/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>MySQL</li>
+</ul>
+</nav>
+                <div id="content"><p>Of course. Database replication is another cornerstone of scalable and resilient system design. It's often discussed
+alongside sharding, as they solve different but related problems. An interviewer will expect you to know the difference
+and when to use each one.</p>
+<p>Here are detailed, interview-ready notes on database replication, following the same comprehensive format.</p>
+<hr />
+<h3 id="ultimate-guide-to-database-replication-for-interviews"><strong>Ultimate Guide to Database Replication (for Interviews)</strong></h3>
+<h3 id="part-1-the-core-idea-what-is-replication-and-why-do-we-need-it">Part 1: The Core Idea - What is Replication and Why Do We Need It?</h3>
+<p><strong>The Definition:</strong> Database replication is the process of creating and maintaining multiple copies of the same database
+on different servers. One server is designated as the <strong>source</strong> (also called primary, leader, or historically, master),
+and one or more other servers are designated as <strong>replicas</strong> (also called read replicas, secondaries, followers, or
+slaves).</p>
+<p>The source server receives all the write operations (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>), and it then propagates these changes
+to all of its replicas.</p>
+<p><strong>The Problems It Solves:</strong></p>
+<ol>
+<li><strong>High Availability and Fault Tolerance:</strong> If the source database server fails (e.g., hardware failure, crash), you
+   can promote one of the replicas to become the new source. This process, called <strong>failover</strong>, minimizes downtime and
+   prevents data loss.</li>
+<li><strong>Read Scalability:</strong> Most applications have a much higher read load than write load (e.g., a social media feed is
+   written once but read thousands of times). By directing all read queries (<code>SELECT</code>) to one or more replicas, you can
+   distribute the read workload and prevent the source server from getting overwhelmed.</li>
+<li><strong>Geographical Latency Reduction:</strong> You can place replicas in different geographic regions, closer to your users.
+   Users in Europe can read from a European replica, while users in Asia read from an Asian replica, resulting in much
+   lower query latency for them.</li>
+<li><strong>Offline Analytics/Backups:</strong> You can run heavy, long-running analytical queries or perform backups on a replica
+   without impacting the performance of the primary production database that is handling live user traffic.</li>
+</ol>
+<hr />
+<h3 id="part-2-sharding-vs-replication-the-critical-comparison">Part 2: Sharding vs. Replication - The Critical Comparison</h3>
+<p>This is a guaranteed interview question. They are not interchangeable.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Sharding</th>
+<th style="text-align: left;">Replication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Data</strong></td>
+<td style="text-align: left;">Each server holds a <strong>unique subset</strong> of the data.</td>
+<td style="text-align: left;">Each server holds a <strong>full copy</strong> of the data.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Primary Goal</strong></td>
+<td style="text-align: left;"><strong>Horizontal Write Scalability.</strong> Solves the problem of a database that is too big or has too many writes for one machine.</td>
+<td style="text-align: left;"><strong>Read Scalability &amp; High Availability.</strong> Solves the problem of too many reads or the need to survive a server failure.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analogy</strong></td>
+<td style="text-align: left;">A 26-volume encyclopedia where each volume is in a <strong>different library</strong>.</td>
+<td style="text-align: left;">A 26-volume encyclopedia where a <strong>complete copy</strong> of the entire set exists in <strong>multiple libraries</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Can they be used together?</strong></td>
+<td style="text-align: left;"><strong>Yes, and often are.</strong> A common pattern is to shard a database for write scalability and then replicate each shard for high availability and read scalability.</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="part-3-the-internals-how-it-works-in-mysql">Part 3: The Internals - How It Works in MySQL</h3>
+<p>MySQL replication is primarily based on logging the changes made on the source and replaying them on the replicas.</p>
+<p><strong>The Key Component: The Binary Log (Binlog)</strong></p>
+<ul>
+<li><strong>What it is:</strong> The binlog is a special log file on the <strong>source</strong> server that records every single data modification
+  statement (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>) or data change event in the order they were committed. It is the "source of
+  truth" for replication.</li>
+<li><strong>Binlog Formats (Important to know):</strong><ol>
+<li><strong>STATEMENT-Based Replication (SBR):</strong> Records the exact SQL statements that were executed (e.g.,
+   <code>UPDATE users SET last_login = NOW() WHERE id = 1;</code>).<ul>
+<li><strong>Pro:</strong> Compact log files.</li>
+<li><strong>Con:</strong> Can be non-deterministic. The <code>NOW()</code> function might produce a slightly different timestamp on the
+  replica than it did on the source, leading to data drift. Risky.</li>
+</ul>
+</li>
+<li><strong>ROW-Based Replication (RBR):</strong> Records the <em>change events</em> for each individual row (e.g., "for row with PK=1,
+   change column <code>last_login</code> from value X to value Y"). <strong>This is the default and recommended format.</strong><ul>
+<li><strong>Pro:</strong> Deterministic and safe. Guarantees data consistency.</li>
+<li><strong>Con:</strong> Can be very verbose and create large log files if a single statement updates millions of rows.</li>
+</ul>
+</li>
+<li><strong>MIXED-Based Replication:</strong> A hybrid. Uses STATEMENT-based by default and automatically switches to ROW-based
+   for non-deterministic statements.</li>
+</ol>
+</li>
+</ul>
+<p><strong>The Replication Process (Step-by-Step):</strong></p>
+<ol>
+<li><strong>Source writes to Binlog:</strong> A transaction commits on the source server. The event is written to the source's binlog
+   file.</li>
+<li><strong>Replica I/O Thread connects:</strong> A dedicated I/O thread on the <strong>replica</strong> connects to the source and requests the
+   binlog events.</li>
+<li><strong>Source Binlog Dump Thread sends:</strong> A dedicated "dump" thread on the <strong>source</strong> reads its binlog and sends the new
+   events over the network to the replica's I/O thread.</li>
+<li><strong>Replica writes to Relay Log:</strong> The replica's I/O thread receives the events and writes them to a local log file on
+   the replica called the <strong>Relay Log</strong>. This decouples the network transfer from the execution.</li>
+<li><strong>Replica SQL Thread executes:</strong> A second thread on the <strong>replica</strong>, the SQL thread (or "applier"), reads events from
+   the Relay Log and executes them on the replica's dataset, thereby replaying the changes made on the source.</li>
+</ol>
+<hr />
+<h3 id="part-4-replication-modes-and-consistency-models">Part 4: Replication Modes and Consistency Models</h3>
+<p>This section covers the trade-offs between performance and data consistency.</p>
+<h4 id="1-asynchronous-replication-the-default"><strong>1. Asynchronous Replication (The Default)</strong></h4>
+<ul>
+<li><strong>How it Works:</strong> The source server commits the transaction and writes to its binlog. It then immediately returns "
+  success" to the client <strong>without waiting</strong> to see if the replica has received or applied the change.</li>
+<li><strong>Pros:</strong> <strong>Highest performance.</strong> The source is never slowed down by network latency or a slow replica.</li>
+<li><strong>Cons:</strong> <strong>Potential for data loss.</strong> If the source server crashes immediately after committing but before the
+  replica has received the change, that committed transaction is lost forever upon failover. This results in <strong>eventual
+  consistency</strong>.</li>
+</ul>
+<h4 id="2-synchronous-replication"><strong>2. Synchronous Replication</strong></h4>
+<ul>
+<li><strong>How it Works:</strong> The source commits the transaction locally but <strong>does not</strong> return success to the client until <strong>at
+  least one replica</strong> has confirmed that it has received <em>and applied</em> the change.</li>
+<li><strong>Pros:</strong> <strong>Guaranteed consistency and zero data loss</strong> on failover (if you have at least one replica).</li>
+<li><strong>Cons:</strong> <strong>Lowest performance and high latency.</strong> The source's write performance is now limited by the round-trip
+  network time to the slowest replica. A slow replica can bring the entire write pipeline to a halt.</li>
+</ul>
+<h4 id="3-semi-synchronous-replication-the-happy-medium"><strong>3. Semi-Synchronous Replication (The Happy Medium)</strong></h4>
+<ul>
+<li><strong>How it Works:</strong> The source server commits the transaction locally and returns success to the client only after <strong>at
+  least one replica</strong> acknowledges that it has <strong>received</strong> the event (written it to its Relay Log). It <em><em>does not wait
+  ** for the replica to </em>apply</em> the change.</li>
+<li><strong>Pros:</strong> A good balance. It protects against data loss in most crash scenarios without incurring the full performance
+  penalty of waiting for the change to be applied.</li>
+<li><strong>Cons:</strong> The transaction might not be visible on the replica immediately upon commit, but the data is safely stored
+  in the relay log, ready to be applied.</li>
+</ul>
+<hr />
+<h3 id="part-5-the-hard-problems-and-trade-offs">Part 5: The Hard Problems and Trade-offs</h3>
+<h4 id="replication-lag"><strong>Replication Lag</strong></h4>
+<ul>
+<li><strong>What it is:</strong> The delay between when a change is committed on the source and when it becomes visible on a replica.
+  In asynchronous replication, this lag can be milliseconds, seconds, or even minutes if the replica is overloaded.</li>
+<li><strong>The Problem:</strong> An application might write data to the source and then immediately try to read it back from a read
+  replica. If replication lag is present, the read will fail or return stale data, leading to a poor user experience.</li>
+<li><strong>Solutions:</strong><ol>
+<li><strong>Read-after-Write Consistency:</strong> For critical reads immediately following a write (e.g., reading a user's
+   profile right after they update it), direct that specific read to the <strong>source</strong> server, bypassing the replicas.</li>
+<li><strong>Monitoring:</strong> Actively monitor <code>Seconds_Behind_Source</code> (from <code>SHOW REPLICA STATUS</code>) and alert when lag exceeds
+   a certain threshold.</li>
+</ol>
+</li>
+</ul>
+<h4 id="failover-process"><strong>Failover Process</strong></h4>
+<ul>
+<li><strong>What it is:</strong> The process of promoting a replica to become the new source when the original source fails.</li>
+<li><strong>The Challenge:</strong> This needs to be done carefully to avoid a "split-brain" scenario, where two servers both think
+  they are the source.</li>
+<li><strong>Solution:</strong> Use automated tooling like <strong>Orchestrator</strong>, <strong>ProxySQL</strong>, or a managed cloud provider's failover
+  mechanism. These tools handle detecting the failure, choosing the most up-to-date replica, promoting it, and
+  redirecting traffic.</li>
+</ul>
+<hr />
+<h3 id="part-6-classic-interview-questions">Part 6: Classic Interview Questions</h3>
+<ul>
+<li>
+<p><strong>Q: What is the difference between sharding and replication? When would you use one over the other?</strong></p>
+<ul>
+<li><strong>A:</strong> Replication creates full copies of a database on multiple servers, while sharding splits a database into
+  unique chunks across multiple servers. You use <strong>replication</strong> to solve for <strong>read scalability and high
+  availability</strong>. You use <strong>sharding</strong> to solve for <strong>write scalability and storage limits</strong>. They are often used
+  together.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: A user updates their profile picture and immediately refreshes the page, but they still see their old picture.
+  What is likely happening and how would you fix it?</strong></p>
+<ul>
+<li><strong>A:</strong> This is a classic <strong>replication lag</strong> problem. The write operation went to the source, but the subsequent
+  read for the refresh went to a read replica that hadn't received the update yet. The best fix is to implement *
+  <em>read-after-write consistency</em>*: for a brief window after a user performs a write, ensure their own subsequent
+  reads are directed to the source database to guarantee they see their own changes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: What is the binary log (binlog) and what is the difference between Statement-Based and Row-Based replication?
+  Which is better?</strong></p>
+<ul>
+<li><strong>A:</strong> The binlog is the transaction log on the source server that records all data changes. Statement-Based
+  Replication (SBR) logs the literal SQL statements, which can be non-deterministic and unsafe. Row-Based
+  Replication (RBR) logs the before-and-after image of the changed rows, which is deterministic and safe. <strong>RBR is
+  the modern default and is almost always better</strong> because it guarantees data consistency.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: Your company cannot afford any data loss. What replication strategy would you recommend and what is the
+  performance trade-off?</strong></p>
+<ul>
+<li><strong>A:</strong> For zero data loss, I would recommend <strong>synchronous replication</strong>. This ensures that when a transaction is
+  committed, the data is guaranteed to exist on at least two separate servers. The trade-off is significantly *
+  <em>higher write latency</em>*, as every write transaction must now wait for a network round trip to a replica before it
+  can be acknowledged as successful. This will reduce the overall write throughput of the system. A good compromise
+  could be semi-synchronous replication.</li>
+</ul>
+</li>
+</ul></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../8.%20concurrency-control/" title="Concurrency Control"><span>Previous</span></a></div>
+        <div class="next"><a href="../10.%20engines/" title="Engines"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

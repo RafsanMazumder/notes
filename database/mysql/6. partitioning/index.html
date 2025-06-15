@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>Partitioning &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Partitioning</a><a class="nav-item current" href="./">Partitioning</a><a class="nav-item current" href="./">Partitioning</a><a class="nav-item current" href="./">Partitioning</a><a class="nav-item current" href="./">Partitioning</a><a class="nav-item current" href="./">Partitioning</a><a class="nav-item current" href="./">Partitioning</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#1-the-partitioning-key">1. The Partitioning Key</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#2-partition-pruning-the-magic-bullet">2. Partition Pruning (The Magic Bullet)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#3-physical-storage">3. Physical Storage</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#1-range-partitioning">1. RANGE Partitioning</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#2-list-partitioning">2. LIST Partitioning</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#3-hash-partitioning">3. HASH Partitioning</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#4-key-partitioning">4. KEY Partitioning</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../5.%20b-tree/">&laquo; Previous</a></div>
+    <div class="next"><a href="../7.%20sharding/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>MySQL</li>
+</ul>
+</nav>
+                <div id="content"><p>Of course. Database partitioning is a powerful but often misunderstood feature. A deep knowledge of its mechanics, use
+cases, and pitfalls is a strong signal of a senior-level understanding of database architecture.</p>
+<p>Here are the detailed notes you requested, covering the what, why, how, and—most importantly—the <em>when</em> and <em>when not</em>
+of MySQL partitioning.</p>
+<hr />
+<h3 id="ultimate-guide-to-mysql-partitioning-for-interviews"><strong>Ultimate Guide to MySQL Partitioning (for Interviews)</strong></h3>
+<h3 id="part-1-the-core-idea-what-is-partitioning-and-why-use-it">Part 1: The Core Idea - What is Partitioning and Why Use It?</h3>
+<p><strong>The Analogy:</strong> Imagine a massive, single-volume encyclopedia. Finding anything is cumbersome, and moving or managing
+the book is a huge task. Now, imagine that encyclopedia is split into 26 separate volumes, A through Z. This is
+partitioning.</p>
+<p><strong>The Definition:</strong> Database partitioning is the process of splitting one large logical table into smaller, more
+manageable physical pieces called <strong>partitions</strong>. However, to the database user and application, it still looks and
+behaves like a single table. The database engine manages the routing of queries to the correct underlying physical
+piece.</p>
+<p><strong>The Problems It Solves:</strong></p>
+<ol>
+<li><strong>Performance on Huge Tables:</strong> Querying a small partition of 10 million rows is dramatically faster than querying a
+   monolithic table of 1 billion rows. This is due to <strong>partition pruning</strong> (the most important concept).</li>
+<li><strong>Simplified Data Lifecycle Management:</strong> Operations like deleting or archiving massive amounts of old data become
+   trivial. Instead of a slow <code>DELETE FROM ... WHERE date &lt; '2022-01-01'</code>, you can instantly <code>DROP</code> or <code>TRUNCATE</code> an
+   entire partition.</li>
+<li><strong>Improved Maintenance:</strong> Operations like <code>OPTIMIZE TABLE</code> or rebuilding indexes can be run on a single partition at
+   a time, reducing the impact on the live system.</li>
+</ol>
+<hr />
+<h3 id="part-2-the-internals-how-it-actually-works">Part 2: The Internals - How It Actually Works</h3>
+<h4 id="1-the-partitioning-key"><strong>1. The Partitioning Key</strong></h4>
+<ul>
+<li>This is the column (or expression based on a column) whose value determines which partition a row belongs to.</li>
+<li><strong>CRITICAL RULE:</strong> In MySQL, the partitioning key <strong>must be part of every unique key on the table, including the
+  primary key</strong>. This is a major limitation and design consideration. For example, if you partition by <code>created_at</code>,
+  your primary key cannot just be <code>id</code>; it must be something like <code>(id, created_at)</code>.</li>
+</ul>
+<h4 id="2-partition-pruning-the-magic-bullet"><strong>2. Partition Pruning (The Magic Bullet)</strong></h4>
+<p>This is the primary source of the performance gain from partitioning.</p>
+<ul>
+<li><strong>Definition:</strong> Partition pruning is the database optimizer's ability to determine which partitions are irrelevant to
+  a query and <strong>exclude them from the search entirely</strong>.</li>
+<li><strong>The Condition:</strong> Pruning can only happen if the <strong>partitioning key is included in the <code>WHERE</code> clause</strong> of the query.</li>
+<li><strong>Example:</strong> You have a <code>sales</code> table partitioned by <code>YEAR(order_date)</code>.<ul>
+<li><strong>Query 1 (Fast - Pruning Works):</strong>
+  <code>SELECT * FROM sales WHERE order_date = '2023-06-15';</code>
+  The optimizer knows <code>YEAR('2023-06-15')</code> is 2023. It will <strong>only</strong> scan the <code>p_2023</code> partition and ignore all
+  others.</li>
+<li><strong>Query 2 (Slow - No Pruning):</strong>
+  <code>SELECT * FROM sales WHERE customer_id = 123;</code>
+  Since the <code>order_date</code> is not in the <code>WHERE</code> clause, the optimizer has no idea which partition(s)
+  <code>customer_id = 123</code> might exist in. It must scan <strong>every single partition</strong>, leading to performance that is often
+  worse than a non-partitioned table.</li>
+</ul>
+</li>
+</ul>
+<p>You can see this in action using <code>EXPLAIN PARTITIONS SELECT ...</code>. The <code>partitions</code> column will show you which
+  partitions were scanned.</p>
+<h4 id="3-physical-storage"><strong>3. Physical Storage</strong></h4>
+<ul>
+<li>Each partition is effectively stored as its own "sub-table" on disk.</li>
+<li>If you are using file-per-table tablespaces, you will see separate <code>.ibd</code> files for each partition in your data
+  directory (e.g., <code>sales#P#p_2022.ibd</code>, <code>sales#P#p_2023.ibd</code>).</li>
+<li>This means each partition has its own indexes, its own data, and can be managed independently.</li>
+</ul>
+<hr />
+<h3 id="part-3-types-of-partitioning-and-syntax">Part 3: Types of Partitioning and Syntax</h3>
+<h4 id="1-range-partitioning"><strong>1. RANGE Partitioning</strong></h4>
+<ul>
+<li><strong>Use Case:</strong> Best for data with a continuous range, like dates or sequential IDs. This is the most common type.</li>
+<li><strong>How it Works:</strong> Assigns rows to partitions based on whether the column value falls within a given range.</li>
+<li><strong>Syntax:</strong>
+  <code>sql
+  CREATE TABLE sales (
+      sale_id INT NOT NULL,
+      order_date DATE NOT NULL,
+      amount DECIMAL(10, 2) NOT NULL,
+      PRIMARY KEY (sale_id, order_date) -- Note: partition key is in the PK
+  )
+  PARTITION BY RANGE (YEAR(order_date)) (
+      PARTITION p_2021 VALUES LESS THAN (2022),
+      PARTITION p_2022 VALUES LESS THAN (2023),
+      PARTITION p_2023 VALUES LESS THAN (2024),
+      PARTITION p_catchall VALUES LESS THAN MAXVALUE -- Good practice!
+  );</code></li>
+</ul>
+<h4 id="2-list-partitioning"><strong>2. LIST Partitioning</strong></h4>
+<ul>
+<li><strong>Use Case:</strong> Best for data with a discrete, fixed set of categorical values, like country codes, product categories,
+  or status enums.</li>
+<li><strong>How it Works:</strong> Assigns rows to partitions based on whether the column value matches a value in a predefined list.</li>
+<li><strong>Syntax:</strong>
+  <code>sql
+  CREATE TABLE offices (
+      office_id INT NOT NULL,
+      country_code CHAR(2) NOT NULL,
+      city VARCHAR(100),
+      PRIMARY KEY (office_id, country_code)
+  )
+  PARTITION BY LIST (country_code) (
+      PARTITION p_north_america VALUES IN ('US', 'CA', 'MX'),
+      PARTITION p_europe VALUES IN ('GB', 'FR', 'DE'),
+      PARTITION p_asia VALUES IN ('JP', 'CN', 'IN')
+  );</code></li>
+</ul>
+<h4 id="3-hash-partitioning"><strong>3. HASH Partitioning</strong></h4>
+<ul>
+<li><strong>Use Case:</strong> To ensure an even distribution of data across a fixed number of partitions when you don't have an
+  obvious RANGE or LIST key. Good for breaking up "hot spots."</li>
+<li><strong>How it Works:</strong> MySQL applies a hash function (modulo arithmetic) to an integer-based expression you provide.</li>
+<li><strong>Syntax:</strong>
+  <code>sql
+  CREATE TABLE web_sessions (
+      session_id BINARY(16) NOT NULL,
+      user_id INT NOT NULL,
+      created_at TIMESTAMP NOT NULL,
+      PRIMARY KEY (session_id, user_id)
+  )
+  PARTITION BY HASH (user_id)
+  PARTITIONS 8; -- Create 8 partitions</code></li>
+</ul>
+<h4 id="4-key-partitioning"><strong>4. KEY Partitioning</strong></h4>
+<ul>
+<li><strong>Use Case:</strong> Similar to HASH, but more flexible. It lets MySQL handle the hashing and works with non-integer columns.</li>
+<li><strong>How it Works:</strong> MySQL uses its own internal hashing function on the provided key column(s).</li>
+<li><strong>Syntax:</strong>
+  <code>sql
+  -- KEY partitioning on a non-integer column
+  CREATE TABLE user_logs (
+      log_uuid BINARY(16) PRIMARY KEY,
+      message TEXT
+  )
+  PARTITION BY KEY (log_uuid)
+  PARTITIONS 16;</code></li>
+</ul>
+<hr />
+<h3 id="part-4-managing-partitions-maintenance-syntax">Part 4: Managing Partitions (Maintenance Syntax)</h3>
+<ul>
+<li><strong>Add a Partition:</strong>
+  <code>ALTER TABLE sales ADD PARTITION (PARTITION p_2024 VALUES LESS THAN (2025));</code></li>
+<li><strong>Drop a Partition (Instant Data Deletion):</strong>
+  <code>ALTER TABLE sales DROP PARTITION p_2021;</code></li>
+<li><strong>Truncate a Partition (Instant Data Deletion, keeps partition structure):</strong>
+  <code>ALTER TABLE sales TRUNCATE PARTITION p_catchall;</code></li>
+<li><strong>Reorganize Partitions (Merge/Split):</strong>
+  <code>ALTER TABLE sales REORGANIZE PARTITION p_north_america, p_europe INTO (PARTITION p_emea_na VALUES IN ('US', 'CA', 'MX', 'GB', 'FR', 'DE'));</code></li>
+</ul>
+<hr />
+<h3 id="part-5-benefits-vs-drawbacks-the-senior-level-trade-offs">Part 5: Benefits vs. Drawbacks (The Senior-Level Trade-offs)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">✅ Benefits</th>
+<th style="text-align: left;">❌ Drawbacks &amp; Pitfalls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Massive Query Performance Gain</strong> (if pruning works).</td>
+<td style="text-align: left;"><strong>Worse Performance if Pruning Fails.</strong> Querying without the partition key is often slower than on a non-partitioned table.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Instant Data Archival/Deletion</strong> via <code>DROP/TRUNCATE PARTITION</code>.</td>
+<td style="text-align: left;"><strong>Partition Key Must Be in All Unique/Primary Keys.</strong> This can force awkward primary key designs.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Concurrent Maintenance.</strong> Can run <code>OPTIMIZE</code> on one partition without heavily impacting the others.</td>
+<td style="text-align: left;"><strong>Foreign Keys Are Not Supported</strong> by partitioned tables in most standard MySQL configurations.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spreads I/O Load</strong> across multiple physical files.</td>
+<td style="text-align: left;"><strong>Higher Number of Open File Handles.</strong> Each partition is a file; you can hit OS limits.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Increased Complexity.</strong> Management and application logic can become more complex.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Partition-level Locking.</strong> A query that needs to scan multiple partitions may hold locks for longer, potentially reducing concurrency.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="part-6-classic-interview-questions">Part 6: Classic Interview Questions</h3>
+<ul>
+<li>
+<p><strong>Q: What is database partitioning and what is the main problem it's designed to solve?</strong></p>
+<ul>
+<li><strong>A:</strong> It's the process of splitting one large logical table into smaller physical pieces called partitions, while
+  still appearing as one table to the application. The primary problem it solves is performance degradation on very
+  large tables by enabling "partition pruning," where the optimizer can scan only a small subset of the data instead
+  of the entire table.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: A developer tells you their partitioned table query is slow. What is the very first thing you check?</strong></p>
+<ul>
+<li><strong>A:</strong> The very first thing I'd check is the <code>WHERE</code> clause of their query to see if it includes a condition on
+  the <strong>partitioning key</strong>. Then, I'd run <code>EXPLAIN PARTITIONS</code> on their query. If the <code>partitions</code> column shows
+  all (or many) partitions being scanned, it confirms pruning isn't working, and that's the root of the problem.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: When would you choose RANGE partitioning over HASH partitioning?</strong></p>
+<ul>
+<li><strong>A:</strong> I would choose RANGE partitioning when the data has a natural, continuous dimension that aligns with my
+  business logic, especially for data archival. Time-series data (like logs or sales by date) is the classic use
+  case, as it allows me to easily drop old partitions (e.g., "drop last month's data"). I'd use HASH when my goal is
+  simply to distribute data evenly across a set number of partitions to break up hot spots, and I don't have a clear
+  range or categorical key to use.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: What are two major limitations or "gotchas" of MySQL partitioning?</strong></p>
+<ul>
+<li><strong>A:</strong> The two biggest limitations are: 1) The partitioning key must be included in the primary key and all unique
+  keys, which can complicate schema design. 2) Partitioned InnoDB tables do not support foreign key constraints,
+  which forces you to handle data integrity at the application level.</li>
+</ul>
+</li>
+</ul></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../5.%20b-tree/" title="B Tree"><span>Previous</span></a></div>
+        <div class="next"><a href="../7.%20sharding/" title="Sharding"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

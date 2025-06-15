@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>ACID &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">ACID</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#transaction">Transaction</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#atomicity">Atomicity</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#consistency">Consistency</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#isolation">Isolation</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#durability">Durability</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#phantom-reads">Phantom Reads</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#serializable-vs-repeatable-read-mysql-innodb-context">Serializable vs. Repeatable Read (MySQL InnoDB Context)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#eventual-consistency">Eventual Consistency</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#key-points">Key points</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a><a class="nav-item" href="../5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../../../system-design/questions/15.%20youtube-top-k/">&laquo; Previous</a></div>
+    <div class="next"><a href="../2.%20database-internals/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>MySQL</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="database-acid-properties-transactions">Database ACID Properties &amp; Transactions</h1>
+<h2 id="transaction">Transaction</h2>
+<ul>
+<li>A transaction is a single logical unit of work that accesses and possibly modifies the contents of a database.</li>
+<li>Transactions consist of one or more database operations (e.g., SELECT, INSERT, UPDATE, DELETE).</li>
+<li>Ensure that all operations within a transaction are completed successfully (committed) or none of them are (rolled
+  back), maintaining the database in a consistent state.</li>
+</ul>
+<h3 id="mysql-keywords">MySQL Keywords</h3>
+<ul>
+<li>START TRANSACTION; or BEGIN;: Marks the beginning of a transaction.</li>
+<li>COMMIT;: Saves all changes made during the transaction permanently.</li>
+<li>ROLLBACK;: Undoes all changes made during the transaction since the last COMMIT or START TRANSACTION.</li>
+<li>SAVEPOINT identifier;: Creates a point within a transaction to which you can later roll back.</li>
+<li>ROLLBACK TO SAVEPOINT identifier;: Rolls back to a specific savepoint.</li>
+<li>SET autocommit = 0; (disables auto-commit for the session) / SET autocommit = 1; (enables auto-commit, default).</li>
+</ul>
+<h2 id="atomicity">Atomicity</h2>
+<p>Ensures that all operations within a transaction are completed successfully. If any part of the transaction fails, the
+entire transaction fails, and the database is rolled back to its state before the transaction began. There are no
+partial transactions.</p>
+<h3 id="mysql-example">MySQL Example</h3>
+<pre><code class="language-sql">-- Imagine accounts table: (account_id, balance)
+START TRANSACTION;
+
+-- Attempt to debit from account 1
+UPDATE accounts
+SET balance = balance - 100
+WHERE account_id = 1;
+
+-- Attempt to credit account 2
+-- Let's say account_id = 2 does NOT exist, causing an error.
+-- Or, imagine a constraint violation here.
+UPDATE accounts
+SET balance = balance + 100
+WHERE account_id = 999;
+-- Fails (e.g., no such account or a trigger fails)
+
+-- If the second UPDATE fails:
+-- If using error handling in application code: ROLLBACK;
+-- If MySQL detects an error that halts the transaction: it might auto-rollback (depends on error type)
+-- If both succeed: COMMIT;
+</code></pre>
+<h3 id="how-mysql-innodb-achieves-it">How MySQL (InnoDB) achieves it</h3>
+<p>Using mechanisms like the undo log. Before modifying data, InnoDB writes the old version of the data to the undo log. If
+a rollback is needed, it uses the undo log to revert changes.</p>
+<h2 id="consistency">Consistency</h2>
+<p>Ensures that a transaction brings the database from one valid state to another. Any data written to the database must be
+valid according to all defined rules, including constraints (e.g., NOT NULL, UNIQUE, FOREIGN KEY), triggers, and
+cascades.</p>
+<h3 id="mysql-example_1">MySQL Example</h3>
+<pre><code class="language-sql">CREATE TABLE products
+(
+    product_id     INT PRIMARY KEY AUTO_INCREMENT,
+    product_name   VARCHAR(255) NOT NULL UNIQUE,
+    stock_quantity INT          NOT NULL CHECK (stock_quantity &gt;= 0)
+);
+
+START TRANSACTION;
+
+-- This is fine, moves DB from valid state to another valid state
+INSERT INTO products (product_name, stock_quantity)
+VALUES ('Laptop', 10);
+
+-- This will FAIL because stock_quantity &lt; 0, violating the CHECK constraint.
+-- The transaction will be rolled back (or this statement will fail, preventing commit).
+-- INSERT INTO products (product_name, stock_quantity) VALUES ('Mouse', -5);
+
+-- This will FAIL if 'Laptop' already exists, violating UNIQUE constraint.
+-- INSERT INTO products (product_name, stock_quantity) VALUES ('Laptop', 5);
+
+COMMIT; -- Only if all operations respected constraints. Otherwise, error and implicit/explicit rollback.
+</code></pre>
+<h3 id="how-mysql-innodb-achieves-it_1">How MySQL (InnoDB) achieves it</h3>
+<p>Enforcing constraints defined in the DDL. If a transaction attempts an operation that violates a constraint, the
+operation (and potentially the transaction) is aborted.</p>
+<h2 id="isolation">Isolation</h2>
+<p>Ensures that concurrent execution of transactions results in a system state that would be obtained if transactions were
+executed serially (one after another). Each transaction should operate in isolation from others. Intermediate states of
+a transaction are not visible to other transactions.</p>
+<p>Of course. This is a critical topic. Understanding the trade-offs between different isolation levels and how MySQL implements them is a sign of a strong database developer or DBA.</p>
+<p>Here are detailed notes on each isolation level, complete with practical examples and explanations of the underlying mechanisms.</p>
+<hr />
+<h3 id="comprehensive-interview-notes-mysql-isolation-levels"><strong>Comprehensive Interview Notes: MySQL Isolation Levels</strong></h3>
+<p>Transaction isolation levels are a fundamental database concept that controls the visibility of data between concurrent transactions. They define the balance between data consistency (preventing anomalies) and system performance (allowing concurrency).</p>
+<h4 id="how-to-set-and-check-the-isolation-level"><strong>How to Set and Check the Isolation Level</strong></h4>
+<p>You need to know the syntax to control these levels.</p>
+<pre><code class="language-sql">-- Check the current isolation level for the session and globally
+SHOW VARIABLES LIKE 'transaction_isolation';
+
+-- Set the isolation level for the NEXT transaction only
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+START TRANSACTION;
+
+-- Set the isolation level for the current SESSION
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+-- Set the isolation level GLOBALLY for all future connections (requires SUPER privilege)
+SET GLOBAL TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+</code></pre>
+<hr />
+<h3 id="1-read-uncommitted">1. READ UNCOMMITTED</h3>
+<ul>
+<li><strong>Guarantee:</strong> The lowest level. It offers virtually no isolation.</li>
+<li><strong>Phenomenon Allowed:</strong> <strong>Dirty Reads</strong>. A transaction can read data that has been modified by another transaction but has not yet been committed.</li>
+<li><strong>How it Works (The Mechanism):</strong> It's a "no-lock" read. The <code>SELECT</code> statement reads the data directly from the data pages without acquiring any locks or using MVCC snapshots. It sees the absolute latest version of the data, even if it's part of an uncommitted transaction.</li>
+</ul>
+<h4 id="practical-example-dirty-read">Practical Example: Dirty Read</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Session 1 (Your Application)</th>
+<th style="text-align: left;">Session 2 (Another User)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>START TRANSACTION;</code></strong><br/><code>UPDATE accounts SET balance = 50 WHERE id = 1;</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong><code>SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;</code></strong><br/><code>START TRANSACTION;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>SELECT balance FROM accounts WHERE id = 1;</code> <br/><strong>-- Returns 50.</strong> Session 2 sees the uncommitted change.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ROLLBACK;</code></strong> <br/>-- The original change is undone. The balance is back to its original value.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>SELECT balance FROM accounts WHERE id = 1;</code> <br/><strong>-- Returns the original balance.</strong> Session 2 has read "dirty" data that never officially existed.</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong><code>COMMIT;</code></strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use Case:</strong> Very rare. Potentially for non-critical, statistical monitoring where performance is the only concern and data accuracy can be compromised. <strong>Generally, avoid this level.</strong></p>
+<hr />
+<h3 id="2-read-committed">2. READ COMMITTED</h3>
+<ul>
+<li><strong>Guarantee:</strong> Prevents dirty reads. A transaction can only see changes that have been committed.</li>
+<li><strong>Phenomenon Allowed:</strong> <strong>Non-Repeatable Reads</strong>. If a transaction reads the same row twice, it may see different data if another transaction modified and committed that row in between the reads.</li>
+<li><strong>How it Works (The Mechanism):</strong> It uses <strong>MVCC (Multi-Version Concurrency Control)</strong>. For <strong>every <code>SELECT</code> statement</strong>, InnoDB creates a fresh "snapshot" or "read view" of the database. This snapshot ensures the <code>SELECT</code> only sees data that was committed <em>at the moment the statement began</em>.</li>
+</ul>
+<h4 id="practical-example-non-repeatable-read">Practical Example: Non-Repeatable Read</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Session 1 (Your Transaction)</th>
+<th style="text-align: left;">Session 2 (Another User)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>SET TRANSACTION ISOLATION LEVEL READ COMMITTED;</code></strong><br/><code>START TRANSACTION;</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SELECT balance FROM accounts WHERE id = 1;</code> <br/><strong>-- Returns 100.</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>UPDATE accounts SET balance = 200 WHERE id = 1;</code> <br/> <code>COMMIT;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SELECT balance FROM accounts WHERE id = 1;</code> <br/><strong>-- Returns 200.</strong> The same query within the same transaction returns a different result because a new snapshot was taken for the second SELECT, which now includes Session 2's committed change. This is a non-repeatable read.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>COMMIT;</code></strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use Case:</strong> A good general-purpose level, and the default for many other databases like PostgreSQL and Oracle. Suitable for many applications where seeing the most recent committed data is important.</p>
+<hr />
+<h3 id="3-repeatable-read-mysql-default">3. REPEATABLE READ (MySQL Default)</h3>
+<ul>
+<li><strong>Guarantee:</strong> Prevents both dirty reads and non-repeatable reads.</li>
+<li><strong>Phenomenon Allowed:</strong> <strong>Phantom Reads</strong> (in theory, but InnoDB prevents them). A phantom read occurs when a transaction re-runs a query and finds <em>new rows</em> that were inserted (and committed) by another transaction since the first read.</li>
+<li><strong>How it Works (The Mechanism):</strong> This is the key difference from READ COMMITTED.<ol>
+<li><strong>Consistent Snapshot via MVCC:</strong> InnoDB creates a snapshot <strong>at the time of the <em>first read operation</em></strong> within the transaction. This <em>same snapshot</em> is then used for all subsequent reads within that transaction. This is why reads are repeatable—they always refer to the same point in time.</li>
+<li><strong>Gap/Next-Key Locking:</strong> To prevent phantom reads, when a transaction performs a <code>WRITE</code> (<code>UPDATE</code> or <code>DELETE</code>), InnoDB uses <strong>Next-Key Locks</strong>. These locks cover not only the index records found but also the "gaps" between them, preventing other transactions from inserting new rows into that range.</li>
+</ol>
+</li>
+</ul>
+<h4 id="practical-example-repeatable-read-no-non-repeatable-read">Practical Example: Repeatable Read (No Non-Repeatable Read)</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Session 1 (Your Transaction)</th>
+<th style="text-align: left;">Session 2 (Another User)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;</code></strong><br/><code>START TRANSACTION;</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SELECT balance FROM accounts WHERE id = 1;</code> <br/><strong>-- Returns 100.</strong> The snapshot is now fixed at this point in time.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>UPDATE accounts SET balance = 200 WHERE id = 1;</code> <br/> <code>COMMIT;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SELECT balance FROM accounts WHERE id = 1;</code> <br/><strong>-- Returns 100.</strong> Despite Session 2's commit, Session 1 continues to use its original snapshot, providing a consistent (repeatable) read.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>COMMIT;</code></strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SELECT balance FROM accounts WHERE id = 1;</code><br/><strong>-- Returns 200.</strong> A new transaction will now see the committed change.</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use Case:</strong> The default for good reason. It provides a highly consistent and stable view of the data, ideal for complex multi-statement transactions where it's critical that the data being read does not change.</p>
+<hr />
+<h3 id="4-serializable">4. SERIALIZABLE</h3>
+<ul>
+<li><strong>Guarantee:</strong> The highest level. Prevents all concurrency anomalies, including Dirty, Non-Repeatable, and Phantom Reads.</li>
+<li><strong>Phenomenon Allowed:</strong> None. Provides complete isolation.</li>
+<li><strong>How it Works (The Mechanism):</strong> It builds on REPEATABLE READ with one major change: it implicitly converts all plain <code>SELECT</code> statements into <code>SELECT ... LOCK IN SHARE MODE</code>.<ul>
+<li><strong>Readers block Writers:</strong> When a transaction reads rows (acquiring S locks), another transaction cannot <code>UPDATE</code> or <code>DELETE</code> those rows (as it can't get an X lock).</li>
+<li><strong>Writers block Readers:</strong> When a transaction has an X lock on a row, another transaction cannot place an S lock to read it.</li>
+<li>This effectively forces transactions to execute serially if they access the same data, eliminating concurrency at the cost of performance.</li>
+</ul>
+</li>
+</ul>
+<h4 id="practical-example-readers-block-writers">Practical Example: Readers Block Writers</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Session 1 (Your Transaction)</th>
+<th style="text-align: left;">Session 2 (Another User)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;</code></strong><br/><code>START TRANSACTION;</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SELECT * FROM accounts WHERE id = 1;</code> <br/><strong>-- This statement implicitly places a Shared (S) lock on the row.</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>UPDATE accounts SET balance = 200 WHERE id = 1;</code> <br/><strong>-- This statement BLOCKS.</strong> It cannot acquire an Exclusive (X) lock because Session 1 holds an S lock. It must wait.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>COMMIT;</code> <br/><strong>-- The S lock is released.</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>-- The UPDATE statement is now unblocked and executes.</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>COMMIT;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use Case:</strong> Very rare. Used only when data integrity is so critical that no amount of performance loss is too high to prevent anomalies. Think financial ledgers, nuclear launch codes, or critical audit trails.</p>
+<h3 id="summary-table-for-interviews">Summary Table for Interviews</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Isolation Level</th>
+<th style="text-align: left;">Dirty Read</th>
+<th style="text-align: left;">Non-Repeatable Read</th>
+<th style="text-align: left;">Phantom Read</th>
+<th style="text-align: left;">How It's Achieved in InnoDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>READ UNCOMMITTED</strong></td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;"><code>SELECT</code>s don't use locks or MVCC.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>READ COMMITTED</strong></td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">Possible</td>
+<td style="text-align: left;">MVCC with a <strong>new snapshot for each <code>SELECT</code></strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>REPEATABLE READ</strong></td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;"><strong>Prevented</strong></td>
+<td style="text-align: left;">MVCC with a <strong>single snapshot for the entire transaction</strong> + Gap/Next-Key locks for writes.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SERIALIZABLE</strong></td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;">Prevented</td>
+<td style="text-align: left;">Same as REPEATABLE READ, but all <code>SELECT</code>s also acquire <strong>shared locks</strong>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="durability">Durability</h2>
+<p>Ensures that once a transaction has been committed, its changes are permanent and will survive any subsequent system
+failures (e.g., power outage, server crash).</p>
+<h3 id="mysql-example_2">MySQL Example</h3>
+<pre><code class="language-sql">START TRANSACTION;
+INSERT INTO orders (customer_id, order_date, total_amount)
+VALUES (123, CURDATE(), 99.99);
+COMMIT;
+-- At this point, the order is permanently saved.
+
+-- If the server crashes immediately after the COMMIT returns success to the client,
+-- upon restart, the order (customer_id 123) will still be present in the database.
+</code></pre>
+<h3 id="how-mysql-innodb-achieves-it_2">How MySQL (InnoDB) achieves it</h3>
+<p>Write Ahead Logging (WAL): Changes are first written to a transaction log (e.g., InnoDB's redo log - ib_logfile*) before
+they are written to the actual data files.</p>
+<h2 id="phantom-reads">Phantom Reads</h2>
+<p>A phantom read occurs when, within the course of a transaction, two identical queries that select a set of rows based on
+some condition (e.g., WHERE category = 'electronics') are executed, and the second query returns a set of rows different
+from the first (e.g., new rows have been added by another committed transaction that match the condition).</p>
+<h3 id="when-it-can-occur">When it can occur</h3>
+<p>Typically in isolation levels like READ COMMITTED, SERIALIZABLE prevents it.</p>
+<h3 id="mysql-example_3">MySQL Example</h3>
+<pre><code class="language-sql">SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
+TX1
+: START TRANSACTION;
+SELECT COUNT(*)
+FROM products
+WHERE category = 'Book';
+-- Returns, say, 2
+-- TX2: START TRANSACTION;
+--       INSERT INTO products (name, category) VALUES ('New Book', 'Book');
+--       COMMIT;
+TX1
+:
+SELECT COUNT(*)
+FROM products
+WHERE category = 'Book'; -- Would now return 3 (phantom)
+COMMIT;
+</code></pre>
+<h2 id="serializable-vs-repeatable-read-mysql-innodb-context">Serializable vs. Repeatable Read (MySQL InnoDB Context)</h2>
+<h3 id="repeatable-read-default-for-innodb">Repeatable Read (Default for InnoDB)</h3>
+<ul>
+<li>Reads see a consistent snapshot of the data from the time the first read operation in the transaction occurs (or from
+  the start of the transaction for some interpretations/systems).</li>
+<li>No dirty reads.</li>
+<li>No non-repeatable reads (if you read the same row multiple times, you get the same data).</li>
+</ul>
+<h3 id="serializable-read">Serializable Read</h3>
+<ul>
+<li>Highest isolation level. Transactions execute as if they were run one after another (serially).</li>
+<li>No dirty reads.</li>
+<li>No non-repeatable reads.</li>
+<li>No phantom reads.</li>
+<li>When data consistency is absolutely paramount, and you cannot tolerate phantom reads, even at the cost of concurrency.
+  Often used for specific, critical transactions rather than as a global default.</li>
+</ul>
+<h2 id="eventual-consistency">Eventual Consistency</h2>
+<p>A consistency model used primarily in distributed systems (especially NoSQL databases, caches, CDNs). It's a contrast to
+the strong consistency provided by ACID. If no new updates are made to a given data item, eventually, all accesses to
+that item will return the last updated value.</p>
+<h3 id="how-it-works">How it works</h3>
+<ul>
+<li>Writes might first go to one node/replica.</li>
+<li>These changes are then propagated asynchronously to other replicas.</li>
+<li>There's a "consistency window" during which different replicas might have different versions of the data.</li>
+</ul>
+<h3 id="trade-offs">Trade-offs</h3>
+<ul>
+<li>Pros: Higher availability (system can still serve reads/writes even if some nodes are temporarily partitioned or
+  down), better scalability, lower latency for writes (as they can return "success" before data is fully replicated).</li>
+<li>Cons: Stale reads are possible. "Read-your-writes" consistency might not be guaranteed immediately (you write data,
+  then immediately read it, and might get an old version). More complex for developers to reason about.</li>
+</ul>
+<h2 id="key-points">Key points</h2>
+<ul>
+<li>ACID is about single-database transactions, not distributed systems</li>
+<li>MySQL InnoDB engine supports full ACID, MyISAM does not</li>
+<li>Isolation levels are a trade-off between consistency and performance</li>
+<li>Phantom reads are specific to range queries, not single-row operations</li>
+<li>Eventual consistency is for distributed systems where immediate consistency is impractical</li>
+</ul></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../../../system-design/questions/15.%20youtube-top-k/" title="YouTube Top K"><span>Previous</span></a></div>
+        <div class="next"><a href="../2.%20database-internals/" title="Database Internals"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

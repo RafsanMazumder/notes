@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Consumers &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20producers/">Producers</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Consumers</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#overview">🔷 Overview</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#1-kafka-consumer-basics">🔸 1. Kafka Consumer Basics</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#2-consumer-groups">🔸 2. Consumer Groups</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#3-partition-rebalancing">🔸 3. Partition Rebalancing</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#4-offset-management">🔸 4. Offset Management</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#offset-reset-policy">🔸 Offset Reset Policy</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#advanced-consumer-patterns">🔸 Advanced Consumer Patterns</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#consumer-lifecycle-summary">🔸 Consumer Lifecycle Summary</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#consumer-performance-and-tuning">🔸 Consumer Performance and Tuning</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#summary-table">🔸 Summary Table</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#interview-questions">❓ Interview Questions</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../3.%20producers/">&laquo; Previous</a></div>
+    <div class="next"><a href="../5.%20message%20delivery%20semantics/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Kafka</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="kafka-interview-notes-4-consumers-consumer-groups">✅ Kafka Interview Notes: 4. Consumers &amp; Consumer Groups</h1>
+<hr />
+<h2 id="overview">🔷 Overview</h2>
+<p>A <strong>Kafka consumer</strong> is a client application that reads records from topics. Kafka's consumer model is <strong>pull-based</strong> (
+i.e., consumers poll for new data) and built to support <strong>horizontal scaling</strong> through <strong>consumer groups</strong> and *
+<em>partition assignment</em>*.</p>
+<p><strong>Interview insight</strong>: <em>The pull-based model is fundamental to Kafka's scalability. Unlike push-based systems where
+brokers decide when to send data, consumers control their consumption rate, enabling better backpressure handling and
+allowing consumers to process at their own pace.</em></p>
+<hr />
+<h2 id="1-kafka-consumer-basics">🔸 1. Kafka Consumer Basics</h2>
+<ul>
+<li>Consumers read records from one or more <strong>partitions</strong> of a topic.</li>
+<li>Records are read <strong>sequentially</strong> from an <strong>offset</strong> (a per-partition record ID).</li>
+<li>Kafka <strong>does not push data</strong> – consumers must <strong>poll</strong> regularly to receive data.</li>
+</ul>
+<h3 id="pull-vs-push-model-deep-dive">Pull vs Push Model Deep Dive:</h3>
+<p><strong>Why Pull-based?</strong></p>
+<ul>
+<li><em>"What are the advantages of pull over push?"</em> - Consumers control their consumption rate, can handle backpressure
+  naturally, and can batch requests efficiently</li>
+<li><strong>Backpressure handling</strong>: If consumer is slow, it simply polls less frequently rather than overwhelming its buffers</li>
+<li><strong>Batch efficiency</strong>: Consumers can request many messages in one poll, reducing network overhead</li>
+<li><strong>Consumer autonomy</strong>: Each consumer can have different processing speeds without affecting others</li>
+</ul>
+<p><strong>Consumer Poll Loop Pattern:</strong></p>
+<pre><code class="language-java">while (true) {
+    ConsumerRecords&lt;String, String&gt; records = consumer.poll(Duration.ofMillis(100));
+    for (ConsumerRecord&lt;String, String&gt; record : records) {
+        process(record);
+    }
+    consumer.commitSync(); // Manual commit after processing
+}
+</code></pre>
+<p><strong>Advanced Pull Concepts:</strong></p>
+<ul>
+<li><em>"What happens if poll() is not called frequently enough?"</em> - Consumer may be removed from group due to
+  <code>max.poll.interval.ms</code> timeout</li>
+<li><em>"How does Kafka handle slow consumers?"</em> - Consumer lag increases, but other consumers in group continue processing
+  their partitions</li>
+<li><strong>Poll timeout tuning</strong>: Short timeouts for responsive applications, longer timeouts for batch processing</li>
+</ul>
+<hr />
+<h2 id="2-consumer-groups">🔸 2. Consumer Groups</h2>
+<p>A <strong>consumer group</strong> is a <strong>set of consumers that work together</strong> to consume data from a topic.</p>
+<ul>
+<li>Kafka assigns <strong>each partition to only one consumer</strong> within a group.</li>
+<li>Multiple consumers can exist across different groups and <strong>read the same data</strong> independently.</li>
+<li>Consumers in the same group <strong>share the work</strong> of reading from the topic.</li>
+</ul>
+<h4 id="example">Example:</h4>
+<pre><code>Topic: orders (6 partitions)
+Consumer Group A:
+  - Consumer 1 → partitions 0, 1, 2
+  - Consumer 2 → partitions 3, 4, 5
+
+Consumer Group B:
+  - Consumer X → partitions 0–5 (reads all)
+</code></pre>
+<blockquote>
+<p>This allows Kafka to implement <strong>horizontal scalability</strong> for consumers.</p>
+</blockquote>
+<h3 id="consumer-group-deep-dive-critical-interview-topic">Consumer Group Deep Dive (Critical Interview Topic):</h3>
+<p><strong>Consumer Group Coordinator:</strong></p>
+<ul>
+<li>Each consumer group has a designated broker as its coordinator</li>
+<li>Coordinator manages group membership and partition assignments</li>
+<li><em>"How is coordinator chosen?"</em> - Based on hash of group ID, ensures even distribution across brokers</li>
+</ul>
+<p><strong>Group Membership Protocol:</strong></p>
+<ul>
+<li>Consumers send heartbeats to coordinator to maintain membership</li>
+<li><code>session.timeout.ms</code>: Max time without heartbeat before considered dead</li>
+<li><code>heartbeat.interval.ms</code>: Frequency of heartbeat messages (usually 1/3 of session timeout)</li>
+</ul>
+<p><strong>Assignment Strategies Deep Dive:</strong></p>
+<p><strong>RangeAssignor (Default):</strong></p>
+<pre><code>Topic with 7 partitions, 3 consumers:
+Consumer 1: partitions 0, 1, 2
+Consumer 2: partitions 3, 4
+Consumer 3: partitions 5, 6
+</code></pre>
+<ul>
+<li><em>Problem</em>: Uneven distribution, especially with multiple topics</li>
+</ul>
+<p><strong>RoundRobinAssignor:</strong></p>
+<pre><code>Consumer 1: partitions 0, 3, 6
+Consumer 2: partitions 1, 4
+Consumer 3: partitions 2, 5
+</code></pre>
+<ul>
+<li>Better distribution but can cause issues if consumers have different processing capabilities</li>
+</ul>
+<p><strong>StickyAssignor:</strong></p>
+<ul>
+<li>Maintains existing assignments when possible</li>
+<li>Minimizes partition movement during rebalancing</li>
+<li><em>"Why is stickiness important?"</em> - Preserves consumer state, reduces rebalancing overhead</li>
+</ul>
+<p><strong>Static Group Membership (Kafka 2.3+):</strong></p>
+<pre><code class="language-java">props.put(&quot;group.instance.id&quot;, &quot;consumer-1&quot;); // Static ID
+</code></pre>
+<ul>
+<li>Consumer keeps same identity across restarts</li>
+<li>Avoids rebalancing for planned restarts</li>
+<li><em>"When would you use static membership?"</em> - Stream processing applications where rebalancing is expensive</li>
+</ul>
+<h3 id="multi-consumer-group-patterns">Multi-Consumer Group Patterns:</h3>
+<p><strong>Fan-out Pattern:</strong></p>
+<ul>
+<li>Same data consumed by multiple groups for different purposes</li>
+<li>Example: Orders topic → [Real-time dashboard, Batch analytics, Audit logging]</li>
+</ul>
+<p><strong>Hierarchical Processing:</strong></p>
+<ul>
+<li>Multiple stages of processing with different consumer groups</li>
+<li>Example: Raw events → Enrichment → Aggregation → Storage</li>
+</ul>
+<p><strong>Disaster Recovery:</strong></p>
+<ul>
+<li>Separate consumer groups in different data centers</li>
+<li>Primary processes normally, secondary takes over during failures</li>
+</ul>
+<hr />
+<h2 id="3-partition-rebalancing">🔸 3. Partition Rebalancing</h2>
+<p>Partition rebalancing happens when:</p>
+<ul>
+<li>A new consumer <strong>joins</strong> or <strong>leaves</strong> the group</li>
+<li>A consumer <strong>crashes</strong></li>
+<li>The <strong>number of partitions changes</strong></li>
+</ul>
+<p>Rebalancing involves:</p>
+<ol>
+<li><strong>Pausing all consumers</strong> in the group</li>
+<li><strong>Reassigning partitions</strong> to consumers</li>
+<li><strong>Resuming consumption</strong></li>
+</ol>
+<h4 id="side-effects">Side Effects:</h4>
+<ul>
+<li>Rebalancing is a <strong>disruptive</strong> operation</li>
+<li><strong>Offsets</strong> must be preserved to avoid duplication or loss</li>
+</ul>
+<h3 id="rebalancing-deep-dive-high-frequency-interview-topic">Rebalancing Deep Dive (High-Frequency Interview Topic):</h3>
+<p><strong>Rebalancing Triggers in Detail:</strong></p>
+<p><strong>Consumer Join:</strong></p>
+<ul>
+<li>New consumer sends JoinGroup request to coordinator</li>
+<li>Coordinator waits for <code>rebalance.timeout.ms</code> for all consumers to join</li>
+<li><em>"What happens if a consumer is slow to join?"</em> - It gets excluded from the group until next rebalance</li>
+</ul>
+<p><strong>Consumer Leave/Crash:</strong></p>
+<ul>
+<li>Graceful leave: Consumer sends LeaveGroup request</li>
+<li>Crash detection: Coordinator notices missing heartbeats after <code>session.timeout.ms</code></li>
+<li><em>"How do you distinguish between slow consumer and crashed consumer?"</em> - Session timeout vs max poll interval timeout</li>
+</ul>
+<p><strong>Consumer Processing Timeout:</strong></p>
+<ul>
+<li><code>max.poll.interval.ms</code>: Max time between poll() calls</li>
+<li>If exceeded, consumer is considered failed even if sending heartbeats</li>
+<li><em>"Why separate heartbeat and poll timeouts?"</em> - Heartbeat shows consumer is alive, poll timeout shows it's actually
+  processing</li>
+</ul>
+<p><strong>Rebalancing Protocol Steps:</strong></p>
+<ol>
+<li><strong>Stop the world</strong>: All consumers stop processing</li>
+<li><strong>Join Group</strong>: Consumers request group membership</li>
+<li><strong>Leader Election</strong>: Coordinator selects group leader (usually first consumer)</li>
+<li><strong>Assignment</strong>: Leader calculates partition assignment</li>
+<li><strong>Sync Group</strong>: Assignment distributed to all consumers</li>
+<li><strong>Resume</strong>: Consumers start processing assigned partitions</li>
+</ol>
+<p><strong>Rebalancing Performance Impact:</strong></p>
+<ul>
+<li>Processing stops during rebalancing (typically 1-30 seconds)</li>
+<li>Consumer lag increases during rebalancing pause</li>
+<li>Frequency directly impacts application availability</li>
+</ul>
+<h3 id="cooperative-rebalancing-kafka-24">🔹 Cooperative Rebalancing (Kafka 2.4+)</h3>
+<p>Kafka introduced <strong>cooperative sticky assignor</strong> to improve rebalancing.</p>
+<ul>
+<li>Allows <strong>incremental rebalancing</strong>:<ul>
+<li>Only partitions that need to move are reassigned</li>
+<li>No full stop of all consumers</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-java">props.put(&quot;partition.assignment.strategy&quot;, &quot;CooperativeStickyAssignor&quot;);
+</code></pre>
+<p>✅ Faster rebalancing
+✅ Reduced consumer downtime
+✅ Better for long-running apps or stream processing</p>
+<p><strong>Cooperative Rebalancing Implementation:</strong></p>
+<ul>
+<li>Consumers continue processing partitions they keep</li>
+<li>Only consumers losing/gaining partitions pause briefly</li>
+<li>Typical rebalancing time: 100-500ms vs 5-30 seconds</li>
+</ul>
+<p><strong>Migration to Cooperative Rebalancing:</strong></p>
+<ul>
+<li>Can't mix eager and cooperative strategies in same group</li>
+<li>Requires coordinated deployment or rolling upgrade strategy</li>
+<li><em>"How do you migrate from eager to cooperative rebalancing?"</em> - Use dual strategy during transition period</li>
+</ul>
+<p><strong>Real-world rebalancing scenarios:</strong></p>
+<ul>
+<li><em>"Black Friday traffic spike requires scaling from 3 to 12 consumers. What happens?"</em> - Multiple rebalancing rounds as
+  consumers join, brief processing pauses, eventual even distribution</li>
+<li><em>"Kubernetes pod restart during business hours. How do you minimize impact?"</em> - Use cooperative rebalancing + static
+  group membership + graceful shutdown</li>
+</ul>
+<hr />
+<h2 id="4-offset-management">🔸 4. Offset Management</h2>
+<p>An <strong>offset</strong> is a pointer to the consumer's current position in a partition.</p>
+<ul>
+<li>Kafka <strong>does not automatically delete records after reading</strong> – the consumer must <strong>track its offset</strong>.</li>
+<li>Offsets are stored:<ul>
+<li>In a <strong>special Kafka topic</strong> (<code>__consumer_offsets</code>)</li>
+<li>Or <strong>externally</strong> (e.g., DB, Redis, Zookeeper)</li>
+</ul>
+</li>
+</ul>
+<h3 id="offset-storage-deep-dive">Offset Storage Deep Dive:</h3>
+<p><strong>Internal Offset Storage (<code>__consumer_offsets</code>):</strong></p>
+<ul>
+<li>Compacted topic storing latest offset for each consumer group + partition</li>
+<li>Replication factor typically same as cluster (usually 3)</li>
+<li><em>"Why use a Kafka topic to store offsets?"</em> - Leverages Kafka's durability and replication guarantees</li>
+<li>Automatic cleanup of old consumer group metadata</li>
+</ul>
+<p><strong>External Offset Storage:</strong></p>
+<ul>
+<li>Store offsets in application database alongside processed results</li>
+<li>Enables atomic commit of processing + offset update</li>
+<li><em>"When would you use external offset storage?"</em> - When you need exactly-once processing with external systems (
+  database writes + offset commits)</li>
+</ul>
+<p><strong>Offset Commit Strategies:</strong></p>
+<h3 id="auto-vs-manual-commit">🔹 Auto vs Manual Commit</h3>
+<h4 id="auto-commit-default">🟢 Auto Commit (default)</h4>
+<ul>
+<li>Offsets are committed <strong>periodically</strong> (default: every 5 seconds)</li>
+</ul>
+<pre><code class="language-java">enable.auto.commit=true
+auto.commit.interval.ms=5000
+</code></pre>
+<ul>
+<li>Simpler but risky:<ul>
+<li>May <strong>lose messages</strong> (if commit before processing)</li>
+<li>May <strong>reprocess messages</strong> (if crash before commit)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Auto Commit Scenarios:</strong></p>
+<ul>
+<li><em>"Consumer polls 100 messages, processes 50, auto-commit happens, then crashes. What occurs?"</em> - 50 messages are lost
+  because offsets were committed before processing</li>
+<li><em>"When is auto commit acceptable?"</em> - Fire-and-forget scenarios, analytics where some data loss is acceptable,
+  idempotent processing</li>
+</ul>
+<h4 id="manual-commit">🔴 Manual Commit</h4>
+<ul>
+<li>You control <strong>when offsets are committed</strong>, ensuring <strong>processing is complete</strong></li>
+</ul>
+<pre><code class="language-java">enable.auto.commit=false
+consumer.commitSync(); // or commitAsync()
+</code></pre>
+<blockquote>
+<p>Best practice: Use <strong>manual commit</strong> for applications that care about <strong>processing guarantees</strong>.</p>
+</blockquote>
+<p><strong>Manual Commit Patterns:</strong></p>
+<p><strong>Per-Batch Commit:</strong></p>
+<pre><code class="language-java">while (true) {
+    ConsumerRecords&lt;String, String&gt; records = consumer.poll(Duration.ofMillis(100));
+    for (ConsumerRecord&lt;String, String&gt; record : records) {
+        process(record);
+    }
+    consumer.commitSync(); // Commit after processing all records in batch
+}
+</code></pre>
+<p><strong>Per-Message Commit (Expensive):</strong></p>
+<pre><code class="language-java">for (ConsumerRecord&lt;String, String&gt; record : records) {
+    process(record);
+    consumer.commitSync(Collections.singletonMap(
+        new TopicPartition(record.topic(), record.partition()),
+        new OffsetAndMetadata(record.offset() + 1)
+    ));
+}
+</code></pre>
+<p><strong>Atomic Processing + Commit:</strong></p>
+<pre><code class="language-java">// Begin database transaction
+dbTransaction.begin();
+try {
+    for (ConsumerRecord&lt;String, String&gt; record : records) {
+        processToDatabase(record, dbTransaction);
+    }
+    dbTransaction.commit();
+    consumer.commitSync(); // Only commit offset after DB commit
+} catch (Exception e) {
+    dbTransaction.rollback();
+    // Don't commit offset - will reprocess
+}
+</code></pre>
+<h3 id="commit-types">🔹 Commit Types</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>commitSync()</code></td>
+<td>Blocks until broker confirms</td>
+</tr>
+<tr>
+<td><code>commitAsync()</code></td>
+<td>Non-blocking, may skip failures</td>
+</tr>
+<tr>
+<td>Combined</td>
+<td>Try async, fallback to sync on close</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Commit Strategy Deep Dive:</strong></p>
+<p><strong>Synchronous Commit:</strong></p>
+<ul>
+<li>Blocks until offset is persisted</li>
+<li>Retries automatically on failure</li>
+<li>Guarantees offset is committed before proceeding</li>
+<li><em>"Performance impact"</em>: Adds latency to processing loop</li>
+</ul>
+<p><strong>Asynchronous Commit:</strong></p>
+<ul>
+<li>Returns immediately, commits in background</li>
+<li>No automatic retries (could commit out-of-order offsets)</li>
+<li>Higher throughput but less durability guarantee</li>
+<li><em>"When do you use async commit?"</em> - High-throughput scenarios where occasional reprocessing is acceptable</li>
+</ul>
+<p><strong>Hybrid Approach (Production Pattern):</strong></p>
+<pre><code class="language-java">try {
+    while (true) {
+        ConsumerRecords&lt;String, String&gt; records = consumer.poll(Duration.ofMillis(100));
+        process(records);
+        consumer.commitAsync(); // Fast async commit during normal operation
+    }
+} finally {
+    consumer.commitSync(); // Ensure final offset is committed on shutdown
+}
+</code></pre>
+<p><strong>Offset Commit Failures:</strong></p>
+<ul>
+<li><code>CommitFailedException</code>: Another consumer in group committed offsets (rebalancing occurred)</li>
+<li><code>RebalanceInProgressException</code>: Rebalancing happening, retry after completion</li>
+<li>Network errors: Automatic retry for sync, manual handling for async</li>
+</ul>
+<hr />
+<h2 id="offset-reset-policy">🔸 Offset Reset Policy</h2>
+<p>Controls what to do if no previous offset is found:</p>
+<pre><code class="language-java">auto.offset.reset=earliest | latest | none
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>earliest</code></td>
+<td>Start from beginning of partition</td>
+</tr>
+<tr>
+<td><code>latest</code></td>
+<td>Start from end (new messages only)</td>
+</tr>
+<tr>
+<td><code>none</code></td>
+<td>Throw error if no offset is found</td>
+</tr>
+</tbody>
+</table>
+<h3 id="offset-reset-scenarios-common-interview-topic">Offset Reset Scenarios (Common Interview Topic):</h3>
+<p><strong>When Offset Reset is Triggered:</strong></p>
+<ul>
+<li>New consumer group (no previous offsets)</li>
+<li>Offset committed is beyond current partition end</li>
+<li>Offset committed is before current retention start (data deleted)</li>
+</ul>
+<p><strong>Reset Policy Decision Matrix:</strong></p>
+<ul>
+<li><strong>earliest</strong>: Batch processing, data migration, ensuring no data loss</li>
+<li><strong>latest</strong>: Real-time applications, notifications, live metrics</li>
+<li><strong>none</strong>: Explicit error handling, ensure conscious decision about data</li>
+</ul>
+<p><strong>Advanced Offset Management:</strong></p>
+<p><strong>Seeking to Specific Offsets:</strong></p>
+<pre><code class="language-java">// Seek to beginning
+consumer.seekToBeginning(Arrays.asList(partition));
+
+// Seek to specific offset
+consumer.seek(partition, specificOffset);
+
+// Seek by timestamp
+Map&lt;TopicPartition, Long&gt; timestampsToSearch = Map.of(partition, timestamp);
+Map&lt;TopicPartition, OffsetAndTimestamp&gt; offsets = consumer.offsetsForTimes(timestampsToSearch);
+</code></pre>
+<p><strong>Consumer Reset Tools:</strong></p>
+<pre><code class="language-bash"># Reset consumer group to earliest
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
+  --group my-group --reset-offsets --to-earliest --topic my-topic --execute
+
+# Reset to specific timestamp
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
+  --group my-group --reset-offsets --to-datetime 2024-01-01T00:00:00.000 \
+  --topic my-topic --execute
+</code></pre>
+<hr />
+<h2 id="advanced-consumer-patterns">🔸 Advanced Consumer Patterns</h2>
+<h3 id="message-filtering-and-processing-patterns">Message Filtering and Processing Patterns</h3>
+<p><strong>Client-Side Filtering:</strong></p>
+<pre><code class="language-java">for (ConsumerRecord&lt;String, String&gt; record : records) {
+    if (shouldProcess(record)) {
+        process(record);
+    }
+    // Still commit offset even for filtered messages
+}
+</code></pre>
+<p><strong>Batch Processing Pattern:</strong></p>
+<pre><code class="language-java">List&lt;ConsumerRecord&lt;String, String&gt;&gt; batch = new ArrayList&lt;&gt;();
+while (true) {
+    ConsumerRecords&lt;String, String&gt; records = consumer.poll(Duration.ofMillis(100));
+    batch.addAll(records);
+
+    if (batch.size() &gt;= BATCH_SIZE || shouldFlushBatch()) {
+        processBatch(batch);
+        consumer.commitSync();
+        batch.clear();
+    }
+}
+</code></pre>
+<h3 id="error-handling-patterns">Error Handling Patterns</h3>
+<p><strong>Dead Letter Topic Pattern:</strong></p>
+<pre><code class="language-java">for (ConsumerRecord&lt;String, String&gt; record : records) {
+    try {
+        process(record);
+    } catch (Exception e) {
+        sendToDeadLetterTopic(record, e);
+    }
+}
+</code></pre>
+<p><strong>Retry with Backoff:</strong></p>
+<pre><code class="language-java">for (ConsumerRecord&lt;String, String&gt; record : records) {
+    int retries = 0;
+    while (retries &lt; MAX_RETRIES) {
+        try {
+            process(record);
+            break;
+        } catch (RetriableException e) {
+            retries++;
+            Thread.sleep(BACKOFF_MS * retries);
+        }
+    }
+}
+</code></pre>
+<h3 id="multi-threading-patterns">Multi-Threading Patterns</h3>
+<p><strong>Single Consumer, Multiple Worker Threads:</strong></p>
+<pre><code class="language-java">ExecutorService executor = Executors.newFixedThreadPool(WORKER_THREADS);
+while (true) {
+    ConsumerRecords&lt;String, String&gt; records = consumer.poll(Duration.ofMillis(100));
+    for (ConsumerRecord&lt;String, String&gt; record : records) {
+        executor.submit(() -&gt; process(record));
+    }
+    // Note: Offset management becomes complex with async processing
+}
+</code></pre>
+<p><strong>Multiple Consumers (Preferred):</strong></p>
+<ul>
+<li>Each consumer runs in separate thread</li>
+<li>Simpler offset management</li>
+<li>Better fault isolation</li>
+</ul>
+<hr />
+<h2 id="consumer-lifecycle-summary">🔸 Consumer Lifecycle Summary</h2>
+<ol>
+<li>Consumer joins a group</li>
+<li>Kafka assigns partitions to consumers</li>
+<li>Consumer polls data, processes records</li>
+<li>Commits offset (auto or manual)</li>
+<li>If rebalancing occurs → partitions may be reassigned</li>
+</ol>
+<h3 id="detailed-consumer-lifecycle">Detailed Consumer Lifecycle:</h3>
+<p><strong>Startup Sequence:</strong></p>
+<ol>
+<li><strong>Configuration</strong>: Set bootstrap servers, group ID, deserializers</li>
+<li><strong>Subscription</strong>: Subscribe to topics or assign specific partitions</li>
+<li><strong>Group Join</strong>: Send JoinGroup request to coordinator</li>
+<li><strong>Partition Assignment</strong>: Receive partition assignment from coordinator</li>
+<li><strong>Initial Positioning</strong>: Seek to last committed offset or apply reset policy</li>
+</ol>
+<p><strong>Normal Operation:</strong></p>
+<ol>
+<li><strong>Poll Loop</strong>: Continuously poll for new records</li>
+<li><strong>Processing</strong>: Process received records</li>
+<li><strong>Offset Management</strong>: Commit offsets (auto or manual)</li>
+<li><strong>Heartbeat</strong>: Send periodic heartbeats to coordinator</li>
+</ol>
+<p><strong>Shutdown Sequence:</strong></p>
+<ol>
+<li><strong>Graceful Stop</strong>: Stop polling and processing</li>
+<li><strong>Final Commit</strong>: Commit any pending offsets</li>
+<li><strong>Leave Group</strong>: Send LeaveGroup request</li>
+<li><strong>Close Resources</strong>: Close consumer and cleanup</li>
+</ol>
+<p><strong>Failure Scenarios:</strong></p>
+<ul>
+<li><strong>Processing Timeout</strong>: Consumer removed from group, partitions reassigned</li>
+<li><strong>Network Failure</strong>: Automatic reconnection and rejoin</li>
+<li><strong>Coordinator Failure</strong>: Find new coordinator and rejoin</li>
+<li><strong>Broker Failure</strong>: Automatic metadata refresh and continued operation</li>
+</ul>
+<hr />
+<h2 id="consumer-performance-and-tuning">🔸 Consumer Performance and Tuning</h2>
+<h3 id="key-performance-configurations">Key Performance Configurations:</h3>
+<p><strong>Fetch Settings:</strong></p>
+<ul>
+<li><code>fetch.min.bytes</code>: Minimum data per fetch request</li>
+<li><code>fetch.max.wait.ms</code>: Maximum wait time for fetch request</li>
+<li><code>max.partition.fetch.bytes</code>: Maximum data per partition per fetch</li>
+</ul>
+<p><strong>Poll Settings:</strong></p>
+<ul>
+<li><code>max.poll.records</code>: Maximum records returned per poll</li>
+<li><code>max.poll.interval.ms</code>: Maximum time between polls</li>
+</ul>
+<p><strong>Session Management:</strong></p>
+<ul>
+<li><code>session.timeout.ms</code>: Consumer failure detection time</li>
+<li><code>heartbeat.interval.ms</code>: Heartbeat frequency</li>
+</ul>
+<h3 id="performance-tuning-guidelines">Performance Tuning Guidelines:</h3>
+<p><strong>High Throughput:</strong></p>
+<ul>
+<li>Increase <code>fetch.min.bytes</code> and <code>max.poll.records</code></li>
+<li>Use larger batches for processing</li>
+<li>Consider async commit for faster processing</li>
+</ul>
+<p><strong>Low Latency:</strong></p>
+<ul>
+<li>Decrease <code>fetch.max.wait.ms</code></li>
+<li>Use smaller <code>max.poll.records</code></li>
+<li>Process records individually rather than batching</li>
+</ul>
+<p><strong>Reliability:</strong></p>
+<ul>
+<li>Use manual commits with sync</li>
+<li>Set appropriate session timeout vs heartbeat interval</li>
+<li>Implement proper error handling and retry logic</li>
+</ul>
+<hr />
+<h2 id="summary-table">🔸 Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consumer Group</td>
+<td>Allows multiple consumers to share load</td>
+</tr>
+<tr>
+<td>Partition Assignment</td>
+<td>Each partition assigned to 1 consumer</td>
+</tr>
+<tr>
+<td>Rebalancing</td>
+<td>Redistribution of partitions on topology change</td>
+</tr>
+<tr>
+<td>Auto Commit</td>
+<td>Offsets committed periodically, riskier</td>
+</tr>
+<tr>
+<td>Manual Commit</td>
+<td>More control and reliability</td>
+</tr>
+<tr>
+<td>Cooperative Rebalance</td>
+<td>Minimizes consumer pause</td>
+</tr>
+<tr>
+<td>Static Membership</td>
+<td>Avoids rebalancing on planned restarts</td>
+</tr>
+<tr>
+<td>Offset Reset</td>
+<td>Behavior when no previous offset exists</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="interview-questions">❓ Interview Questions</h2>
+<h3 id="basic-level">Basic Level:</h3>
+<ol>
+<li>How does Kafka assign partitions to consumers in a group?</li>
+<li>What triggers a partition rebalance?</li>
+<li>What is the difference between <code>commitSync</code> and <code>commitAsync</code>?</li>
+<li>What are the trade-offs between auto and manual offset commits?</li>
+<li>How does cooperative rebalancing improve availability?</li>
+</ol>
+<h3 id="intermediate-level">Intermediate Level:</h3>
+<ol>
+<li>What happens if a consumer takes longer than <code>max.poll.interval.ms</code> to process messages?</li>
+<li>How do you handle duplicate message processing in consumers?</li>
+<li>What's the difference between session timeout and poll timeout?</li>
+<li>How do you implement exactly-once processing with Kafka consumers?</li>
+<li>What are the trade-offs of different partition assignment strategies?</li>
+</ol>
+<h3 id="advanced-level">Advanced Level:</h3>
+<ol>
+<li>Design a consumer architecture for processing 1 million messages per second.</li>
+<li>How would you implement a dead letter queue pattern with Kafka?</li>
+<li>What's your strategy for handling consumer lag in production?</li>
+<li>How do you migrate a consumer group to a different offset without downtime?</li>
+<li>Explain the trade-offs between single-threaded and multi-threaded consumer patterns.</li>
+</ol>
+<h3 id="system-design-level">System Design Level:</h3>
+<ol>
+<li>Design a consumer system that processes financial transactions with exactly-once guarantees.</li>
+<li>How would you implement consumer failover across multiple data centers?</li>
+<li>What's your approach to schema evolution in consumer applications?</li>
+<li>Design a monitoring strategy for consumer performance and health.</li>
+<li>How do you handle consumer group rebalancing in a high-availability system?</li>
+</ol>
+<h3 id="troubleshooting-level">Troubleshooting Level:</h3>
+<ol>
+<li>Consumer group is experiencing frequent rebalancing. How do you diagnose and fix it?</li>
+<li>Consumer lag is increasing but consumers appear healthy. What could be wrong?</li>
+<li>How do you recover from a situation where all consumers in a group have crashed?</li>
+<li>What causes consumer offset commits to fail and how do you handle it?</li>
+<li>How do you debug performance issues in consumer applications?</li>
+</ol>
+<hr />
+<p>Understanding consumer behavior is crucial because consumers are where most application logic resides, and consumer
+configuration directly impacts data consistency, performance, and system reliability. Most production issues involve
+consumer lag, rebalancing problems, or incorrect offset management.</p></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../3.%20producers/" title="Producers"><span>Previous</span></a></div>
+        <div class="next"><a href="../5.%20message%20delivery%20semantics/" title="Message Delivery Semantics"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../search/main.js"></script>
+</body>
+
+</html>

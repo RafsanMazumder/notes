@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Performance and Tuning &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Performance and Tuning</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#kafka-performance-tuning">🔸 Kafka Performance Tuning</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#kafka-storage-internals">🔸 Kafka Storage Internals</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#high-availability-fault-tolerance">🔸 High Availability &amp; Fault Tolerance</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#kafka-in-production-monitoring-metrics">🔸 Kafka in Production: Monitoring &amp; Metrics</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#backpressure-and-consumer-lag">🔸 Backpressure and Consumer Lag</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#quick-reference-table">🔸 Quick Reference Table</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#quick-interview-questions">❓ Quick Interview Questions</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../5.%20message%20delivery%20semantics/">&laquo; Previous</a></div>
+    <div class="next"><a href="../7.%20kafka%20streams/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Kafka</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="performance-tuning-scaling">✅ Performance, Tuning &amp; Scaling</h1>
+<hr />
+<h2 id="kafka-performance-tuning">🔸 Kafka Performance Tuning</h2>
+<h3 id="producer-performance">Producer Performance:</h3>
+<ul>
+<li><strong><code>batch.size</code></strong>: Larger batches = higher throughput (try 64KB-256KB)</li>
+<li><strong><code>linger.ms</code></strong>: Wait time to fill batches (5-20ms for balance)</li>
+<li><strong><code>compression.type</code></strong>: Use <code>snappy</code> or <code>zstd</code> for CPU/network trade-off</li>
+<li><strong><code>buffer.memory</code></strong>: Total producer memory (increase for high-throughput)</li>
+<li><strong><code>acks=1</code></strong>: Balance between durability and speed</li>
+</ul>
+<h3 id="consumer-performance">Consumer Performance:</h3>
+<ul>
+<li><strong><code>fetch.min.bytes</code></strong>: Wait for larger batches from broker (32KB-1MB)</li>
+<li><strong><code>fetch.max.wait.ms</code></strong>: Max wait time for fetch (reduce for low latency)</li>
+<li><strong><code>max.poll.records</code></strong>: Records per poll (increase for throughput)</li>
+<li><strong>Multiple consumers</strong>: Scale horizontally up to partition count</li>
+</ul>
+<h3 id="interview-points">Interview Points:</h3>
+<ul>
+<li><em>"Producer spends most time waiting for batches to fill"</em> → tune <code>linger.ms</code></li>
+<li><em>"Consumer lag increasing"</em> → increase <code>fetch.min.bytes</code> and <code>max.poll.records</code></li>
+<li><em>"High CPU usage"</em> → reduce compression or increase batch sizes</li>
+<li><strong>Rule of thumb</strong>: Start with defaults, measure, then tune based on bottlenecks</li>
+</ul>
+<hr />
+<h2 id="kafka-storage-internals">🔸 Kafka Storage Internals</h2>
+<h3 id="log-structure">Log Structure:</h3>
+<ul>
+<li><strong>Segments</strong>: Partition split into 1GB files (configurable)</li>
+<li><strong>Active segment</strong>: Currently being written to</li>
+<li><strong>Closed segments</strong>: Immutable, eligible for cleanup</li>
+</ul>
+<h3 id="retention-policies">Retention Policies:</h3>
+<pre><code class="language-properties"># Time-based (default 7 days)
+log.retention.hours=168
+
+# Size-based 
+log.retention.bytes=1073741824
+
+# Cleanup policies
+log.cleanup.policy=delete  # or compact
+</code></pre>
+<h3 id="log-compaction">Log Compaction:</h3>
+<ul>
+<li>Keeps <strong>latest value per key</strong> only</li>
+<li>Useful for <strong>changelog/state streams</strong></li>
+<li><strong>Tombstone records</strong> (null value) delete keys</li>
+<li>Background process, not real-time</li>
+</ul>
+<h3 id="indexes">Indexes:</h3>
+<ul>
+<li><strong>Offset index</strong>: Maps offset → file position</li>
+<li><strong>Timestamp index</strong>: Maps timestamp → offset</li>
+<li>Enables fast seeking without scanning entire log</li>
+</ul>
+<h3 id="interview-points_1">Interview Points:</h3>
+<ul>
+<li><em>"When to use compaction vs deletion?"</em> → Compaction for state/config topics, deletion for events</li>
+<li><em>"How does Kafka achieve fast reads?"</em> → Indexes + sequential I/O + OS page cache</li>
+<li><em>"What happens when disk is full?"</em> → Kafka stops accepting writes, retention cleanup kicks in</li>
+</ul>
+<hr />
+<h2 id="high-availability-fault-tolerance">🔸 High Availability &amp; Fault Tolerance</h2>
+<h3 id="replication">Replication:</h3>
+<ul>
+<li><strong>Replication factor</strong>: Number of replicas (typically 3)</li>
+<li><strong>Leader</strong>: Handles all reads/writes for partition</li>
+<li><strong>Followers</strong>: Replicate leader's data</li>
+<li><strong>ISR</strong>: In-sync replicas that can become leader</li>
+</ul>
+<h3 id="leader-election">Leader Election:</h3>
+<ul>
+<li>Automatic when leader fails</li>
+<li>New leader chosen from ISR</li>
+<li><strong>Unclean leader election</strong>: Allow out-of-sync replica to become leader (data loss risk)</li>
+</ul>
+<h3 id="configuration-for-ha">Configuration for HA:</h3>
+<pre><code class="language-properties"># Replication
+default.replication.factor=3
+min.insync.replicas=2
+
+# Leader election
+unclean.leader.election.enable=false  # Prefer consistency over availability
+</code></pre>
+<h3 id="durability-guarantees">Durability Guarantees:</h3>
+<ul>
+<li><strong>Producer</strong>: <code>acks=all</code> waits for all ISR replicas</li>
+<li><strong>Broker</strong>: Configurable flush intervals</li>
+<li><strong>Storage</strong>: Data persisted to disk with fsync</li>
+</ul>
+<h3 id="interview-points_2">Interview Points:</h3>
+<ul>
+<li><em>"What if entire rack fails?"</em> → Use rack-aware replica placement</li>
+<li><em>"Trade-off between availability and consistency?"</em> → min.insync.replicas vs unclean election</li>
+<li><em>"How long does failover take?"</em> → Typically 30 seconds (controlled by session timeouts)</li>
+</ul>
+<hr />
+<h2 id="kafka-in-production-monitoring-metrics">🔸 Kafka in Production: Monitoring &amp; Metrics</h2>
+<h3 id="critical-jmx-metrics">Critical JMX Metrics:</h3>
+<p><strong>Broker Metrics:</strong>
+- <code>kafka.server:type=BrokerTopicMetrics,name=MessagesInPerSec</code>
+- <code>kafka.server:type=BrokerTopicMetrics,name=BytesInPerSec</code>
+- <code>kafka.log:type=LogSize,name=Size</code> (disk usage)
+- <code>kafka.server:type=ReplicaManager,name=UnderReplicatedPartitions</code></p>
+<p><strong>Consumer Metrics:</strong>
+- <code>kafka.consumer:type=consumer-fetch-manager-metrics,client-id=*,attribute=lag-sum</code>
+- <code>kafka.consumer:type=consumer-coordinator-metrics,client-id=*,attribute=commit-rate</code></p>
+<p><strong>Producer Metrics:</strong>
+- <code>kafka.producer:type=producer-metrics,client-id=*,attribute=record-send-rate</code>
+- <code>kafka.producer:type=producer-metrics,client-id=*,attribute=batch-size-avg</code></p>
+<h3 id="monitoring-tools">Monitoring Tools:</h3>
+<ul>
+<li><strong>JMX + Prometheus</strong>: Export metrics for alerting</li>
+<li><strong>Kafka Manager/AKHQ</strong>: Web UI for cluster management</li>
+<li><strong>Confluent Control Center</strong>: Commercial monitoring solution</li>
+<li><strong>Burrow</strong>: LinkedIn's consumer lag monitoring</li>
+</ul>
+<h3 id="key-alerts">Key Alerts:</h3>
+<ul>
+<li>Consumer lag &gt; threshold</li>
+<li>Under-replicated partitions &gt; 0</li>
+<li>Disk usage &gt; 80%</li>
+<li>ISR shrinking events</li>
+</ul>
+<h3 id="interview-points_3">Interview Points:</h3>
+<ul>
+<li><em>"Most important metric to monitor?"</em> → Consumer lag (indicates processing health)</li>
+<li><em>"How to detect broker issues?"</em> → Under-replicated partitions, high request latency</li>
+<li><em>"Capacity planning metrics?"</em> → Disk usage, network I/O, CPU utilization</li>
+</ul>
+<hr />
+<h2 id="backpressure-and-consumer-lag">🔸 Backpressure and Consumer Lag</h2>
+<h3 id="consumer-lag-types">Consumer Lag Types:</h3>
+<ul>
+<li><strong>Time lag</strong>: How far behind in time</li>
+<li><strong>Offset lag</strong>: Number of unprocessed messages</li>
+<li><strong>Partition lag</strong>: Per-partition offset difference</li>
+</ul>
+<h3 id="identifying-lag-causes">Identifying Lag Causes:</h3>
+<ol>
+<li><strong>Slow consumer processing</strong>: Optimize business logic</li>
+<li><strong>Under-provisioned consumers</strong>: Scale horizontally</li>
+<li><strong>Producer burst</strong>: Temporary spike in incoming data</li>
+<li><strong>Network issues</strong>: Check connectivity and bandwidth</li>
+<li><strong>Rebalancing</strong>: Frequent group membership changes</li>
+</ol>
+<h3 id="mitigation-strategies">Mitigation Strategies:</h3>
+<p><strong>Scaling Solutions:</strong></p>
+<pre><code class="language-java">// Add more consumers (up to partition count)
+// Increase processing batch size
+consumer.poll(Duration.ofMillis(100)); // Longer poll timeout
+</code></pre>
+<p><strong>Rate Limiting:</strong></p>
+<pre><code class="language-java">// Pause consumption when downstream is slow
+if (isDownstreamSlow()) {
+    consumer.pause(consumer.assignment());
+} else {
+    consumer.resume(consumer.assignment());
+}
+</code></pre>
+<p><strong>Processing Optimization:</strong>
+- Async processing with worker threads
+- Batch database operations
+- Cache frequently accessed data
+- Use connection pooling</p>
+<h3 id="advanced-techniques">Advanced Techniques:</h3>
+<ul>
+<li><strong>Priority queues</strong>: Process high-priority messages first</li>
+<li><strong>Circuit breakers</strong>: Fail fast when downstream is unavailable</li>
+<li><strong>Backoff strategies</strong>: Exponential backoff for retries</li>
+</ul>
+<h3 id="interview-points_4">Interview Points:</h3>
+<ul>
+<li><em>"Consumer lag is increasing during peak hours. What do you check?"</em> → Processing time per message, consumer group size, partition distribution</li>
+<li><em>"How to handle temporary traffic spikes?"</em> → Auto-scaling consumers, buffering, or graceful degradation</li>
+<li><em>"When to pause vs scale consumers?"</em> → Pause for downstream issues, scale for sustained high load</li>
+</ul>
+<hr />
+<h2 id="quick-reference-table">🔸 Quick Reference Table</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Key Concepts</th>
+<th>Main Tuning Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Batching, compression, parallelism</td>
+<td>batch.size, linger.ms, fetch.min.bytes</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>Segments, retention, compaction</td>
+<td>log.retention.hours, log.cleanup.policy</td>
+</tr>
+<tr>
+<td><strong>HA/FT</strong></td>
+<td>Replication, leader election, ISR</td>
+<td>replication.factor, min.insync.replicas</td>
+</tr>
+<tr>
+<td><strong>Monitoring</strong></td>
+<td>JMX metrics, consumer lag, alerts</td>
+<td>MessagesInPerSec, UnderReplicatedPartitions</td>
+</tr>
+<tr>
+<td><strong>Backpressure</strong></td>
+<td>Lag identification, scaling, rate limiting</td>
+<td>Consumer scaling, pause/resume</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quick-interview-questions">❓ Quick Interview Questions</h2>
+<p><strong>Performance:</strong> "How would you tune Kafka for maximum throughput vs minimum latency?"</p>
+<p><strong>Storage:</strong> "Explain when you'd use log compaction vs time-based retention."</p>
+<p><strong>HA/FT:</strong> "What's the trade-off between availability and consistency in Kafka?"</p>
+<p><strong>Monitoring:</strong> "What metrics would you alert on in production Kafka?"</p>
+<p><strong>Backpressure:</strong> "Consumer lag is growing. Walk me through your debugging process."</p></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../5.%20message%20delivery%20semantics/" title="Message Delivery Semantics"><span>Previous</span></a></div>
+        <div class="next"><a href="../7.%20kafka%20streams/" title="Streams"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../search/main.js"></script>
+</body>
+
+</html>

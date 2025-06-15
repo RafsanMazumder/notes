@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Architecture &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Architecture</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#overview">🔷 Overview</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#kafka-key-components">🔸 Kafka Key Components</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#producer-lifecycle">🔸 Producer Lifecycle</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#consumer-lifecycle">🔸 Consumer Lifecycle</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#real-world-architecture-patterns">🔸 Real-World Architecture Patterns</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#common-production-challenges-interview-gold">🔸 Common Production Challenges (Interview Gold)</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#data-flow-summary">🔸 Data Flow Summary</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#summary-table">🔸 Summary Table</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#interview-questions">❓ Interview Questions</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../../database/mysql/12.%20mvcc/">&laquo; Previous</a></div>
+    <div class="next"><a href="../2.%20partitions%20and%20data%20distributions/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Kafka</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="kafka-interview-notes-1-kafka-architecture-components">✅ Kafka Interview Notes: 1. Kafka Architecture &amp; Components</h1>
+<hr />
+<h2 id="overview">🔷 Overview</h2>
+<p><strong>Kafka</strong> is a <strong>distributed event streaming platform</strong> used to build real-time data pipelines and streaming apps. It's
+designed for:</p>
+<ul>
+<li>High throughput</li>
+<li>Horizontal scalability</li>
+<li>Durability</li>
+<li>Low latency</li>
+</ul>
+<p>Kafka achieves this via its <strong>core architecture</strong> built around brokers, topics, partitions, and replication.</p>
+<hr />
+<h2 id="kafka-key-components">🔸 Kafka Key Components</h2>
+<h3 id="1-broker">🔹 1. <strong>Broker</strong></h3>
+<ul>
+<li>A <strong>Kafka broker</strong> is a single Kafka server.</li>
+<li>A Kafka cluster consists of multiple brokers (typically ≥3 for fault tolerance).</li>
+<li>Each broker stores data for one or more <strong>topic partitions</strong>.</li>
+<li>One broker acts as the <strong>controller</strong>, responsible for:<ul>
+<li>Leader election for partitions</li>
+<li>Detecting broker failures</li>
+<li>Managing cluster metadata (if ZooKeeper is used)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Each broker is identified by a unique ID.</strong> A broker may be a leader for some partitions and a follower for others.</p>
+</blockquote>
+<p><strong>Real-world scenarios interviewers ask about:</strong></p>
+<ul>
+<li><em>"What happens when a broker goes down?"</em> - Other brokers automatically take over the failed broker's responsibilities
+  through leader election. The cluster continues operating seamlessly.</li>
+<li><em>"How do you decide how many brokers you need?"</em> - Consider factors like throughput requirements, fault tolerance (
+  need at least 3 for production), and data retention needs.</li>
+<li><em>"Can brokers have different hardware specifications?"</em> - Yes, but it's not recommended as it creates hotspots.
+  Uniform hardware ensures predictable performance.</li>
+</ul>
+<p><strong>Key insight</strong>: Brokers are stateless - they don't store cluster state information. This makes scaling and maintenance
+much easier compared to traditional databases.</p>
+<hr />
+<h3 id="2-topic">🔹 2. <strong>Topic</strong></h3>
+<ul>
+<li>A <strong>topic</strong> is a logical category to which records (messages) are published.</li>
+<li>Topics are <strong>multi-subscriber</strong> – you can have many consumers for one topic.</li>
+<li>Topics are broken down into <strong>partitions</strong>, which are the unit of parallelism.</li>
+</ul>
+<p><strong>Common interview questions:</strong></p>
+<ul>
+<li><em>"How do you design topic naming conventions?"</em> - Use hierarchical naming like <code>user.events.login</code>,
+  <code>payment.transactions.completed</code>. This helps with organization and access control.</li>
+<li><em>"Should you create many small topics or few large topics?"</em> - Generally prefer fewer, well-organized topics. Too many
+  topics create operational overhead and make consumer group management complex.</li>
+<li><em>"How do you handle schema evolution in topics?"</em> - Use schema registry with Avro/JSON schemas. Plan for backward and
+  forward compatibility from day one.</li>
+</ul>
+<p><strong>Real-world consideration</strong>: Topics are immutable by design. You can't modify existing messages, only append new ones.
+This is crucial for audit trails and event sourcing patterns.</p>
+<hr />
+<h3 id="3-partition">🔹 3. <strong>Partition</strong></h3>
+<ul>
+<li>A <strong>partition</strong> is a <strong>physically ordered, immutable log</strong>.</li>
+<li>Each message in a partition is assigned a unique <strong>offset</strong>.</li>
+<li>Messages are always <strong>appended</strong> to the end of a partition.</li>
+<li>Kafka <strong>only guarantees order within a single partition</strong>.</li>
+<li>Partitions allow Kafka to:<ul>
+<li>Scale horizontally (across brokers)</li>
+<li>Provide high throughput via parallelism</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Example: Topic <code>orders</code> with 3 partitions can be split across 3 brokers.</p>
+</blockquote>
+<p><strong>Deep dive concepts interviewers love:</strong></p>
+<ul>
+<li>
+<p><em>"How do you choose the number of partitions?"</em> - Start with your expected peak throughput divided by the throughput
+  per partition (usually 10-100 MB/s). Factor in the number of consumers you want to run in parallel. Remember: you can
+  increase partitions but never decrease them.</p>
+</li>
+<li>
+<p><em>"What's the relationship between partitions and parallelism?"</em> - Each partition can only be consumed by one consumer
+  within a consumer group. So if you have 12 partitions, you can have at most 12 consumers working in parallel. More
+  consumers than partitions means some will be idle.</p>
+</li>
+<li>
+<p><em>"How does message ordering work?"</em> - Kafka only guarantees ordering within a partition, not across partitions. If you
+  need global ordering, use a single partition (but sacrifice scalability). For most use cases, partition-level ordering
+  is sufficient.</p>
+</li>
+</ul>
+<p><strong>Partitioning strategy deep dive:</strong></p>
+<ul>
+<li><strong>Key-based partitioning</strong>: Messages with the same key always go to the same partition. Perfect for user-specific data
+  where you need per-user ordering.</li>
+<li><strong>Round-robin</strong>: When no key is provided, messages are distributed evenly across partitions. Good for load balancing.</li>
+<li><strong>Custom partitioning</strong>: You can write custom partitioners for special business logic.</li>
+</ul>
+<hr />
+<h3 id="4-leader-and-replicas">🔹 4. <strong>Leader and Replicas</strong></h3>
+<ul>
+<li><strong>Each partition has a leader</strong> and 0+ replicas.</li>
+<li>The leader handles <strong>all reads and writes</strong> for that partition.</li>
+<li>Other replicas are <strong>followers</strong>, which replicate data from the leader.</li>
+<li>This setup allows Kafka to remain available and consistent.</li>
+</ul>
+<blockquote>
+<p>If the leader broker dies, a new leader is elected from in-sync replicas (ISR).</p>
+</blockquote>
+<p><strong>Leader-Follower Pattern Deep Dive:</strong>
+Every partition has one leader and multiple followers (replicas). The leader handles all client interactions while
+followers just replicate data.</p>
+<p><strong>Why this design?</strong></p>
+<ul>
+<li><strong>Consistency</strong>: Only one broker makes decisions for each partition</li>
+<li><strong>Performance</strong>: No complex coordination protocols during normal operations</li>
+<li><strong>Fault tolerance</strong>: If leader fails, one of the followers automatically becomes the new leader</li>
+</ul>
+<hr />
+<h3 id="5-replication-isr-in-sync-replicas">🔹 5. <strong>Replication &amp; ISR (In-Sync Replicas)</strong></h3>
+<ul>
+<li>Kafka ensures fault tolerance using <strong>replication</strong>.</li>
+<li>A partition's data is replicated across multiple brokers (configurable via <code>replication.factor</code>).</li>
+<li>ISR = Set of replicas that are fully caught up with the leader.</li>
+<li><strong>Follower replicas</strong> continuously fetch data from the leader.</li>
+<li>If a follower falls behind, it is removed from the ISR.</li>
+<li><strong>Only replicas in the ISR are eligible to be leaders</strong>.</li>
+</ul>
+<p><strong>Unclean leader election</strong> (if enabled) allows out-of-sync replicas to become leader → potential data loss.</p>
+<p><strong>In-Sync Replicas (ISR) - The Critical Concept:</strong>
+ISR is the set of replicas that are "close enough" to the leader. This is crucial for understanding Kafka's durability
+guarantees.</p>
+<p><strong>Real-world scenarios:</strong></p>
+<ul>
+<li><em>"What happens if an ISR becomes too small?"</em> - If ISR shrinks below <code>min.insync.replicas</code>, producers with <code>acks=all</code>
+  will start getting errors. This prevents data loss at the cost of availability.</li>
+<li><em>"How do you handle the trade-off between consistency and availability?"</em> - Configure <code>min.insync.replicas</code> and
+  producer <code>acks</code> setting based on your requirements. Financial systems might require <code>min.insync.replicas=3</code> and
+  <code>acks=all</code>, while analytics might use <code>acks=1</code>.</li>
+</ul>
+<hr />
+<h3 id="6-zookeeper-vs-kraft">🔹 6. <strong>ZooKeeper vs. KRaft</strong></h3>
+<h4 id="zookeeper-legacy-mode">ZooKeeper (Legacy Mode)</h4>
+<ul>
+<li>Kafka traditionally used <strong>Apache ZooKeeper</strong> for:<ul>
+<li>Metadata management</li>
+<li>Broker registration</li>
+<li>Controller election</li>
+<li>Topic configuration</li>
+</ul>
+</li>
+</ul>
+<p><strong>What ZooKeeper did:</strong></p>
+<ul>
+<li>Stored which brokers are alive and their metadata</li>
+<li>Managed partition leader elections</li>
+<li>Stored topic configurations and ACLs</li>
+<li>Coordinated consumer group membership</li>
+</ul>
+<p><strong>Why it became a problem:</strong></p>
+<ul>
+<li><strong>Operational complexity</strong>: Two systems to manage instead of one</li>
+<li><strong>Scalability limits</strong>: ZooKeeper ensemble typically 3-5 nodes, became bottleneck for huge clusters</li>
+<li><strong>Split-brain scenarios</strong>: Network partitions could cause both ZooKeeper and Kafka issues</li>
+</ul>
+<h4 id="kraft-kafka-raft-mode">KRaft (Kafka Raft Mode)</h4>
+<ul>
+<li>From <strong>Kafka 2.8 onward</strong>, Kafka supports <strong>KRaft mode</strong> (ZooKeeper-less).</li>
+<li>Uses the <strong>Raft consensus algorithm</strong> for metadata quorum.</li>
+<li>Faster, more reliable, less operational complexity.</li>
+<li>Goal: <strong>fully remove ZooKeeper</strong> in future Kafka versions.</li>
+</ul>
+<blockquote>
+<p>For new clusters, prefer <strong>KRaft mode</strong>.</p>
+</blockquote>
+<p><strong>Key advantages interviewers ask about:</strong></p>
+<ul>
+<li><em>"How does KRaft improve operations?"</em> - Single system to deploy, monitor, and troubleshoot. Faster startup times and
+  simpler disaster recovery.</li>
+<li><em>"What about scalability improvements?"</em> - KRaft can handle millions of partitions compared to ZooKeeper's hundreds of
+  thousands limit.</li>
+<li><em>"Is it production ready?"</em> - Yes, since Kafka 3.3, but migration from ZooKeeper requires planning.</li>
+</ul>
+<hr />
+<h2 id="producer-lifecycle">🔸 Producer Lifecycle</h2>
+<ol>
+<li><strong>Create producer instance</strong> with configs (e.g. bootstrap servers).</li>
+<li>Serialize message key and value (e.g. Avro, JSON, Protobuf).</li>
+<li>Choose partition:<ul>
+<li>Default: hash of key</li>
+<li>Or user-defined partitioner</li>
+</ul>
+</li>
+<li>Send request to broker (async or sync)</li>
+<li>Wait for acknowledgment based on <code>acks</code>:<ul>
+<li><code>acks=0</code>: fire and forget</li>
+<li><code>acks=1</code>: leader-only ack</li>
+<li><code>acks=all</code>: wait for all ISR replicas (stronger durability)</li>
+</ul>
+</li>
+<li>Optionally retry, batch, or compress messages.</li>
+</ol>
+<blockquote>
+<p><strong>Idempotent producers</strong> prevent duplicate messages during retries.</p>
+</blockquote>
+<h3 id="the-journey-of-a-message-deep-dive">The Journey of a Message - Deep Dive</h3>
+<p>Understanding how producers work internally is crucial for performance tuning and troubleshooting.</p>
+<p><strong>The Producer's Internal Flow:</strong></p>
+<ol>
+<li><strong>Application sends message</strong> → Your code calls <code>producer.send()</code></li>
+<li><strong>Serialization</strong> → Converts your objects to bytes (JSON, Avro, etc.)</li>
+<li><strong>Partitioning decision</strong> → Determines which partition receives the message</li>
+<li><strong>Batching</strong> → Groups messages for efficiency (this is key for performance)</li>
+<li><strong>Network send</strong> → Actual transmission to brokers</li>
+<li><strong>Acknowledgment</strong> → Broker confirms receipt</li>
+</ol>
+<p><strong>Batching and Performance:</strong>
+Producers don't send every message immediately. They batch messages for the same partition to improve throughput. This
+is why Kafka can handle millions of messages per second.</p>
+<p><strong>Acknowledgment Levels (<code>acks</code>):</strong></p>
+<ul>
+<li><code>acks=0</code>: Fire and forget (fastest, least reliable)</li>
+<li><code>acks=1</code>: Wait for partition leader confirmation (balanced)</li>
+<li><code>acks=all</code>: Wait for all ISR replicas (slowest, most reliable)</li>
+</ul>
+<p><strong>Real-world trade-offs:</strong></p>
+<ul>
+<li>High-frequency trading: Might use <code>acks=0</code> for speed</li>
+<li>Financial transactions: Definitely use <code>acks=all</code></li>
+<li>Analytics data: <code>acks=1</code> is usually sufficient</li>
+</ul>
+<h3 id="producer-error-handling">Producer Error Handling</h3>
+<p><em>"How do you handle producer failures?"</em> - This is a common troubleshooting question.</p>
+<p><strong>Retriable errors</strong>: Network timeouts, leader elections, temporary broker unavailability
+<strong>Non-retriable errors</strong>: Message too large, authentication failures, serialization errors</p>
+<p><strong>Idempotent producers</strong>: Enable <code>enable.idempotence=true</code> to prevent duplicate messages during retries. This is crucial
+for exactly-once semantics.</p>
+<hr />
+<h2 id="consumer-lifecycle">🔸 Consumer Lifecycle</h2>
+<ol>
+<li><strong>Join a consumer group</strong>.</li>
+<li>Kafka assigns partitions to consumers in the group.</li>
+<li>Consume messages from assigned partitions.</li>
+<li>Keep track of the <strong>offset</strong> (either:<ul>
+<li><strong>Auto-commit</strong> (less reliable)</li>
+<li><strong>Manual commit</strong> (preferred in most cases)</li>
+</ul>
+</li>
+<li>Handle rebalancing events (when group membership changes).</li>
+<li>Acknowledged messages are only consumed once <strong>per group</strong>.</li>
+</ol>
+<blockquote>
+<p>Multiple consumer groups can independently read the same topic.</p>
+</blockquote>
+<h3 id="consumer-groups-distributed-processing">Consumer Groups - Distributed Processing</h3>
+<p>Consumer groups are how Kafka enables horizontal scaling of message processing.</p>
+<p><strong>The Rebalancing Process:</strong>
+When consumers join or leave a group, Kafka redistributes partition assignments. This is called rebalancing.</p>
+<p><strong>Real-world rebalancing scenarios:</strong></p>
+<ul>
+<li>New consumer joins → Partitions redistributed for better load balancing</li>
+<li>Consumer crashes → Its partitions reassigned to remaining consumers</li>
+<li>New partitions added → Assignment recalculated</li>
+</ul>
+<p><strong>Rebalancing challenges:</strong></p>
+<ul>
+<li><strong>Stop-the-world</strong>: During rebalancing, all consumers stop processing</li>
+<li><strong>Assignment strategies</strong>: Range, round-robin, sticky - each has trade-offs</li>
+<li><strong>Consumer lag</strong>: Rebalancing can cause temporary processing delays</li>
+</ul>
+<h3 id="offset-management-tracking-progress">Offset Management - Tracking Progress</h3>
+<p>Offsets are how Kafka tracks which messages each consumer group has processed.</p>
+<p><strong>Offset commit strategies:</strong></p>
+<ul>
+<li><strong>Auto-commit</strong>: Convenient but can lead to message loss or duplication</li>
+<li><strong>Manual commit</strong>: More control but requires careful error handling</li>
+<li><strong>Sync vs Async commits</strong>: Trade-off between latency and guarantee</li>
+</ul>
+<p><strong>Interview scenarios:</strong></p>
+<ul>
+<li><em>"What happens if a consumer crashes before committing offsets?"</em> - Messages get reprocessed by another consumer, so
+  your application needs to be idempotent.</li>
+<li><em>"How do you handle consumer lag?"</em> - Scale up consumers (up to partition count), optimize processing logic, or
+  increase retention time.</li>
+</ul>
+<hr />
+<h2 id="real-world-architecture-patterns">🔸 Real-World Architecture Patterns</h2>
+<h3 id="fan-out-pattern">Fan-out Pattern</h3>
+<p>One producer, multiple consumer groups processing the same data differently.
+Example: User activity → Real-time analytics + Batch processing + Audit logging</p>
+<h3 id="stream-processing-pipeline">Stream Processing Pipeline</h3>
+<p>Topics feeding into each other through stream processors.
+Example: Raw events → Enriched events → Aggregated metrics → Dashboard updates</p>
+<h3 id="event-sourcing">Event Sourcing</h3>
+<p>Using Kafka as the source of truth for all state changes.
+Example: Banking transactions stored as immutable events, account balances computed by replaying events.</p>
+<hr />
+<h2 id="common-production-challenges-interview-gold">🔸 Common Production Challenges (Interview Gold)</h2>
+<h3 id="hot-partitions">Hot Partitions</h3>
+<p><em>"What causes hot partitions and how do you fix them?"</em></p>
+<ul>
+<li><strong>Cause</strong>: Poor key distribution (e.g., all messages have same key)</li>
+<li><strong>Solution</strong>: Better partitioning strategy, custom partitioner, or random distribution</li>
+</ul>
+<h3 id="consumer-lag">Consumer Lag</h3>
+<p><em>"How do you monitor and handle consumer lag?"</em></p>
+<ul>
+<li><strong>Monitoring</strong>: Track lag metrics per partition and consumer group</li>
+<li><strong>Solutions</strong>: Scale consumers, optimize processing, increase retention</li>
+</ul>
+<h3 id="data-loss-vs-duplication">Data Loss vs Duplication</h3>
+<p><em>"How do you prevent data loss?"</em></p>
+<ul>
+<li>Use <code>acks=all</code> and <code>min.insync.replicas &gt; 1</code></li>
+<li>Handle producer retries properly with idempotent producers</li>
+<li>Be prepared for the availability trade-off</li>
+</ul>
+<h3 id="schema-evolution">Schema Evolution</h3>
+<p><em>"How do you handle changing data formats?"</em></p>
+<ul>
+<li>Use schema registry for centralized schema management</li>
+<li>Design for backward/forward compatibility</li>
+<li>Version your schemas properly</li>
+</ul>
+<hr />
+<h2 id="data-flow-summary">🔸 Data Flow Summary</h2>
+<pre><code>Producer → Broker (Topic, Partition) → Consumer
+       |        |    Partition Leader + Replicas
+       |        → ZooKeeper (or KRaft for metadata)
+</code></pre>
+<hr />
+<h2 id="summary-table">🔸 Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Broker</strong></td>
+<td>Kafka server managing topic partitions</td>
+</tr>
+<tr>
+<td><strong>Topic</strong></td>
+<td>Logical stream of messages</td>
+</tr>
+<tr>
+<td><strong>Partition</strong></td>
+<td>Log file; unit of parallelism</td>
+</tr>
+<tr>
+<td><strong>Producer</strong></td>
+<td>Sends messages to a topic</td>
+</tr>
+<tr>
+<td><strong>Consumer</strong></td>
+<td>Reads messages from a topic</td>
+</tr>
+<tr>
+<td><strong>Leader</strong></td>
+<td>Primary partition owner</td>
+</tr>
+<tr>
+<td><strong>Replica</strong></td>
+<td>Backup copy of partition</td>
+</tr>
+<tr>
+<td><strong>ISR</strong></td>
+<td>In-sync replicas with leader</td>
+</tr>
+<tr>
+<td><strong>ZooKeeper</strong></td>
+<td>(Legacy) Cluster metadata</td>
+</tr>
+<tr>
+<td><strong>KRaft</strong></td>
+<td>Kafka-native metadata system</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="interview-questions">❓ Interview Questions</h2>
+<ol>
+<li>What happens when the leader of a partition fails?</li>
+<li>How does Kafka guarantee message ordering?</li>
+<li>What are the pros and cons of enabling unclean leader election?</li>
+<li>Why is partitioning important in Kafka?</li>
+<li>What is the role of ISR in data consistency and availability?</li>
+<li>How do you choose the number of partitions for a topic?</li>
+<li>What's the difference between ZooKeeper and KRaft mode?</li>
+<li>How do you handle hot partitions in production?</li>
+<li>What are the trade-offs between different producer <code>acks</code> settings?</li>
+<li>How does consumer group rebalancing work and what challenges does it create?</li>
+</ol></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../../database/mysql/12.%20mvcc/" title="MVCC"><span>Previous</span></a></div>
+        <div class="next"><a href="../2.%20partitions%20and%20data%20distributions/" title="Partitions and Data Distributions"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../search/main.js"></script>
+</body>
+
+</html>

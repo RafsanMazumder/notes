@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <title>B Tree &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a><a class="nav-item" href="../2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a><a class="nav-item" href="../3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a><a class="nav-item" href="../4.%20indexes/">Index</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">B Tree</a><a class="nav-item current" href="./">B Tree</a><a class="nav-item current" href="./">B Tree</a><a class="nav-item current" href="./">B Tree</a><a class="nav-item current" href="./">B Tree</a><a class="nav-item current" href="./">B Tree</a><a class="nav-item current" href="./">B Tree</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#why-not-a-hash-table">Why not a Hash Table?</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#why-not-a-standard-binary-search-tree-bst">Why not a standard Binary Search Tree (BST)?</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a><a class="nav-item" href="../6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a><a class="nav-item" href="../7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a><a class="nav-item" href="../9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a><a class="nav-item" href="../10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a><a class="nav-item" href="../11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a><a class="nav-item" href="../12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/2.%20partitions%20and%20data%20distributions/">Partitions and Data Distributions</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../kafka/7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../4.%20indexes/">&laquo; Previous</a></div>
+    <div class="next"><a href="../6.%20partitioning/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>MySQL</li>
+</ul>
+</nav>
+                <div id="content"><p>Of course. This is a fantastic question that gets to the absolute core of how databases achieve high performance.
+Understanding the "why" behind B-Trees is just as important as the "what."</p>
+<p>Here are detailed, interview-ready notes that cover the B-Tree family of data structures, why they are used, and how
+they are implemented in databases like MySQL.</p>
+<hr />
+<h3 id="ultimate-guide-to-b-trees-in-databases-for-interviews"><strong>Ultimate Guide to B-Trees in Databases (for Interviews)</strong></h3>
+<h3 id="part-1-the-problem-why-not-simpler-data-structures">Part 1: The Problem - Why Not Simpler Data Structures?</h3>
+<p>Before explaining what a B-Tree is, you must be able to explain why databases <em>don't</em> use other common data structures.
+The fundamental challenge is that database data resides on <strong>disk (slow)</strong>, not just in memory (fast). The primary goal
+is to <strong>minimize disk I/O operations</strong>.</p>
+<h4 id="why-not-a-hash-table"><strong>Why not a Hash Table?</strong></h4>
+<ul>
+<li><strong>What it's good for:</strong> Equality lookups (<code>WHERE id = 123</code>). This is an extremely fast <code>O(1)</code> operation.</li>
+<li><strong>What it's terrible for:</strong> <strong>Range Queries</strong> (<code>WHERE id &gt; 100 AND id &lt; 200</code>). Because a hash function scrambles the
+  input, there is no concept of order. To satisfy a range query, you would have to read the entire table. This is a
+  deal-breaker for databases.</li>
+</ul>
+<h4 id="why-not-a-standard-binary-search-tree-bst"><strong>Why not a standard Binary Search Tree (BST)?</strong></h4>
+<ul>
+<li><strong>What it's good for:</strong> Keeps data sorted, allowing for efficient range queries.</li>
+<li><strong>What it's terrible for:</strong><ol>
+<li><strong>It can become unbalanced.</strong> In the worst case (inserting already sorted data), a BST degenerates into a linked
+   list, making lookups slow (<code>O(N)</code>).</li>
+<li><strong>It is not "disk-friendly."</strong> A BST is tall and skinny. Each node traversal is likely a separate, random disk
+   read. For a table with a million rows, the tree could be 20 levels deep, requiring 20 disk I/Os in the worst
+   case, which is unacceptably slow.</li>
+</ol>
+</li>
+</ul>
+<p><strong>Conclusion:</strong> We need a data structure that is <strong>(1) self-balancing</strong>, <strong>(2) keeps data sorted for range queries</strong>,
+and <strong>(3) is optimized for block-based disk I/O</strong> by being short and wide. This is precisely what the B-Tree family
+provides.</p>
+<hr />
+<h3 id="part-2-the-b-tree-the-conceptual-ancestor">Part 2: The B-Tree (The Conceptual Ancestor)</h3>
+<p>A B-Tree is a self-balancing search tree designed to work efficiently with disk-based storage.</p>
+<p><strong>Key Properties:</strong></p>
+<ul>
+<li><strong>Balanced:</strong> All leaf nodes are at the same depth.</li>
+<li><strong>High Fanout:</strong> Nodes are large (e.g., matching a disk page size like 16KB) and can hold many keys and pointers to
+  many child nodes. This makes the tree very <strong>wide and shallow</strong>.</li>
+<li><strong>Data in All Nodes:</strong> Keys and their associated data values can be stored in <strong>both internal (inner) nodes and leaf
+  nodes</strong>.</li>
+<li><strong>Sorted:</strong> All keys within a node are kept in sorted order.</li>
+</ul>
+<p><strong>A B-Tree Node might look like this:</strong>
+<code>[ptr_to_child1, key1, data1, ptr_to_child2, key2, data2, ptr_to_child3]</code></p>
+<hr />
+<h3 id="part-3-the-b-tree-the-database-standard">Part 3: The B+ Tree (The Database Standard)</h3>
+<p>The <strong>B+ Tree</strong> is a variation of the B-Tree and is the <strong>actual data structure used by most relational database
+indexing engines, including MySQL's InnoDB.</strong></p>
+<p>It refines the B-Tree design with two critical enhancements optimized for database workloads.</p>
+<p><strong>Key Properties and Enhancements over B-Tree:</strong></p>
+<ol>
+<li><strong>Data Stored ONLY in Leaf Nodes:</strong> This is the most important distinction. Internal nodes only store "signpost" keys
+   to direct traffic. They do not store any actual row data.</li>
+<li><strong>Leaf Nodes are a Doubly-Linked List:</strong> All leaf nodes are linked together sequentially.</li>
+</ol>
+<p><strong>A B+ Tree Internal Node:</strong> <code>[ptr_to_child1, key1, ptr_to_child2, key2, ptr_to_child3]</code> (Notice: no data!)
+<strong>A B+ Tree Leaf Node:</strong> <code>[key1, data1, key2, data2, ...] &lt;--&gt; [next_leaf_node_ptr]</code></p>
+<hr />
+<h3 id="part-4-b-tree-vs-b-tree-the-critical-comparison">Part 4: B-Tree vs. B+ Tree - The Critical Comparison</h3>
+<p>This is a classic interview question. You must know these differences.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">B-Tree</th>
+<th style="text-align: left;">B+ Tree</th>
+<th style="text-align: left;">Why It Matters for a Database</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Data Storage</strong></td>
+<td style="text-align: left;">Data pointers can exist in internal nodes and leaf nodes.</td>
+<td style="text-align: left;">All data pointers/values exist <strong>only</strong> in leaf nodes.</td>
+<td style="text-align: left;"><strong>Higher Fanout for B+ Tree.</strong> Since B+ Tree internal nodes don't store bulky data values, they can fit more keys into a single page. This makes the tree even wider and shallower, reducing the I/O needed for a lookup.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Range Queries</strong></td>
+<td style="text-align: left;">Inefficient. To get an ordered set of data, you must traverse up and down the tree (in-order traversal).</td>
+<td style="text-align: left;"><strong>Extremely Efficient.</strong> Once the starting leaf node for the range is found, the database can simply follow the linked list to read all subsequent data in order. This is a fast, sequential read pattern.</td>
+<td style="text-align: left;">This is the <strong>killer feature</strong> of the B+ Tree for databases. Queries like <code>WHERE age BETWEEN 25 AND 35</code> are extremely common and fast.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Search/Lookup</strong></td>
+<td style="text-align: left;">Potentially faster. A search can terminate at an internal node if the key is found there.</td>
+<td style="text-align: left;">Slightly slower in theory. All lookups must traverse all the way to a leaf node.</td>
+<td style="text-align: left;">In practice, this difference is negligible. The tree is so shallow that the extra hop to a leaf node doesn't matter compared to the massive benefits of the B+ Tree design.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage</strong></td>
+<td style="text-align: left;">Common in filesystems.</td>
+<td style="text-align: left;"><strong>The standard for database indexes</strong> (MySQL, PostgreSQL, Oracle, etc.).</td>
+<td style="text-align: left;">The B+ Tree's design is perfectly tailored to the access patterns of a relational database.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="part-5-the-b-tree-in-action-a-practical-mysql-example">Part 5: The B+ Tree in Action - A Practical MySQL Example</h3>
+<p>Let's connect this theory to how InnoDB actually works.</p>
+<ol>
+<li><strong>Nodes are Pages:</strong> An InnoDB "node" is a <strong>16KB page</strong> on disk.</li>
+<li><strong>High Fanout:</strong> An internal node page might store pointers to hundreds of child nodes.</li>
+<li><strong>Shallow Depth:</strong> Because of this high fanout, a B+ Tree for a table with <strong>100 million rows</strong> might only have a
+   depth of <strong>4</strong>.</li>
+</ol>
+<p><strong>The Magic of 4 Disk I/Os:</strong>
+This means to find <em>any single row</em> in that massive table using the primary key, InnoDB needs to perform at most <strong>4
+disk reads</strong>:</p>
+<ol>
+<li>Read the Root Node page.</li>
+<li>Read the Level 1 Internal Node page.</li>
+<li>Read the Level 2 Internal Node page.</li>
+<li>Read the Leaf Node page (which contains the full row data in a clustered index).</li>
+</ol>
+<p>This is why indexed lookups are orders of magnitude faster than a full table scan.</p>
+<p><strong>The Range Scan Magic:</strong>
+For a query like <code>SELECT * FROM users WHERE last_name BETWEEN 'Smith' AND 'Taylor';</code></p>
+<ol>
+<li>Perform the lookup to find the first 'Smith' (e.g., 4 disk I/Os).</li>
+<li>Once at that leaf page, <strong>scan sequentially</strong> by following the linked list pointers to the next leaf pages until the
+   last 'Taylor' is found. This avoids traversing the tree up and down and turns into a fast, predictable read from
+   disk.</li>
+</ol>
+<hr />
+<h3 id="part-6-key-interview-questions-takeaways">Part 6: Key Interview Questions &amp; Takeaways</h3>
+<ul>
+<li>
+<p><strong>Q: Why do databases use B-Trees instead of Hash Tables?</strong></p>
+<ul>
+<li><strong>A:</strong> While hash tables are faster for single equality lookups, they are unordered and cannot handle range
+  queries (<code>WHERE price &gt; 100</code>), which are essential for databases. B-Trees keep data sorted, making range queries
+  efficient.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: What is the key difference between a B-Tree and a B+ Tree?</strong></p>
+<ul>
+<li><strong>A:</strong> The two main differences are: 1) In a B+ Tree, all data is stored exclusively in the leaf nodes, while
+  B-Trees can store data in internal nodes. 2) B+ Tree leaf nodes are linked together in a doubly-linked list.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: Why are those differences important for a database?</strong></p>
+<ul>
+<li><strong>A:</strong> The linked list on the leaf nodes makes range scans incredibly efficient. Storing data only in leaves
+  allows internal nodes to hold more keys, increasing the "fanout" and making the tree shallower, which minimizes
+  disk I/O for lookups.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q: How does the B+ Tree structure relate to a "Clustered Index"?</strong></p>
+<ul>
+<li><strong>A:</strong> In InnoDB, the clustered index <em>is</em> the B+ Tree of the primary key. The leaf nodes of this specific B+ Tree
+  contain the full data for every row in the table, physically sorted on disk according to the primary key.</li>
+</ul>
+</li>
+</ul></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../4.%20indexes/" title="Index"><span>Previous</span></a></div>
+        <div class="next"><a href="../6.%20partitioning/" title="Partitioning"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+    <script src="../../../search/main.js"></script>
+</body>
+
+</html>

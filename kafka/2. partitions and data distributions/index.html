@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <title>Partitions and Data Distributions &mdash; Software Engineering Notes</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script> 
+</head>
+
+<body ontouchstart="">
+    <div id="container">
+        <aside>
+            <div class="home">
+                <div class="title">
+                    <button class="hamburger"></button>
+                    <a href="../.." class="site-name"> Software Engineering Notes</a>
+                </div>
+                <div class="search">
+                    <div role="search">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+        <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    </form>
+</div>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul class="root">
+                    <li class="toctree-l1"><a class="nav-item" href="../..">Home</a></li>
+                    <li class="toctree-l1"><button class="section nav-item">Algorithms</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/backtracking/">Backtracking</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/data-structures/">Data Structures</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/dynamic-programming.md">Dynamic Programming</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/graph/">Graphs</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../problem-solving/greedy/">Greedy</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/math.md">Math</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../algorithms/searching.md">Searching</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/sorting/">Sorting</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../algorithms/string/">Strings</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">C++</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../cpp/stl/">STL</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">System Design</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/1.%20url-shortener/">URL Shortener</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/2.%20dropbox/">Dropbox</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/3.%20local-delivery/">Local Delivery</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/23.%20ad-click-aggregator/">Ad Click Aggregator</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/12.%20live-comments/">Live Comments</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/4.%20ticketmaster/">Ticketmaster</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/6.%20tinder/">Tinder</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/16.%20uber/">Uber</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/8.%20whatsapp/">Whatsapp</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../system-design/questions/20.%20youtube/">YouTube</a></li>
+    <li class="toctree-l2">
+<a class="nav-item" href="../../system-design/questions/15.%20youtube-top-k/">YouTube Top K</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">MySQL</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/1.%20acid/">ACID</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a><a class="nav-item" href="../../database/mysql/2.%20database-internals/">Database Internals</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a><a class="nav-item" href="../../database/mysql/3.%20locks/">Lock</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a><a class="nav-item" href="../../database/mysql/4.%20indexes/">Index</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a><a class="nav-item" href="../../database/mysql/5.%20b-tree/">B Tree</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a><a class="nav-item" href="../../database/mysql/6.%20partitioning/">Partitioning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a><a class="nav-item" href="../../database/mysql/7.%20sharding/">Sharding</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a><a class="nav-item" href="../../database/mysql/8.%20concurrency-control/">Concurrency Control</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a><a class="nav-item" href="../../database/mysql/9.%20replication/">Replication</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a><a class="nav-item" href="../../database/mysql/10.%20engines/">Engines</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a><a class="nav-item" href="../../database/mysql/11.%20cursors/">Cursors</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a><a class="nav-item" href="../../database/mysql/12.%20mvcc/">MVCC</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Kafka</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../1.%20architecture/">Architecture</a></li>
+    <li class="toctree-l2 current"><a class="nav-item current" href="./">Partitions and Data Distributions</a>
+<ul class="subnav">
+<li class="toctree-l3"><a class="nav-item toc" href="#why-partitioning-matters">🔷 Why Partitioning Matters</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#key-concepts">🔸 Key Concepts</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#advanced-partitioning-patterns">🔸 Advanced Partitioning Patterns</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#diagrams">🔸 Diagrams</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#summary-table">🔸 Summary Table</a></li>
+<li class="toctree-l3"><a class="nav-item toc" href="#interview-questions">❓ Interview Questions</a></li>
+</ul></li>
+    <li class="toctree-l2"><a class="nav-item" href="../3.%20producers/">Producers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../4.%20consumers/">Consumers</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../5.%20message%20delivery%20semantics/">Message Delivery Semantics</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../6.%20performance%20and%20tuning/">Performance and Tuning</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../7.%20kafka%20streams/">Streams</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Spark</button>
+<ul class="subnav">
+    <li class="toctree-l2"><a class="nav-item" href="../../spark/spark/">Spark</a></li>
+</ul></li>
+                    <li class="toctree-l1"><button class="section nav-item">Object Oriented Programming</button>
+<ul class="subnav">
+    <li class="toctree-l2"><button class="section nav-item hide">Java</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/java/design-patterns/">Design Patterns</a></li>
+</ul></li>
+    <li class="toctree-l2"><button class="section nav-item hide">C++</button>
+<ul class="subnav hide">
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/concepts/">Concepts</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/solid-principles/">Solid Principles</a></li>
+    <li class="toctree-l3"><a class="nav-item" href="../../oop/cpp/design-patterns/">Design Patterns</a></li>
+</ul></li>
+</ul></li>
+                </ul>
+            </nav>
+            <div class="repo">
+    <div class="link">
+        <a href="https://github.com/RafsanMazumder/notes" class="fa fa-github"> GitHub</a>
+    </div>
+    <div class="previous"><a href="../1.%20architecture/">&laquo; Previous</a></div>
+    <div class="next"><a href="../3.%20producers/">Next &raquo;</a></div>
+</div>
+        </aside>
+        <div id="spacer"><button class="arrow"></button></div>
+        <main>
+            <div class="home-top">
+                <button class="hamburger"></button>
+                <a href="../.." class="site-name"> Software Engineering Notes</a>
+            </div>
+            <div id="main">
+                <nav class="breadcrumbs">
+<ul>
+    <li>Kafka</li>
+</ul>
+</nav>
+                <div id="content"><h1 id="kafka-interview-notes-2-partitions-and-data-distribution">✅ Kafka Interview Notes: 2. Partitions and Data Distribution</h1>
+<hr />
+<h2 id="why-partitioning-matters">🔷 Why Partitioning Matters</h2>
+<p>Partitioning is <strong>core to Kafka's scalability, parallelism, and performance</strong>. Each topic in Kafka is split into one or
+more <strong>partitions</strong>, and these partitions are distributed across brokers.</p>
+<p>This helps Kafka handle:</p>
+<ul>
+<li><strong>Massive throughput</strong> (due to parallelism)</li>
+<li><strong>Data distribution</strong> (load balancing)</li>
+<li><strong>Ordering guarantees</strong> (within partitions)</li>
+</ul>
+<p><strong>Interview insight</strong>: <em>Partitioning is what makes Kafka fundamentally different from traditional message queues. While
+RabbitMQ or ActiveMQ struggle with horizontal scaling, Kafka's partition-based architecture allows it to scale linearly
+by adding more brokers.</em></p>
+<hr />
+<h2 id="key-concepts">🔸 Key Concepts</h2>
+<h3 id="1-what-is-a-partition">🔹 1. What is a Partition?</h3>
+<ul>
+<li>A <strong>partition</strong> is a <strong>sequential, append-only log</strong>.</li>
+<li>Kafka guarantees <strong>message order within a partition</strong>, not across partitions.</li>
+<li>Each message is assigned a <strong>sequential offset</strong> in the partition.</li>
+</ul>
+<blockquote>
+<p>Think of a partition as a file that keeps growing as more messages are appended.</p>
+</blockquote>
+<p><strong>Deep dive for interviews:</strong></p>
+<ul>
+<li>
+<p><em>"Why are partitions append-only?"</em> - This design enables Kafka's incredible write performance. Sequential writes to
+  disk are much faster than random writes. Additionally, append-only logs are naturally immutable, which simplifies
+  replication and recovery.</p>
+</li>
+<li>
+<p><em>"What's the relationship between partition size and performance?"</em> - Larger partitions mean more data per partition
+  but can slow down recovery time if a broker fails. Smaller partitions allow faster failover but create more overhead.
+  The sweet spot is usually 1-10GB per partition.</p>
+</li>
+</ul>
+<p><strong>Real-world scenario</strong>: In a payment processing system, you might partition by <code>user_id</code> to ensure all transactions for
+a user are processed in order, enabling accurate balance calculations.</p>
+<hr />
+<h3 id="2-partitioning-strategy">🔹 2. Partitioning Strategy</h3>
+<h4 id="kafka-decides-which-partition-a-message-goes-to-based-on">➤ Kafka decides <strong>which partition</strong> a message goes to, based on:</h4>
+<ol>
+<li>
+<p><strong>If a key is provided</strong>:</p>
+<ul>
+<li>Kafka applies a <strong>hash function</strong> to the key → deterministic partition assignment.</li>
+<li>Benefit: All messages with the same key go to the <strong>same partition</strong> → ensures ordering.</li>
+</ul>
+</li>
+<li>
+<p><strong>If no key is provided</strong>:</p>
+<ul>
+<li>Kafka uses <strong>round-robin</strong> across all available partitions → good for load balancing but no ordering guarantee.</li>
+</ul>
+</li>
+</ol>
+<h4 id="example">➤ Example:</h4>
+<pre><code class="language-java">producer.send(new ProducerRecord&lt;&gt;(&quot;orders&quot;, &quot;customer-123&quot;, &quot;order-001&quot;));
+</code></pre>
+<p>All messages with key <code>customer-123</code> will always go to the same partition.</p>
+<p><strong>Advanced partitioning concepts interviewers love:</strong></p>
+<p><strong>Custom Partitioners:</strong></p>
+<ul>
+<li><em>"When would you write a custom partitioner?"</em> - When default hash partitioning doesn't meet your needs. Examples:<ul>
+<li>Geographic partitioning (US users → partition 0, EU users → partition 1)</li>
+<li>Priority-based partitioning (VIP customers → dedicated partitions)</li>
+<li>Time-based partitioning (morning data → partition 0, evening → partition 1)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Partition Skew Problem:</strong></p>
+<ul>
+<li><em>"What causes hot partitions?"</em> - Poor key distribution. If 80% of your users have the same key prefix, those messages
+  will hash to the same partition, creating a bottleneck.</li>
+<li><em>"How do you detect hot partitions?"</em> - Monitor partition-level metrics like message rate, byte rate, and consumer lag
+  per partition.</li>
+<li><em>"How do you fix hot partitions?"</em> - Redesign your partitioning key, use a compound key, or implement custom
+  partitioning logic.</li>
+</ul>
+<p><strong>Real-world partitioning strategies:</strong></p>
+<ul>
+<li><strong>E-commerce</strong>: Partition by <code>customer_id</code> for order processing, but by <code>product_id</code> for inventory updates</li>
+<li><strong>IoT</strong>: Partition by <code>device_id</code> for device-specific processing, but by <code>sensor_type</code> for analytics</li>
+<li><strong>Financial</strong>: Partition by <code>account_id</code> for transaction processing, but by <code>transaction_type</code> for fraud detection</li>
+</ul>
+<hr />
+<h3 id="3-partition-assignment-producer-side">🔹 3. Partition Assignment (Producer Side)</h3>
+<ul>
+<li>Kafka producers <strong>don't choose brokers</strong>, they choose a partition.</li>
+<li>The <strong>Kafka cluster manages which broker is the leader</strong> for that partition.</li>
+<li>Producers only need to know the <strong>topic + bootstrap servers</strong>; Kafka will route correctly.</li>
+</ul>
+<p><strong>Producer partition selection deep dive:</strong></p>
+<p><strong>Sticky Partitioning (Kafka 2.4+):</strong></p>
+<ul>
+<li>For messages without keys, instead of strict round-robin, Kafka uses "sticky partitioning"</li>
+<li>Batches multiple keyless messages to the same partition before switching</li>
+<li>Improves throughput by creating larger, more efficient batches</li>
+<li><em>"Why is sticky partitioning better than round-robin?"</em> - Reduces the number of requests and improves batching
+  efficiency, leading to higher throughput.</li>
+</ul>
+<p><strong>Partition Discovery:</strong></p>
+<ul>
+<li>Producers maintain metadata about which broker leads each partition</li>
+<li>Metadata is refreshed periodically or when errors occur</li>
+<li><em>"What happens if a producer sends to a partition whose leader has changed?"</em> - The producer gets a metadata refresh
+  error, updates its view of the cluster, and retries to the new leader.</li>
+</ul>
+<hr />
+<h3 id="4-partition-assignment-consumer-side">🔹 4. Partition Assignment (Consumer Side)</h3>
+<ul>
+<li>Consumers are part of a <strong>consumer group</strong>.</li>
+<li>Kafka uses a <strong>partition assignment strategy</strong> to distribute partitions:<ul>
+<li><strong>RangeAssignor</strong>: Assigns contiguous partitions</li>
+<li><strong>RoundRobinAssignor</strong>: Distributes partitions evenly</li>
+<li><strong>CooperativeStickyAssignor</strong> (Kafka 2.4+): Minimizes reassignments during rebalancing</li>
+</ul>
+</li>
+</ul>
+<h4 id="rule">➤ Rule:</h4>
+<p>Each partition is consumed by <strong>only one consumer within a group</strong>, but the same partition can be consumed by <strong>multiple
+groups independently</strong>.</p>
+<p><strong>Assignment Strategy Deep Dive:</strong></p>
+<p><strong>RangeAssignor Example:</strong></p>
+<ul>
+<li>Topic with 6 partitions, 3 consumers</li>
+<li>Consumer 1: partitions 0, 1</li>
+<li>Consumer 2: partitions 2, 3</li>
+<li>Consumer 3: partitions 4, 5</li>
+<li><em>Problem</em>: If you have multiple topics, some consumers get more partitions than others</li>
+</ul>
+<p><strong>RoundRobinAssignor Example:</strong></p>
+<ul>
+<li>Better distribution across topics</li>
+<li>Consumer 1: partitions 0, 3</li>
+<li>Consumer 2: partitions 1, 4</li>
+<li>Consumer 3: partitions 2, 5</li>
+</ul>
+<p><strong>CooperativeStickyAssignor (Most Important for Interviews):</strong></p>
+<ul>
+<li>Minimizes partition movement during rebalancing</li>
+<li>Consumers keep their existing partitions when possible</li>
+<li><em>"Why is this important?"</em> - Reduces the impact of rebalancing. Instead of stopping all consumers, only affected
+  partitions are reassigned.</li>
+</ul>
+<p><strong>Interview scenarios:</strong></p>
+<ul>
+<li><em>"What happens if you have more consumers than partitions?"</em> - Extra consumers remain idle. This is why partition
+  count affects your maximum parallelism.</li>
+<li><em>"What happens if you have more partitions than consumers?"</em> - Some consumers handle multiple partitions. This is fine
+  and normal.</li>
+<li><em>"How do you handle uneven partition assignment?"</em> - Use appropriate assignment strategies, or manually assign
+  partitions if you need fine-grained control.</li>
+</ul>
+<hr />
+<h3 id="5-partition-count-trade-offs">🔹 5. Partition Count Trade-Offs</h3>
+<table>
+<thead>
+<tr>
+<th>#Partitions</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>More</td>
+<td>- More parallelism<br>- Higher throughput</td>
+<td>- More open files<br>- More memory &amp; CPU overhead</td>
+</tr>
+<tr>
+<td>Fewer</td>
+<td>- Simpler coordination<br>- Lower overhead</td>
+<td>- Limited parallelism<br>- Bottlenecks in consumption</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kafka recommends starting with 1–2 partitions per CPU core</strong>, depending on throughput.</p>
+<p><strong>Detailed trade-off analysis for interviews:</strong></p>
+<p><strong>Memory Impact:</strong></p>
+<ul>
+<li>Each partition consumes memory for buffering, indexing, and replication</li>
+<li>Rule of thumb: ~1MB of heap per partition per broker</li>
+<li><em>"How many partitions can a broker handle?"</em> - Typically 2000-4000 partitions per broker, depending on hardware</li>
+</ul>
+<p><strong>File Handle Impact:</strong></p>
+<ul>
+<li>Each partition uses several file handles (log files, index files)</li>
+<li>Linux default is 1024 file handles per process</li>
+<li>Production systems need to tune <code>ulimit</code> and OS-level settings</li>
+</ul>
+<p><strong>Replication Impact:</strong></p>
+<ul>
+<li>More partitions = more replication traffic</li>
+<li>Leader election time increases with partition count</li>
+<li><em>"How does partition count affect recovery time?"</em> - More partitions mean longer controller election and replica
+  recovery</li>
+</ul>
+<p><strong>End-to-end Latency:</strong></p>
+<ul>
+<li>More partitions can increase latency due to batching behavior</li>
+<li>Fewer partitions might create throughput bottlenecks</li>
+<li>Sweet spot depends on your use case</li>
+</ul>
+<p><strong>Sizing guidelines interviewers ask about:</strong></p>
+<ul>
+<li>Start with: <code>(target throughput) / (throughput per partition)</code></li>
+<li>Factor in future growth (3-5x current load)</li>
+<li>Consider consumer parallelism needs</li>
+<li>Plan for peak traffic scenarios</li>
+</ul>
+<hr />
+<h3 id="6-rebalancing-and-partition-movement">🔹 6. Rebalancing and Partition Movement</h3>
+<ul>
+<li>Kafka dynamically <strong>rebalance partitions</strong> when:<ul>
+<li>A consumer joins or leaves a group</li>
+<li>Partitions are added</li>
+</ul>
+</li>
+<li>Consumers can experience a <strong>brief pause during rebalancing</strong>.</li>
+<li>With <strong>cooperative rebalancing</strong>, Kafka reduces the overhead of stopping and restarting all consumers.</li>
+</ul>
+<p><strong>Rebalancing Deep Dive (Critical Interview Topic):</strong></p>
+<p><strong>Stop-the-World vs Cooperative Rebalancing:</strong></p>
+<ul>
+<li><strong>Traditional rebalancing</strong>: All consumers stop, reassignment happens, all consumers restart</li>
+<li><strong>Cooperative rebalancing</strong>: Only affected consumers stop, others continue processing</li>
+<li><em>"Why is cooperative rebalancing important?"</em> - Reduces processing gaps and improves availability during scaling
+  events</li>
+</ul>
+<p><strong>Rebalancing Triggers:</strong></p>
+<ul>
+<li>Consumer joins group (scaling up)</li>
+<li>Consumer leaves group (scaling down or failure)</li>
+<li>Consumer heartbeat timeout (network issues)</li>
+<li>Partition count changes</li>
+<li>Consumer subscription changes</li>
+</ul>
+<p><strong>Minimizing Rebalancing Impact:</strong></p>
+<ul>
+<li>Use CooperativeStickyAssignor</li>
+<li>Tune <code>session.timeout.ms</code> and <code>heartbeat.interval.ms</code></li>
+<li>Ensure consumers process quickly to avoid timeouts</li>
+<li>Use static group membership for stable consumers</li>
+</ul>
+<p><strong>Real-world rebalancing scenarios:</strong></p>
+<ul>
+<li><em>"A consumer crashes during Black Friday traffic. What happens?"</em> - Kafka detects the failure via missed heartbeats,
+  triggers rebalancing, and redistributes the crashed consumer's partitions to remaining consumers. There's a brief
+  processing pause.</li>
+<li><em>"You need to deploy a new version of your consumer application. How do you minimize disruption?"</em> - Use rolling
+  deployments with cooperative rebalancing, or implement graceful shutdown handling.</li>
+</ul>
+<hr />
+<h3 id="7-partition-affinity">🔹 7. Partition Affinity</h3>
+<p>Partitioning helps with <strong>affinity-based processing</strong>:</p>
+<ul>
+<li>Example: All events for a <code>user_id</code> go to the same partition.</li>
+<li>Enables <strong>stateful processing</strong>, e.g., counting user actions.</li>
+</ul>
+<p><strong>Advanced Affinity Concepts:</strong></p>
+<p><strong>State Management:</strong></p>
+<ul>
+<li>Partition affinity allows consumers to maintain local state</li>
+<li>Example: Running totals, session data, or caches per user</li>
+<li>When partition ownership changes, state must be transferred or rebuilt</li>
+</ul>
+<p><strong>Stream Processing Applications:</strong></p>
+<ul>
+<li>Kafka Streams leverages partition affinity for stateful operations</li>
+<li>State stores are partitioned the same way as input topics</li>
+<li><em>"How does Kafka Streams handle partition affinity?"</em> - It co-partitions related data and maintains state stores that
+  match the partitioning scheme</li>
+</ul>
+<p><strong>Hot Partition Avoidance:</strong></p>
+<ul>
+<li>Good affinity design prevents hot partitions</li>
+<li>Example: Instead of partitioning by <code>company_id</code> (might be skewed), use <code>user_id</code></li>
+<li>Or use compound keys: <code>company_id + random_suffix</code></li>
+</ul>
+<hr />
+<h3 id="8-changing-partition-count">🔹 8. Changing Partition Count</h3>
+<p>You can <strong>increase</strong> the number of partitions after topic creation:</p>
+<pre><code class="language-bash">kafka-topics.sh --alter --topic my-topic --partitions 10
+</code></pre>
+<p>⚠️ <strong>Caution</strong>: This affects key-based partitioning. Messages with the same key may now hash to a different partition,
+breaking ordering.</p>
+<blockquote>
+<p>Best practice: Choose the correct number of partitions <strong>up front</strong>.</p>
+</blockquote>
+<p><strong>Partition Count Changes - Interview Deep Dive:</strong></p>
+<p><strong>Why You Can't Decrease Partitions:</strong></p>
+<ul>
+<li>Kafka would need to merge partition logs, which is complex and expensive</li>
+<li>Would break ordering guarantees and consumer offset management</li>
+<li>Existing data would need to be reorganized</li>
+</ul>
+<p><strong>Impact of Increasing Partitions:</strong></p>
+<ul>
+<li><em>"What breaks when you add partitions?"</em> - Key-based routing changes for new messages</li>
+<li>Existing messages stay in their original partitions</li>
+<li>New messages with the same key might go to different partitions</li>
+<li>Consumer group rebalancing occurs</li>
+</ul>
+<p><strong>Strategies for Partition Expansion:</strong></p>
+<ul>
+<li>Plan for growth upfront - slightly over-partition initially</li>
+<li>If you must expand, ensure your application can handle ordering changes</li>
+<li>Consider creating a new topic with correct partitioning and migrating data</li>
+<li>Use timestamp-based or epoch-based strategies to handle the transition</li>
+</ul>
+<p><strong>Real-world scenarios:</strong></p>
+<ul>
+<li><em>"Your topic has grown beyond capacity. How do you scale it?"</em> - Options include adding partitions (with caveats),
+  creating new topics, or implementing application-level sharding.</li>
+</ul>
+<hr />
+<h2 id="advanced-partitioning-patterns">🔸 Advanced Partitioning Patterns</h2>
+<h3 id="multi-tenancy-partitioning">Multi-Tenancy Partitioning</h3>
+<ul>
+<li>Partition by tenant ID for isolation</li>
+<li>Dedicated partitions for high-value customers</li>
+<li>Cross-tenant analytics using separate consumer groups</li>
+</ul>
+<h3 id="time-based-partitioning">Time-Based Partitioning</h3>
+<ul>
+<li>Partition by time windows (hour, day)</li>
+<li>Enables efficient data deletion and archival</li>
+<li>Useful for time-series data and analytics</li>
+</ul>
+<h3 id="geographic-partitioning">Geographic Partitioning</h3>
+<ul>
+<li>Partition by region or data center</li>
+<li>Reduces cross-region data transfer</li>
+<li>Enables region-specific processing</li>
+</ul>
+<hr />
+<h2 id="diagrams">🔸 Diagrams</h2>
+<p><strong>Message Distribution by Key</strong></p>
+<pre><code>Producer --&gt; Key = &quot;user42&quot; --&gt; Hash --&gt; Partition 3 --&gt; Broker B
+Producer --&gt; Key = &quot;user99&quot; --&gt; Hash --&gt; Partition 1 --&gt; Broker A
+</code></pre>
+<p><strong>Consumer Group Assignment</strong></p>
+<pre><code>Topic: payments (4 partitions)
+Consumer Group: fraud-detectors (2 consumers)
+
+Partition 0 → Consumer 1
+Partition 1 → Consumer 1
+Partition 2 → Consumer 2
+Partition 3 → Consumer 2
+</code></pre>
+<p><strong>Hot Partition Problem</strong></p>
+<pre><code>Poor partitioning (by company):
+Company A (90% of traffic) → Partition 1 (overloaded)
+Company B (5% of traffic) → Partition 2 (underutilized)
+Company C (5% of traffic) → Partition 3 (underutilized)
+
+Better partitioning (by user_id):
+Users distributed evenly across all partitions
+</code></pre>
+<hr />
+<h2 id="summary-table">🔸 Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition</td>
+<td>Log-structured storage for a topic</td>
+</tr>
+<tr>
+<td>Key-based partitioning</td>
+<td>Maintains order for specific keys</td>
+</tr>
+<tr>
+<td>Round-robin partitioning</td>
+<td>Good load balancing, no order</td>
+</tr>
+<tr>
+<td>Consumer group</td>
+<td>Set of consumers processing a topic</td>
+</tr>
+<tr>
+<td>Rebalancing</td>
+<td>Happens when group membership or topic changes</td>
+</tr>
+<tr>
+<td>Increasing partitions</td>
+<td>Possible but can break key ordering</td>
+</tr>
+<tr>
+<td>Hot partitions</td>
+<td>Result of poor key distribution</td>
+</tr>
+<tr>
+<td>Sticky partitioning</td>
+<td>Improves batching for keyless messages</td>
+</tr>
+<tr>
+<td>Cooperative rebalancing</td>
+<td>Minimizes disruption during reassignment</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="interview-questions">❓ Interview Questions</h2>
+<h3 id="basic-level">Basic Level:</h3>
+<ol>
+<li>Why does Kafka use partitions? What problems do they solve?</li>
+<li>What happens if you increase the number of partitions in a topic after data has been published?</li>
+<li>Explain the difference between key-based and round-robin partitioning.</li>
+<li>How does Kafka assign partitions to consumers in a group?</li>
+<li>What are the trade-offs of having too many partitions?</li>
+</ol>
+<h3 id="intermediate-level">Intermediate Level:</h3>
+<ol>
+<li>How would you detect and fix hot partitions in production?</li>
+<li>What's the difference between cooperative and stop-the-world rebalancing?</li>
+<li>How do you choose the optimal number of partitions for a new topic?</li>
+<li>What happens to message ordering when you increase partition count?</li>
+<li>How does partition affinity enable stateful stream processing?</li>
+</ol>
+<h3 id="advanced-level">Advanced Level:</h3>
+<ol>
+<li>Design a partitioning strategy for a multi-tenant e-commerce platform.</li>
+<li>How would you migrate data from a poorly partitioned topic to a well-partitioned one?</li>
+<li>What are the memory and file handle implications of having 10,000 partitions per broker?</li>
+<li>How do you implement custom partitioning logic for geographic data distribution?</li>
+<li>Explain how Kafka Streams leverages partition affinity for stateful operations.</li>
+</ol>
+<hr />
+<p>Understanding partitioning is crucial because it affects every aspect of Kafka performance, from throughput and latency
+to fault tolerance and operational complexity. Most production issues in Kafka trace back to partitioning decisions made
+early in the design process.</p></div>
+                <footer>
+    <div class="footer-buttons">
+        <div class="previous"><a href="../1.%20architecture/" title="Architecture"><span>Previous</span></a></div>
+        <div class="next"><a href="../3.%20producers/" title="Producers"><span>Next</span></a></div>
+    </div>
+    <div class="footer-note">
+        <p>
+            Built with <a href="http://www.mkdocs.org">MkDocs</a> using
+            <a href="https://github.com/daizutabi/mkdocs-ivory">Ivory theme</a>.
+        </p>
+    </div>
+</footer>
+            </div>
+        </main>
+    </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../search/main.js"></script>
+</body>
+
+</html>
