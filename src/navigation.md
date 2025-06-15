@@ -38,6 +38,7 @@
     * [Engines](database/mysql/10. engines.md)
     * [Cursors](database/mysql/11. cursors.md)
     * [MVCC](database/mysql/12. mvcc.md)
+    * [SQL Syntax](database/sql-syntax-mysql.md)
 * Kafka
     * [Architecture](kafka/1. architecture.md)
     * [Partitions and Data Distributions](kafka/2. partitions and data distributions.md)
